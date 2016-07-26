@@ -1,0 +1,16 @@
+language: php
+sudo: false
+php:
+  - 5.6
+
+before_script:
+  - composer self-update -q
+  - composer install
+  - composer update -n
+
+cache:
+  directories:
+  - vendor
+
+script:
+  - composer ci

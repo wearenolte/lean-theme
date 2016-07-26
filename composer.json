@@ -1,0 +1,50 @@
+{
+  "name": "moxie-lean/lean-theme",
+  "description": "Barebones modular WordPress theme which uses patternlab.io.",
+  "type": "wordpress-theme",
+  "require": {
+    "composer/installers": "^1.0",
+    "moxie-lean/wp-acf": "^1",
+    "moxie-lean/wp-page-templates": "^1",
+    "moxie-lean/wp-elements": "^0",
+    "moxie-lean/wp-cpt": "^1",
+    "pattern-lab/edition-twig-standard": "^2"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^2.0",
+    "wp-coding-standards/wpcs": "0.9.0"
+  },
+  "authors": [
+    {
+      "name": "Moxie",
+      "email": "devs@getmoxied.net"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Leanp\\": "src/"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "@set-up-ci",
+      "@set-up-patternlab"
+    ],
+    "post-update-cmd": [
+      "@set-up-ci",
+      "@set-up-patternlab"
+    ],
+    "set-up-ci": [
+      "./vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
+      "./vendor/bin/phpcs --config-set default_standard ./codesniffer.ruleset.xml",
+      "./vendor/bin/phpcs --config-set show_progress 0",
+      "./vendor/bin/phpcs --config-set colors 1"
+    ],
+    "ci": [
+      "phpcs *.php src/*.php src/**/**/*.php"
+    ],
+    "set-up-patternlab": [
+      "bin/patternlab.sh"
+    ]
+  }
+}
