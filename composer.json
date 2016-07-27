@@ -44,12 +44,6 @@
     ],
     "set-up-patternlab": [
       "./bin/patternlab.sh"
-    ],
-    "pl:watch": [
-      "cd vendor/pattern-lab/edition-twig-standard && php core/console --watch"
-    ],
-    "pl:server": [
-      "cd vendor/pattern-lab/edition-twig-standard && php core/console --server"
     ]
   }
 }
