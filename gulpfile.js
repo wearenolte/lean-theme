@@ -1,19 +1,26 @@
 'use strict';
 
 /******************************************************************************
-| >   PLUGINS
-******************************************************************************/
-var gulp = require('gulp');
-var exec = require('child_process').exec;
+ | >   PLUGINS
+ ******************************************************************************/
+var gulp = require( 'gulp' );
+var exec = require( 'child_process' ).exec;
+var sass = require( 'gulp-sass' );
+var sourcemaps = require( 'gulp-sourcemaps' );
+var rename = require('gulp-rename');
+var autoprefixer = require('gulp-autoprefixer');
 
-// var exec = require('gulp-exec');
+// var cssnano = require('gulp-cssnano');
+// var notify = require('gulp-notify');
+//
+
 // var babelify = require('babelify');
 // var autoprefixer = require('gulp-autoprefixer');
-// var cssnano = require('gulp-cssnano');
+//
 // var browserify = require('browserify');
 // var uglify = require('gulp-uglify');
-// var rename = require('gulp-rename');
-// var notify = require('gulp-notify');
+//
+//
 // var sourcemaps = require('gulp-sourcemaps');
 // var source = require('vinyl-source-stream');
 // var buffer = require('vinyl-buffer');
@@ -23,19 +30,19 @@ var exec = require('child_process').exec;
 // var eslint = require('gulp-eslint');
 
 /******************************************************************************
-| >   PROJECT VARIABLES
-******************************************************************************/
+ | >   PROJECT VARIABLES
+ ******************************************************************************/
 var project = '.';
-var sourcePath = project + '/patterns/source/';
+var patterns = project + '/patterns/source/';
 
 /******************************************************************************
- | >  Patternlab tasks
+ | >  Patternlab
  ******************************************************************************/
-var execPatternlabCommand = function( command ) {
-  exec('cd vendor/pattern-lab/edition-twig-standard && php core/console --' + command, function (err, stdout, stderr) {;
-    console.log(stdout);
-    console.log(stderr);
-  });
+var execPatternlabCommand = function ( command ) {
+  exec( 'cd vendor/pattern-lab/edition-twig-standard && php core/console --' + command, function ( err, stdout, stderr ) {
+    console.log( stdout );
+    console.log( stderr );
+  } );
 };
 
 gulp.task( 'pl:help', execPatternlabCommand.bind( this, 'help' ) );
@@ -52,58 +59,36 @@ gulp.task( 'pl:dev', execPatternlabCommand.bind( this, 'server --with-watch' ) )
 // ******************************************************************************/
 // gulp.task('assets', ['styles', 'js']);
 //
-// /******************************************************************************
-// | >   CSS TASKS
-// ******************************************************************************/
-//
-// /**
-//  * Run the minify:styles task as dependency, which will compile from sass,
-//  * will generate a source map and then minify the result css.
-//  */
-// gulp.task('styles', ['styles:minify'], function() {
-//   var styles = [
-//     sourcePath + 'css/style.css',
-//     sourcePath + 'css/style-min.css'
-//   ];
-//   return gulp.src(styles)
-//   .pipe( notify({
-//     title: 'Styles completed',
-//     message: 'The Sass files has been compiled into CSS',
-//     onLast: true,
-//     icon: './assets/images/notify/sass.png',
-//   }));
-// });
-//
-// /**
-//  * Minify the CSS after has been created with source maps, styles:minify
-//  * is a depnency after this task it's completed it's going to minify
-//  * the CSS.
-//  */
-// gulp.task('styles:minify', ['styles:combine'], function(){
-//   return gulp.src(sourcePath + 'css/style.css')
-//   .pipe(cssnano())
-//   .pipe(rename({ suffix: '-min' }))
-//   .pipe(gulp.dest(sourcePath + 'css'));
-// });
-//
-// /**
-//  * Task to compile the CSS from sass, this will add the prefixes and creates the
-//  * sourcemap, this source map is going to be loaded only in the non minified
-//  * version.
-//  */
-// gulp.task('styles:combine', function(){
-//   return gulp.src(sourcePath + 'sass/style.scss')
-//   .pipe(sourcemaps.init())
-//   .pipe(sass().on('error', sass.logError))
-//   .pipe(autoprefixer(
-//     'last 2 version',
-//     'ie 9',
-//     'ios 7',
-//     'android 4'
-//   ))
-//   .pipe(sourcemaps.write('../maps'))
-//   .pipe(gulp.dest(sourcePath + 'css'));
-// });
+/******************************************************************************
+ | >   Styles
+ ******************************************************************************/
+
+gulp.task( 'styles:build', function () {
+  return gulp.src( patterns + 'css/style.scss' )
+    .pipe( sass( { outputStyle: 'compressed', outFile: 'style.min.css' } ).on( 'error', sass.logError ) )
+    .pipe( rename( 'style.min.css' ) )
+    .pipe( gulp.dest( patterns + 'css' ) );
+} );
+
+gulp.task( 'styles:dev', function () {
+  return gulp.src( patterns + 'css/style.scss' )
+    .pipe( sourcemaps.init() )
+    .pipe( sass().on( 'error', sass.logError ) )
+    .pipe( autoprefixer(
+      'last 2 version',
+      'ie 9',
+      'ios 7',
+      'android 4'
+    ) )
+    .pipe( sourcemaps.write() )
+    .pipe( gulp.dest( patterns + 'css' ) );
+} );
+
+gulp.task( 'styles:watch', function () {
+  gulp.watch( patterns + 'css/**/*.scss', [ 'styles:dev', 'styles:build' ] );
+} );
+
+
 //
 // /******************************************************************************
 // | >   JS TASKS
