@@ -3,7 +3,7 @@
  * Sets up theme defaults and registers support for various WordPress features.
  */
 
-// Constants
+// Constants.
 define( 'LEANP_THEME_NAME', 'Leanp Plugin' );
 define( 'LEANP_THEME_VERSION', '0.1.0' );
 define( 'LEANP_MINIMUM_WP_VERSION', '4.3.1' );
