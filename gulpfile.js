@@ -3,41 +3,48 @@
 /******************************************************************************
  | >   PLUGINS
  ******************************************************************************/
+
 var gulp = require( 'gulp' );
 var exec = require( 'child_process' ).exec;
 var sass = require( 'gulp-sass' );
 var sourcemaps = require( 'gulp-sourcemaps' );
-var rename = require('gulp-rename');
-var autoprefixer = require('gulp-autoprefixer');
+var rename = require( 'gulp-rename' );
+var autoprefixer = require( 'gulp-autoprefixer' );
+var sassLint = require( 'gulp-sass-lint' );
+var phpcs = require( 'gulp-phpcs' );
 
-// var cssnano = require('gulp-cssnano');
 // var notify = require('gulp-notify');
-//
-
 // var babelify = require('babelify');
-// var autoprefixer = require('gulp-autoprefixer');
-//
 // var browserify = require('browserify');
 // var uglify = require('gulp-uglify');
-//
-//
-// var sourcemaps = require('gulp-sourcemaps');
 // var source = require('vinyl-source-stream');
 // var buffer = require('vinyl-buffer');
-// var phpcs = require('gulp-phpcs');
-// var sass = require('gulp-sass');
 // var gutil = require('gulp-util');
 // var eslint = require('gulp-eslint');
 
+
 /******************************************************************************
- | >   PROJECT VARIABLES
+ | >  Variables
  ******************************************************************************/
+
 var project = '.';
 var patterns = project + '/patterns/source/';
+
+
+/******************************************************************************
+ | >   General
+ ******************************************************************************/
+
+gulp.task( 'default', [ 'dev', 'watch' ] );
+gulp.task( 'dev', [ 'styles:dev', 'js:dev' ] );
+gulp.task( 'watch', [ 'styles:watch', 'js:watch' ] );
+gulp.task( 'lint', [ 'styles:lint', 'js:lint', 'php:lint' ] );
+
 
 /******************************************************************************
  | >  Patternlab
  ******************************************************************************/
+
 var execPatternlabCommand = function ( command ) {
   exec( 'cd vendor/pattern-lab/edition-twig-standard && php core/console --' + command, function ( err, stdout, stderr ) {
     console.log( stdout );
@@ -52,13 +59,6 @@ gulp.task( 'pl:watch', execPatternlabCommand.bind( this, 'watch' ) );
 gulp.task( 'pl:dev', execPatternlabCommand.bind( this, 'server --with-watch' ) );
 
 
-//
-//
-// /******************************************************************************
-// | >  JS and CSS task
-// ******************************************************************************/
-// gulp.task('assets', ['styles', 'js']);
-//
 /******************************************************************************
  | >   Styles
  ******************************************************************************/
@@ -85,16 +85,61 @@ gulp.task( 'styles:dev', function () {
 } );
 
 gulp.task( 'styles:watch', function () {
-  gulp.watch( patterns + 'css/**/*.scss', [ 'styles:dev', 'styles:build' ] );
+  gulp.watch( patterns + 'css/**/*.s+(a|c)ss', [ 'styles:dev', 'styles:build' ] );
+} );
+
+gulp.task( 'styles:lint', function () {
+  return gulp.src( patterns + 'css/**/*.s+(a|c)ss' )
+    .pipe( sassLint() )
+    .pipe( sassLint.format() )
+    .pipe( sassLint.failOnError() )
 } );
 
 
-//
-// /******************************************************************************
-// | >   JS TASKS
-// ******************************************************************************/
-//
-//
+/******************************************************************************
+ | >   PHP
+ ******************************************************************************/
+
+var phpFiles = [
+  '*.php',
+  'src/**/*.php'
+];
+
+var phpOptions = {
+  bin: './vendor/bin/phpcs',
+  standard: './codesniffer.ruleset.xml',
+  colors: true
+};
+
+gulp.task( 'php:lint', function () {
+  return gulp.src( phpFiles )
+    .pipe( phpcs( phpOptions ) )
+    .pipe( phpcs.reporter( 'log' ) )
+    .pipe( phpcs.reporter( 'fail' ) );
+} );
+
+
+/******************************************************************************
+ | >   JS TASKS
+ ******************************************************************************/
+
+gulp.task( 'js:build', function () {
+
+} );
+
+gulp.task( 'js:dev', function () {
+
+} );
+
+gulp.task( 'js:watch', function () {
+
+} );
+
+gulp.task( 'js:lint', function () {
+
+} );
+
+
 // // Task to combine and minify the js scripts.
 // gulp.task('js', ['js:combine', 'js:minify'], function() {
 //   return;
@@ -177,64 +222,4 @@ gulp.task( 'styles:watch', function () {
 // // Group of JS tasks for continuous integration
 // gulp.task('js:ci', ['js:cs-ci']);
 //
-// /******************************************************************************
-// | >   PHP TASKS
-// ******************************************************************************/
-// // Files where the code sniffer should run
-// var phpFiles = [
-//   '*.php',
-//   'inc/**/*.php',
-//   'config/**/*.php',
-//   'partials/**/*.php'
-// ];
-//
-// // Options for the code sniffer
-// var phpOptions = {
-//   bin: './vendor/bin/phpcs',
-//   standard: './codesniffer.ruleset.xml',
-//   colors: true,
-// };
-// // Lint that does not break gulp
-// // Lint taks to inspect PHP files in order to follow WP Standards
-// gulp.task('php:lint', function () {
-//   return gulp.src( phpFiles )
-//   .pipe(phpcs( phpOptions ))
-//   .pipe(phpcs.reporter('log'));
-// });
-//
-// // Generate an error if there is a mistakte on PHP
-// gulp.task('php:ci', function () {
-//   return gulp.src( phpFiles )
-//   .pipe(phpcs( phpOptions ))
-//   .pipe(phpcs.reporter('log'))
-//   .pipe(phpcs.reporter('fail'));
-// });
-//
-// /******************************************************************************
-// | >   WATCH TASKS
-// ******************************************************************************/
-// // Alias to the watcH:all task
-// gulp.task('watch', ['watch:all']);
-// gulp.task('watch:all', ['watch:php', 'watch:js', 'watch:sass']);
-//
-// gulp.task('watch:php', ['php:lint'], function(){
-//   gulp.watch( phpFiles, ['php:lint'] );
-// });
-//
-// gulp.task('watch:js', ['js'], function(){
-//   gulp.watch(sourcePath + 'js/app/**/*.js', ['js']);
-// });
-//
-// gulp.task('watch:sass', ['styles'], function(){
-//   gulp.watch(sourcePath + 'sass/**/*.scss', ['styles']);
-// });
-//
-// /******************************************************************************
-// | >   CONTINUOUS INTEGRATION TASK
-// ******************************************************************************/
-// gulp.task('ci', ['js:ci', 'php:ci']);
-//
-// /******************************************************************************
-// | >   DEFAULT TASK
-// ******************************************************************************/
-// gulp.task('default', ['watch:js', 'watch:sass']);
+
