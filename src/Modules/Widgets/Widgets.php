@@ -1,4 +1,4 @@
-<?php namespace Leanp\Modules\Widgets;
+<?php namespace LeanNs\Modules\Widgets;
 
 /**
  * Class Widgets

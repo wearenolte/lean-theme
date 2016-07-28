@@ -1,4 +1,4 @@
-<?php namespace Lean;
+<?php namespace LeanNs;
 
 use Timber\Timber;
 
@@ -24,4 +24,4 @@ use Timber\Timber;
 
 <body <?php body_class(); ?>>
 
-<?php Timber::render( '02-organisms/00-global/00-header.twig' ) ?>
+<?php //Timber::render( '02-organisms/00-global/00-header.twig' ) ?>

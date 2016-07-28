@@ -1,4 +1,4 @@
-<?php namespace Lean;
+<?php namespace LeanNs;
 /**
  * The template for displaying the footer.
  *
@@ -10,7 +10,7 @@ use Timber\Timber;
 
 ?>
 
-<?php Timber::render( '02-organisms/00-global/01-footer.twig' ) ?>
+<?php //Timber::render( '02-organisms/00-global/01-footer.twig' ) ?>
 
 <?php wp_footer(); ?>
 </body>

@@ -1,4 +1,4 @@
-<?php namespace Leanp;
+<?php namespace LeanNs;
 
 /**
  * Main class loader for initializing and  setting up the plugin.

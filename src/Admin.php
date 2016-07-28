@@ -1,4 +1,4 @@
-<?php namespace Leanp;
+<?php namespace LeanNs;
 
 /**
  * General admin interface

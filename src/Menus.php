@@ -1,4 +1,4 @@
-<?php namespace Leanp;
+<?php namespace LeanNs;
 
 /**
  * Class that register the menu locations to be used with the site.

@@ -1,4 +1,4 @@
-<?php namespace Lean;
+<?php namespace Leanp;
 /**
  * The main template file.  It is used to display a page when nothing more
  * specific matches a query.
@@ -7,7 +7,48 @@
  * @since 1.0.0
  */
 
+use Timber\Timber;
+
+use PatternLab\PatternEngine\Twig\Loaders\PatternLoader;
+
 get_header();
+
+$data = [
+	'url' => 'http://ab.com',
+	'img' => [
+		'square' => [
+			'src' => 'http://placehold.it/350x350',
+		]
+	]
+];
+
+//$data = Timber::get_context();
+//$data['posts'] = Timber::get_posts();
+//$data['foo'] = 'bar';
+//$data['img'] = [
+//	'square' => [
+//		'src' => 'http://placehold.it/350x350',
+//	]
+//];
+//Timber::render( '00-atoms/04-images/03-square.twig', $data );
+
+//Patterns::render( ['pattern' => '00-atoms/04-images/03-square.twig', 'data' => $data ] );
+//
+//Patterns::render( ['pattern' => '01-molecules/02-blocks/00-media-block.twig', 'data' => $data ] );
+//
+//Patterns::render( ['pattern' => 'atoms-square', 'data' => $data ] );
+
+//Patterns::render( '00-atoms/04-images/03-square.twig',
+//]);
+//
+//
+//Patterns::render( '01-molecules/02-blocks/00-media-block.twig', [
+//	'img' => [
+//		'square' => [
+//			'src' => 'http://placehold.it/350x350',
+//		]
+//	]
+//]);
 
 ?>
 

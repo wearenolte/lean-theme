@@ -14,7 +14,7 @@ The `depth=1` tells git to only pull down one commit worth of historical data.
 
 ### Install dependencies
 
-`LeanTheme` uses Composer to manage dependencies. Run the following in the project's root directory:
+`Lean Theme` uses Composer to manage dependencies. Run the following in the project's root directory:
 
 ```
 composer install && composer update
