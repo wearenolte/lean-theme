@@ -12,6 +12,8 @@ var rename = require( 'gulp-rename' );
 var autoprefixer = require( 'gulp-autoprefixer' );
 var sassLint = require( 'gulp-sass-lint' );
 var phpcs = require( 'gulp-phpcs' );
+var browserSync = require( 'browser-sync' ).create();
+
 
 // var notify = require('gulp-notify');
 // var babelify = require('babelify');
@@ -28,14 +30,14 @@ var phpcs = require( 'gulp-phpcs' );
  ******************************************************************************/
 
 var project = '.';
-var patterns = project + '/patterns/source/';
+var patterns = project + '/patterns/';
 
 
 /******************************************************************************
  | >   General
  ******************************************************************************/
 
-gulp.task( 'default', [ 'dev', 'watch' ] );
+gulp.task( 'default', [ 'pl:dev' ] );
 gulp.task( 'dev', [ 'styles:dev', 'js:dev' ] );
 gulp.task( 'watch', [ 'styles:watch', 'js:watch' ] );
 gulp.task( 'lint', [ 'styles:lint', 'js:lint', 'php:lint' ] );
@@ -53,10 +55,24 @@ var execPatternlabCommand = function ( command ) {
 };
 
 gulp.task( 'pl:help', execPatternlabCommand.bind( this, 'help' ) );
+
 gulp.task( 'pl:generate', execPatternlabCommand.bind( this, 'generate' ) );
-gulp.task( 'pl:server', execPatternlabCommand.bind( this, 'server' ) );
+
 gulp.task( 'pl:watch', execPatternlabCommand.bind( this, 'watch' ) );
-gulp.task( 'pl:dev', execPatternlabCommand.bind( this, 'server --with-watch' ) );
+
+gulp.task( 'pl:dev', [ 'styles:dev', 'styles:watch', 'pl:watch' ], function () {
+  browserSync.init( {
+    server: patterns + 'public'
+  } );
+
+  gulp.watch( patterns + 'public/css/style.css', { ignoreInitial: true }, function () {
+    gulp.src( patterns + 'public/css/style.css' )
+      .pipe( browserSync.stream() );
+  } );
+
+  gulp.watch( patterns + 'source/_patterns/**/*.twig', { ignoreInitial: true } )
+    .on( 'change', browserSync.reload );
+} );
 
 
 /******************************************************************************
@@ -64,14 +80,14 @@ gulp.task( 'pl:dev', execPatternlabCommand.bind( this, 'server --with-watch' ) )
  ******************************************************************************/
 
 gulp.task( 'styles:build', function () {
-  return gulp.src( patterns + 'css/style.scss' )
-    .pipe( sass( { outputStyle: 'compressed', outFile: 'style.min.css' } ).on( 'error', sass.logError ) )
+  return gulp.src( patterns + 'source/css/style.scss' )
+    .pipe( sass( { outputStyle: 'compressed' } ).on( 'error', sass.logError ) )
     .pipe( rename( 'style.min.css' ) )
     .pipe( gulp.dest( patterns + 'css' ) );
 } );
 
 gulp.task( 'styles:dev', function () {
-  return gulp.src( patterns + 'css/style.scss' )
+  return gulp.src( patterns + 'source/css/style.scss' )
     .pipe( sourcemaps.init() )
     .pipe( sass().on( 'error', sass.logError ) )
     .pipe( autoprefixer(
@@ -81,15 +97,15 @@ gulp.task( 'styles:dev', function () {
       'android 4'
     ) )
     .pipe( sourcemaps.write() )
-    .pipe( gulp.dest( patterns + 'css' ) );
+    .pipe( gulp.dest( patterns + 'source/css' ) );
 } );
 
 gulp.task( 'styles:watch', function () {
-  gulp.watch( patterns + 'css/**/*.s+(a|c)ss', [ 'styles:dev', 'styles:build' ] );
+  gulp.watch( patterns + 'source/css/**/*.s+(a|c)ss', [ 'styles:dev' ] );
 } );
 
 gulp.task( 'styles:lint', function () {
-  return gulp.src( patterns + 'css/**/*.s+(a|c)ss' )
+  return gulp.src( patterns + 'source/css/**/*.s+(a|c)ss' )
     .pipe( sassLint() )
     .pipe( sassLint.format() )
     .pipe( sassLint.failOnError() )
