@@ -45,7 +45,7 @@
       "phpcs *.php src/*.php src/**/**/*.php"
     ],
     "set-up-patternlab": [
-      "./bin/patternlab.sh"
+      "./bin/patternlab-setup.sh"
     ]
   }
 }
