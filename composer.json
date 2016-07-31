@@ -29,10 +29,12 @@
   "scripts": {
     "post-install-cmd": [
       "@set-up-ci",
+      "@node-install",
       "@set-up-patternlab"
     ],
     "post-update-cmd": [
       "@set-up-ci",
+      "@node-update",
       "@set-up-patternlab"
     ],
     "set-up-ci": [
@@ -46,6 +48,12 @@
     ],
     "set-up-patternlab": [
       "./bin/patternlab-setup.sh"
+    ],
+    "node-install":  [
+      "npm install && cd patterns && bower install"
+    ],
+    "node-update":  [
+      "npm update && cd patterns && bower update"
     ]
   }
 }
