@@ -13,7 +13,10 @@ var autoprefixer = require( 'gulp-autoprefixer' );
 var sassLint = require( 'gulp-sass-lint' );
 var phpcs = require( 'gulp-phpcs' );
 var browserSync = require( 'browser-sync' ).create();
-
+var tap = require( 'gulp-tap' );
+var fs = require( 'fs' );
+var gutil = require( 'gulp-util' );
+var watch = require( 'gulp-watch' );
 
 // var notify = require('gulp-notify');
 // var babelify = require('babelify');
@@ -47,8 +50,8 @@ gulp.task( 'lint', [ 'styles:lint', 'js:lint', 'php:lint' ] );
  | >  Patternlab
  ******************************************************************************/
 
-var execPatternlabCommand = function ( command ) {
-  exec( 'cd vendor/pattern-lab/edition-twig-standard && php core/console --' + command, function ( err, stdout, stderr ) {
+var execPatternlabCommand = function( command ) {
+  exec( 'cd vendor/pattern-lab/edition-twig-standard && php core/console --' + command, function( err, stdout, stderr ) {
     console.log( stdout );
     console.log( stderr );
   } );
@@ -60,12 +63,12 @@ gulp.task( 'pl:generate', execPatternlabCommand.bind( this, 'generate' ) );
 
 gulp.task( 'pl:watch', execPatternlabCommand.bind( this, 'watch' ) );
 
-gulp.task( 'pl:dev', [ 'styles:dev', 'styles:watch', 'pl:watch' ], function () {
+gulp.task( 'pl:dev', [ 'styles:dev', 'styles:watch', 'pl:watch' ], function() {
   browserSync.init( {
     server: patterns + 'public'
   } );
 
-  gulp.watch( patterns + 'public/css/style.css', { ignoreInitial: true }, function () {
+  gulp.watch( patterns + 'public/css/style.css', { ignoreInitial: true }, function() {
     gulp.src( patterns + 'public/css/style.css' )
       .pipe( browserSync.stream() );
   } );
@@ -79,33 +82,58 @@ gulp.task( 'pl:dev', [ 'styles:dev', 'styles:watch', 'pl:watch' ], function () {
  | >   Styles
  ******************************************************************************/
 
-gulp.task( 'styles:build', function () {
+gulp.task( 'styles:build', [ 'styles:collate' ], function() {
   return gulp.src( patterns + 'source/css/style.scss' )
     .pipe( sass( { outputStyle: 'compressed' } ).on( 'error', sass.logError ) )
-    .pipe( rename( 'style.min.css' ) )
-    .pipe( gulp.dest( patterns + 'css' ) );
-} );
-
-gulp.task( 'styles:dev', function () {
-  return gulp.src( patterns + 'source/css/style.scss' )
-    .pipe( sourcemaps.init() )
-    .pipe( sass().on( 'error', sass.logError ) )
     .pipe( autoprefixer(
       'last 2 version',
       'ie 9',
       'ios 7',
       'android 4'
     ) )
+    .pipe( rename( 'style.min.css' ) )
+    .pipe( gulp.dest( patterns + 'css' ) );
+} );
+
+gulp.task( 'styles:dev', [ 'styles:collate' ], function() {
+  var error = function( e ) {
+    gutil.log( e );
+    stream.end();
+  };
+
+  var stream = gulp.src( patterns + 'source/css/style.scss' )
+    .pipe( sourcemaps.init() )
+    .pipe( sass().on( 'error', error ) )
     .pipe( sourcemaps.write() )
     .pipe( gulp.dest( patterns + 'source/css' ) );
 } );
 
-gulp.task( 'styles:watch', function () {
-  gulp.watch( patterns + 'source/css/**/*.s+(a|c)ss', [ 'styles:dev' ] );
+gulp.task( 'styles:watch', function() {
+  return watch( patterns + 'source/_patterns/**/*.scss', function() {
+    gulp.start( 'styles:dev' );
+  } );
 } );
 
-gulp.task( 'styles:lint', function () {
-  return gulp.src( patterns + 'source/css/**/*.s+(a|c)ss' )
+gulp.task( 'styles:collate', function( cb ) {
+  var stream = fs.createWriteStream( patterns + 'source/css/style.scss' );
+
+  var write = function( file ) {
+    stream.write( '@import \'' + file.path + '\';\r\n' );
+  };
+
+  var lowerPriority = function() {
+    gulp.src( [ patterns + 'source/_patterns/**/*.scss', '!' + patterns + 'source/_patterns/**/*.p1.scss' ] )
+      .pipe( tap( write ) )
+      .on( 'end', cb )
+  };
+
+  gulp.src( patterns + 'source/_patterns/**/*.p1.scss' )
+    .pipe( tap( write ) )
+    .on( 'end', lowerPriority );
+} );
+
+gulp.task( 'styles:lint', function() {
+  return gulp.src( patterns + 'source/css/**/*.scss' )
     .pipe( sassLint() )
     .pipe( sassLint.format() )
     .pipe( sassLint.failOnError() )
@@ -127,7 +155,7 @@ var phpOptions = {
   colors: true
 };
 
-gulp.task( 'php:lint', function () {
+gulp.task( 'php:lint', function() {
   return gulp.src( phpFiles )
     .pipe( phpcs( phpOptions ) )
     .pipe( phpcs.reporter( 'log' ) )
@@ -139,19 +167,19 @@ gulp.task( 'php:lint', function () {
  | >   JS TASKS
  ******************************************************************************/
 
-gulp.task( 'js:build', function () {
+gulp.task( 'js:build', function() {
 
 } );
 
-gulp.task( 'js:dev', function () {
+gulp.task( 'js:dev', function() {
 
 } );
 
-gulp.task( 'js:watch', function () {
+gulp.task( 'js:watch', function() {
 
 } );
 
-gulp.task( 'js:lint', function () {
+gulp.task( 'js:lint', function() {
 
 } );
 

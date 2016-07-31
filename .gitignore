@@ -2,4 +2,5 @@ vendor
 node_modules
 patterns/public
 patterns/source/css/style*.css
+patterns/source/css/style*.scss
 cache
