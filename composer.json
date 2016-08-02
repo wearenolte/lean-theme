@@ -23,7 +23,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Leanp\\": "src/"
+      "LeanNs\\": "src/"
     }
   },
   "scripts": {

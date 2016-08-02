@@ -14,5 +14,4 @@ require_once get_template_directory() . '/vendor/autoload.php';
 
 // Run the theme setup.
 require_once get_template_directory() . '/ThemeSetup.php';
-$class_name = __NAMESPACE__ . '\\ThemeSetup';
-$class_name::init();
+\LeanNs\ThemeSetup::init();
