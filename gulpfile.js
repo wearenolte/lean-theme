@@ -13,8 +13,7 @@ var tap = require( 'gulp-tap' );
 var fs = require( 'fs' );
 var gutil = require( 'gulp-util' );
 var watch = require( 'gulp-watch' );
-var documentation = require('gulp-documentation');
-var markdox = require("gulp-markdox");
+var markdox = require( 'gulp-markdox' );
 
 // var notify = require('gulp-notify');
 // var babelify = require('babelify');
@@ -32,6 +31,8 @@ var patterns = project + '/patterns/';
 
 /**
  * # Gulp Commands
+ *
+ * Run them with ```gulp <command>```, e.g. ```gulp pl:dev```.
  */
 
 
@@ -97,17 +98,17 @@ gulp.task( 'pl:watch', execPatternlabCommand.bind( this, 'watch' ) );
  *
  * It watches for changes in SCSS and HTML and automatically compiles where necessary and updates the browser. This is the command you want to use when working on patterns.
  */
-gulp.task( 'pl:dev', [ 'styles:dev', 'styles:watch', 'pl:watch' ], function() {
+gulp.task( 'pl:dev', [ 'styles:watch', 'pl:watch' ], function() {
   browserSync.init( {
     server: patterns + 'public'
   } );
 
-  gulp.watch( patterns + 'public/css/style.css', { ignoreInitial: true }, function() {
+  watch( patterns + 'public/css/style.css', { ignoreInitial: true }, function() {
     gulp.src( patterns + 'public/css/style.css' )
       .pipe( browserSync.stream() );
   } );
 
-  gulp.watch( patterns + 'source/_patterns/**/*.twig', { ignoreInitial: true } )
+  watch( patterns + 'source/_patterns/**/*.twig', { ignoreInitial: true } )
     .on( 'change', browserSync.reload );
 } );
 
@@ -165,7 +166,7 @@ gulp.task( 'styles:dev', [ 'styles:collate' ], function() {
  * Watches for changes to SCSS files in patterns/source/_patterns and runs styles:dev.
  */
 gulp.task( 'styles:watch', function() {
-  return watch( patterns + 'source/_patterns/**/*.scss', function() {
+  watch( patterns + 'source/_patterns/**/*.scss', { ignoreInitial: false }, function() {
     gulp.start( 'styles:dev' );
   } );
 } );

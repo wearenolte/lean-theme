@@ -4,6 +4,8 @@
 
 # Gulp Commands
 
+Run them with ```gulp <command>```, e.g. ```gulp pl:dev```.
+
 ## General
 
 > Default task

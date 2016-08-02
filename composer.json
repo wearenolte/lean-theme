@@ -50,10 +50,10 @@
       "./bin/patternlab-setup.sh"
     ],
     "node-install":  [
-      "npm install && cd patterns && bower install"
+      "npm install && cd patterns/source && bower install"
     ],
     "node-update":  [
-      "npm update && cd patterns && bower update"
+      "npm update && cd patterns/source && bower update"
     ]
   }
 }
