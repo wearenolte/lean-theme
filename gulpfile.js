@@ -1,9 +1,5 @@
 'use strict';
 
-/******************************************************************************
- | >   PLUGINS
- ******************************************************************************/
-
 var gulp = require( 'gulp' );
 var exec = require( 'child_process' ).exec;
 var sass = require( 'gulp-sass' );
@@ -17,6 +13,8 @@ var tap = require( 'gulp-tap' );
 var fs = require( 'fs' );
 var gutil = require( 'gulp-util' );
 var watch = require( 'gulp-watch' );
+var documentation = require('gulp-documentation');
+var markdox = require("gulp-markdox");
 
 // var notify = require('gulp-notify');
 // var babelify = require('babelify');
@@ -28,41 +26,77 @@ var watch = require( 'gulp-watch' );
 // var eslint = require('gulp-eslint');
 
 
-/******************************************************************************
- | >  Variables
- ******************************************************************************/
-
 var project = '.';
 var patterns = project + '/patterns/';
 
 
-/******************************************************************************
- | >   General
- ******************************************************************************/
+/**
+ * # Gulp Commands
+ */
 
+
+/**
+ * ## General
+ */
+
+/**
+ * > Default task
+ *
+ * Runs pl:dev
+ */
 gulp.task( 'default', [ 'pl:dev' ] );
+
+/**
+ * > dev
+ *
+ * Runs styles:dev and js:dev
+ */
 gulp.task( 'dev', [ 'styles:dev', 'js:dev' ] );
+
+/**
+ * > watch
+ *
+ * Runs styles:watch and js:watch
+ */
 gulp.task( 'watch', [ 'styles:watch', 'js:watch' ] );
+
+/**
+ * > lint
+ *
+ * Runs styles:lint, js:lint and php:lint
+ */
 gulp.task( 'lint', [ 'styles:lint', 'js:lint', 'php:lint' ] );
 
 
-/******************************************************************************
- | >  Patternlab
- ******************************************************************************/
+/**
+ * ## Pattern Lab
+ */
 
-var execPatternlabCommand = function( command ) {
-  exec( 'cd vendor/pattern-lab/edition-twig-standard && php core/console --' + command, function( err, stdout, stderr ) {
-    console.log( stdout );
-    console.log( stderr );
-  } );
-};
-
-gulp.task( 'pl:help', execPatternlabCommand.bind( this, 'help' ) );
-
+/**
+ * > pl:generate
+ *
+ * Runs Pattern Lab's generate command. This will convert the patterns in the patterns/source folder to the right format, and copy them to the patterns/public folder ready to be viewed. Note this does not compile the CSS from SCSS.
+ *
+ * This is a wrapper for Pattern Lab's own ```php core/console --generate``` command.
+ */
 gulp.task( 'pl:generate', execPatternlabCommand.bind( this, 'generate' ) );
 
+/**
+ * > pl:watch
+ *
+ * Watches for changes in the patterns/source folder and runs pl:generate. Note this does not watch for changes to SCSS files.
+ *
+ * This is a wrapper for Pattern Lab's own ```php core/console --watch``` command.
+ */
 gulp.task( 'pl:watch', execPatternlabCommand.bind( this, 'watch' ) );
 
+/**
+ * > pl:dev
+ *
+ * Fires up the Pattern Lab UI using BrowserSync.
+ *
+ * It watches for changes in SCSS and HTML and automatically compiles where necessary and updates the browser. This is the command you want to use when working on patterns.
+ */
 gulp.task( 'pl:dev', [ 'styles:dev', 'styles:watch', 'pl:watch' ], function() {
   browserSync.init( {
     server: patterns + 'public'
@@ -77,11 +111,23 @@ gulp.task( 'pl:dev', [ 'styles:dev', 'styles:watch', 'pl:watch' ], function() {
     .on( 'change', browserSync.reload );
 } );
 
+function execPatternlabCommand( command ) {
+  exec( 'cd vendor/pattern-lab/edition-twig-standard && php core/console --' + command, function( err, stdout, stderr ) {
+    console.log( stdout );
+    console.log( stderr );
+  } );
+}
 
-/******************************************************************************
- | >   Styles
- ******************************************************************************/
 
+/**
+ * ## Styles
+ */
+
+/**
+ * > styles:build
+ *
+ * Compiles minified version of the CSS and adds cross-browser prefixes.
+ */
 gulp.task( 'styles:build', [ 'styles:collate' ], function() {
   return gulp.src( patterns + 'source/css/style.scss' )
     .pipe( sass( { outputStyle: 'compressed' } ).on( 'error', sass.logError ) )
@@ -95,6 +141,11 @@ gulp.task( 'styles:build', [ 'styles:collate' ], function() {
     .pipe( gulp.dest( patterns + 'css' ) );
 } );
 
+/**
+ * > styles:dev
+ *
+ * Compiles the unminified version of the CSS including sourcemaps. Does not add cross-browser prefixes.
+ */
 gulp.task( 'styles:dev', [ 'styles:collate' ], function() {
   var error = function( e ) {
     gutil.log( e );
@@ -108,12 +159,24 @@ gulp.task( 'styles:dev', [ 'styles:collate' ], function() {
     .pipe( gulp.dest( patterns + 'source/css' ) );
 } );
 
+/**
+ * > styles:watch
+ *
+ * Watches for changes to SCSS files in patterns/source/_patterns and runs styles:dev.
+ */
 gulp.task( 'styles:watch', function() {
   return watch( patterns + 'source/_patterns/**/*.scss', function() {
     gulp.start( 'styles:dev' );
   } );
 } );
 
+/**
+ * > styles:collate
+ *
+ * Builds the master _styles.scss file by including imports for all *.scss files found in patterns/source/_patterns.
+ *
+ * It will import files with the .p1.scss (p1 = priority 1) first, so use this on files with variables or other styles which must be loaded at the top of the compiled CSS file.
+ */
 gulp.task( 'styles:collate', function( cb ) {
   var stream = fs.createWriteStream( patterns + 'source/css/style.scss' );
 
@@ -132,6 +195,11 @@ gulp.task( 'styles:collate', function( cb ) {
     .on( 'end', lowerPriority );
 } );
 
+/**
+ * > styles:lint
+ *
+ * Validates the SCSS according to our rules defined in .sass-lint.yml.
+ */
 gulp.task( 'styles:lint', function() {
   return gulp.src( patterns + 'source/css/**/*.scss' )
     .pipe( sassLint() )
@@ -140,22 +208,27 @@ gulp.task( 'styles:lint', function() {
 } );
 
 
-/******************************************************************************
- | >   PHP
- ******************************************************************************/
+/**
+ * ## PHP
+ */
 
-var phpFiles = [
-  '*.php',
-  'src/**/*.php'
-];
-
-var phpOptions = {
-  bin: './vendor/bin/phpcs',
-  standard: './codesniffer.ruleset.xml',
-  colors: true
-};
-
+/**
+ * > php:lint
+ *
+ * Validates the PHP according to the standard WordPress rules with some exceptions. These are defined in codesniffer.ruleset.xml.
+ */
 gulp.task( 'php:lint', function() {
+  var phpFiles = [
+    '*.php',
+    'src/**/*.php'
+  ];
+
+  var phpOptions = {
+    bin: './vendor/bin/phpcs',
+    standard: './codesniffer.ruleset.xml',
+    colors: true
+  };
+
   return gulp.src( phpFiles )
     .pipe( phpcs( phpOptions ) )
     .pipe( phpcs.reporter( 'log' ) )
@@ -163,9 +236,26 @@ gulp.task( 'php:lint', function() {
 } );
 
 
-/******************************************************************************
- | >   JS TASKS
- ******************************************************************************/
+/**
+ * ## Documentation
+ */
+
+/**
+ * > docs
+ *
+ * Builds this documentation for the Gulp Commands.
+ */
+gulp.task( 'docs', function() {
+  gulp.src( './gulpfile.js' )
+    .pipe( markdox() )
+    .pipe( rename( 'gulp-commands.md' ) )
+    .pipe( gulp.dest( "./docs" ) );
+} );
+
+
+/**
+ * ## Javascript
+ */
 
 gulp.task( 'js:build', function() {
 
