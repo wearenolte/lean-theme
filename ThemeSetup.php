@@ -16,6 +16,8 @@ class ThemeSetup {
 		add_action( 'switch_theme', [ __CLASS__, 'flush_rewrite_rules' ] );
 		add_action( 'after_switch_theme', [ __CLASS__, 'activate' ] );
 
+		add_theme_support( 'post-thumbnails' );
+
 		$inc_dir = get_template_directory() . '/src';
 
 		$modules_dir = get_template_directory() . '/src/Modules';

@@ -27,6 +27,8 @@ var markdox = require( 'gulp-markdox' );
 
 var project = '.';
 var patterns = project + '/patterns/';
+var patternsSource = patterns + 'source/';
+var patternsPublic = patterns + 'public/';
 
 
 /**
@@ -100,23 +102,28 @@ gulp.task( 'pl:watch', execPatternlabCommand.bind( this, 'watch' ) );
  */
 gulp.task( 'pl:dev', [ 'styles:watch', 'pl:watch' ], function() {
   browserSync.init( {
-    server: patterns + 'public'
+    server: patternsPublic
   } );
 
-  watch( patterns + 'public/css/style.css', { ignoreInitial: true }, function() {
-    gulp.src( patterns + 'public/css/style.css' )
+  watch( patternsPublic + 'css/style.css', { ignoreInitial: true }, function() {
+    gulp.src( patternsPublic + 'css/style.css' )
       .pipe( browserSync.stream() );
   } );
 
-  watch( patterns + 'source/_patterns/**/*.twig', { ignoreInitial: true } )
+  watch( patternsSource + '_patterns/**/*.twig', { ignoreInitial: true } )
     .on( 'change', browserSync.reload );
 } );
 
 function execPatternlabCommand( command ) {
+  var error = function( e ) {
+    gutil.log( e );
+  };
+
   exec( 'cd vendor/pattern-lab/edition-twig-standard && php core/console --' + command, function( err, stdout, stderr ) {
-    console.log( stdout );
-    console.log( stderr );
-  } );
+    gutil.log( stdout );
+    gutil.log( stderr );
+    gutil.log( err );
+  } ).on( 'error', error );
 }
 
 
@@ -130,7 +137,8 @@ function execPatternlabCommand( command ) {
  * Compiles minified version of the CSS and adds cross-browser prefixes.
  */
 gulp.task( 'styles:build', [ 'styles:collate' ], function() {
-  return gulp.src( patterns + 'source/css/style.scss' )
+
+  return gulp.src( patternsSource + 'source/css/style.scss' )
     .pipe( sass( { outputStyle: 'compressed' } ).on( 'error', sass.logError ) )
     .pipe( autoprefixer(
       'last 2 version',
@@ -139,7 +147,7 @@ gulp.task( 'styles:build', [ 'styles:collate' ], function() {
       'android 4'
     ) )
     .pipe( rename( 'style.min.css' ) )
-    .pipe( gulp.dest( patterns + 'css' ) );
+    .pipe( gulp.dest( patternsSource + 'css' ) );
 } );
 
 /**
@@ -153,11 +161,11 @@ gulp.task( 'styles:dev', [ 'styles:collate' ], function() {
     stream.end();
   };
 
-  var stream = gulp.src( patterns + 'source/css/style.scss' )
+  var stream = gulp.src( patternsSource + 'css/style.scss' )
     .pipe( sourcemaps.init() )
     .pipe( sass().on( 'error', error ) )
     .pipe( sourcemaps.write() )
-    .pipe( gulp.dest( patterns + 'source/css' ) );
+    .pipe( gulp.dest( patternsSource + 'css' ) );
 } );
 
 /**
@@ -166,7 +174,7 @@ gulp.task( 'styles:dev', [ 'styles:collate' ], function() {
  * Watches for changes to SCSS files in patterns/source/_patterns and runs styles:dev.
  */
 gulp.task( 'styles:watch', function() {
-  watch( patterns + 'source/_patterns/**/*.scss', { ignoreInitial: false }, function() {
+  watch( patternsSource + '_patterns/**/*.scss', { ignoreInitial: false }, function() {
     gulp.start( 'styles:dev' );
   } );
 } );
@@ -179,19 +187,19 @@ gulp.task( 'styles:watch', function() {
  * It will import files with the .p1.scss (p1 = priority 1) first, so use this on files with variables or other styles which must be loaded at the top of the compiled CSS file.
  */
 gulp.task( 'styles:collate', function( cb ) {
-  var stream = fs.createWriteStream( patterns + 'source/css/style.scss' );
+  var stream = fs.createWriteStream( patternsSource + 'css/style.scss' );
 
   var write = function( file ) {
     stream.write( '@import \'' + file.path + '\';\r\n' );
   };
 
   var lowerPriority = function() {
-    gulp.src( [ patterns + 'source/_patterns/**/*.scss', '!' + patterns + 'source/_patterns/**/*.p1.scss' ] )
+    gulp.src( [ patternsSource + '_patterns/**/*.scss', '!' + patternsSource + '_patterns/**/*.p1.scss' ] )
       .pipe( tap( write ) )
       .on( 'end', cb )
   };
 
-  gulp.src( patterns + 'source/_patterns/**/*.p1.scss' )
+  gulp.src( patternsSource + '_patterns/**/*.p1.scss' )
     .pipe( tap( write ) )
     .on( 'end', lowerPriority );
 } );
@@ -202,7 +210,7 @@ gulp.task( 'styles:collate', function( cb ) {
  * Validates the SCSS according to our rules defined in .sass-lint.yml.
  */
 gulp.task( 'styles:lint', function() {
-  return gulp.src( patterns + 'source/css/**/*.scss' )
+  return gulp.src( patternsSource + '_patterns/**/*.scss' )
     .pipe( sassLint() )
     .pipe( sassLint.format() )
     .pipe( sassLint.failOnError() )

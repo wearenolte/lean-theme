@@ -24,4 +24,5 @@ use Timber\Timber;
 
 <body <?php body_class(); ?>>
 
-<?php //Timber::render( '02-organisms/00-global/00-header.twig' ) ?>
+<?php $data = Timber::get_context(); ?>
+<?php Timber::render( '02-organisms/00-global/header.twig', $data ); ?>
