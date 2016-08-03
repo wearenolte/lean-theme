@@ -13,6 +13,6 @@ class Patterns
 	public static function init() {
 		$timber = new \Timber\Timber();
 
-		Timber::$dirname = 'patterns/patternlab-starterkit-twig/dist/_patterns';
+		Timber::$dirname = [ 'patterns/source/_patterns', 'patterns/patternlab-starterkit-twig/dist/_patterns' ];
 	}
 }
