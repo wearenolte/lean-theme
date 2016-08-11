@@ -1,0 +1,112 @@
+{
+    "key": "group_57aceae02af35",
+    "title": "Social Media",
+    "fields": [
+        {
+            "key": "field_57aceae043794",
+            "label": "Networks",
+            "name": "social_media_networks",
+            "type": "repeater",
+            "instructions": "Your social media profiles.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_57aceae04cc0e",
+            "min": "",
+            "max": "",
+            "layout": "table",
+            "button_label": "Add Network",
+            "sub_fields": [
+                {
+                    "key": "field_57aceae04cc0e",
+                    "label": "Network",
+                    "name": "general_options_network",
+                    "type": "select",
+                    "instructions": "Select the social network.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Facebook": "Facebook",
+                        "Twitter": "Twitter",
+                        "LinkedIn": "LinkedIn",
+                        "Instagram": "Instagram"
+                    },
+                    "default_value": {
+                        "Select the social network.": "Select the social network."
+                    },
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_57aceae04ccb1",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "text",
+                    "instructions": "Enter the url of your social media profile.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https:\/\/twitter.com\/example",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                }
+            ]
+        },
+        {
+            "key": "field_57aceb0b4e44a",
+            "label": "New Window",
+            "name": "social_media_new_window",
+            "type": "true_false",
+            "instructions": "Whether to open social media links in a new browser window (recommended)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "options"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1470950264
+}

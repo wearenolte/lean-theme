@@ -25,6 +25,27 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "svg"
+        },
+        {
+            "key": "field_57ace900cc2ce",
+            "label": "Copyright Text",
+            "name": "general_options_copyright_text",
+            "type": "text",
+            "instructions": "Shown in the footer of every page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
         }
     ],
     "location": [
@@ -44,5 +65,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1470234435
+    "modified": 1470950122
 }
