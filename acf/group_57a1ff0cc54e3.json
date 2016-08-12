@@ -31,7 +31,7 @@
             "label": "Copyright Text",
             "name": "general_options_copyright_text",
             "type": "text",
-            "instructions": "Shown in the footer of every page.",
+            "instructions": "Shown in the footer of every page. The placeholder %YEAR% will be replaced by the current year.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -39,7 +39,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "&copy; %YEAR%. All Rights Reserved.",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -86,5 +86,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1470952072
+    "modified": 1471020056
 }

@@ -20,7 +20,7 @@
 		<aside class="widget">
 
 			<h4 class="widget___title">
-				<?php esc_html_e( 'Archives', _TEXT_DOMAIN_ ); ?>
+				<?php esc_html_e( 'Archives', LEANP_TEXT_DOMAIN ); ?>
 			</h4>
 
 			<ul>
@@ -32,7 +32,7 @@
 		<aside class="widget">
 
 			<h4 class="widget___title">
-				<?php esc_html_e( 'Meta', _TEXT_DOMAIN_ ); ?>
+				<?php esc_html_e( 'Meta', LEANP_TEXT_DOMAIN ); ?>
 			</h4>
 
 			<ul>

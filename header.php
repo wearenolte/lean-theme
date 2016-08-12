@@ -26,5 +26,8 @@ use Timber\Timber;
 
 <?php echo \Lean\Acf::get_option_field( 'general_options_google_tag_manager' ) ?>
 
+<!-- .wrap -->
+<div class="wrap">
+
 <?php $data = Timber::get_context(); ?>
 <?php Timber::render( '02-organisms/00-global/header.twig', $data ); ?>
