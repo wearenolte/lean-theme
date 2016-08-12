@@ -30,4 +30,17 @@ class Patterns
 
 		return $posts;
 	}
+
+	/**
+	 * Return Timber::get_post() with acf fields added in a usable format.
+	 *
+	 * @return array|bool|null
+	 */
+	public static function get_post() {
+		$post = Timber::get_post();
+
+		$post->acf = \Lean\Acf::get_post_field( $post->id );
+
+		return $post;
+	}
 }

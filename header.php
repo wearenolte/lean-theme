@@ -1,7 +1,4 @@
 <?php namespace LeanNs;
-
-use Timber\Timber;
-
 /**
  * The main header file.
  *
@@ -24,10 +21,8 @@ use Timber\Timber;
 
 <body <?php body_class(); ?>>
 
-<?php echo \Lean\Acf::get_option_field( 'general_options_google_tag_manager' ) ?>
-
-<!-- .wrap -->
-<div class="wrap">
-
-<?php $data = Timber::get_context(); ?>
-<?php Timber::render( '02-organisms/00-global/header.twig', $data ); ?>
+<?php
+// @codingStandardsIgnoreStart - We don't want to escape this field as we expect JavaScript.
+echo \Lean\Acf::get_option_field( 'general_options_google_tag_manager' )
+// @codingStandardsIgnoreEnd
+?>
