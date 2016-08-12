@@ -9,7 +9,7 @@ class Widgets
 {
 	/**
 	 * This is the list of default WP widgets which we will allow.
-	 * You should edit this to only allow the widgets which you theme can handle (for which you have styles, etc).
+	 * You should edit this to only allow the widgets which your theme can handle (for which you have styles, etc).
 	 *
 	 * @var array
 	 */
