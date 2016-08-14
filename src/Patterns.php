@@ -26,6 +26,7 @@ class Patterns
 
 		foreach ( $posts as &$post ) {
 			$post->acf = \Lean\Acf::get_post_field( $post->id );
+			$post->post_content = do_shortcode( $post->post_content );
 		}
 
 		return $posts;
@@ -40,6 +41,7 @@ class Patterns
 		$post = Timber::get_post();
 
 		$post->acf = \Lean\Acf::get_post_field( $post->id );
+		$post->post_content = do_shortcode( $post->post_content );
 
 		return $post;
 	}
