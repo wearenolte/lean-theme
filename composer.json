@@ -5,6 +5,7 @@
   "require": {
     "composer/installers": "^1.0",
     "moxie-lean/wp-acf": "^1.1",
+    "moxie-lean/wp-widgets": "^1.0",
     "moxie-lean/wp-page-templates": "^1.0",
     "pattern-lab/edition-twig-standard": "^2.2",
     "moxie-lean/wp-cpt": "^1.0",

@@ -22,7 +22,7 @@ class Assets
 	 */
 	public static function init_assets() {
 		$assets = new \Lean\Assets( [
-			'css_uri' => get_template_directory_uri() . '/patterns/public/css/style.css',
+			'css_uri' => get_template_directory_uri() . '/patterns/source/css/style.css',
 			'css_version' => time(),
 			'js_uri' => get_template_directory_uri() . '/xxx/script.js',
 			'js_version' => time(),
@@ -35,23 +35,42 @@ class Assets
 
 	/**
 	 * Whether or not to load jQuery for the current page.
-	 * It only check if the page include a Gravity Forms shortcode, you'll have to add some custom logic if you're using
+	 * It only check if the page includes a Gravity Forms shortcode, you'll have to add some custom logic if you're using
 	 * gforms in a widget or php code.
 	 *
 	 * @param bool $include Include it or not.
 	 * @return bool
 	 */
 	public static function include_jquery( $include ) {
-		return self::post_has_gform() ? true : $include;
+		return self::post_has_ajax_gform() ? true : $include;
 	}
 
 	/**
-	 * Does the current post have a Gravity Form.
+	 * Does the current post have a Gravity Form which uses the AJAX submit method.
 	 *
 	 * @return bool
 	 */
-	public static function post_has_gform() {
+	public static function post_has_ajax_gform() {
 		global $post;
-		return strpos( $post->post_content, '[gravityform' ) !== false;
+
+		$gf_pos = strpos( $post->post_content, '[gravityform' );
+
+		if ( false === $gf_pos ) {
+			return false;
+		}
+
+		$ajax_pos = strpos( $post->post_content, 'ajax="true"', $gf_pos );
+
+		if ( false === $ajax_pos ) {
+			return false;
+		}
+
+		$shortcode_end_pos = strpos( $post->post_content, ']', $ajax_pos );
+
+		if ( $shortcode_end_pos < $ajax_pos ) {
+			return false;
+		}
+
+		return true;
 	}
 }
