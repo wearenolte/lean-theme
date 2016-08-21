@@ -27,16 +27,19 @@
       "LeanNs\\": "src/"
     }
   },
+  "config": {
+    "process-timeout": 1800
+  },
   "scripts": {
     "post-install-cmd": [
       "@set-up-ci",
-      "@node-install",
-      "@set-up-patternlab"
+      "@set-up-patternlab",
+      "@node-install"
     ],
     "post-update-cmd": [
       "@set-up-ci",
-      "@node-update",
-      "@set-up-patternlab"
+      "@set-up-patternlab",
+      "@node-update"
     ],
     "set-up-ci": [
       "./vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
