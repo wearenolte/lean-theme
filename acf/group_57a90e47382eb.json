@@ -119,8 +119,7 @@
                     "choices": {
                         "none": "None",
                         "image": "Single Image",
-                        "images": "Image Slider",
-                        "video": "Video"
+                        "images": "Image Slider"
                     },
                     "other_choice": 0,
                     "save_other_choice": 0,
@@ -150,8 +149,8 @@
                     },
                     "crop_type": "hard",
                     "target_size": "custom",
-                    "width": 1600,
-                    "height": 900,
+                    "width": 1280,
+                    "height": 720,
                     "preview_size": "thumbnail",
                     "force_crop": "yes",
                     "save_in_media_library": "no",
@@ -201,80 +200,8 @@
                             },
                             "crop_type": "hard",
                             "target_size": "custom",
-                            "width": 1600,
-                            "height": 900,
-                            "preview_size": "thumbnail",
-                            "force_crop": "yes",
-                            "save_in_media_library": "no",
-                            "retina_mode": "yes",
-                            "save_format": "url",
-                            "library": "all"
-                        }
-                    ]
-                },
-                {
-                    "key": "field_57a912cf417b3",
-                    "label": "Video",
-                    "name": "video",
-                    "type": "repeater",
-                    "instructions": "The video background. It will revert to a static image on mobiles for performance reasons.",
-                    "required": 1,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_57a90ff5da1ac",
-                                "operator": "==",
-                                "value": "video"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "field_57a912fa417b4",
-                    "min": 1,
-                    "max": 1,
-                    "layout": "block",
-                    "button_label": "Add Row",
-                    "sub_fields": [
-                        {
-                            "key": "field_57a912fa417b4",
-                            "label": "Video",
-                            "name": "video",
-                            "type": "file",
-                            "instructions": "The video you want to use on the background for desktop.",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "url",
-                            "library": "all",
-                            "min_size": "",
-                            "max_size": 1,
-                            "mime_types": "mp4"
-                        },
-                        {
-                            "key": "field_57a913c8417b5",
-                            "label": "Image",
-                            "name": "image",
-                            "type": "image_crop",
-                            "instructions": "The image you want to use on the background for mobile.",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "crop_type": "hard",
-                            "target_size": "custom",
-                            "width": 1024,
-                            "height": 768,
+                            "width": 1280,
+                            "height": 720,
                             "preview_size": "thumbnail",
                             "force_crop": "yes",
                             "save_in_media_library": "no",
@@ -306,5 +233,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1470745296
+    "modified": 1472053148
 }
