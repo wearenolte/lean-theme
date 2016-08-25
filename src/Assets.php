@@ -5,6 +5,8 @@
  */
 class Assets
 {
+	const FLICKITY_HANDLE = 'flickity';
+
 	/**
 	 * Init.
 	 */
@@ -72,5 +74,20 @@ class Assets
 		}
 
 		return true;
+	}
+
+	/**
+	 * Tell Assets to enqueue the scripts for the Flickity slider.
+	 */
+	public static function enqueue_flickity() {
+		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_flickity_cb' ] );
+	}
+
+	/**
+	 * Callback to actually enqueue the scripts.
+	 */
+	public static function enqueue_flickity_cb() {
+		wp_enqueue_script( self::FLICKITY_HANDLE . '-js', 'https://npmcdn.com/flickity@2.0/dist/flickity.pkgd.min.js', false, null, true );
+		wp_enqueue_style( self::FLICKITY_HANDLE . '-css', 'https://npmcdn.com/flickity@2.0/dist/flickity.min.css', false, null );
 	}
 }
