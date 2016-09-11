@@ -87,7 +87,7 @@ class Assets
 	 * Callback to actually enqueue the scripts.
 	 */
 	public static function enqueue_flickity_cb() {
-		wp_enqueue_script( self::FLICKITY_HANDLE . '-js', 'https://npmcdn.com/flickity@2.0/dist/flickity.pkgd.min.js', false, null, true );
-		wp_enqueue_style( self::FLICKITY_HANDLE . '-css', 'https://npmcdn.com/flickity@2.0/dist/flickity.min.css', false, null );
+		wp_enqueue_script( self::FLICKITY_HANDLE . '-js', 'https://unpkg.com/flickity@2.0/dist/flickity.pkgd.min.js', false, null, true );
+		wp_enqueue_style( self::FLICKITY_HANDLE . '-css', 'https://unpkg.com/flickity@2.0/dist/flickity.min.css', false, null );
 	}
 }
