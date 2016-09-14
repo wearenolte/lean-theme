@@ -12,18 +12,6 @@ Run them with ```gulp <command>```, e.g. ```gulp pl:dev```.
 
 Runs pl:dev
 
-> dev
-
-Runs styles:dev and js:dev
-
-> watch
-
-Runs styles:watch and js:watch
-
-> lint
-
-Runs styles:lint, js:lint and php:lint
-
 ## Pattern Lab
 
 > pl:generate
@@ -38,49 +26,39 @@ Watches for changes in the patterns/source folder and runs pl:generate. Note thi
 
 This is a wrapper for Pattern Lab's own ```php core/console --watch``` command.
 
+> pl:bs
+
+Fires up the Pattern Lab UI using BrowserSync. Automatically refreshes the browser whenever the patterns are built.
+
 > pl:dev
 
 Fires up the Pattern Lab UI using BrowserSync.
 
 It watches for changes in SCSS and HTML and automatically compiles where necessary and updates the browser. This is the command you want to use when working on patterns.
 
-## Styles
+> patterns:watch
 
-> styles:build
+Wrapper for `npm run watch` for the front-end files.
 
-Compiles minified version of the CSS and adds cross-browser prefixes.
+## Lint
 
-> styles:dev
+> lint
 
-Compiles the unminified version of the CSS including sourcemaps. Does not add cross-browser prefixes.
-
-> styles:watch
-
-Watches for changes to SCSS files in patterns/source/_patterns and runs styles:dev.
-
-> styles:collate
-
-Builds the master _styles.scss file by including imports for all *.scss files found in patterns/source/_patterns.
-
-It will import files with the .p1.scss (p1 = priority 1) first, so use this on files with variables or other styles which must be loaded at the top of the compiled CSS file.
-
-> styles:lint
-
-Validates the SCSS according to our rules defined in .sass-lint.yml.
-
-## PHP
+Runs php:lint and all lint tasks for the front-end files.
 
 > php:lint
 
 Validates the PHP according to the standard WordPress rules with some exceptions. These are defined in codesniffer.ruleset.xml.
+
+> view:lint
+
+Wrapper for `npm run lint` for the front-end files.
 
 ## Documentation
 
 > docs
 
 Builds this documentation for the Gulp Commands.
-
-## Javascript
 
 <!-- End gulpfile.js -->
 

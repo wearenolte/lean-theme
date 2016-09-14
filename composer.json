@@ -58,9 +58,6 @@
     ],
     "node-update":  [
       "npm update && cd patterns/source && bower update"
-    ],
-    "patterns:watch": "cd patterns/patternlab-starterkit-twig/dist && npm run watch",
-    "pl:watch": "cd vendor/pattern-lab/edition-twig-standard && php core/console --watch",
-    "pl:bs": "browser-sync start --server 'patterns/public' --files 'patterns/public/css' 'patterns/patternlab-starter-kit/dist/_patterns/*.twig'"
+    ]
   }
 }
