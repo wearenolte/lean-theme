@@ -13,4 +13,4 @@ cache:
   - vendor
 
 script:
-  - composer ci
+  - composer lint

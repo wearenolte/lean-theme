@@ -47,17 +47,17 @@
       "./vendor/bin/phpcs --config-set show_progress 0",
       "./vendor/bin/phpcs --config-set colors 1"
     ],
-    "php:lint": [
+    "lint": [
       "phpcs *.php src/*.php src/**/**/*.php"
     ],
     "set-up-patternlab": [
       "./bin/patternlab-setup.sh"
     ],
     "node-install":  [
-      "npm install && cd patterns/source && bower install"
+      "npm install && cd patterns/source && npm install"
     ],
     "node-update":  [
-      "npm update && cd patterns/source && bower update"
+      "npm update && cd patterns/source && npm update"
     ]
   }
 }
