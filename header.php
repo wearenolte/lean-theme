@@ -6,6 +6,8 @@
  * @since 1.0.0
  */
 
+use Timber\Timber;
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -26,3 +28,5 @@
 echo \Lean\Acf::get_option_field( 'general_options_google_tag_manager' )
 // @codingStandardsIgnoreEnd
 ?>
+
+<?php Timber::render( 'atoms/images/_icons-include.twig' );
