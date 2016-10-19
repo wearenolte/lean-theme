@@ -20,7 +20,7 @@ echo ""
 echo "Install Composer dependencies..."
 composer install
 
-if [ ! "$(ls -A ../../../patterns/source)" ]; then
+if [ ! "$(ls -A ./../../../patterns/source)" ]; then
   echo ""
   echo "Installing the starter kit..."
   php core/console --starterkit --install moxie-lean/patternlab-starterkit-twig

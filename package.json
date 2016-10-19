@@ -6,7 +6,6 @@
     "gulp-markdox": "^0.1.1",
     "gulp-phpcs": "^1.1.1",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
     "gulp-shell": "^0.5.2",
     "gulp-watch": "^4.3.9"
   },
