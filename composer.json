@@ -1,13 +1,11 @@
 {
   "name": "moxie-lean/lean-theme",
-  "description": "Barebones modular WordPress theme which uses patternlab.io.",
+  "description": "Barebones modular WordPress theme",
   "type": "wordpress-theme",
   "require": {
-    "composer/installers": "^1.0",
     "moxie-lean/wp-acf": "^1.1",
     "moxie-lean/wp-widgets": "^1.0",
     "moxie-lean/wp-page-templates": "^1.0",
-    "pattern-lab/edition-twig-standard": "^2.2",
     "moxie-lean/wp-cpt": "^1.0",
     "moxie-lean/assets": "^2.0"
   },
@@ -26,19 +24,9 @@
       "LeanNs\\": "src/"
     }
   },
-  "config": {
-    "process-timeout": 1800
-  },
   "scripts": {
     "post-install-cmd": [
-      "@set-up-php-lint",
-      "@set-up-patternlab",
-      "@node-install"
-    ],
-    "post-update-cmd": [
-      "@set-up-php-lint",
-      "@set-up-patternlab",
-      "@node-update"
+      "@set-up-php-lint"
     ],
     "set-up-php-lint": [
       "./vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
@@ -48,15 +36,6 @@
     ],
     "lint": [
       "phpcs *.php src/*.php src/**/**/*.php"
-    ],
-    "set-up-patternlab": [
-      "./bin/patternlab-setup.sh"
-    ],
-    "node-install":  [
-      "npm install && cd patterns/source && npm install"
-    ],
-    "node-update":  [
-      "npm update && cd patterns/source && npm update"
     ]
   }
 }
