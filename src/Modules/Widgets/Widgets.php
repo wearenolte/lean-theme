@@ -1,12 +1,9 @@
 <?php namespace LeanNs\Modules\Widgets;
 
-use Timber\Timber;
-
 /**
  * Class Widgets
  */
-class Widgets
-{
+class Widgets {
 	/**
 	 * This is the list of default WP widgets which we will allow.
 	 * You should edit this to only allow the widgets which your theme can handle (for which you have styles, etc).
@@ -37,29 +34,6 @@ class Widgets
 
 		add_action( 'widgets_init', [ __CLASS__, 'register' ], 12 );
 
-		add_filter( 'timber_context', [ __CLASS__, 'add_to_timber_context' ] );
-	}
-
-	/**
-	 * Add all sidebars to the Timber context.
-	 *
-	 * @param array $data The original data.
-	 * @return array
-	 */
-	public static function add_to_timber_context( $data ) {
-		global $sidebars_widgets;
-
-		$data['sidebars'] = [];
-
-		foreach ( $sidebars_widgets as $widget_area => $widgets ) {
-			if ( 'wp_inactive_widgets' === $widget_area || false !== strpos( $widget_area, 'orphaned_widgets' ) ) {
-				continue;
-			}
-
-			$data['sidebars'][ $widget_area ] = Timber::get_widgets( $widget_area );
-		}
-
-		return $data;
 	}
 
 	/**

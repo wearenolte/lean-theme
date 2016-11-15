@@ -1,11 +1,11 @@
 <?php
 
-use \Timber\Timber;
-
 get_header();
 
-$data = Timber::get_context();
-$data['post'] = \LeanNs\Patterns::get_post();
-Timber::render( 'templates/blog-single.twig', $data );
+if ( have_posts() ) {
+	while ( have_posts() ) {
+		the_post();
+	}
+}
 
 get_footer();
