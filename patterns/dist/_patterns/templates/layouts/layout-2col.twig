@@ -1,0 +1,15 @@
+{% extends "templates/layouts/site.twig" %}
+
+{% block body %}
+    <main role="main" class="t__layout-2-col">
+        {% block hero %}{% endblock %}
+        {% block title %}{% endblock %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <aside class="main-aside">
+        {% block sidebar %}
+            {{ sidebars.main }}
+        {% endblock %}
+    </aside>
+{% endblock %}

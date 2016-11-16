@@ -1,0 +1,11 @@
+<nav class="m__footer-nav">
+
+	<ul>
+		{% for item in menus.footer_menu.get_items %}
+			<li class="nav-item {{item.classes | join(' ')}}">
+				<a class="nav-link" href="{{item.get_link}}">{{item.title}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+</nav>

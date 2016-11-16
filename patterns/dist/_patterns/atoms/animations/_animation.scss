@@ -1,0 +1,48 @@
+@import '~bower_components/bourbon/app/assets/stylesheets/bourbon';
+
+@keyframes bounceInRight {
+  from {
+    @include transform(translateX(3000px));
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  60% {
+    @include transform(translateX(-25px));
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  75% {
+    @include transform(translateX(10px));
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  90% {
+    @include transform(translateX(-5px));
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  to {
+    @include transform(none);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+}
+
+.a__anim__bounce-in-right {
+  @include animation(bounceInRight 0.95s both);
+}
+
+@keyframes bounceOutLeft {
+  from {
+    @include transform(translateX(0));
+  }
+
+  to {
+    @include transform(translateX(3000px));
+  }
+}
+
+.a__anim__bounce-out-left {
+  @include animation(bounceOutLeft 1.25s both);
+}

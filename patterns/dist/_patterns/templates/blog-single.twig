@@ -1,0 +1,10 @@
+{% extends "templates/layouts/layout-2col.twig" %}
+
+{% block title %}
+    <h1>{{ post.post_title }}</h1>
+{% endblock %}
+
+{% block content %}
+    {{ post.post_content }}
+    {% include "organisms/comments/disqus.twig" %}
+{% endblock %}

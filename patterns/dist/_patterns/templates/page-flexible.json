@@ -1,0 +1,25 @@
+{
+  "post": {
+    "acf": {
+      "hero": {
+        "hero_visible": true,
+        "hero_headline": "The Headline",
+        "hero_tagline": "The tagline could be a bit longer than the headline",
+        "hero_background": {
+          "type": "images",
+          "images": [
+            {
+              "image": "http://placehold.it/1280x720/E20D0D/FFFFFF"
+            },
+            {
+              "image": "http://placehold.it/1280x720/2DCC70/FFFFFF"
+            },
+            {
+              "image": "http://placehold.it/1280x720/1397E1/FFFFFF"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

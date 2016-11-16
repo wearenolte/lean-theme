@@ -1,0 +1,18 @@
+@import '~params/colors';
+@import '~params/spaces';
+@import '~params/borders';
+
+.o__footer {
+  clear: both;
+  overflow: hidden;
+  background: $footer_bg;
+  color: $footer_text;
+  line-height: 1.2;
+  border-top: $border-thin solid $footer_border;
+  margin-top: $space;
+
+  .copyright {
+    margin-top: $space;
+    text-align: center;
+  }
+}

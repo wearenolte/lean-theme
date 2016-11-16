@@ -1,0 +1,16 @@
+@import '~params/breakpoints';
+@import '~bower_components/neat/app/assets/stylesheets/neat';
+
+.t__layout-2-col {
+  @include media($tablet) {
+    width: 70%;
+    float: left;
+  }
+}
+
+.main-aside {
+  @include media($tablet) {
+    width: 30%;
+    float: right;
+  }
+}

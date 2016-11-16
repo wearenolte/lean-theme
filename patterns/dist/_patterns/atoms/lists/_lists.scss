@@ -1,0 +1,32 @@
+@import '~params/spaces';
+
+ol, ul {
+  margin: 0 0 0 $space;
+  list-style-position: inside;
+}
+
+ol {
+  list-style-type: decimal;
+
+  ol {
+    list-style-type: lower-latin;
+
+    ol {
+      list-style-type: lower-roman;
+    }
+  }
+}
+
+/* Definition Lists */
+dl {
+  margin: 0 0 $space;
+  overflow: hidden;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}

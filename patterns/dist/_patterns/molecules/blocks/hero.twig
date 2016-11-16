@@ -1,0 +1,37 @@
+<div class="m__hero {{ hero.hero_background.type }}">
+
+    <div class="m__hero__bg">
+
+        {% if "image" == hero.hero_background.type %}
+
+            {% include "atoms/images/hero.twig" with { "img": { "src": hero.hero_background.image } } %}
+
+        {% elseif "images" == hero.hero_background.type %}
+
+            <div class="m__hero__slider" data-flickity='{ "wrapAround": true, "autoPlay": 2500, "contain": true }'>
+                {% for image in hero.hero_background.images %}
+                    <div class="m__hero__slide">
+                        {% include "atoms/images/hero.twig" with { "img": { "src": image.image } } %}
+                    </div>
+                {% endfor %}
+            </div>
+
+        {% else %}
+
+            {% include "atoms/images/hero.twig" with { "img": { "src": "http://placehold.it/1280x720?text=A+Placeholder" } } %}
+
+        {% endif %}
+
+    </div>
+
+    <div class="m__hero__text">
+        {% if "" != hero.hero_headline %}
+            <h1>{{ hero.hero_headline }}</h1>
+        {% endif %}
+
+        {% if "" != hero.hero_tagline %}
+            <h2>{{ hero.hero_tagline }}</h2>
+        {% endif %}
+    </div>
+
+</div>

@@ -1,0 +1,30 @@
+@import '~bower_components/neat/app/assets/stylesheets/neat';
+@import '~params/_colors.scss';
+@import '~params/_breakpoints.scss';
+
+.m__tout {
+  position: relative;
+  max-width: 650px;
+
+  &__text {
+    padding: 10px 15px;
+    color: $tout_text;
+    background-color: $tout_text_bg;
+
+    @include media($mobile_l) {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    @include media($tablet) {
+      padding: 30px 30px 45px 30px;
+    }
+
+    h5 {
+      color: $tout_text;
+      margin-bottom: 0;
+    }
+  }
+}

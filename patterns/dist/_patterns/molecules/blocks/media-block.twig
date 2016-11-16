@@ -1,0 +1,16 @@
+<div class="m__media-block">
+
+    <a href="{{ post.acf.permalink }}">
+
+        {% include "atoms/images/square.twig" with { "img": { "src": post.thumbnail.src } } %}
+
+        <div class="m__media-block__text">
+            <div class="m__media-block__text-inner">
+                <h3>{{ post.post_title }}</h3>
+                <p>{{ post.post_excerpt }}</p>
+            </div>
+        </div>
+
+    </a>
+
+</div>

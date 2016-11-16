@@ -1,0 +1,11 @@
+@import '~params/colors';
+
+a {
+  color: $link;
+  text-decoration: none;
+  outline: 0;
+
+  &:hover, &:focus {
+    color: $link_hover;
+  }
+}

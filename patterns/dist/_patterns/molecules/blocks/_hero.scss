@@ -1,0 +1,56 @@
+@import '~bower_components/bourbon/app/assets/stylesheets/bourbon';
+@import '~bower_components/neat/app/assets/stylesheets/neat';
+@import '~params/_spaces.scss';
+@import '~params/_colors.scss';
+@import '~params/_breakpoints.scss';
+
+.m__hero {
+  position: relative;
+  margin-bottom: $space;
+
+  &__slider {
+    .flickity-page-dots {
+      visibility: hidden;
+
+      @include media($tablet) {
+        visibility: visible;
+      }
+    }
+  }
+
+  &__slide {
+    width: 100%;
+  }
+
+  &__text {
+    padding: 25px 15px;
+    color: $hero_text;
+    background-color: $hero_text_bg;
+
+    @include media($tablet) {
+      position: absolute;
+      bottom: 30px;
+      left: 8%;
+      max-width: 84%;
+      padding: 45px;
+    }
+
+    @include media($desktop) {
+      left: 6%;
+      max-width: 88%;
+    }
+
+    @include media($container) {
+      left: 2.5%;
+      max-width: 860px;
+    }
+
+    h1, h2 {
+      color: $hero_text;
+
+      &:nth-last-child(1) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
