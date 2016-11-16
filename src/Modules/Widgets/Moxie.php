@@ -1,7 +1,6 @@
 <?php namespace LeanNs\Modules\Widgets;
 
 use Lean\Widgets\Models\AbstractWidget;
-use Timber\Timber;
 
 /**
  * Class Moxie
@@ -34,8 +33,6 @@ class Moxie extends AbstractWidget
 			echo esc_html( $instance['title'] );
 			Widgets::esc_widget_wrapper_e( $args['after_title'] );
 		}
-
-		Timber::render( 'molecules/widgets/moxie.twig' );
 
 		Widgets::esc_widget_wrapper_e( $args['after_widget'] );
 	}
