@@ -1,5 +1,5 @@
 {
-  "description": "Starter WordPress theme which works with Pattern Lab",
+  "description": "Starter WordPress theme",
   "devDependencies": {
     "browser-sync": "^2.13.0",
     "gulp": "^3.9.1",
