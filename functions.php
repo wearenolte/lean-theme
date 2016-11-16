@@ -13,5 +13,5 @@ define( 'LEANP_TEXT_DOMAIN', 'lean-text-domain' );
 require_once get_template_directory() . '/vendor/autoload.php';
 
 // Run the theme setup.
-require_once get_template_directory() . '/ThemeSetup.php';
+require_once get_template_directory() . '/Setup.php';
 \LeanNs\ThemeSetup::init();
