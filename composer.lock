@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dafa94a7cc3ba6c27f8b4e92262951d0",
-    "content-hash": "c4d067ee77c1efccf4f431a8154c141b",
+    "hash": "7ef9e5b5c6edf7d84c3d999f9af522b0",
+    "content-hash": "16457abc92c8aecc9e30a15a61c15c94",
     "packages": [
         {
             "name": "moxie-lean/assets",
@@ -53,6 +53,49 @@
                 "wordpress"
             ],
             "time": "2016-10-21 03:02:10"
+        },
+        {
+            "name": "moxie-lean/loader",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moxie-lean/loader.git",
+                "reference": "9290ccc0604091c754b3203bf306ac08912a3bca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moxie-lean/loader/zipball/9290ccc0604091c754b3203bf306ac08912a3bca",
+                "reference": "9290ccc0604091c754b3203bf306ac08912a3bca",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "2.*",
+                "wp-coding-standards/wpcs": "0.9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lean\\": "src/"
+                },
+                "files": [
+                    "./src/config.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Crisoforo Gaspar",
+                    "email": "github@crisoforo.com"
+                }
+            ],
+            "description": "Loader for files in wordpress making things easier instead of using a require",
+            "time": "2016-09-10 00:03:29"
         },
         {
             "name": "moxie-lean/wp-acf",
