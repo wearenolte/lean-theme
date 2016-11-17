@@ -11,12 +11,12 @@ class Assets
 	 * Init.
 	 */
 	public static function init() {
-		add_action( 'after_setup_theme', [ __CLASS__, 'init_assets' ] );
-		add_filter( 'lean_assets_include_jquery', [ __CLASS__, 'include_jquery' ] );
+		/* add_action( 'after_setup_theme', [ __CLASS__, 'init_assets' ] ); */
+		/* add_filter( 'lean_assets_include_jquery', [ __CLASS__, 'include_jquery' ] ); */
 
-		// Remove the following 2 lines if you need to use Gravity Form's JS hooks (jQuery is required).
-		add_filter( 'gform_init_scripts_footer', '__return_true' );
-		add_filter( 'gform_footer_init_scripts_filter', '__return_empty_string' );
+		/* // Remove the following 2 lines if you need to use Gravity Form's JS hooks (jQuery is required). */
+		/* add_filter( 'gform_init_scripts_footer', '__return_true' ); */
+		/* add_filter( 'gform_footer_init_scripts_filter', '__return_empty_string' ); */
 	}
 
 	/**

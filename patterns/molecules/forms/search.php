@@ -1,4 +1,9 @@
-<form action="{{ url }}" method="post" class="inline-form search-form">           
+<?php
+$args = wp_parse_args( $args, [
+	'url' => '',
+]);
+?>
+<form action="<?php echo esc_attr( $args['url'] ); ?>" method="post" class="inline-form search-form">
     <fieldset>
 	    <legend class="is-vishidden">Search</legend>
 	    <label for="search-field" class="is-vishidden">Search</label>

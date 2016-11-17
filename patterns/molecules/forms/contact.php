@@ -1,4 +1,9 @@
-<form method="post" action="{{ url }}" class="comment-form">
+<?php
+$args = wp_parse_args( $args, [
+	'url' => '',
+]);
+?>
+<form method="post" action="<?php echo esc_attr( $args['url'] ); ?>" class="comment-form">
 	<fieldset>
 		<div class="field-container">
 			<label for="comment-name">Name</label>
