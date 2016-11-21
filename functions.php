@@ -16,14 +16,14 @@ require_once get_template_directory() . '/vendor/autoload.php';
 require_once get_template_directory() . '/ThemeSetup.php';
 \LeanNs\ThemeSetup::init();
 
-add_filter( 'loader_directories', function( $directories ){
-  $directories[] = get_template_directory() . '/patterns';
-  return $directories;
+add_filter( 'loader_directories', function( $directories ) {
+	$directories[] = get_template_directory() . '/patterns';
+	return $directories;
 });
 
-add_filter('loader_alias', function( $alias ){
-  $alias['atom'] = 'atoms';
-  $alias['molecule'] = 'molecules';
-  $alias['organism'] = 'organisms';
-  return $alias;
+add_filter('loader_alias', function( $alias ) {
+	$alias['atom'] = 'atoms';
+	$alias['molecule'] = 'molecules';
+	$alias['organism'] = 'organisms';
+	return $alias;
 });
