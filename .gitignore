@@ -1,6 +1,4 @@
 vendor
-node_modules
-bower_components
 patterns/public
 patterns/source/css/style*.css
 patterns/source/css/style*.scss
