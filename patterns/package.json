@@ -1,15 +1,11 @@
 {
   "description": "Starter kit for Pattern Lab",
   "devDependencies": {
-    "bower": "^1.7.9",
-    "css-loader": "^0.23.1",
-    "es6-promise": "^3.3.1",
     "eslint": "^3.4.0",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
     "node-sass": "^3.8.0",
     "sass-lint": "^1.9.1",
-    "sass-loader": "^4.0.0",
-    "style-loader": "^0.13.1",
     "webpack": "^1.13.1"
   },
   "engines": {
@@ -18,8 +14,8 @@
   "private": false,
   "scripts": {
     "install": "bower install",
-    "build": "webpack --config webpack.config.js",
-    "watch": "webpack --watch",
+    "js": "webpack --config webpack.config.js",
+    "watch:js": "webpack --watch",
     "lint": "npm run styles:lint -s && npm run js:lint -s",
     "styles:lint": "sass-lint _patterns/\\*\\*/\\*.scss -v -q",
     "js:lint": "eslint _patterns/\\*\\*/\\*.js && eslint js/main.js"
