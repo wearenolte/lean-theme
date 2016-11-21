@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7ef9e5b5c6edf7d84c3d999f9af522b0",
-    "content-hash": "16457abc92c8aecc9e30a15a61c15c94",
+    "hash": "39cfad48dc5d69c204a604f1285b5450",
+    "content-hash": "193168d7b937fd2f8bcf555ca8fb6e1e",
     "packages": [
         {
             "name": "moxie-lean/assets",
@@ -56,16 +56,16 @@
         },
         {
             "name": "moxie-lean/loader",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moxie-lean/loader.git",
-                "reference": "9290ccc0604091c754b3203bf306ac08912a3bca"
+                "reference": "9d6d56309fe549ebf20bf201c46f4017d58a3d85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moxie-lean/loader/zipball/9290ccc0604091c754b3203bf306ac08912a3bca",
-                "reference": "9290ccc0604091c754b3203bf306ac08912a3bca",
+                "url": "https://api.github.com/repos/moxie-lean/loader/zipball/9d6d56309fe549ebf20bf201c46f4017d58a3d85",
+                "reference": "9d6d56309fe549ebf20bf201c46f4017d58a3d85",
                 "shasum": ""
             },
             "require": {
@@ -95,7 +95,7 @@
                 }
             ],
             "description": "Loader for files in wordpress making things easier instead of using a require",
-            "time": "2016-09-10 00:03:29"
+            "time": "2016-11-21 04:27:07"
         },
         {
             "name": "moxie-lean/wp-acf",
