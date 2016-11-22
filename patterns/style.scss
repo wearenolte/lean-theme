@@ -1,26 +1,3 @@
-@import 'atoms/importable/borders';
-@import 'atoms/importable/breakpoints';
-@import 'atoms/importable/colors';
-@import 'atoms/importable/fonts';
-@import 'atoms/importable/grid-settings';
-@import 'atoms/importable/spaces';
-
-@import 'atoms/global/base/bower';
-@import 'atoms/global/base/global-classes';
-@import 'atoms/global/base/layout';
-@import 'atoms/global/base/reset';
-
-@import 'atoms/global/colors/colors.patternlab';
-
-@import 'atoms/global/fonts/fonts';
-
-@import 'atoms/animations/animation';
-@import 'atoms/hamburger/hamburger';
-@import 'atoms/images/images';
-@import 'atoms/lists/lists';
-@import 'atoms/media/media';
-@import 'atoms/text/blockquote/blockquote';
-@import 'atoms/text/headings/headings';
-@import 'atoms/text/hr/hr';
-@import 'atoms/text/inline-elements/links';
-@import 'atoms/text/paragraph/paragraph';
+@import 'atoms/style';
+@import 'molecules/style';
+@import 'organisms/style';
