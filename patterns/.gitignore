@@ -3,3 +3,4 @@ node_modules
 npm-debug.log*
 static/css/style.css
 static/js/bundle.js
+static/maps
