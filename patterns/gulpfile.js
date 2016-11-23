@@ -9,6 +9,7 @@ const cssnano = require('gulp-cssnano');
 const autoprefixer = require('gulp-autoprefixer');
 // Execute gulp commands in sequence, one after the the other.
 const runSequence = require('run-sequence');
+const eslint = require( 'gulp-eslint');
 
 // List of tasks see each function for more details about each.
 gulp.task( 'styles', styles );
@@ -17,7 +18,11 @@ gulp.task( 'styles:build', build );
 gulp.task( 'styles:prefix', stylesPrefix );
 gulp.task( 'styles:minify', stylesMinify );
 gulp.task( 'styles:watch', stylesWatch );
+gulp.task( 'js:lint', jsLint );
 
+// General Configurations
+// Directories where JS and SCSS is placed.
+const appDirectories = [ 'atoms', 'molecules', 'templates' ];
 // CSS configuration values.
 const sassEntryFile = './style.scss';
 const cssDestination = './static/css';
@@ -25,7 +30,6 @@ const cssGeneratedFile = './static/css/style.css';
 // Browser where prefixers required to be added.
 const supportedBrowsers = ['Explorer >= 11', 'iOS >= 7', 'Safari >= 9'];
 // Where the sass files are located, used to watch changes on these directories.
-const sassDirectories = [ 'atoms', 'molecules', 'templates' ];
 const sourceMapsDirectories = './../maps';
 
 /**
@@ -93,7 +97,22 @@ function stylesPrefix() {
 function stylesWatch() {
   const files = [
     sassEntryFile,
-    './{' + sassDirectories.join( ',' ) + '}/**/*.scss',
+    './{' + appDirectories.join( ',' ) + '}/**/*.scss',
   ];
   gulp.watch( files, ['styles'] );
+}
+
+/**
+ * Function used to lint on the JS files, using the rules specified on
+ * .eslintrc.json.
+ */
+function jsLint() {
+  const jsFiles = [
+    './main.js',
+    './{' + appDirectories.join( ',' ) + '}/**/*.js',
+  ];
+  return gulp.src( jsFiles )
+    .pipe( eslint() )
+    .pipe( eslint.format() )
+    .pipe( eslint.failOnError() );
 }
