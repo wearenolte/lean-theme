@@ -4,6 +4,9 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass' );
 const sourcemaps = require('gulp-sourcemaps');
+const gutil = require('gulp-uti');
+const webpack = require('webpack');
+const webpackConfig = require( './webpack.config.js' );
 // Used to minify the CSS
 const cssnano = require('gulp-cssnano');
 const autoprefixer = require('gulp-autoprefixer');
@@ -19,8 +22,12 @@ gulp.task( 'styles:build', build );
 gulp.task( 'styles:prefix', stylesPrefix );
 gulp.task( 'styles:minify', stylesMinify );
 gulp.task( 'styles:watch', stylesWatch );
+// Linter tasks
 gulp.task( 'lint', ['styles:lint', 'js:lint'] );
 gulp.task( 'styles:lint', stylesLint );
+// JS Tasks
+gulp.task( 'js', js );
+gulp.task( 'js:dev', js );
 gulp.task( 'js:lint', jsLint );
 
 // General Configurations
@@ -130,4 +137,10 @@ function jsLint() {
     .pipe( eslint() )
     .pipe( eslint.format() )
     .pipe( eslint.failOnError() );
+}
+
+var myDevConfig = Object.create(webpackConfig);
+myDevConfig.devtool = "sourcemap";
+myDevConfig.debug = true;
+function js() {
 }
