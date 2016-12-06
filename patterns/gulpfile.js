@@ -181,7 +181,20 @@ function jsBuild() {
       }
     })
   ];
-  let options = Object.assign( webpackConfig, { plugins });
+  let loaders = [{
+    test: /\.js$/,
+    exclude: /node_modules/,
+    loader: "babel-loader",
+    query: {
+      presets: ['es2015']
+    },
+  }];
+  let options = Object.assign( webpackConfig, {
+    plugins,
+    module: {
+      loaders,
+    }
+  });
   return jsTask( options );
 }
 
