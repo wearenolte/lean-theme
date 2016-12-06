@@ -29,6 +29,9 @@
     "post-install-cmd": [
       "@set-up-php-lint"
     ],
+    "post-update-cmd": [
+      "@set-up-php-lint"
+    ],
     "set-up-php-lint": [
       "./vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
       "./vendor/bin/phpcs --config-set default_standard ./codesniffer.ruleset.xml",
