@@ -1,4 +1,4 @@
-<?php namespace LeanNs;
+<?php use LeanNs\ThemeSetup;
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
@@ -14,4 +14,4 @@ require_once get_template_directory() . '/vendor/autoload.php';
 
 // Run the theme setup.
 require_once get_template_directory() . '/Setup.php';
-\LeanNs\ThemeSetup::init();
+ThemeSetup::init();

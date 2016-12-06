@@ -1,4 +1,4 @@
-<?php namespace LeanNs;
+<?php
 /**
  * The main header file.
  *
@@ -22,7 +22,7 @@
 <body <?php body_class(); ?>>
 
 <?php
-// @codingStandardsIgnoreStart - We don't want to escape this field as we expect JavaScript.
-echo \Lean\Acf::get_option_field( 'general_options_google_tag_manager' )
-// @codingStandardsIgnoreEnd
+if ( function_exists( 'the_field' ) ) {
+	the_field( 'general_options_google_tag_manager', 'option' );
+}
 ?>
