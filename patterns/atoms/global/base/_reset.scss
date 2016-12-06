@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+
+/* Border-Box http:/paulirish.com/2012/box-sizing-border-box-ftw/ */
+* {
+  box-sizing: border-box;
+}
+
+html, body, div, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, ol, ul, li, form, legend, label, table, header, footer, nav, section, figure, button {
+  margin: 0;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+header, footer, nav, section, article, hgroup, figure {
+  display: block;
+}

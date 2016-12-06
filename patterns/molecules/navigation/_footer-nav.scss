@@ -1,0 +1,27 @@
+@import '~params/spaces';
+@import '~params/colors';
+
+.m__footer-nav {
+  overflow: hidden;
+
+  li {
+    display: inline-block;
+    padding: $pad;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  a {
+    color: $nav_link;
+
+    &:hover {
+      color: $nav_hover;
+    }
+  }
+}

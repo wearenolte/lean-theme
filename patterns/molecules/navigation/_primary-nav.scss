@@ -1,0 +1,65 @@
+@import '~bower_components/bourbon/app/assets/stylesheets/bourbon';
+@import '~bower_components/neat/app/assets/stylesheets/neat';
+@import '~params/spaces';
+@import '~params/breakpoints';
+@import '~params/colors';
+
+.m__primary-nav {
+  overflow: hidden;
+
+  .a__hamburger {
+    @include media($tablet) {
+      display: none;
+    }
+  }
+
+  ul {
+    @include padding(50px null null null);
+    @include animation(bounceOutLeft 1.25s both);
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    list-style: none;
+    border: 1px solid;
+    border-right: none;
+    background-color: white;
+    text-align: center;
+    min-width: 200px;
+
+    &.is-active {
+      @include animation(bounceInRight 0.95s both);
+    }
+
+    @include media($tablet) {
+      position: static;
+      border: none;
+      padding: 0;
+      text-align: right;
+      visibility: visible;
+      animation: none;
+    }
+
+    li {
+      padding: $pad;
+      text-transform: uppercase;
+
+      @include media($tablet) {
+        display: inline-block;
+        border-top: none;
+      }
+    }
+  }
+
+  a {
+    color: $nav_link;
+
+    &:hover {
+      color: $nav_hover;
+    }
+  }
+
+  &.active {
+    max-height: 40em;
+  }
+}

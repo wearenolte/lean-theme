@@ -1,0 +1,51 @@
+@import '~params/colors';
+@import '~params/spaces';
+@import '~bower_components/fontSize.scss/font-size';
+
+h1 {
+  @include fontSize(64px);
+  font-weight: bold;
+  line-height: .8;
+  color: $headings;
+  margin-bottom: $space-half;
+}
+
+h2 {
+  @include fontSize(48px);
+  font-weight: bold;
+  line-height: 1;
+  color: $headings;
+  margin-bottom: $space-half;
+}
+
+h3 {
+  @include fontSize(40px);
+  font-weight: bold;
+  line-height: 1.2;
+  color: $headings;
+  margin-bottom: $space-half;
+}
+
+h4 {
+  @include fontSize(36px);
+  font-weight: bold;
+  line-height: 1.3;
+  color: $headings;
+  margin-bottom: $space-half;
+}
+
+h5 {
+  @include fontSize(32px);
+  font-weight: bold;
+  line-height: 1.5;
+  color: $headings;
+  margin-bottom: $space-half;
+}
+
+h6 {
+  @include fontSize(24px);
+  font-weight: bold;
+  line-height: 2;
+  color: $headings;
+  margin-bottom: $space-half;
+}

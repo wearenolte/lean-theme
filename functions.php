@@ -13,5 +13,17 @@ define( 'LEANP_TEXT_DOMAIN', 'lean-text-domain' );
 require_once get_template_directory() . '/vendor/autoload.php';
 
 // Run the theme setup.
+add_filter( 'loader_directories', function( $directories ) {
+	$directories[] = get_template_directory() . '/patterns';
+	return $directories;
+});
+
+add_filter('loader_alias', function( $alias ) {
+	$alias['atom'] = 'atoms';
+	$alias['molecule'] = 'molecules';
+	$alias['organism'] = 'organisms';
+	return $alias;
+});
+
 require_once get_template_directory() . '/Setup.php';
 ThemeSetup::init();

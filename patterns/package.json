@@ -1,0 +1,31 @@
+{
+  "description": "Starter kit for Pattern Lab",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "css-loader": "^0.23.1",
+    "es6-promise": "^3.3.1",
+    "eslint": "^3.4.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "node-sass": "^3.8.0",
+    "sass-lint": "^1.9.1",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "private": false,
+  "scripts": {
+    "install": "bower install",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --watch",
+    "lint": "npm run styles:lint -s && npm run js:lint -s",
+    "styles:lint": "sass-lint _patterns/\\*\\*/\\*.scss -v -q",
+    "js:lint": "eslint _patterns/\\*\\*/\\*.js && eslint js/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moxie-lean/patternlab-starterkit-twig"
+  }
+}

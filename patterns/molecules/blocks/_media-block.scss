@@ -1,0 +1,39 @@
+@import '~bower_components/neat/app/assets/stylesheets/neat';
+@import '~params/_colors.scss';
+@import '~params/_breakpoints.scss';
+
+.m__media-block {
+  p {
+    color: $text;
+  }
+
+  @include media($mobile_l) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  img {
+    @include media($mobile_l) {
+      width: 25%;
+    }
+
+    @include media($tablet) {
+      width: 21%;
+    }
+  }
+
+  &__text {
+    @include media($mobile_l) {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      float: right;
+      width: 70%;
+      height: 100%;
+    }
+
+    @include media($tablet) {
+      width: 74%;
+    }
+  }
+}

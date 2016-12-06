@@ -1,0 +1,10 @@
+@import '~params/colors';
+
+body {
+  background: $background;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+}

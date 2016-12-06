@@ -1,0 +1,10 @@
+@import '~params/colors';
+@import '~params/spaces';
+
+blockquote {
+  font-style: italic;
+  border-left: 1px solid $blockquote_text;
+  color: $blockquote_text;
+  padding-left: $pad;
+  margin-bottom: $space;
+}
