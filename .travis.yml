@@ -19,7 +19,7 @@ before_script:
 
 cache:
   directories:
-    - $HOME/vendor
+  - $HOME/vendor
   - $HOME/patterns/node_modules
 
 script:
