@@ -16,14 +16,12 @@ before_install:
   - nvm use $NODE_RELEASE
 
 before_script:
-  - ls -la
-  - ls -la $HOME
   - composer install -n
 
 cache:
   directories:
-  - $HOME/vendor
-  - $HOME/patterns/node_modules
+  - vendor
+  - patterns/node_modules
 
 script:
   - composer lint
