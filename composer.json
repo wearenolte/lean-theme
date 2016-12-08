@@ -48,7 +48,7 @@
       "@patterns-lint"
     ],
     "patterns-lint": [
-      "cd patterns && pwd && gulp lint"
+      "cd patterns && gulp lint"
     ]
   }
 }

@@ -2,21 +2,6 @@
     $GLOBAL CLASSES
 \*------------------------------------*/
 
-/* Clearfix */
-.cf {
-  *zoom: 1;
-}
-
-.cf:before,
-.cf:after {
-  display: table; /* 2 */
-  content: ' '; /* 1 */
-}
-
-.cf:after {
-  clear: both;
-}
-
 /* Completely remove from the flow and screen readers. */
 .is-hidden {
   display: none !important;
