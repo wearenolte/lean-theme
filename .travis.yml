@@ -4,13 +4,12 @@ php:
   - 5.6
 
 before_script:
-  - composer self-update -n
-  - composer install
-  - composer update -n
+  - composer install -n
 
 cache:
   directories:
   - vendor
+  - patterns/node_modules
 
 script:
   - composer lint
