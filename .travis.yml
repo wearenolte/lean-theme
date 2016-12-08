@@ -17,6 +17,7 @@ before_install:
 
 before_script:
   - ls -la
+  - ls -la $HOME
   - composer install -n
 
 cache:
