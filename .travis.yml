@@ -15,6 +15,7 @@ before_install:
   - nvm use $NODE_RELEASE
 
 before_script:
+  - cd $HOME
   - composer install -n
 
 cache:
