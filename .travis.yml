@@ -3,13 +3,24 @@ sudo: false
 php:
   - 5.6
 
+env:
+  - NODE_RELEASE=6.x
+
+before_install:
+  - rm -rf ~/.nvm
+  - git clone https://github.com/creationix/nvm.git ~/.nvm
+  - cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
+  - source ~/.nvm/nvm.sh
+  - nvm install $NODE_RELEASE
+  - nvm use $NODE_RELEASE
+
 before_script:
   - composer install -n
 
 cache:
   directories:
-  - vendor
-  - patterns/node_modules
+    - $HOME/vendor
+  - $HOME/patterns/node_modules
 
 script:
   - composer lint
