@@ -38,7 +38,7 @@
       }
     ],
     "keyword-spacing": 2,
-    "strict": [ 2, "global" ],
+    "strict": [ 0, "global" ],
     "complexity": [ 2, 10 ],
     "max-depth": [2, 4],
     "max-len": [1, 120, 4],
@@ -86,7 +86,8 @@
     "amd": true
   },
   "globals": {
-    "angular": 1
+    "angular": true,
+    "_gaq": true
   },
   "extends": "eslint:recommended",
   "ecmaFeatures": {
