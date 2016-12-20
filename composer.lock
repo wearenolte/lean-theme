@@ -131,11 +131,11 @@
             "authors": [
                 {
                     "name": "Adam Fenton",
-                    "email": "devs@getmoxied.net"
+                    "email": "devs@wearenolte.com"
                 },
                 {
                     "name": "Crisoforo Gaspar",
-                    "email": "devs@getmoxied.net"
+                    "email": "devs@wearenolte.com"
                 }
             ],
             "description": "Helper functions for working with Advanced Custom Fields",
@@ -226,7 +226,7 @@
             "authors": [
                 {
                     "name": "Adam Fenton",
-                    "email": "devs@getmoxied.net"
+                    "email": "devs@wearenolte.com"
                 }
             ],
             "description": "A way of registering page templates from a plugin",
@@ -271,7 +271,7 @@
             "authors": [
                 {
                     "name": "Adam Fenton",
-                    "email": "devs@getmoxied.net"
+                    "email": "devs@wearenolte.com"
                 }
             ],
             "description": "Control the WP widgets whilst using WP in as a headless CMS.",
