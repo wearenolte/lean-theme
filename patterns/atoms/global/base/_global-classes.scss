@@ -3,47 +3,35 @@
 \*------------------------------------*/
 
 /* Completely remove from the flow and screen readers. */
-.is-hidden {
+.hidden {
   display: none !important;
   visibility: hidden !important;
 }
 
-/* Completely remove from the flow but leave available to screen readers. */
-.is-vishidden {
-  position: absolute !important;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
+/**
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ * @source https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L128
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+.visuallyhidden {
+  margin: -1px;
   border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap; /* 1 */
 }
 
-/* Floats */
-.right {
-  float: right;
-  padding: 0 0 $pad $pad;
-}
-
-.right-search {
-  float: right;
-  padding: 0 0 $pad 0;
-}
-
-.left {
-  float: left;
-  padding: 0 $pad $pad 0;
-}
-
-/* Text-Align */
-.align-right {
-  text-align: right;
-}
-
-.align-center {
-  text-align: center;
-}
-
-.align-left {
-  text-align: left;
+/**
+ * Hide visually and from screen readers, but maintain layout
+ */
+.invisible {
+  visibility: hidden;
 }
