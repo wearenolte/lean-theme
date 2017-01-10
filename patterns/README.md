@@ -8,17 +8,32 @@ different tasks using `gulp` as the main command inside of this directory.
 
 # Tasks
 
-## `gulp lint`
-## `gulp watch`
-## `gulp styles`
-## `gulp styles:dev`
-## `gulp styles:build`
-## `gulp styles:prefix`
-## `gulp styles:minify`
-## `gulp styles:watch`
-## `gulp styles:lint`
-## `gulp js`
-## `gulp js:dev`
-## `gulp js:build`
-## `gulp js:watch`
-## `gulp js:lint`
+### `gulp lint`
+### `gulp watch`
+### `gulp styles`
+### `gulp styles:dev`
+### `gulp styles:build`
+### `gulp styles:prefix`
+### `gulp styles:minify`
+### `gulp styles:watch`
+### `gulp styles:lint`
+### `gulp js`
+### `gulp js:dev`
+### `gulp js:build`
+### `gulp js:watch`
+### `gulp js:lint`
+
+### `gulp icons`
+
+This tasks looks all `.svg` files located into `static/icons` and creates a new
+sprite file named `icons.svg` in the same directory, `icons.svg` is a sprite
+with all the icons that can be used on the site.
+
+Each icon can be used such as: 
+
+```
+<?php use_icon( 'icon-file-name', 'optional-class-name' ); ?>
+```
+
+For more information about the usage of this helper function please take 
+a look here.
