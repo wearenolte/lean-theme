@@ -1,5 +1,2 @@
 vendor
-patterns/public
-patterns/source/css/style*.css
-patterns/source/css/style*.scss
 .DS_Store
