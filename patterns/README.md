@@ -36,7 +36,7 @@ Each icon can be used such as:
 ```
 
 For more information about the usage of this helper function please take 
-a look here.
+a [look here](https://github.com/moxie-lean/lean-theme/#use_icon).
 
 ## FAQs
 
@@ -54,4 +54,4 @@ To render an icon just use
 ```
 
 For more information about the usage of this helper function please take 
-a look here.
+a [look here](https://github.com/moxie-lean/lean-theme/#use_icon).
