@@ -15,7 +15,6 @@ const sassLint = require('gulp-sass-lint');
 const runSequence = require('run-sequence');
 const eslint = require( 'gulp-eslint');
 const svgstore = require( 'gulp-svgstore' );
-const svgmin = require('gulp-svgmin');
 const path = require('path');
 
 // List of tasks see each function for more details about each.
