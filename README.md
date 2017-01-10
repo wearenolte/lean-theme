@@ -34,3 +34,17 @@ the ACF Groups into the `acf` directory located on the theme.
 
 By default is set to `true`, with this filter you can remove the automatic 
 save of ACF Fields into the `lean/acf_path`.
+
+# Helper functions
+
+### use_icon
+
+This function renders a new icon from the sprite set.
+
+**Parameters**
+
+- id: the file name of the icon for example if you have a file 
+`patterns/static/icons/facebook.svg` the `id` of the icon is `facebook`.
+- class_name: The `class_name` attribute is an optional parameter that can be 
+used to add a custom class to the specifc instance of the icon if a different 
+style is required.
