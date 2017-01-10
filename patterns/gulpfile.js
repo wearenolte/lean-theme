@@ -31,6 +31,7 @@ gulp.task( 'js:dev', js );
 gulp.task( 'js:build', jsBuild );
 gulp.task( 'js:watch', jsWatch );
 gulp.task( 'js:lint', jsLint );
+gulp.task( 'watch', ['js:watch', 'styles:watch'] );
 
 // General Configurations
 // Directories where JS and SCSS is placed.
