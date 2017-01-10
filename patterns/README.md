@@ -31,9 +31,22 @@ with all the icons that can be used on the site.
 
 Each icon can be used such as: 
 
-```
+```php
 <?php use_icon( 'icon-file-name', 'optional-class-name' ); ?>
 ```
 
 For more information about the usage of this helper function please take 
 a look here.
+
+## FAQs
+
+### How to add new icons to be used on the site? 
+
+Just take all your `.svg` files and place them into `static/icons` then just
+run [`gulp icons`](#gulp-icons).
+
+To render the icon just use
+
+```php
+<?php use_icon( 'icon-file-name', 'optional-class-name' ); ?>
+```
