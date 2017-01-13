@@ -11,18 +11,18 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 
-<?php
-if ( function_exists( 'the_field' ) ) {
-	the_field( 'general_options_google_tag_manager', 'option' );
-}
-?>
+<?php do_action( 'lean/before_header' ); ?>
+<header role="banner" itemscope itemtype="http://schema.org/WPHeader">
+	<h1 itemprop="headline">
+		<?php echo esc_html( bloginfo( 'name' ) ); ?>
+	</h1>
+</header>
+<?php do_action( 'lean/after_header' ); ?>

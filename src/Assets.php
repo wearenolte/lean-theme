@@ -24,9 +24,9 @@ class Assets
 	 */
 	public static function init_assets() {
 		$assets = new \Lean\Assets( [
-			'css_uri' => get_template_directory_uri() . '/patterns/source/css/style.css',
+			'css_uri' => get_template_directory_uri() . '/patterns/static/css/style.css',
 			'css_version' => time(),
-			'js_uri' => get_template_directory_uri() . '/xxx/script.js',
+			'js_uri' => get_template_directory_uri() . '/patterns/static/js/main.js',
 			'js_version' => time(),
 			'jquery_uri' => '//code.jquery.com/jquery-2.2.4.min.js',
 			'jquery_version' => '2.2.4',

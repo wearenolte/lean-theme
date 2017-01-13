@@ -14,6 +14,8 @@ const sassLint = require('gulp-sass-lint');
 // Execute gulp commands in sequence, one after the the other.
 const runSequence = require('run-sequence');
 const eslint = require( 'gulp-eslint');
+const svgstore = require( 'gulp-svgstore' );
+const path = require('path');
 
 // List of tasks see each function for more details about each.
 gulp.task( 'styles', styles );
@@ -31,6 +33,8 @@ gulp.task( 'js:dev', js );
 gulp.task( 'js:build', jsBuild );
 gulp.task( 'js:watch', jsWatch );
 gulp.task( 'js:lint', jsLint );
+gulp.task( 'watch', ['js:watch', 'styles:watch'] );
+gulp.task( 'icons', icons );
 
 // General Configurations
 // Directories where JS and SCSS is placed.
@@ -218,4 +222,11 @@ const log = {
   success(msg) {
     gutil.log( gutil.colors.green( msg ) );
   }
+}
+
+function icons() {
+  return gulp
+    .src( [ 'static/icons/*.svg', '!static/icons/icons.svg' ] )
+    .pipe( svgstore() )
+    .pipe( gulp.dest( 'static/icons' ) );
 }

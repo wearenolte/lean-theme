@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "57a61c5bd708d28706af15022d741efe",
+    "hash": "548b103809ab4052aa41f1f1209fab6b",
     "content-hash": "193168d7b937fd2f8bcf555ca8fb6e1e",
     "packages": [
         {
@@ -131,11 +131,11 @@
             "authors": [
                 {
                     "name": "Adam Fenton",
-                    "email": "devs@wearenolte.com"
+                    "email": "devs@getmoxied.net"
                 },
                 {
                     "name": "Crisoforo Gaspar",
-                    "email": "devs@wearenolte.com"
+                    "email": "devs@getmoxied.net"
                 }
             ],
             "description": "Helper functions for working with Advanced Custom Fields",
@@ -226,7 +226,7 @@
             "authors": [
                 {
                     "name": "Adam Fenton",
-                    "email": "devs@wearenolte.com"
+                    "email": "devs@getmoxied.net"
                 }
             ],
             "description": "A way of registering page templates from a plugin",
@@ -271,7 +271,7 @@
             "authors": [
                 {
                     "name": "Adam Fenton",
-                    "email": "devs@wearenolte.com"
+                    "email": "devs@getmoxied.net"
                 }
             ],
             "description": "Control the WP widgets whilst using WP in as a headless CMS.",

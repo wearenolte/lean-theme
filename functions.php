@@ -27,3 +27,59 @@ add_filter('loader_alias', function( $alias ) {
 
 require_once get_template_directory() . '/Setup.php';
 ThemeSetup::init();
+
+/**
+ * Use an icon from an icon sprite.
+ *
+ * @param string $id The ID of the icon.
+ * @param string $class_name The name of the class to be used for the icon.
+ */
+function use_icon( $id = '', $class_name = '' ) {
+?>
+	<svg class="<?php echo esc_attr( $class_name ); ?>">
+		<use xlink:href="#<?php echo esc_attr( $id ); ?>" />
+	</svg>
+<?php
+}
+
+/**
+ * Function used to render custom tags from the admin into the site just after
+ * the <body> tag.
+ */
+add_action( 'lean/before_header', function() {
+	if ( function_exists( 'the_field' ) ) {
+		the_field( 'general_options_google_tag_manager', 'option' );
+	}
+});
+
+/**
+ * Hook applied to before the header to load the sprite with the icons before
+ * loading the sprite makes sure the file is present to prevent any error to
+ * happen.
+ */
+add_action( 'lean/before_header', function(){
+	$icon_path = './patterns/static/icons/icons.svg';
+	$sprite = get_theme_file_path( $icon_path );
+	$content = file_exists( $sprite ) ? file_get_contents( $sprite ) : false;
+	if ( $content ) {
+		// @codingStandardsIgnoreStart
+		printf( '<div class="visuallyhidden">%s</div>', $content );
+		 // @codingStandardsIgnoreEnd
+	}
+});
+
+/**
+ * Hook applied to before the header to load the sprite with the icons before
+ * loading the sprite makes sure the file is present to prevent any error to
+ * happen, The sprite is visually hidden but is still visible to screen readers.
+ */
+add_action( 'lean/before_header', function(){
+	$icon_path = './patterns/static/icons/icons.svg';
+	$sprite = get_theme_file_path( $icon_path );
+	$content = file_exists( $sprite ) ? file_get_contents( $sprite ) : false;
+	if ( $content ) {
+		// @codingStandardsIgnoreStart
+		printf( '<div class="visuallyhidden">%s</div>', $content );
+		 // @codingStandardsIgnoreEnd
+	}
+});
