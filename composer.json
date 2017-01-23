@@ -5,6 +5,7 @@
   "require": {
     "moxie-lean/wp-cpt": "^1.0",
     "moxie-lean/assets": "^2.0",
+    "moxie-lean/wp-widgets": "^1.0",
     "moxie-lean/loader": "^1.1"
   },
   "require-dev": {
