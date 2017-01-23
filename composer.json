@@ -3,16 +3,13 @@
   "description": "Barebones modular WordPress theme",
   "type": "wordpress-theme",
   "require": {
-    "moxie-lean/wp-acf": "^1.1",
-    "moxie-lean/wp-widgets": "^1.0",
-    "moxie-lean/wp-page-templates": "^1.0",
     "moxie-lean/wp-cpt": "^1.0",
     "moxie-lean/assets": "^2.0",
     "moxie-lean/loader": "^1.1"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.0",
-    "wp-coding-standards/wpcs": "0.9.0"
+    "wp-coding-standards/wpcs": "0.*"
   },
   "authors": [
     {
@@ -52,9 +49,6 @@
     ],
     "lint": [
       "phpcs *.php src/*.php **/*.php src/**/**/*.php --ignore=vendor",
-      "@patterns-lint"
-    ],
-    "patterns-lint": [
       "cd patterns && gulp lint"
     ]
   }
