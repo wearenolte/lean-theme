@@ -1,5 +1,7 @@
 # Patterns
 
+The directories are organized following the [atomic design](http://bradfrost.com/blog/post/atomic-web-design/#atoms) philosophy so every UI element might be part of a template, organisms, molecule or atom.
+
 This directory contains all the assets required to create the site and here
 is where mostly all of your code should be placed.  
 
@@ -73,7 +75,7 @@ transform: translate(100px) rotate(20deg);
 transform: translate(100px) rotate(20deg);
 ```
 
-The supported browsers are specified on [`supportedBrowsers` inside of the `gulpfile.js`](https://github.com/moxie-lean/lean-theme/blob/markup/patterns/gulpfile.js#L53), [more
+The supported browsers are specified on `supportedBrowsers` [inside of the `gulpfile.js`](https://github.com/moxie-lean/lean-theme/blob/markup/patterns/gulpfile.js#L53), [more
 details about how to specify the queries](https://github.com/ai/browserslist#queries).
 
 ### `gulp styles:minify`
@@ -87,7 +89,7 @@ Keeps track of changes on the `.scss` files and on every change run [`gulp style
 
 ### `gulp styles:lint`
 
-Linter for the `.scss` files the rules are specified on `.sass-lint.json`.
+Linter for the `.scss` files the rules are specified on [`.sass-lint.json`](.sass-lint.json).
 
 ### `gulp js`
 
@@ -117,7 +119,7 @@ it manually after every change is made on the site.
 With this task you can run the linter for JS the file review all the: atoms, molecules, organisms
 and templates directories to make sure we follow the same code standard in those sections.
 
-The rules of the linter are specified on the hidden file `.eslintrc.json`
+The rules of the linter are specified on the hidden file [`.eslintrc.json`](.eslintrc.json)
 
 ### `gulp icons`
 
