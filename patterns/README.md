@@ -1,5 +1,7 @@
 # Patterns
 
+The directories are organized following the [atomic design](http://bradfrost.com/blog/post/atomic-web-design/#atoms) philosophy so every UI element might be part of a template, organisms, molecule or atom.
+
 This directory contains all the assets required to create the site and here
 is where mostly all of your code should be placed.  
 
