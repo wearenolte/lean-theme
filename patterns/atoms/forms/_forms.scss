@@ -1,9 +1,8 @@
-@import '~params/spaces';
-@import '~params/colors';
-
-form ol, form ul {
-  list-style: none;
-  margin-left: 0;
+form {
+  ol, ul {
+    list-style: none;
+    margin-left: 0;
+  }
 }
 
 fieldset {
@@ -29,7 +28,11 @@ input, textarea {
   padding: $pad-half 0.65rem;
 }
 
-input[type=text], input[type=search], input[type=url], input[type=number], textarea {
+input[type=text],
+input[type=search],
+input[type=url],
+input[type=number],
+textarea {
   -webkit-appearance: none;
 }
 
