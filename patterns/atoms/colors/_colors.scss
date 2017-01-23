@@ -1,0 +1,123 @@
+
+/*************************************************************************
+/* COLOR DEFINITIONS
+/*
+/* Put color names here
+/* Do not use these variables anywhere else except this file!
+/* The should all start with $_
+/*************************************************************************/
+
+// Brand Colors (don't change the variable names)
+$_brand_primary: #0177C1;
+$_brand_secondary: #1397E1;
+$_brand_tertiary: #1CB3FF;
+
+// Neutral Colors (use the color name from Zeplin or http://www.color-hex.com/ as the variable name)
+$_black: #000000;
+$_white: #FFFFFF;
+$_gray_24: #3D3D3D;
+$_gray_mid: #686C71;
+$_white_smoke: #F8F8F8;
+
+// Utility Colors (don't change the variable names, but you can add/delete if needed)
+$_error: #E20D0D;
+$_positive: #2DCC70;
+$_neutral: #1397E1;
+
+// Overlay Colors (use the color name from Zeplin or http://www.color-hex.com/ as the variable name)
+$_overlay_dark: rgba(#2B2B2B, .85);
+$_overlay_light: rgba(#414141, .65);
+
+/*************************************************************************
+/* COLOR USAGES
+/*
+/* Put color usages here and assign them a color from above
+/* You can use these variables anywhere else
+/*************************************************************************/
+
+// Defaults
+$text: $_gray_24;
+$headings: $_black;
+$heading: $_gray_24;
+$background: $_white;
+$opposite_bg: $_gray_24;
+$caption_text: $_gray_mid;
+
+// Blockquote
+$blockquote_text: $_gray_mid;
+
+// HR
+$hr: $_gray_mid;
+
+// Header
+$header_bg: $_white;
+$header_text: $text;
+$header_border: $_gray_mid;
+
+// Footer
+$footer_bg: $_white;
+$footer_text: $text;
+$footer_border: $_gray_mid;
+
+// Menu
+$menu_item: $text;
+$menu_item_current: $_black;
+$menu_hamburger: $_brand_primary;
+
+// Links
+$link: $_brand_primary;
+$link_hover: $_brand_secondary;
+
+// Nav
+$nav_link: $_brand_tertiary;
+$nav_hover: $_brand_secondary;
+$pagination_active: $nav_link;
+$pagination_inactive: $_gray_mid;
+$pagination_hover: $nav_hover;
+$pagination_separator: $pagination_inactive;
+
+// Button: Primary
+$button_primary_text: $_white;
+$button_primary_bg: $_brand_secondary;
+$button_primary_text_hover: $_white;
+$button_primary_bg_hover: $_brand_tertiary;
+$button_primary_text_active: $_white;
+$button_primary_bg_active: $_brand_primary;
+$button_primary_text_disabled: $_white;
+$button_primary_bg_disabled: $_gray_mid;
+
+// Button: Secondary
+$button_secondary: $_brand_secondary;
+$button_secondary_hover: $_brand_tertiary;
+$button_secondary_active: $_brand_primary;
+$button_secondary_disabled: $_gray_mid;
+
+// Button: Tertiary
+$button_tertiary_text: $_white;
+$button_tertiary_hover: $_gray_mid;
+$button_tertiary_active: $_gray_mid;
+$button_tertiary_disabled: $_gray_mid;
+
+// Button: Text
+$button_text: $_brand_secondary;
+$button_text_hover: $_brand_tertiary;
+$button_text_active: $_brand_primary;
+$button_text_disabled: $_gray_mid;
+
+// Forms
+$form_error: $_error;
+$form_feedback: $_neutral;
+$form_success: $_positive;
+$form_input_border: $_gray_mid;
+
+// Images
+$img_avatar_bg: $_white_smoke;
+
+// Hero
+$hero_text: $_white;
+$hero_text_bg: $_overlay_dark;
+$hero_no_image_bg: $_brand_primary;
+
+// Tout
+$tout_text: $_white;
+$tout_text_bg: $_overlay_dark;
