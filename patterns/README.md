@@ -89,7 +89,7 @@ Keeps track of changes on the `.scss` files and on every change run [`gulp style
 
 ### `gulp styles:lint`
 
-Linter for the `.scss` files the rules are specified on `.sass-lint.json`.
+Linter for the `.scss` files the rules are specified on [`.sass-lint.json`](.sass-lint.json).
 
 ### `gulp js`
 
@@ -119,7 +119,7 @@ it manually after every change is made on the site.
 With this task you can run the linter for JS the file review all the: atoms, molecules, organisms
 and templates directories to make sure we follow the same code standard in those sections.
 
-The rules of the linter are specified on the hidden file `.eslintrc.json`
+The rules of the linter are specified on the hidden file [`.eslintrc.json`](.eslintrc.json)
 
 ### `gulp icons`
 
