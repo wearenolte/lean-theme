@@ -10,16 +10,21 @@ different tasks using `gulp` as the main command inside of this directory.
 
 ### `gulp build`
 
-Task used to build the assets ready for production, which means comments removed
-and files in minified version, such as CSS and JS.
+This tak run: [gulp styles:build](#gulp-stylesbuild) and [gulp js:build](#gulp-jsbuild)
 
 ### `gulp lint`
 
-Task used to run the linters for JS, CSS and SCSS so you can keep track of following
-the same convention across the project.
+This taks run [gulp styles:lint](#gulp-styleslint) and [gulp js:lint](#gulp-jslint)
 
 ### `gulp watch`
+
+This taks run [gulp styles:watch](#gulp-styleswatch) and [gulp js:watch](#gulp-jswatch)
+
 ### `gulp styles`
+
+Creates a CSS version from the  `style.scss` file with a source maps avaiable so debug the styles
+are more easily.
+
 ### `gulp styles:dev`
 ### `gulp styles:build`
 ### `gulp styles:prefix`
@@ -80,6 +85,11 @@ To render an icon just use
 ```php
 <?php use_icon( 'icon-file-name', 'optional-class-name' ); ?>
 ```
+
+### What's a source map?
+
+Source Maps map minified code to source code. You can then read and debug compiled code 
+in its original source, ([more info and details about how to enable it on Google Chrome](https://developers.google.com/web/tools/chrome-devtools/javascript/source-maps))
 
 For more information about the usage of this helper function please take 
 a [look here](https://github.com/moxie-lean/lean-theme/#use_icon).
