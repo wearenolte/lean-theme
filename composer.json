@@ -28,11 +28,22 @@
   "scripts": {
     "post-install-cmd": [
       "@set-up-php-lint",
-      "@set-up-patterns-lint"
+      "@build-deps"
     ],
     "post-update-cmd": [
       "@set-up-php-lint",
-      "@set-up-patterns-lint"
+      "@build-deps"
+    ],
+    "build-deps": [
+      "composer install",
+      "cd patterns && npm install && bower install"
+    ],
+    "build-app": [
+      "cd patterns && gulp build"
+    ],
+    "build": [
+      "@build-deps",
+      "@build-app"
     ],
     "set-up-php-lint": [
       "./vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
@@ -40,11 +51,8 @@
       "./vendor/bin/phpcs --config-set show_progress 0",
       "./vendor/bin/phpcs --config-set colors 1"
     ],
-    "set-up-patterns-lint": [
-      "cd patterns && npm install"
-    ],
     "lint": [
-      "phpcs *.php src/*.php src/**/**/*.php",
+      "phpcs *.php src/*.php **/*.php src/**/**/*.php --ignore=vendor",
       "@patterns-lint"
     ],
     "patterns-lint": [
