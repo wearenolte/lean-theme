@@ -54,11 +54,8 @@ class ThemeSetup {
 
 		if ( version_compare( $wp_version, LEANP_MINIMUM_WP_VERSION, '<' ) ) {
 
-			$msg = sprintf( __(
-				'Plugin %s requires WordPress %s or higher.',
-				LEANP_TEXT_DOMAIN
-			), LEANP_THEME_VERSION, LEANP_MINIMUM_WP_VERSION );
-
+			$format = 'Plugin %1$s requires WordPress %2$s or higher.';
+			$msg = sprintf( $format, LEANP_THEME_VERSION, LEANP_MINIMUM_WP_VERSION );
 			trigger_error( esc_html( $msg ), E_USER_ERROR );
 		}
 
@@ -89,7 +86,7 @@ class ThemeSetup {
 	public static function missing_plugins_notice() {
 		?>
 		<div class="notice notice-error">
-			<p><?php esc_html_e( 'The ACF plugin is not active!', LEANP_TEXT_DOMAIN ); ?></p>
+			<p><?php echo esc_html( 'The ACF plugin is not active!' ); ?></p>
 		</div>
 		<?php
 	}

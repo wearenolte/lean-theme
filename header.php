@@ -20,7 +20,7 @@
 <body <?php body_class(); ?>>
 
 <?php do_action( 'lean/before_header' ); ?>
-<header role="banner" itemscope itemtype="http://schema.org/WPHeader">
+<header role="banner" itemscope itemtype="http://schema.org/WPHeader" class="container">
 	<h1 itemprop="headline">
 		<?php echo esc_html( bloginfo( 'name' ) ); ?>
 	</h1>
