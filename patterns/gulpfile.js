@@ -39,7 +39,7 @@ gulp.task( 'icons', icons );
 
 // General Configurations
 // Directories where JS and SCSS is placed.
-const appDirectories = [ 'atoms', 'molecules', 'templates' ];
+const appDirectories = [ 'atoms', 'molecules', 'organisms', 'templates' ];
 // CSS configuration values.
 const sassEntryFile = './style.scss';
 const cssDestination = './static/css';
