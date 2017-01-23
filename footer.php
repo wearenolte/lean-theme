@@ -12,7 +12,7 @@
 	<?php use_icon( 'twitter' ); ?>
 	<?php use_icon( 'facebook' ); ?>
 	<?php use_icon( 'instagram' ); ?>
-</foooter>
+</footer>
 <?php wp_footer(); ?>
 <?php do_action( 'lean/after_footer' ); ?>
 

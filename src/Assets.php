@@ -3,8 +3,7 @@
 /**
  * Set-up Assets.
  */
-class Assets
-{
+class Assets {
 	const FLICKITY_HANDLE = 'flickity';
 
 	/**

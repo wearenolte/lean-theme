@@ -3,16 +3,14 @@
   "description": "Barebones modular WordPress theme",
   "type": "wordpress-theme",
   "require": {
-    "moxie-lean/wp-acf": "^1.1",
-    "moxie-lean/wp-widgets": "^1.0",
-    "moxie-lean/wp-page-templates": "^1.0",
     "moxie-lean/wp-cpt": "^1.0",
     "moxie-lean/assets": "^2.0",
+    "moxie-lean/wp-widgets": "^1.0",
     "moxie-lean/loader": "^1.1"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.0",
-    "wp-coding-standards/wpcs": "0.9.0"
+    "wp-coding-standards/wpcs": "0.*"
   },
   "authors": [
     {
@@ -28,11 +26,21 @@
   "scripts": {
     "post-install-cmd": [
       "@set-up-php-lint",
-      "@set-up-patterns-lint"
+      "@build-deps"
     ],
     "post-update-cmd": [
       "@set-up-php-lint",
-      "@set-up-patterns-lint"
+      "@build-deps"
+    ],
+    "build-deps": [
+      "cd patterns && npm install && bower install"
+    ],
+    "build-app": [
+      "cd patterns && gulp build"
+    ],
+    "build": [
+      "@build-deps",
+      "@build-app"
     ],
     "set-up-php-lint": [
       "./vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
@@ -40,14 +48,8 @@
       "./vendor/bin/phpcs --config-set show_progress 0",
       "./vendor/bin/phpcs --config-set colors 1"
     ],
-    "set-up-patterns-lint": [
-      "cd patterns && npm install"
-    ],
     "lint": [
-      "phpcs *.php src/*.php src/**/**/*.php",
-      "@patterns-lint"
-    ],
-    "patterns-lint": [
+      "phpcs *.php src/*.php **/*.php src/**/**/*.php --ignore=vendor",
       "cd patterns && gulp lint"
     ]
   }

@@ -1,5 +1,5 @@
 h1 {
-  @include fontSize(64px);
+  font-size: 64px;
   font-weight: bold;
   line-height: .8;
   color: $headings;
@@ -7,7 +7,7 @@ h1 {
 }
 
 h2 {
-  @include fontSize(48px);
+  font-size: 48px;
   font-weight: bold;
   line-height: 1;
   color: $headings;
@@ -15,7 +15,7 @@ h2 {
 }
 
 h3 {
-  @include fontSize(40px);
+  font-size: 40px;
   font-weight: bold;
   line-height: 1.2;
   color: $headings;
@@ -23,7 +23,7 @@ h3 {
 }
 
 h4 {
-  @include fontSize(36px);
+  font-size: 36px;
   font-weight: bold;
   line-height: 1.3;
   color: $headings;
@@ -31,7 +31,7 @@ h4 {
 }
 
 h5 {
-  @include fontSize(32px);
+  font-size: 32px;
   font-weight: bold;
   line-height: 1.5;
   color: $headings;
@@ -39,7 +39,7 @@ h5 {
 }
 
 h6 {
-  @include fontSize(24px);
+  font-size: 24px;
   font-weight: bold;
   line-height: 2;
   color: $headings;

@@ -17,6 +17,7 @@ const eslint = require( 'gulp-eslint');
 const svgstore = require( 'gulp-svgstore' );
 const path = require('path');
 
+gulp.task( 'build', [ 'styles:build', 'js:build' ] );
 // List of tasks see each function for more details about each.
 gulp.task( 'styles', styles );
 gulp.task( 'styles:dev', styles );

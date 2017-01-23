@@ -1,30 +1,10 @@
 img {
   max-width: 100%;
   height: auto;
+}
 
-  &.a__img {
-    &__avatar {
-      border-radius: 50%;
-      background-color: $img_avatar_bg;
-      max-width: 150px;
-    }
-
-    &__landscape {
-      width: 100%;
-      max-width: 650px;
-    }
-
-    &__logo {
-      width: 205px;
-    }
-
-    &__logo-footer {
-      width: 155px;
-    }
-
-    &__square {
-      width: 100%;
-      max-width: 600px;
-    }
-  }
+.a__img__avatar {
+  border-radius: 50%;
+  background-color: $img_avatar_bg;
+  max-width: 150px;
 }

@@ -1,5 +1,14 @@
-<?php
+<?php use Lean\Load; ?>
 
-get_header();
+<?php get_header(); ?>
 
-get_footer();
+<main class="container" role="main" itemprop="mainContentOfPage">
+	<?php
+	while ( have_posts() ) {
+		the_post();
+		the_content();
+	}
+	?>
+</main>
+
+<?php get_footer(); ?>

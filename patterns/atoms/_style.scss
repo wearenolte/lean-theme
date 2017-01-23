@@ -1,19 +1,11 @@
-@import 'importable/borders';
-@import 'importable/breakpoints';
-@import 'importable/colors';
-@import 'importable/fonts';
-@import 'importable/grid-settings';
-@import 'importable/spaces';
-
-@import 'global/base/bower';
-@import 'global/base/global-classes';
-@import 'global/base/layout';
-@import 'global/base/reset';
-
-@import 'global/colors/colors.patternlab';
-
-@import 'global/fonts/fonts';
-
+@import 'base/bower';
+@import 'base/breakpoints';
+@import 'fonts/fonts';
+@import 'base/grid-settings';
+@import 'base/spaces';
+@import 'base/visibility';
+@import 'base/layout';
+@import 'colors/colors';
 @import 'animations/animation';
 @import 'buttons/buttons';
 @import 'hamburger/hamburger';

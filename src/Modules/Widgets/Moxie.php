@@ -8,8 +8,7 @@ use Lean\Widgets\Models\AbstractWidget;
  *
  * @package LeanNs\Modules\Widgets
  */
-class Moxie extends AbstractWidget
-{
+class Moxie extends AbstractWidget {
 	/**
 	 * Moxie constructor.
 	 */

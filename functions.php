@@ -7,7 +7,6 @@
 define( 'LEANP_THEME_NAME', 'LeanName' );
 define( 'LEANP_THEME_VERSION', '0.1.0' );
 define( 'LEANP_MINIMUM_WP_VERSION', '4.3.1' );
-define( 'LEANP_TEXT_DOMAIN', 'lean-text-domain' );
 
 // Composer autoload.
 require_once get_template_directory() . '/vendor/autoload.php';
@@ -57,23 +56,7 @@ add_action( 'lean/before_header', function() {
  * loading the sprite makes sure the file is present to prevent any error to
  * happen.
  */
-add_action( 'lean/before_header', function(){
-	$icon_path = './patterns/static/icons/icons.svg';
-	$sprite = get_theme_file_path( $icon_path );
-	$content = file_exists( $sprite ) ? file_get_contents( $sprite ) : false;
-	if ( $content ) {
-		// @codingStandardsIgnoreStart
-		printf( '<div class="visuallyhidden">%s</div>', $content );
-		 // @codingStandardsIgnoreEnd
-	}
-});
-
-/**
- * Hook applied to before the header to load the sprite with the icons before
- * loading the sprite makes sure the file is present to prevent any error to
- * happen, The sprite is visually hidden but is still visible to screen readers.
- */
-add_action( 'lean/before_header', function(){
+add_action( 'lean/after_footer', function(){
 	$icon_path = './patterns/static/icons/icons.svg';
 	$sprite = get_theme_file_path( $icon_path );
 	$content = file_exists( $sprite ) ? file_get_contents( $sprite ) : false;
