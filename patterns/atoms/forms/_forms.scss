@@ -13,7 +13,6 @@ fieldset {
 
 label {
   display: block;
-  padding-bottom: $space-half;
 }
 
 button, input, select, textarea {
@@ -53,10 +52,6 @@ input[type='search']::-webkit-search-decoration {
 }
 
 //Form Field Container
-.field-container {
-  margin-bottom: $space;
-}
-
 .inline-form {
   fieldset, .inline-container {
     position: relative;
