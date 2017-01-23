@@ -8,8 +8,7 @@
   }
 
   ul {
-    @include padding(50px null null null);
-    @include animation(bounceOutLeft 1.25s both);
+    padding-top: 50px;
     position: fixed;
     right: 0;
     top: 0;
@@ -21,10 +20,6 @@
     text-align: center;
     min-width: 200px;
 
-    &.is-active {
-      @include animation(bounceInRight 0.95s both);
-    }
-
     @include media($tablet) {
       position: static;
       border: none;
@@ -35,7 +30,6 @@
     }
 
     li {
-      padding: $pad;
       text-transform: uppercase;
 
       @include media($tablet) {
