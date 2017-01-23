@@ -61,14 +61,15 @@ Adds prefixes to CSS properties that require the prefix in some browsers for exa
 
 **Prefixes required for some browsers**
 
-```scss
+```css
 -webkit-transform: translate(100px) rotate(20deg);
 -webkit-transform-origin: 0 -250px;
 transform: translate(100px) rotate(20deg);
 ```
 
 **Those prefixes are not required with this task**
-```scss
+
+```css
 transform: translate(100px) rotate(20deg);
 ```
 
