@@ -29,6 +29,7 @@ class Assets {
 			'js_version' => time(),
 			'jquery_uri' => '//code.jquery.com/jquery-2.2.4.min.js',
 			'jquery_version' => '2.2.4',
+			'automatic_suffix' => false,
 		] );
 
 		$assets->load();
