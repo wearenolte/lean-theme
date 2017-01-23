@@ -64,7 +64,7 @@ are specified as follows:
  *.php src/*.php **/*.php src/**/**/*.php --ignore=vendor
 ```
 
-If you want to change this just edit `composer.json` file to adjust based on your needs. 
+If you want to change this just [edit `composer.json` file](composer.json#L52) to adjust based on your needs. 
 
 The linter for PHP uses the [`WordPresss` Coding Standard](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards) 
 configuration to make sure we follow the coding standards specified by the `WordPress` handbook.
