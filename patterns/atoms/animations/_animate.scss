@@ -25,6 +25,6 @@
 // Example of the bounceIn mixin
 /**
 * .myClass {
-*    @include bounceIn($count, $duration, $delay, $function, $fill, $visibility)
+*    @include bounceIn($count, $duration, $delay, $function, $fill, $visibility);
 * }
 */
