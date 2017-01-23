@@ -8,7 +8,16 @@ different tasks using `gulp` as the main command inside of this directory.
 
 # Tasks
 
+### `gulp build`
+
+Task used to build the assets ready for production, which means comments removed
+and files in minified version, such as CSS and JS.
+
 ### `gulp lint`
+
+Task used to run the linters for JS, CSS and SCSS so you can keep track of following
+the same convention across the project.
+
 ### `gulp watch`
 ### `gulp styles`
 ### `gulp styles:dev`
@@ -18,10 +27,29 @@ different tasks using `gulp` as the main command inside of this directory.
 ### `gulp styles:watch`
 ### `gulp styles:lint`
 ### `gulp js`
+
+Task that creates a single JS version with all the requires especified on the file also makes sure
+the file contains a source map to keep track of errors more easily when the development of the site
+is active, this task is useful during development and the generated file is not minified.
+
 ### `gulp js:dev`
+
+This task is just an alias for [gulp js](#gulp-js)
+
 ### `gulp js:build`
+
+This taks creates a single JS file with no comments, source maps removed and minified, 
+this is useful to decrease the file size.
+
 ### `gulp js:watch`
+
+Keeps track of every change on the JS files and generate the development version of the JS asset,
+(see [gulp js:dev](#gulp-jsdev) )
+
 ### `gulp js:lint`
+
+With this task you can run the linter for JS the file review all the: atoms, molecules, organisms
+and templates directories to make sure we follow the same code standard in those sections.
 
 ### `gulp icons`
 
