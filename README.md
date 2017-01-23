@@ -5,6 +5,20 @@ You need to make sure you have at least the followings to use the theme:
 - PHP 5.6
 - [composer](https://getcomposer.org/doc/00-intro.md)
 
+You need to make sure you have installed composer globally in your terminal just by running 
+`composer -v` you should have an output as follows: 
+
+```
+$ composer -v
+   ______
+  / ____/___  ____ ___  ____  ____  ________  _____
+ / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
+\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
+                    /_/
+Composer version 1.2.1 2016-09-12 11:27:19
+```
+
 # Installation
 
 1. Download or clone the theme
@@ -14,7 +28,14 @@ You need to make sure you have at least the followings to use the theme:
 
 The theme uses [`composer`](https://getcomposer.org/doc/00-intro.md) as dependency manager for PHP
 libraries and script mananger for the theme, inside of the theme you have the following commands
-available
+available.
+
+To run any of the following commands you only need to type the name of the command on your terminal
+for instance: 
+
+```
+composer lint
+```
 
 ### composer build
 
@@ -40,7 +61,7 @@ Function that executes the linter task for the `.php` files except on `vendor` d
 are specified as follows: 
 
 ```
- *.php src/*.php **/*.php src/**/**/*.php --ignore=vendo
+ *.php src/*.php **/*.php src/**/**/*.php --ignore=vendor
 ```
 
 If you want to change this just edit `composer.json` file to adjust based on your needs. 
