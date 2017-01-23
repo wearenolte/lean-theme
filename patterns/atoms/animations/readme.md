@@ -3,7 +3,7 @@
 You can reuse any of the animations that are available in [animate.css](https://daneden.github.io/animate.css/) just by addig the import into the `_animate.scss` file.
 
 ```scss
-import "../../node_modules/animatewithsass/_properties";
+@import "../../node_modules/animatewithsass/_properties";
 ```
 
 You an also be more specific and import unique animations instead of sets.
@@ -28,3 +28,5 @@ Usage examples:
   @include bounceIn($count, $duration, $delay, $function, $fill, $visibility);
 }
 ```
+
+For more details of how to usage the sass mixins or setup visit the [main repo](https://github.com/geoffgraham/animate.scss#animatescss).
