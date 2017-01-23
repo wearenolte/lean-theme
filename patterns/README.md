@@ -10,14 +10,14 @@ different tasks using `gulp` as the main command inside of this directory.
 
 ### `gulp build`
 
-This tak run: 
+This task run: 
 
 - [gulp styles:build](#gulp-stylesbuild)
 - [gulp js:build](#gulp-jsbuild)
 
 ### `gulp lint`
 
-This taks run: 
+This task run: 
 
 - [gulp styles:lint](#gulp-styleslint) 
 - [gulp js:lint](#gulp-jslint)
@@ -46,19 +46,54 @@ This task is an alias for [gulp styles](#gulp-styles)
 
 ### `gulp styles:build`
 
-Creates a final version of the styles with minification to derease the file size of the final
-styles, this task is useful to have a smaller file to deliver in production.
+Creates a final version of the styles with [minification](#whats-minification) to derease 
+the file size of the final styles, this task is useful to have a smaller file to 
+deliver in production.
+
+This task run:
+
+- `gulp styles`
+- `gulp styles:minify`
 
 ### `gulp styles:prefix`
+
+Adds prefixes to CSS properties that require the prefix in some browsers for example:
+
+**Prefixes required for some browsers**
+
+```scss
+-webkit-transform: translate(100px) rotate(20deg);
+-webkit-transform-origin: 0 -250px;
+transform: translate(100px) rotate(20deg);
+```
+
+**Those prefixes are not required with this task**
+```scss
+transform: translate(100px) rotate(20deg);
+```
+
+The supported browsers are specified on `supportedBrowsers` inside of the `gulpfile.js`, [more
+details about how to specify the queries](https://github.com/ai/browserslist#queries).
+
 ### `gulp styles:minify`
+
+Creates a smaller file size by creating a minify version of the CSS it also apply the prefixes 
+to the final CSS before the minifcation process so the prefixes are not required on the styles.
+
 ### `gulp styles:watch`
+
+Keeps track of changes on the `.scss` files and on every change run [`gulp styles`](#gulp-styles)
+
 ### `gulp styles:lint`
+
+Linter for the `.scss` files the rules are specified on `.sass-lint.json`.
+
 ### `gulp js`
 
 Task that creates a single JS version with all the requires especified on the file also makes sure
 the file contains a [source map](#whats-a-source-map) to keep track of errors more 
 easily when the development of the site is active, this task is useful during 
-development and the generated file is not minified.
+development and the generated file is not [minified](#whats-minification).
 
 ### `gulp js:dev`
 
@@ -67,8 +102,8 @@ This task is just an alias for [gulp js](#gulp-js)
 ### `gulp js:build`
 
 This taks creates a single JS file with no comments, removes [source maps](#whats-a-source-map) 
-and creates a minified version, this is useful to decrease the file size on the final version of the
-generated file.
+and creates a [minified](#whats-minification) version, this is useful to decrease the 
+file size on the final version of the generated file.
 
 ### `gulp js:watch`
 
@@ -81,7 +116,7 @@ it manually after every change is made on the site.
 With this task you can run the linter for JS the file review all the: atoms, molecules, organisms
 and templates directories to make sure we follow the same code standard in those sections.
 
-The rules of the linter are specified on the hidden file `.eslintrc.json`.
+The rules of the linter are specified on the hidden file `.eslintrc.json`
 
 ### `gulp icons`
 
@@ -124,4 +159,4 @@ a [look here](https://github.com/moxie-lean/lean-theme/#use_icon).
 ### What's minification
 
 Is the process of removing all unnecessary characters from source code without 
-changing its functionality. [Wikipedia](https://en.wikipedia.org/wiki/Minification_(programming).
+changing its functionality. [Wikipedia](https://en.wikipedia.org/wiki/Minification_programming) .
