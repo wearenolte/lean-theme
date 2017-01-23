@@ -73,7 +73,7 @@ transform: translate(100px) rotate(20deg);
 transform: translate(100px) rotate(20deg);
 ```
 
-The supported browsers are specified on [`supportedBrowsers` inside of the `gulpfile.js`](https://github.com/moxie-lean/lean-theme/blob/markup/patterns/gulpfile.js#L53), [more
+The supported browsers are specified on `supportedBrowsers` [inside of the `gulpfile.js`](https://github.com/moxie-lean/lean-theme/blob/markup/patterns/gulpfile.js#L53), [more
 details about how to specify the queries](https://github.com/ai/browserslist#queries).
 
 ### `gulp styles:minify`
