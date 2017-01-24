@@ -6,6 +6,7 @@
  * @since 1.0.0
  */
 
+use Lean\Load;
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -20,9 +21,5 @@
 <body <?php body_class(); ?>>
 
 <?php do_action( 'lean/before_header' ); ?>
-<header role="banner" itemscope itemtype="http://schema.org/WPHeader" class="container">
-	<h1 itemprop="headline">
-		<?php echo esc_html( bloginfo( 'name' ) ); ?>
-	</h1>
-</header>
+<?php Load::organisms( 'header/header' ); ?>
 <?php do_action( 'lean/after_header' ); ?>
