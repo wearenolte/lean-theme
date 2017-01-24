@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "86c54e53bc8b00cd2b48baacc50c8785",
-    "content-hash": "ce0328a05002d715417c228c1c96a75f",
+    "hash": "4da748d4729dced51b948b6ffdc8cb31",
+    "content-hash": "4fe00a3a72ea2cb3b98f6be51c93ef34",
     "packages": [
         {
             "name": "moxie-lean/assets",
-            "version": "2.0.5",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moxie-lean/assets.git",
-                "reference": "dea4e69aff9b4e4cf0c68614610839ab31337e78"
+                "reference": "f35bcae5428da2d81c21e56d4e4660adbae96468"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moxie-lean/assets/zipball/dea4e69aff9b4e4cf0c68614610839ab31337e78",
-                "reference": "dea4e69aff9b4e4cf0c68614610839ab31337e78",
+                "url": "https://api.github.com/repos/moxie-lean/assets/zipball/f35bcae5428da2d81c21e56d4e4660adbae96468",
+                "reference": "f35bcae5428da2d81c21e56d4e4660adbae96468",
                 "shasum": ""
             },
             "require": {
@@ -52,7 +52,7 @@
                 "scripts",
                 "wordpress"
             ],
-            "time": "2016-10-21 03:02:10"
+            "time": "2017-01-23 19:14:49"
         },
         {
             "name": "moxie-lean/loader",
