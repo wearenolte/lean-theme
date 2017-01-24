@@ -39,7 +39,7 @@ gulp.task( 'icons', icons );
 
 // General Configurations
 // Directories where JS and SCSS is placed.
-const appDirectories = [ 'atoms', 'molecules', 'templates' ];
+const appDirectories = [ 'atoms', 'molecules', 'organisms', 'templates' ];
 // CSS configuration values.
 const sassEntryFile = './style.scss';
 const cssDestination = './static/css';
@@ -53,6 +53,14 @@ const sassFiles = [
 const supportedBrowsers = ['Explorer >= 11', 'iOS >= 7', 'Safari >= 9'];
 // Where the sass files are located, used to watch changes on these directories.
 const sourceMapsDirectories = './../maps';
+const loaders = [{
+  test: /\.js$/,
+  exclude: /(node_modules|bower_components)/,
+  loader: 'babel-loader',
+  query: {
+    presets: ['es2015']
+  },
+}];
 
 /**
  * Function that creates a build file:
@@ -91,7 +99,7 @@ function stylesMinify() {
   const minifyOptions = {
     autoprefixer: {
       browsers: supportedBrowsers,
-      add: true,
+        add: true,
     }
   };
   log.success( 'CSS minification files started' );
@@ -167,9 +175,12 @@ function js() {
  * the genreated JS is on dev mode.
  */
 function jsWatch() {
-  let options = Object.assign(webpackConfig, {
+  let options = Object.assign( webpackConfig, {
     devtool: 'source-map',
     watch: true,
+    module: {
+      loaders,
+    }
   });
   return jsTask( options );
 }
@@ -186,14 +197,6 @@ function jsBuild() {
       }
     })
   ];
-  let loaders = [{
-    test: /\.js$/,
-    exclude: /(node_modules|bower_components)/,
-    loader: "babel-loader",
-    query: {
-      presets: ['es2015']
-    },
-  }];
   let options = Object.assign( webpackConfig, {
     plugins,
     module: {

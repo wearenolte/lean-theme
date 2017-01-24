@@ -1,9 +1,8 @@
-@import '~params/spaces';
-@import '~params/colors';
-
-form ol, form ul {
-  list-style: none;
-  margin-left: 0;
+form {
+  ol, ul {
+    list-style: none;
+    margin-left: 0;
+  }
 }
 
 fieldset {
@@ -14,7 +13,6 @@ fieldset {
 
 label {
   display: block;
-  padding-bottom: $space-half;
 }
 
 button, input, select, textarea {
@@ -29,7 +27,11 @@ input, textarea {
   padding: $pad-half 0.65rem;
 }
 
-input[type=text], input[type=search], input[type=url], input[type=number], textarea {
+input[type=text],
+input[type=search],
+input[type=url],
+input[type=number],
+textarea {
   -webkit-appearance: none;
 }
 
@@ -50,10 +52,6 @@ input[type='search']::-webkit-search-decoration {
 }
 
 //Form Field Container
-.field-container {
-  margin-bottom: $space;
-}
-
 .inline-form {
   fieldset, .inline-container {
     position: relative;

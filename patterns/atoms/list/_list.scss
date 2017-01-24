@@ -1,5 +1,5 @@
 ol, ul {
-  margin: 0 0 0 $space;
+  margin: 0;
   list-style-position: inside;
 }
 
@@ -17,7 +17,7 @@ ol {
 
 /* Definition Lists */
 dl {
-  margin: 0 0 $space;
+  margin: 0;
   overflow: hidden;
 }
 

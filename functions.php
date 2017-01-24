@@ -10,6 +10,8 @@ define( 'LEANP_MINIMUM_WP_VERSION', '4.3.1' );
 
 // Composer autoload.
 require_once get_template_directory() . '/vendor/autoload.php';
+require_once get_template_directory() . '/Setup.php';
+ThemeSetup::init();
 
 // Run the theme setup.
 add_filter( 'loader_directories', function( $directories ) {
@@ -24,8 +26,6 @@ add_filter('loader_alias', function( $alias ) {
 	return $alias;
 });
 
-require_once get_template_directory() . '/Setup.php';
-ThemeSetup::init();
 
 /**
  * Use an icon from an icon sprite.
@@ -66,3 +66,10 @@ add_action( 'lean/after_footer', function(){
 		 // @codingStandardsIgnoreEnd
 	}
 });
+
+add_action( 'after_setup_theme', function() {
+	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'title-tag' );
+	add_theme_support( 'html5' );
+});
+

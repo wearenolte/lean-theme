@@ -1,4 +1,82 @@
+# Pre-requisites
+
+You need to make sure you have at least the followings to use the theme:
+
+- PHP 5.6
+- [composer](https://getcomposer.org/doc/00-intro.md)
+
+You need to make sure you have installed composer globally in your terminal just by running 
+`composer -v` you should have an output as follows: 
+
+```
+$ composer -v
+   ______
+  / ____/___  ____ ___  ____  ____  ________  _____
+ / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
+\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
+                    /_/
+Composer version 1.2.1 2016-09-12 11:27:19
+```
+
+# Installation
+
+1. Download or clone the theme
+2. Go to the theme path and run `composer install`
+
+# Scripts
+
+The theme uses [`composer`](https://getcomposer.org/doc/00-intro.md) as dependency manager for PHP
+libraries and script mananger for the theme, inside of the theme you have the following commands
+available.
+
+To run any of the following commands you only need to type the name of the command on your terminal
+for instance: 
+
+```
+composer lint
+```
+
+### composer build
+
+This task run: 
+
+- `composer build-deps`
+- `composer buld-app`
+
+### composer build-deps
+
+Install all the required packages from `package.json` and `bower.json` inside of the `patterns`
+directory, this command is executed automatically after you run `composer install` or `composer
+update`
+
+### composer build-app
+
+This task generates the production ready assets by running [`gulp build`](patterns#gulp-build) 
+inside of the `patterns` directory.
+
+### composer lint
+
+Function that executes the linter task for the `.php` files except on `vendor` directory the files
+are specified as follows: 
+
+```
+ *.php src/*.php **/*.php src/**/**/*.php --ignore=vendor
+```
+
+If you want to change this just [edit `composer.json` file](composer.json#L52) to adjust based on your needs. 
+
+The linter for PHP uses the [`WordPresss` Coding Standard](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards) 
+configuration to make sure we follow the coding standards specified by the `WordPress` handbook.
+
+### composer set-up-php-lint
+
+Script that is executed automatically after `composer install` or `composer update` and is used to
+setup the linter configuration for `PHP`.
+
 # Actions
+
+> List of `hooks` and `filters` availables to be used with this theme.
 
 ### `lean/before_header`
 

@@ -24,10 +24,6 @@ $_error: #E20D0D;
 $_positive: #2DCC70;
 $_neutral: #1397E1;
 
-// Overlay Colors (use the color name from Zeplin or http://www.color-hex.com/ as the variable name)
-$_overlay_dark: rgba(#2B2B2B, .85);
-$_overlay_light: rgba(#414141, .65);
-
 /*************************************************************************
 /* COLOR USAGES
 /*
@@ -112,12 +108,3 @@ $form_input_border: $_gray_mid;
 
 // Images
 $img_avatar_bg: $_white_smoke;
-
-// Hero
-$hero_text: $_white;
-$hero_text_bg: $_overlay_dark;
-$hero_no_image_bg: $_brand_primary;
-
-// Tout
-$tout_text: $_white;
-$tout_text_bg: $_overlay_dark;
