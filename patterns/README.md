@@ -138,6 +138,14 @@ a [look here](https://github.com/moxie-lean/lean-theme/#use_icon).
 
 ## FAQs
 
+- [How to add new icons?](#how-to-add-new-icons)
+- [How to use the icons from the sprite?](#how-to-use-the-icons-from-the-sprite)
+- [What's a source map?](#whats-a-source-map)
+- [What's minification](#whats-minification)
+- [How to add a new JS function / behavior ?](#how-to-add-a-new-js-function--behavior-)
+  - [External resources](#external-resources)
+- [How to use an external package from NPM?.](#how-to-use-an-external-package-from-npm)
+
 ### How to add new icons? 
 
 Just take all your `.svg` files and place them into `static/icons` then just
@@ -163,3 +171,91 @@ a [look here](https://github.com/moxie-lean/lean-theme/#use_icon).
 
 Is the process of removing all unnecessary characters from source code without 
 changing its functionality. [Wikipedia](https://en.wikipedia.org/wiki/Minification_programming) .
+
+### How to add a new JS function / behavior ?
+
+First of all you need to create a new file where it makes more sense for example we want to create a
+listener for the click event in buttons so every time a button is clicked we want to add a new
+class to the body.
+
+In this case it would make sense to create a new atom called inside of
+`atoms/buttons/toggle-button-listener.js` such as.
+
+```js
+// Everything inside of this file is going to be local to the scope of this file
+
+const targetButtonClassName = '.fancy-button';
+const toggleClassName = '.button-is-active';
+
+function myMainAction() {
+  const buttons = searchButtons();
+  buttons.forEach( attachEvent );
+}
+
+function queryTheDOM() {
+  return Array.from( document.querySelectorAll( targetButtonClassName ) ) ;
+}
+
+function attachEvent( node ) {
+  node.addEventListener( 'click', clickListener );
+}
+
+function clickListener() {
+  document.body.classList.toggle( toggleClassName );
+}
+
+export default myMainAction;
+```
+
+As you can see the example has several functions but the one that is exported to the outside world
+is only `myMainAction` at this point this JS is not going to be executed unless you explicit espcify
+so inside of [`main.js`](main.js) inside of the [`onReady`](main.js#L7) function, eveyrything inside
+of this function is going to be executed once the DOM is ready. 
+
+So following the example aboye you need to add this two lines inside of `main.js`
+
+```js
+import myMainAction from './atoms/buttons/toggle-button-listener';
+// inside of onReady
+function onReady() {
+  // other functions before
+  myMainAction();
+}
+```
+
+**NOTE** The code is transpiled so can be executed on browsers where `import` or `export` is not
+supported yet.
+
+#### External resources
+
+- [How `import` works](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import).
+- [How `export` works](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export).
+
+
+### How to use an external package from NPM?.
+
+Inside of your own modules you can import files from `node_modules` you only need to make sure
+you added the dependency inside of `package.json`.
+
+And the sintax is pretty similar to `import action from 'package-name';` 
+
+For example to add [`flatpickr`](https://chmln.github.io/flatpickr/) we need to run the following
+command in to the terminal: 
+
+```
+npm install flatpickr --save-dev 
+```
+
+And to usage the package you only need to add: 
+
+```js
+import Flatpickr from 'flatpickr';
+// Usage example
+function init() {
+  const node = document.querySelector('.flatpickr');
+  const instance = new Flatpickr( node );
+}
+
+export default init;
+```
+

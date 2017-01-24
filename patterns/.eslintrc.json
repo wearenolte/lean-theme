@@ -37,7 +37,6 @@
         "properties": "never"
       }
     ],
-    "keyword-spacing": 2,
     "strict": [ 0, "global" ],
     "complexity": [ 2, 10 ],
     "max-depth": [2, 4],
@@ -75,9 +74,22 @@
     "no-class-assign": 2,
     "no-const-assign": 2,
     "no-dupe-class-members": 2,
-    "prefer-const": 2,
+    "prefer-const": 1,
     "prefer-template": 2,
-    "arrow-spacing": 2
+    "arrow-spacing": 2,
+    "keyword-spacing": 2,
+    "space-before-blocks": 2,
+    "valid-jsdoc": [1, {
+      "requireReturn": false
+    }],
+    "require-jsdoc": [2, {
+      "require": {
+        "FunctionDeclaration": true,
+        "MethodDefinition": true,
+        "ClassDeclaration": true,
+        "ArrowFunctionExpression": false
+      }
+    }]
   },
   "env": {
     "es6": true,
@@ -93,5 +105,8 @@
   "ecmaFeatures": {
     "experimentalObjectRestSpread": true,
     "modules": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
   }
 }

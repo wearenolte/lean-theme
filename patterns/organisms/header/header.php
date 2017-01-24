@@ -1,10 +1,11 @@
-<?php use Lean\Load; ?>
-<header role="banner" class="o__header">
+<header
+	class="container"
+	role="banner"
+	itemscope
+	itemtype="http://schema.org/WPHeader">
 
-    <div class="container">
-
-		<?php Load::molecules( 'navigation/primary-nav' ); ?>
-
-    </div>
+	<h1 itemprop="headline">
+		<?php echo esc_html( bloginfo( 'name' ) ); ?>
+	</h1>
 
 </header>
