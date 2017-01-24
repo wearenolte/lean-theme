@@ -138,6 +138,14 @@ a [look here](https://github.com/moxie-lean/lean-theme/#use_icon).
 
 ## FAQs
 
+- [How to add new icons?](#how-to-add-new-icons)
+- [How to use the icons from the sprite?](#how-to-use-the-icons-from-the-sprite)
+- [What's a source map?](#whats-a-source-map)
+- [What's minification](#whats-minification)
+- [How to add a new JS function / behavior ?](#how-to-add-a-new-js-function--behavior-)
+  - [External resources](#external-resources)
+- [How to use an external package from NPM?.](#how-to-use-an-external-package-from-npm)
+
 ### How to add new icons? 
 
 Just take all your `.svg` files and place them into `static/icons` then just
@@ -224,7 +232,7 @@ supported yet.
 - [How `export` works](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export).
 
 
-## How to use an external package from NPM.
+### How to use an external package from NPM?.
 
 Inside of your own modules you can import files from `node_modules` you only need to make sure
 you added the dependency inside of `package.json`.
