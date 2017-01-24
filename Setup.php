@@ -16,10 +16,7 @@ class ThemeSetup {
 		add_action( 'switch_theme', [ __CLASS__, 'flush_rewrite_rules' ] );
 		add_action( 'after_switch_theme', [ __CLASS__, 'activate' ] );
 
-		add_theme_support( 'post-thumbnails' );
-
 		$inc_dir = get_template_directory() . '/src';
-
 		$modules_dir = get_template_directory() . '/src/Modules';
 
 		// Run the init() function for any inc classes which have it.
@@ -60,7 +57,6 @@ class ThemeSetup {
 		}
 
 		self::check_dependencies();
-
 		self::flush_rewrite_rules();
 	}
 
@@ -68,27 +64,21 @@ class ThemeSetup {
 	 * Dependency checks
 	 */
 	public static function check_dependencies() {
-		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
-		if ( ! is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) ) {
-
-			error_log( 'The ACF plugin is not active!' );
-
-			if ( is_admin() ) {
-				add_action( 'admin_notices', [ __CLASS__, 'missing_plugins_notice' ] );
-			}
+		if ( is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) ) {
+			return;
 		}
-	}
 
-	/**
-	 * Admin message for missing dependencies.
-	 */
-	public static function missing_plugins_notice() {
+		error_log( 'The ACF plugin is not active!' );
+
+		if ( is_admin() ) :
+			add_action( 'admin_notices', function(){
 		?>
-		<div class="notice notice-error">
-			<p><?php echo esc_html( 'The ACF plugin is not active!' ); ?></p>
-		</div>
+			<div class="notice notice-error">
+				<p><?php echo esc_html( 'The ACF plugin is not active!' ); ?></p>
+			</div>
 		<?php
+			});
+		endif;
 	}
 
 	/**
