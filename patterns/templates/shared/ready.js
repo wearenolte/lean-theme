@@ -12,4 +12,4 @@ function ready( callback ) {
   }
 }
 
-module.exports = ready;
+export default ready;

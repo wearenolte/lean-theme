@@ -25,4 +25,4 @@ function attachListener() {
   window.addEventListener( 'error', errorListener );
 }
 
-module.exports = attachListener;
+export default attachListener;
