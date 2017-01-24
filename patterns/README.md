@@ -196,7 +196,7 @@ function clickListener() {
   document.body.classList.toggle( toggleClassName );
 }
 
-exports default myMainAction;
+export default myMainAction;
 ```
 
 As you can see the example has several functions but the one that is exported to the outside world
@@ -222,3 +222,32 @@ supported yet.
 
 - [How `import` works](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import).
 - [How `export` works](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export).
+
+
+## How to use an external package from NPM.
+
+Inside of your own modules you can import files from `node_modules` you only need to make sure
+you added the dependency inside of `package.json`.
+
+And the sintax is pretty similar to `import action from 'package-name';` 
+
+For example to add [`flatpickr`](https://chmln.github.io/flatpickr/) we need to run the following
+command in to the terminal: 
+
+```
+npm install flatpickr --save-dev 
+```
+
+And to usage the package you only need to add: 
+
+```js
+import Flatpickr from 'flatpickr';
+// Usage example
+function init() {
+  const node = document.querySelector('.flatpickr');
+  const instance = new Flatpickr( node );
+}
+
+export default init;
+```
+
