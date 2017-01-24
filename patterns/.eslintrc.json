@@ -93,5 +93,8 @@
   "ecmaFeatures": {
     "experimentalObjectRestSpread": true,
     "modules": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
   }
 }
