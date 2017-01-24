@@ -1,7 +1,7 @@
 /**
 * Function that is fired every time the browsers fires a new error event.
 *
-* @param Object An object with the details of the error.
+* @param {Object} error An object with the details of the error.
 */
 function errorListener( error ) {
   if ( '_gaq' in window ) {

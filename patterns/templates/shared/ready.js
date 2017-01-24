@@ -2,7 +2,7 @@
 * Function that emulates the $(document).on('ready') from jQuery,
 * using vanilla JS.
 *
-* @param Function callback A callback that is fired when the page is Ready.
+* @param {Function} callback A callback that is fired when the page is Ready.
 */
 function ready( callback ) {
   if ( document.readyState === 'loading' ) {
