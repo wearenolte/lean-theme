@@ -5,7 +5,7 @@ $args = wp_parse_args($args, [
 	'classes' => [],
 ] );
 
-$classes = ! empty( $args['classes'] ) && is_array( $args['classes'] ) ? implode( " ", $args['classes' ] ) : '';
+$classes = trim( implode( ' ', (array) $args['classes' ] ) );
 ?>
 
 <a href="<?php echo esc_url( $args['url'] ); ?>"
