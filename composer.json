@@ -49,7 +49,7 @@
       "./vendor/bin/phpcs --config-set colors 1"
     ],
     "lint": [
-      "phpcs *.php src/*.php **/*.php src/**/**/*.php --ignore=vendor",
+      "phpcs *.php src/*.php **/*.php src/**/**/*.php patterns/**/**/*.php --ignore=vendor",
       "cd patterns && gulp lint"
     ]
   }
