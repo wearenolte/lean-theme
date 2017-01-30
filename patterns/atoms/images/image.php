@@ -2,7 +2,7 @@
 $args = wp_parse_args( $args, [
 	'src' => '',
 	'alt' => '',
-	'class' => 'a__img__avatar'
+	'class' => 'a__img__avatar',
 ]);
 
 // Don't render if the params does not provide a source argument.

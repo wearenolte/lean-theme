@@ -2,13 +2,13 @@
 $args = wp_parse_args($args, [
 	'label' => '',
 	'url' => '',
-	'classes' => [],
+	'class' => [],
 ] );
 
-$classes = trim( implode( ' ', (array) $args['classes' ] ) );
+$class = trim( implode( ' ', (array) $args['class'] ) );
 ?>
 
 <a href="<?php echo esc_url( $args['url'] ); ?>"
-   class="a__btn <?php echo esc_attr( $classes ); ?>">
+   class="a__btn <?php echo esc_attr( $class ); ?>">
 	<?php echo esc_html( $args['label'] ); ?>
 </a>

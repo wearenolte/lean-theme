@@ -5,7 +5,7 @@ $args = wp_parse_args( $args, [
 	'items' => [],
 ]);
 
-// Return if does not have any item to be render
+// Return if does not have any item to be render.
 if ( empty( $args['items'] ) ) {
 	return;
 }

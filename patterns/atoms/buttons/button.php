@@ -4,7 +4,7 @@ $args = wp_parse_args($args, [
 	'class' => [],
 ] );
 
-$class = trim( implode( ' ', (array) $args['class' ] ) );
+$class = trim( implode( ' ', (array) $args['class'] ) );
 
 ?>
 
