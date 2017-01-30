@@ -1,13 +1,14 @@
 <?php
 $args = wp_parse_args($args, [
 	'label' => '',
-	'classes' => [],
+	'class' => [],
 ] );
 
-$classes = ! empty( $args['classes'] ) && is_array( $args['classes'] ) ? implode( " ", $args['classes' ] ) : '';
+$class = trim( implode( ' ', (array) $args['class' ] ) );
+
 ?>
 
-<button class="a__btn <?php echo esc_attr( $classes ); ?>">
+<button class="a__btn <?php echo esc_attr( $class ); ?>">
 	<?php echo esc_html( $args['label'] ); ?>
 </button>
 
