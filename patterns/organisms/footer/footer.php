@@ -3,7 +3,7 @@ $copyright = '';
 if ( function_exists( 'get_field' ) ) {
 	$copyright = (string) get_field( 'general_options_copyright_text', 'option' );
 }
-$copyright = str_replace( '%YEAR%', date('Y'), $copyright );
+$copyright = str_replace( '%YEAR%', date( 'Y' ), $copyright );
 ?>
 
 <footer

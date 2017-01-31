@@ -11,7 +11,7 @@ if ( empty( $args['items'] ) ) {
 <nav class="m__footer-nav">
 
 	<ul>
-		<?php foreach( $args['items'] as $item ) : ?>
+		<?php foreach ( $args['items'] as $item ) : ?>
 		<li class="nav-item">
 			<a class="nav-link" href="<?php echo esc_url( $item['link'] ); ?>">
 				<?php echo esc_html( $item['title'] ); ?>
