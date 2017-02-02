@@ -33,10 +33,10 @@
       "@build-deps"
     ],
     "build-deps": [
-      "cd patterns && npm install && bower install"
+      "cd patterns && npm install"
     ],
     "build-app": [
-      "cd patterns && gulp build"
+      "cd patterns && npm run build"
     ],
     "build": [
       "@build-deps",
@@ -50,7 +50,7 @@
     ],
     "lint": [
       "phpcs *.php src/*.php **/*.php src/**/**/*.php patterns/**/**/*.php --ignore=vendor",
-      "cd patterns && gulp lint"
+      "cd patterns && npm run lint"
     ]
   }
 }
