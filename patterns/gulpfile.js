@@ -155,7 +155,7 @@ function jsLint() {
   return gulp.src( jsFiles )
     .pipe( eslint() )
     .pipe( eslint.format() )
-    .pipe( eslint.failOnError() );
+    .pipe( eslint.failAfterError() );
 }
 
 const webpackConfig = require('./webpack.config.js');
