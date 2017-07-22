@@ -15,6 +15,7 @@ const sassLint = require('gulp-sass-lint');
 const runSequence = require('run-sequence');
 const eslint = require( 'gulp-eslint');
 const svgstore = require( 'gulp-svgstore' );
+const svgmin = require('gulp-svgmin');
 const path = require('path');
 
 gulp.task( 'build', [ 'styles:build', 'js:build' ] );
@@ -231,6 +232,17 @@ const log = {
 function icons() {
   return gulp
     .src( [ 'static/icons/*.svg', '!static/icons/icons.svg' ] )
+    .pipe( svgmin(function( file ) {
+      const prefix = path.basename( file.relative, path.extname( file.relative ) );
+      return {
+        plugins: [{
+            cleanupIDs: {
+              prefix: prefix + '-',
+              minify: true
+            }
+        }]
+      }
+    }))
     .pipe( svgstore() )
     .pipe( gulp.dest( 'static/icons' ) );
 }
