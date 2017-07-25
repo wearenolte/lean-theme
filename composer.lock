@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4da748d4729dced51b948b6ffdc8cb31",
-    "content-hash": "4fe00a3a72ea2cb3b98f6be51c93ef34",
+    "content-hash": "de4e6fb56705a39fd5113127d460ae89",
     "packages": [
         {
             "name": "moxie-lean/assets",
@@ -52,7 +51,7 @@
                 "scripts",
                 "wordpress"
             ],
-            "time": "2017-01-23 19:14:49"
+            "time": "2017-01-23T19:14:49+00:00"
         },
         {
             "name": "moxie-lean/loader",
@@ -95,7 +94,7 @@
                 }
             ],
             "description": "Loader for files in wordpress making things easier instead of using a require",
-            "time": "2016-11-21 04:27:07"
+            "time": "2016-11-21T04:27:07+00:00"
         },
         {
             "name": "moxie-lean/wp-acf",
@@ -144,7 +143,7 @@
                 "acf",
                 "wordpress"
             ],
-            "time": "2017-01-20 17:32:04"
+            "time": "2017-01-20T17:32:04+00:00"
         },
         {
             "name": "moxie-lean/wp-cpt",
@@ -190,7 +189,7 @@
                 "post types",
                 "wordpress"
             ],
-            "time": "2016-04-25 01:37:07"
+            "time": "2016-04-25T01:37:07+00:00"
         },
         {
             "name": "moxie-lean/wp-widgets",
@@ -235,7 +234,39 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2016-05-27 14:33:36"
+            "time": "2016-05-27T14:33:36+00:00"
+        },
+        {
+            "name": "wearenolte/buster",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wearenolte/Buster.git",
+                "reference": "56ff33a9c824482273ac86bc7dbe466847a3616b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wearenolte/Buster/zipball/56ff33a9c824482273ac86bc7dbe466847a3616b",
+                "reference": "56ff33a9c824482273ac86bc7dbe466847a3616b",
+                "shasum": ""
+            },
+            "bin": [
+                "bin/version"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "WeAreNolte",
+                    "email": "developer@wearenolte.com"
+                },
+                {
+                    "name": "Crisoforo Gaspar",
+                    "email": "hello@crisoforo.com"
+                }
+            ],
+            "description": "Creates a .deploy file to use as a buster mechanism",
+            "time": "2017-07-25T10:13:38+00:00"
         }
     ],
     "packages-dev": [
@@ -315,7 +346,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-11-30 04:02:31"
+            "time": "2016-11-30T04:02:31+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",
@@ -351,7 +382,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2016-08-29 20:04:47"
+            "time": "2016-08-29T20:04:47+00:00"
         }
     ],
     "aliases": [],
