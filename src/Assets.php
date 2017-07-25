@@ -22,17 +22,34 @@ class Assets {
 	 * Init the CSS and JS assets.
 	 */
 	public static function init_assets() {
+		$version = self::get_version_number();
 		$assets = new \Lean\Assets( [
 			'css_uri' => get_template_directory_uri() . '/patterns/static/css/style.css',
-			'css_version' => time(),
+			'css_version' => $version,
 			'js_uri' => get_template_directory_uri() . '/patterns/static/js/main.js',
-			'js_version' => time(),
+			'js_version' => $version,
 			'jquery_uri' => '//code.jquery.com/jquery-2.2.4.min.js',
 			'jquery_version' => '2.2.4',
 			'automatic_suffix' => false,
 		] );
 
 		$assets->load();
+	}
+
+	/**
+	 * Function used to generate the version number based from the .deploy file.
+	 */
+	private static function get_version_number() {
+		$version_number = time();
+		$version_file = get_stylesheet_directory() . '/vendor/wearenolte/buster/bin/.deploy.json';
+		if ( file_exists( $version_file ) ) {
+			$str = file_get_contents( $version_file );
+			$json = json_decode( $str, true );
+			if ( $json && isset( $json['version'] ) ) {
+				$version_number = $json['version'];
+			}
+		}
+		return $version_number;
 	}
 
 	/**
