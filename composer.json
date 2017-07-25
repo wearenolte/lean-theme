@@ -6,7 +6,8 @@
     "moxie-lean/wp-cpt": "^1.0",
     "moxie-lean/assets": "2.*",
     "moxie-lean/wp-widgets": "^1.0",
-    "moxie-lean/loader": "^1.1"
+    "moxie-lean/loader": "^1.1",
+    "wearenolte/buster": "^0.1.1"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.0",
@@ -48,9 +49,15 @@
       "./vendor/bin/phpcs --config-set show_progress 0",
       "./vendor/bin/phpcs --config-set colors 1"
     ],
+    "update-version": [
+      "version"
+    ],
     "lint": [
-      "phpcs *.php src/*.php **/*.php src/**/**/*.php patterns/**/**/*.php --ignore=vendor",
+      "@php-lint",
       "cd patterns && npm run lint"
+    ],
+    "php-lint": [
+      "phpcs *.php src/*.php **/*.php src/**/**/*.php patterns/**/**/*.php --ignore=vendor"
     ]
   }
 }
