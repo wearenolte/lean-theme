@@ -57,7 +57,7 @@ const supportedBrowsers = ['Explorer >= 11', 'iOS >= 7', 'Safari >= 9'];
 const sourceMapsDirectories = './../maps';
 const loaders = [{
   test: /\.js$/,
-  exclude: /(node_modules|bower_components)/,
+  exclude: /node_modules/,
   loader: 'babel-loader',
   query: {
     presets: ['es2015']
