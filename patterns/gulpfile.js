@@ -19,6 +19,7 @@ const svgmin = require('gulp-svgmin');
 const path = require('path');
 
 gulp.task( 'build', [ 'styles:build', 'js:build' ] );
+gulp.task( 'build:dev', [ 'styles:dev', 'js:dev' ] );
 // List of tasks see each function for more details about each.
 gulp.task( 'styles', styles );
 gulp.task( 'styles:dev', styles );
