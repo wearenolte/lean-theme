@@ -13,6 +13,6 @@ if ( ! $is_post ) {
 		<h1><?php echo esc_html( $post->post_title ); ?></h1>
 	</header>
 	<section>
-		<?php echo wp_kses_post( $post->post_content ); ?>
+		<?php the_content(); ?>
 	</section>
 </article>
