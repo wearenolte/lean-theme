@@ -1,9 +1,18 @@
 /**
  * Media queries are done as follows:
  * No media query - should be the default mobile style and styles shoul be applied
- * incrementally.
+ * incrementally, which is usually know as mobile first approach for mobile layout.
+ *
+ * @link https://github.com/sass-mq/sass-mq
  */
-$mobile_m: new-breakpoint(min-width 375px 12); // Style applied above 375px
-$mobile_l: new-breakpoint(min-width 425px 12); // Style applied above 425px
-$tablet: new-breakpoint(min-width 768px 12); // Style applied above 768px
-$desktop: new-breakpoint(min-width 1024px 12); // Style applied above 1024px
+$mq-breakpoints: (
+    mobile:  320px,
+    tablet:  740px,
+    desktop: 980px,
+    wide:    1300px
+);
+
+// Variable to usage as the main maximum width of the layout.
+$max-width: 1200px;
+
+@import 'node_modules/sass-mq/mq';
