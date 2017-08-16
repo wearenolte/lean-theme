@@ -19,6 +19,7 @@ const svgmin = require('gulp-svgmin');
 const path = require('path');
 
 gulp.task( 'build', [ 'styles:build', 'js:build' ] );
+gulp.task( 'build:dev', [ 'styles:dev', 'js:dev' ] );
 // List of tasks see each function for more details about each.
 gulp.task( 'styles', styles );
 gulp.task( 'styles:dev', styles );
@@ -56,7 +57,7 @@ const supportedBrowsers = ['Explorer >= 11', 'iOS >= 7', 'Safari >= 9'];
 const sourceMapsDirectories = './../maps';
 const loaders = [{
   test: /\.js$/,
-  exclude: /(node_modules|bower_components)/,
+  exclude: /node_modules/,
   loader: 'babel-loader',
   query: {
     presets: ['es2015']

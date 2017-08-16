@@ -2,7 +2,7 @@
   overflow: hidden;
 
   .a__hamburger {
-    @include media($tablet) {
+    @include mq(tablet) {
       display: none;
     }
   }
@@ -20,7 +20,7 @@
     text-align: center;
     min-width: 200px;
 
-    @include media($tablet) {
+    @include mq(tablet) {
       position: static;
       border: none;
       padding: 0;
@@ -32,22 +32,10 @@
     li {
       text-transform: uppercase;
 
-      @include media($tablet) {
+      @include mq(tablet) {
         display: inline-block;
         border-top: none;
       }
     }
-  }
-
-  a {
-    color: $nav_link;
-
-    &:hover {
-      color: $nav_hover;
-    }
-  }
-
-  &.active {
-    max-height: 40em;
   }
 }

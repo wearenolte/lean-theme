@@ -22,7 +22,6 @@ cache:
   directories:
   - vendor
   - patterns/node_modules
-  - patterns/bower_components
 
 script:
   - composer lint

@@ -46,7 +46,7 @@ This task run:
 
 ### composer build-deps
 
-Install all the required packages from `package.json` and `bower.json` inside of the `patterns`
+Install all the required packages from `package.json` inside of the `patterns`
 directory, this command is executed automatically after you run `composer install` or `composer
 update`
 
