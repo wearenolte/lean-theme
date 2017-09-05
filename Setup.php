@@ -71,7 +71,7 @@ class ThemeSetup {
 		error_log( 'The ACF plugin is not active!' );
 
 		if ( is_admin() ) :
-			add_action( 'admin_notices', function(){
+			add_action( 'admin_notices', function() {
 		?>
 			<div class="notice notice-error">
 				<p><?php echo esc_html( 'The ACF plugin is not active!' ); ?></p>

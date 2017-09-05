@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "de4e6fb56705a39fd5113127d460ae89",
+    "content-hash": "5b1a814b9f42b75df1206ee747890719",
     "packages": [
         {
             "name": "moxie-lean/assets",
@@ -55,16 +55,16 @@
         },
         {
             "name": "moxie-lean/loader",
-            "version": "1.1.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moxie-lean/loader.git",
-                "reference": "9d6d56309fe549ebf20bf201c46f4017d58a3d85"
+                "reference": "3ada92d475cc1e10d07e4be443a6d37a56b78aae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moxie-lean/loader/zipball/9d6d56309fe549ebf20bf201c46f4017d58a3d85",
-                "reference": "9d6d56309fe549ebf20bf201c46f4017d58a3d85",
+                "url": "https://api.github.com/repos/moxie-lean/loader/zipball/3ada92d475cc1e10d07e4be443a6d37a56b78aae",
+                "reference": "3ada92d475cc1e10d07e4be443a6d37a56b78aae",
                 "shasum": ""
             },
             "require": {
@@ -94,7 +94,7 @@
                 }
             ],
             "description": "Loader for files in wordpress making things easier instead of using a require",
-            "time": "2016-11-21T04:27:07+00:00"
+            "time": "2017-07-24T15:05:44+00:00"
         },
         {
             "name": "moxie-lean/wp-acf",
@@ -147,16 +147,16 @@
         },
         {
             "name": "moxie-lean/wp-cpt",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moxie-lean/wp-cpt.git",
-                "reference": "1c842040f59bffccdf8486c1d983520ca7313d7a"
+                "reference": "8b724f6f0eaece074736799b273c674945e792d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moxie-lean/wp-cpt/zipball/1c842040f59bffccdf8486c1d983520ca7313d7a",
-                "reference": "1c842040f59bffccdf8486c1d983520ca7313d7a",
+                "url": "https://api.github.com/repos/moxie-lean/wp-cpt/zipball/8b724f6f0eaece074736799b273c674945e792d3",
+                "reference": "8b724f6f0eaece074736799b273c674945e792d3",
                 "shasum": ""
             },
             "require": {
@@ -183,13 +183,13 @@
                 }
             ],
             "description": "Craate custom post types more easily",
-            "homepage": "https://github.com/moxie-leean/wp-cpt",
+            "homepage": "https://github.com/moxie-lean/wp-cpt",
             "keywords": [
                 "cpt",
                 "post types",
                 "wordpress"
             ],
-            "time": "2016-04-25T01:37:07+00:00"
+            "time": "2017-08-25T19:19:05+00:00"
         },
         {
             "name": "moxie-lean/wp-widgets",
@@ -272,63 +272,36 @@
     "packages-dev": [
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.7.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "9b324f3a1132459a7274a0ace2e1b766ba80930f"
+                "reference": "c7594a88ae75401e8f8d0bd4deb8431b39045c51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/9b324f3a1132459a7274a0ace2e1b766ba80930f",
-                "reference": "9b324f3a1132459a7274a0ace2e1b766ba80930f",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/c7594a88ae75401e8f8d0bd4deb8431b39045c51",
+                "reference": "c7594a88ae75401e8f8d0bd4deb8431b39045c51",
                 "shasum": ""
             },
             "require": {
                 "ext-simplexml": "*",
                 "ext-tokenizer": "*",
                 "ext-xmlwriter": "*",
-                "php": ">=5.1.2"
+                "php": ">=5.4.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
             },
             "bin": [
-                "scripts/phpcs",
-                "scripts/phpcbf"
+                "bin/phpcs",
+                "bin/phpcbf"
             ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "dev-master": "3.x-dev"
                 }
-            },
-            "autoload": {
-                "classmap": [
-                    "CodeSniffer.php",
-                    "CodeSniffer/CLI.php",
-                    "CodeSniffer/Exception.php",
-                    "CodeSniffer/File.php",
-                    "CodeSniffer/Fixer.php",
-                    "CodeSniffer/Report.php",
-                    "CodeSniffer/Reporting.php",
-                    "CodeSniffer/Sniff.php",
-                    "CodeSniffer/Tokens.php",
-                    "CodeSniffer/Reports/",
-                    "CodeSniffer/Tokenizers/",
-                    "CodeSniffer/DocGenerators/",
-                    "CodeSniffer/Standards/AbstractPatternSniff.php",
-                    "CodeSniffer/Standards/AbstractScopeSniff.php",
-                    "CodeSniffer/Standards/AbstractVariableSniff.php",
-                    "CodeSniffer/Standards/IncorrectPatternException.php",
-                    "CodeSniffer/Standards/Generic/Sniffs/",
-                    "CodeSniffer/Standards/MySource/Sniffs/",
-                    "CodeSniffer/Standards/PEAR/Sniffs/",
-                    "CodeSniffer/Standards/PSR1/Sniffs/",
-                    "CodeSniffer/Standards/PSR2/Sniffs/",
-                    "CodeSniffer/Standards/Squiz/Sniffs/",
-                    "CodeSniffer/Standards/Zend/Sniffs/"
-                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -346,26 +319,30 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-11-30T04:02:31+00:00"
+            "time": "2017-07-18T01:12:32+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",
-            "version": "0.10.0",
+            "version": "0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
-                "reference": "b39490465f6fd7375743a395019cd597e12119c9"
+                "reference": "1f64b1a0b5b789822d0303436ee4e30e0135e4dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/b39490465f6fd7375743a395019cd597e12119c9",
-                "reference": "b39490465f6fd7375743a395019cd597e12119c9",
+                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/1f64b1a0b5b789822d0303436ee4e30e0135e4dc",
+                "reference": "1f64b1a0b5b789822d0303436ee4e30e0135e4dc",
                 "shasum": ""
             },
             "require": {
-                "squizlabs/php_codesniffer": "^2.6"
+                "php": ">=5.3",
+                "squizlabs/php_codesniffer": "^2.9.0 || ^3.0.2"
             },
-            "type": "library",
+            "suggest": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.1"
+            },
+            "type": "phpcodesniffer-standard",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -382,7 +359,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2016-08-29T20:04:47+00:00"
+            "time": "2017-08-05T16:08:58+00:00"
         }
     ],
     "aliases": [],

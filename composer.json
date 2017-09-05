@@ -3,15 +3,15 @@
   "description": "Barebones modular WordPress theme",
   "type": "wordpress-theme",
   "require": {
-    "moxie-lean/wp-cpt": "^1.0",
+    "moxie-lean/wp-cpt": "1.0.*",
     "moxie-lean/assets": "2.*",
     "moxie-lean/wp-widgets": "^1.0",
-    "moxie-lean/loader": "^1.1",
+    "moxie-lean/loader": "^1.3",
     "wearenolte/buster": "^0.1.1"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^2.0",
-    "wp-coding-standards/wpcs": "0.*"
+    "squizlabs/php_codesniffer": "^3.0",
+    "wp-coding-standards/wpcs": "0.13.*"
   },
   "authors": [
     {
@@ -44,10 +44,12 @@
       "@build-app"
     ],
     "set-up-php-lint": [
-      "./vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
-      "./vendor/bin/phpcs --config-set default_standard ./codesniffer.ruleset.xml",
-      "./vendor/bin/phpcs --config-set show_progress 0",
-      "./vendor/bin/phpcs --config-set colors 1"
+      "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
+      "phpcs --config-set default_standard ./codesniffer.ruleset.xml",
+      "phpcs --config-set show_progress 1",
+      "phpcs --config-set colors 1",
+      "phpcs --config-set show_warnings 1",
+      "phpcs --config-set ignore_warnings_on_exit 1"
     ],
     "update-version": [
       "version"
@@ -57,7 +59,7 @@
       "cd patterns && npm run lint"
     ],
     "php-lint": [
-      "phpcs *.php src/*.php **/*.php src/**/**/*.php patterns/**/**/*.php --ignore=vendor"
+      "phpcs . --extensions=php"
     ]
   }
 }
