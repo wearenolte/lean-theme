@@ -44,10 +44,12 @@
       "@build-app"
     ],
     "set-up-php-lint": [
-      "./vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
-      "./vendor/bin/phpcs --config-set default_standard ./codesniffer.ruleset.xml",
-      "./vendor/bin/phpcs --config-set show_progress 0",
-      "./vendor/bin/phpcs --config-set colors 1"
+      "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
+      "phpcs --config-set default_standard ./codesniffer.ruleset.xml",
+      "phpcs --config-set show_progress 1",
+      "phpcs --config-set colors 1",
+      "phpcs --config-set show_warnings 1",
+      "phpcs --config-set ignore_warnings_on_exit 1"
     ],
     "update-version": [
       "version"
@@ -57,7 +59,7 @@
       "cd patterns && npm run lint"
     ],
     "php-lint": [
-      "phpcs *.php src/*.php **/*.php src/**/**/*.php patterns/**/**/*.php --ignore=vendor"
+      "phpcs . --extensions=php"
     ]
   }
 }
