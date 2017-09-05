@@ -56,15 +56,15 @@ add_action( 'lean/before_header', function() {
  * loading the sprite makes sure the file is present to prevent any error to
  * happen.
  */
-add_action( 'lean/after_footer', function(){
+add_action( 'lean/after_footer', function() {
 	$icon_path = './patterns/static/icons/icons.svg';
 	$sprite = get_theme_file_path( $icon_path );
+	// @codingStandardsIgnoreStart
 	$content = file_exists( $sprite ) ? file_get_contents( $sprite ) : false;
 	if ( $content ) {
-		// @codingStandardsIgnoreStart
 		printf( '<div class="visuallyhidden">%s</div>', $content );
-		 // @codingStandardsIgnoreEnd
 	}
+	// @codingStandardsIgnoreEnd
 });
 
 add_action( 'after_setup_theme', function() {
