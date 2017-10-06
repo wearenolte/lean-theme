@@ -244,6 +244,6 @@ function icons() {
         }]
       }
     }))
-    .pipe( svgstore() )
+    .pipe( svgstore({ inlineSvg: true }) )
     .pipe( gulp.dest( 'static/icons' ) );
 }
