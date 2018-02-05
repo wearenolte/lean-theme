@@ -30,9 +30,11 @@ class ThemeSetup {
 		// Run the Module::init() function for any modules which have it.
 		foreach ( glob( $modules_dir . '/*', GLOB_ONLYDIR ) as $dir ) {
 			$module_name = basename( $dir );
-			$module = '\\' . __NAMESPACE__ . '\\Modules\\' . $module_name . '\\' . $module_name;
-			if ( method_exists( $module, 'init' ) ) {
-				call_user_func( [ $module, 'init' ] );
+			foreach( glob( $dir .'/*.php' ) as $file ) {
+				$module = '\\' . __NAMESPACE__ . '\\Modules\\' . $module_name . '\\' . basename( $file, '.php' );
+				if ( method_exists( $module, 'init' ) ) {
+					call_user_func( [ $module, 'init' ] );
+				}
 			}
 		}
 	}
