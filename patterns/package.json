@@ -16,6 +16,7 @@
     "gulp-svgmin": "^1.2.4",
     "gulp-svgstore": "^6.1.0",
     "gulp-util": "^3.0.7",
+    "gulp-watch": "^5.0.0",    
     "reset-css": "^2.2.1",
     "run-sequence": "^2.1.0",
     "sass-mq": "^3.3.2",
