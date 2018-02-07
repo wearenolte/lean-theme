@@ -226,6 +226,13 @@ function jsBuild() {
 function jsTask( options ) {
   return gulp.src( jsEntryFile )
     .pipe( webpackStream( options ) )
+    .on( 'error', function( error ) {
+      this.emit( 'end' ); // Recover from errors
+      notify.onError({
+          title: "JS Error",
+          message: error.toString()
+      })(error);      
+    })    
     .pipe( gulp.dest( './static/js' ) );
 }
 
