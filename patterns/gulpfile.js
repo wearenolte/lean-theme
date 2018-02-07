@@ -2,6 +2,7 @@
 
 // Load dependencies.
 const gulp = require('gulp');
+const notify = require('gulp-notify');
 const watch = require('gulp-watch');
 const sass = require('gulp-sass' );
 const sourcemaps = require('gulp-sourcemaps');
@@ -88,7 +89,13 @@ function styles() {
 
   return gulp.src( sassEntryFile )
     .pipe( sourcemaps.init() )
-    .pipe( sass() ).on( 'error', sass.logError )
+    .pipe( sass() ).on( 'error', function( error ) {
+        notify.onError({
+            title: "Sass Error",
+            message: error.toString()
+        })(error);
+      }
+    )
     .pipe( sourcemaps.write( sourceMapsDirectories, sourceMapsOptions ) )
     .pipe( gulp.dest( cssDestination ))
     .on('end', () => log.success( 'Style compilation of sass into css file ended ') )
@@ -132,7 +139,7 @@ function stylesPrefix() {
  */
 function stylesWatch() {
   log.success( 'Start to watch for .scss changes' );
-  watch( sassFiles, { ignoreInitial: false }, styles);
+  watch( sassFiles, { ignoreInitial: true }, styles );
 }
 
 /**
