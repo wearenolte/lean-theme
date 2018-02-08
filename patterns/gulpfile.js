@@ -92,7 +92,7 @@ function styles() {
     .pipe( sass() ).on( 'error', function( error ) {
         notify.onError({
             title: "Sass Error",
-            message: error.toString()
+            message: error.message
         })(error);
       }
     )
@@ -225,14 +225,14 @@ function jsBuild() {
  */
 function jsTask( options ) {
   return gulp.src( jsEntryFile )
-    .pipe( webpackStream( options ) )
-    .on( 'error', function( error ) {
-      this.emit( 'end' ); // Recover from errors
-      notify.onError({
-          title: "JS Error",
-          message: error.toString()
-      })(error);      
-    })    
+    .pipe( webpackStream( options, null, function(err, stats) {
+      if ( stats.compilation.errors.length > 0 ) {
+        notify.onError({
+            title: "JS Error",
+            message: stats.compilation.errors[0].error
+        })(stats.compilation.errors[0].error);
+      }
+    }))
     .pipe( gulp.dest( './static/js' ) );
 }
 
