@@ -3,7 +3,7 @@
   "description": "Barebones modular WordPress theme",
   "type": "wordpress-theme",
   "require": {
-    "moxie-lean/wp-cpt": "1.0.*",
+    "wearenolte/wp-cpt": "1.0.*",
     "moxie-lean/assets": "2.*",
     "moxie-lean/wp-widgets": "^1.0",
     "moxie-lean/loader": "^1.3",
