@@ -74,6 +74,14 @@ configuration to make sure we follow the coding standards specified by the `Word
 Script that is executed automatically after `composer install` or `composer update` and is used to
 setup the linter configuration for `PHP`.
 
+### composer <task to create Pattern>
+
+Script to create a organism/molecule/atom folder inside of the `patterns` directory, as well as php/scss files. It will also add the corresponding calls to the scss file in the general `_style.scss` file. To run this task:
+- `composer organism -- <name-of-element>`
+- `composer molecule -- <name-of-element>`
+- `composer atom -- <name-of-element>`
+
+
 # Actions
 
 > List of `hooks` and `filters` availables to be used with this theme.
