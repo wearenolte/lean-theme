@@ -60,6 +60,15 @@
     ],
     "php-lint": [
       "phpcs . --extensions=php"
+    ],
+    "organism": [
+      "cd patterns && bash createPattern.sh organisms "
+    ],
+    "molecule": [
+      "cd patterns && bash createPattern.sh molecules "
+    ],
+    "atom": [
+      "cd patterns && bash createPattern.sh atoms "
     ]
   }
 }
