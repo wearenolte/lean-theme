@@ -1,136 +1,80 @@
-# Pre-requisites
+# Nolte Lean theme
+A useful wordpress theme to start from scratch your new project batteries included.
 
-You need to make sure you have at least the followings to use the theme:
+This theme use the atomic design approach to build your frontend stuff.
 
-- PHP 5.6
-- [composer](https://getcomposer.org/doc/00-intro.md)
+## Build status badges (when possible)
+Bitbucket pipelines, travis, codeship, styleci
 
-You need to make sure you have installed composer globally in your terminal just by running 
-`composer -v` you should have an output as follows: 
+## Project Code Style
+### Linters and tools for most used IDES and texteditors
 
-```
-$ composer -v
-   ______
-  / ____/___  ____ ___  ____  ____  ________  _____
- / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
-/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
-\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
-                    /_/
-Composer version 1.2.1 2016-09-12 11:27:19
-```
+* Sublime
+* Visual Studio Code
+* PHPStorm
 
-# Installation
+## Local development specs
+### Prerequisites
 
-1. Download or clone the theme
-2. Go to the theme path and run `composer install`
+A list of development machine requirements to be able to run this project.
 
-# Scripts
-
-The theme uses [`composer`](https://getcomposer.org/doc/00-intro.md) as dependency manager for PHP
-libraries and script mananger for the theme, inside of the theme you have the following commands
-available.
-
-To run any of the following commands you only need to type the name of the command on your terminal
-for instance: 
+### Installation
+A step by step series of examples that tell you have to get a development env running
+Say what the step will be
 
 ```
-composer lint
+Give the example
 ```
 
-### composer build
-
-This task run: 
-
-- `composer build-deps`
-- `composer buld-app`
-
-### composer build-deps
-
-Install all the required packages from `package.json` inside of the `patterns`
-directory, this command is executed automatically after you run `composer install` or `composer
-update`
-
-### composer build-app
-
-This task generates the production ready assets by running [`gulp build`](patterns#gulp-build) 
-inside of the `patterns` directory.
-
-### composer lint
-
-Function that executes the linter task for the `.php` files except on `vendor` directory the files
-are specified as follows: 
+And repeat
 
 ```
- *.php src/*.php **/*.php src/**/**/*.php --ignore=vendor
+until finished
 ```
 
-If you want to change this just [edit `composer.json` file](composer.json#L52) to adjust based on your needs. 
+End with an example of getting some data out of the system or using it for a little demo
+### Troubleshoting
 
-The linter for PHP uses the [`WordPresss` Coding Standard](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards) 
-configuration to make sure we follow the coding standards specified by the `WordPress` handbook.
+## Third Party plugins and libraries
+### Backend
+### Frontend
 
-### composer set-up-php-lint
+## Running the tests and QA tools
 
-Script that is executed automatically after `composer install` or `composer update` and is used to
-setup the linter configuration for `PHP`.
+Explain how to run the automated tests for this system
 
-### composer <task to create Pattern>
+### Break down into end to end tests
 
-Script to create a organism/molecule/atom folder inside of the `patterns` directory, as well as php/scss files. It will also add the corresponding calls to the scss file in the general `_style.scss` file. To run this task:
-- `composer organism -- <name-of-element>`
-- `composer molecule -- <name-of-element>`
-- `composer atom -- <name-of-element>`
+Explain what these tests test and why
 
+```
+Give an example
+```
 
-# Actions
+### And coding style tests
 
-> List of `hooks` and `filters` availables to be used with this theme.
+Explain what these tests test and why
 
-### `lean/before_header`
+```
+Give an example
+```
 
-Action executed before the main `<header>` tag and after the `<body>` tag, useful
-if you want to add something before anyother tag on the site.
+## Deployment
+Add additional notes about how to deploy this on a live system
 
-### `lean/after_header`
+### Staging Server 
+#### Server location (service)
+### Live Server
+#### Server location (service)
 
-Action executed after the main `</header>` tag. Useful if you want to add something
-just after the header has been rendered.
+## Versioning
+Description about Semantic Versioning and how and when change the version of the system.
+## Contributing
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-### `lean/before_footer`
+## Credits
+This section will be updated when new developer contribute to this project
+[Oscar Arzola)](https://oscararzola.com)
 
-Action that is executed before the main `<footer>` tag. Useful to add something 
-before the last tag of the page is added.
-
-### `lean/after_footer`
-
-Action that is executed before the closing `</body>` tag and just after the 
-`</footer>` tg. Useful to add something at the end of the site.
-
-# Filters
-
-The following is a collection of filters available to be used to change settings
-and options from the theme at any point.
-
-### `lean/acf_path`
-
-With this filter you can change the location of the ACF files, by default saves 
-the ACF Groups into the `acf` directory located on the theme.
-
-### `lean/acf_use_custom_location`:
-
-By default is set to `true`, with this filter you can remove the automatic 
-save of ACF Fields into the `lean/acf_path`.
-
-# Helper functions
-
-### use_icon
-
-This function renders a new icon from the sprite set.
-
-**Parameters**
-
-- id: the file name of the icon for example if you have a file 
-`patterns/static/icons/facebook.svg` the `id` of the icon is `facebook`.
-- class_name: The `class_name` attribute is an optional parameter that can be 
-used to add a custom class to the specifc instance of the icon if a different 
-style is required.
+## Changelog
+Please read [CHANGELOG.md](CHANGELOG.md)  this file are going to keep the changes of the project when a new release is sent to the master branch
