@@ -2,6 +2,8 @@
 
 // Load dependencies.
 const gulp = require('gulp');
+const notify = require('gulp-notify');
+const watch = require('gulp-watch');
 const sass = require('gulp-sass' );
 const sourcemaps = require('gulp-sourcemaps');
 const gutil = require('gulp-util');
@@ -85,12 +87,18 @@ function styles() {
     sourceRoot: './../../',
   };
 
-  log.success( 'Style compilation of sass into css file started ');
   return gulp.src( sassEntryFile )
     .pipe( sourcemaps.init() )
-    .pipe( sass() ).on( 'error', sass.logError )
+    .pipe( sass() ).on( 'error', function( error ) {
+        notify.onError({
+            title: "Sass Error",
+            message: error.message
+        })(error);
+      }
+    )
     .pipe( sourcemaps.write( sourceMapsDirectories, sourceMapsOptions ) )
-    .pipe( gulp.dest( cssDestination ));
+    .pipe( gulp.dest( cssDestination ))
+    .on('end', () => log.success( 'Style compilation of sass into css file ended ') )
 }
 
 /**
@@ -131,7 +139,7 @@ function stylesPrefix() {
  */
 function stylesWatch() {
   log.success( 'Start to watch for .scss changes' );
-  gulp.watch( sassFiles, ['styles'] );
+  watch( sassFiles, { ignoreInitial: true }, styles );
 }
 
 /**
@@ -217,7 +225,14 @@ function jsBuild() {
  */
 function jsTask( options ) {
   return gulp.src( jsEntryFile )
-    .pipe( webpackStream( options ) )
+    .pipe( webpackStream( options, null, function(err, stats) {
+      if ( stats.compilation.errors.length > 0 ) {
+        notify.onError({
+            title: "JS Error",
+            message: stats.compilation.errors[0].error
+        })(stats.compilation.errors[0].error);
+      }
+    }))
     .pipe( gulp.dest( './static/js' ) );
 }
 
