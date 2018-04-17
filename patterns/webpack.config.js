@@ -8,10 +8,10 @@ module.exports = {
     filename: '[name].js',
   },
   resolve: {
-    extensions: [ '', '.js' ],
-    root: [ './node_modules' ],
-    modulesDirectories: [
-      path.join( __dirname ),
+    extensions: [ '*', '.js' ],
+    modules: [ 
+      path.join( __dirname ), 
+      'node_modules' 
     ]
   },
   module: {
