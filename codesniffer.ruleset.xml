@@ -21,5 +21,6 @@
 		<exclude name="WordPress.VIP.SessionFunctionsUsage" />
 		<exclude name="WordPress.CSRF.NonceVerification" />
 		<exclude name="WordPress.NamingConventions.ValidHookName" />
+		<exclude name="WordPress.PHP.YodaConditions" />
 	</rule>
 </ruleset>
