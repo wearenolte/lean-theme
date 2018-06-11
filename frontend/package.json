@@ -1,0 +1,47 @@
+{
+  "description": "Starter kit for Pattern Lab",
+  "devDependencies": {
+    "animatewithsass": "^3.2.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "cssnano": "^3.10.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "optimize-css-assets-webpack-plugin": "^4.0.2",
+    "sass-loader": "^7.0.3",
+    "standard": "^11.0.1",
+    "standard-loader": "^6.0.1",
+    "stylelint": "^8.4.0",
+    "stylelint-webpack-plugin": "^0.10.5",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.12.0",
+    "webpack-build-notifier": "^0.1.27",
+    "webpack-cli": "^3.0.3",
+    "webpack-merge": "^4.1.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
+  },
+  "scripts": {
+    "serve": "webpack --watch --progress --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "standard": {
+    "globals": [ "_gaq", "$" ]
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moxie-lean/patternlab-starterkit-twig"
+  }
+}

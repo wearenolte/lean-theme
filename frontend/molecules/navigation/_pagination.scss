@@ -1,0 +1,18 @@
+.m__pagination {
+  overflow: hidden;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    padding: 0;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+  }
+}
