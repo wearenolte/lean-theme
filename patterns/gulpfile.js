@@ -54,7 +54,7 @@ const sassFiles = [
   './{' + appDirectories.join( ',' ) + '}/**/*.scss',
 ];
 // Browser where prefixers required to be added.
-const supportedBrowsers = ['Explorer >= 11', 'iOS >= 7', 'Safari >= 9'];
+const supportedBrowsers = ['Explorer >= 11', 'iOS >= 7', 'Safari >= 9', 'Firefox >= 54'];
 // Where the sass files are located, used to watch changes on these directories.
 const sourceMapsDirectories = './../maps';
 const loaders = [{
