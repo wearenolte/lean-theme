@@ -24,12 +24,12 @@ class Assets {
 	public static function init_assets() {
 		$version = self::get_version_number();
 		$assets = new \Lean\Assets( [
-			'css_uri' => get_template_directory_uri() . '/patterns/static/css/style.css',
+			'css_uri' => get_template_directory_uri() . '/frontend/static/css/style.css',
 			'css_version' => $version,
-			'js_uri' => get_template_directory_uri() . '/patterns/static/js/main.js',
+			'js_uri' => get_template_directory_uri() . '/frontend/static/js/main.js',
 			'js_version' => $version,
-			'jquery_uri' => '//code.jquery.com/jquery-2.2.4.min.js',
-			'jquery_version' => '2.2.4',
+			'jquery_uri' => get_template_directory_uri() . '/frontend/static/js/vendor.js',
+			'jquery_version' => $version,
 			'automatic_suffix' => false,
 		] );
 

@@ -1,0 +1,12 @@
+.a__btn {
+  align-items: center;
+  display: flex;
+  height: 45px;
+  justify-content: center;
+  text-transform: uppercase;
+  width: 255px;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}

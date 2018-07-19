@@ -1,0 +1,17 @@
+.o__header {
+  .container {
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  nav {
+    margin-left: auto;
+  }
+
+  .a__hamburger {
+    position: relative;
+    z-index: 5;
+  }
+}

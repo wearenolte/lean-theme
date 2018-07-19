@@ -34,10 +34,10 @@
       "@build-deps"
     ],
     "build-deps": [
-      "cd patterns && npm install"
+      "cd frontend && npm install"
     ],
     "build-app": [
-      "cd patterns && npm run build"
+      "cd frontend && npm run build"
     ],
     "build": [
       "@build-deps",
@@ -55,20 +55,19 @@
       "version"
     ],
     "lint": [
-      "@php-lint",
-      "cd patterns && npm run lint"
+      "@php-lint"
     ],
     "php-lint": [
       "phpcs . --extensions=php"
     ],
     "organism": [
-      "cd patterns && bash createPattern.sh organisms "
+      "cd frontend && bash createPattern.sh organisms "
     ],
     "molecule": [
-      "cd patterns && bash createPattern.sh molecules "
+      "cd frontend && bash createPattern.sh molecules "
     ],
     "atom": [
-      "cd patterns && bash createPattern.sh atoms "
+      "cd frontend && bash createPattern.sh atoms "
     ]
   }
 }

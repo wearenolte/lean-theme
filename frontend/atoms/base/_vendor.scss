@@ -1,0 +1,49 @@
+// Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Optional
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/utilities";
+
+/**
+ * Mixins animations from animate.css
+ * @ref: https://daneden.github.io/animate.css/
+ * Uncomment the ones you want to use or add your own animations
+ * to the folder.
+ */
+
+// Always required. Uncomment this if you are going to use any of the animations!
+// @import "../../node_modules/animatewithsass/_properties";
+
+// Uncomment the set of animations you are going to use.
+// You an also be more specific and import unique animations instead of sets!
+
+//@import "../../node_modules/animatewithsass/_attention-seekers/attention-seekers.scss";
+//@import "../../node_modules/animatewithsass/_bouncing-entrances/bouncing-entrances.scss";
+//@import "../../node_modules/animatewithsass/_bouncing-exits/bouncing-exits.scss";
+//@import "../../node_modules/animatewithsass/_fading-entrances/fading-entrances.scss";
+//@import "../../node_modules/animatewithsass/_fading-exits/fading-exits.scss";
+//@import "../../node_modules/animatewithsass/_flippers/flippers.scss";
+//@import "../../node_modules/animatewithsass/_lightspeed/lightspeed.scss";
+//@import "../../node_modules/animatewithsass/_rotating-entrances/rotating-entrances.scss";
+//@import "../../node_modules/animatewithsass/_rotating-exits/rotating-exits.scss";
+//@import "../../node_modules/animatewithsass/_specials/specials.scss";
+
+// Example of the bounceIn mixin
+/**
+ * .myClass {
+ *    @include bounceIn($count, $duration, $delay, $function, $fill, $visibility);
+ * }
+ */
