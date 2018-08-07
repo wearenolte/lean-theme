@@ -87,6 +87,11 @@ function styles() {
     sourceRoot: './../../',
   };
 
+  var prefixOptions = {
+    browsers: supportedBrowsers,
+    cascade: false,
+  };
+
   return gulp.src( sassEntryFile )
     .pipe( sourcemaps.init() )
     .pipe( sass() ).on( 'error', function( error ) {
@@ -96,6 +101,7 @@ function styles() {
         })(error);
       }
     )
+    .pipe( autoprefixer( prefixOptions ) )
     .pipe( sourcemaps.write( sourceMapsDirectories, sourceMapsOptions ) )
     .pipe( gulp.dest( cssDestination ))
     .on('end', () => log.success( 'Style compilation of sass into css file ended ') )
