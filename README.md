@@ -2,7 +2,7 @@
 
 You need to make sure you have at least the followings to use the theme:
 
-- PHP 5.6
+- PHP 7.0
 - [composer](https://getcomposer.org/doc/00-intro.md)
 
 You need to make sure you have installed composer globally in your terminal just by running 
