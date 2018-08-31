@@ -69,6 +69,17 @@ module.exports = {
             }
           }
         }
+      },
+      {
+        test: /\.svg$/,
+        use: {
+          loader: 'svg-url-loader',
+          options: {
+            alias: {
+              './static': path.resolve(__dirname, './static')
+            }
+          }
+        }
       }
     ]
   },
