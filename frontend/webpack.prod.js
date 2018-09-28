@@ -1,9 +1,8 @@
-const webpack = require('webpack');
-const path = require('path');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const webpack = require('webpack')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const merge = require('webpack-merge')
+const common = require('./webpack.common.js')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -38,11 +37,21 @@ module.exports = merge(common, {
       new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.css$/,
         cssProcessor: require('cssnano'),
-        cssProcessorOptions: { discardComments: { removeAll: true } },
+        cssProcessorOptions: {
+          discardComments: { removeAll: true },
+          safe: true,
+          autoprefixer: {
+            add: true,
+            browsers: [
+              'last 2 versions',
+              'iOS >= 7'
+            ]
+          }
+        },
         canPrint: true
       }, {
         copyUnmodified: true
       })
     ]
   }
-});
+})
