@@ -44,7 +44,7 @@ module.exports = merge(common, {
             add: true,
             browsers: [
               'last 2 versions',
-              'iOS >= 7'
+              'iOS >= 8'
             ]
           }
         },

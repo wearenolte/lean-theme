@@ -52,6 +52,6 @@
   },
   "browserslist": [
     "last 2 versions",
-    "iOS >= 7"
+    "iOS >= 8"
   ]
 }
