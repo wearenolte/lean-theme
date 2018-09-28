@@ -2,8 +2,10 @@
   "description": "Starter kit for Pattern Lab",
   "devDependencies": {
     "animatewithsass": "^3.2.1",
+    "autoprefixer": "^9.1.5",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
@@ -47,5 +49,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/moxie-lean/patternlab-starterkit-twig"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "iOS >= 8"
+  ]
 }
