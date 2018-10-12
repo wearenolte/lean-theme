@@ -32,7 +32,7 @@ module.exports = {
         use: [{
           loader: 'expose-loader',
           options: 'jQuery'
-        },{
+        }, {
           loader: 'expose-loader',
           options: '$'
         }]
@@ -60,6 +60,12 @@ module.exports = {
           {
             loader: 'css-loader',
             options: { sourceMap: true }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [require('autoprefixer')()]
+            }
           },
           {
             loader: 'sass-loader',
