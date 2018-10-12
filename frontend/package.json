@@ -20,7 +20,6 @@
     "standard-loader": "^6.0.1",
     "stylelint": "^8.4.0",
     "stylelint-webpack-plugin": "^0.10.5",
-    "svg-url-loader": "^2.3.2",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.1",
     "webpack": "^4.12.0",

@@ -32,7 +32,7 @@ module.exports = {
         use: [{
           loader: 'expose-loader',
           options: 'jQuery'
-        },{
+        }, {
           loader: 'expose-loader',
           options: '$'
         }]
@@ -79,9 +79,9 @@ module.exports = {
         }
       },
       {
-        test: /\.svg$/,
+        test: /\.(ttf|eot|woff|woff2|svg)$/,
         use: {
-          loader: 'svg-url-loader',
+          loader: 'url-loader',
           options: {
             alias: {
               './static': path.resolve(__dirname, './static')
