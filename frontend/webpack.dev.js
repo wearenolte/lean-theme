@@ -7,10 +7,9 @@ module.exports = merge(common, {
   devtool: 'inline-cheap-module-source-map',
   plugins: [
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
+      $: "jquery",
+      jQuery: "jquery",
       Popper: ['popper.js', 'default']
     })
-  ]
+  ],
 })

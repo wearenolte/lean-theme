@@ -28,6 +28,16 @@ module.exports = {
   module: {
     rules: [
       {
+        test: require.resolve('jquery'),
+        use: [{
+          loader: 'expose-loader',
+          options: 'jQuery'
+        },{
+          loader: 'expose-loader',
+          options: '$'
+        }]
+      },
+      {
         test: /(\.jsx|\.js)$/,
         // Exclude all node modules except those who need to be transpiled by Babel. e.g. exclude: /node_modules\/(?![module1|module2])/
         exclude: /node_modules\/(?![bootstrap])/,
