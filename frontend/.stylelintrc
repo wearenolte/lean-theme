@@ -15,6 +15,6 @@
       "except": ["first-nested"],
       "ignore": ["after-comment"]
     } ],
-    "unit-whitelist": ["em", "rem", "%", "s", "px"]
+    "unit-whitelist": ["em", "rem", "%", "s", "px", "deg", "vh", "vw"]
   }
 }
