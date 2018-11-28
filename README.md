@@ -1,8 +1,7 @@
 # The LEAN Theme 
 ## A no-frills WordPress starter theme
 
-![maintained](https://img.shields.io/badge/maintained-yes-brightgreen.svg) ![wordpress](https://img.shields.io/badge/wordpress-%3E%3D4.8-green.svg) ![php](https://img.shields.io/badge/php-%3E%3D5.4-green.svg) 
-[![GitHub contributors](https://img.shields.io/github/contributors/wearenolte/lean-theme.svg)](https://github.com/wearenolte/lean-theme/graphs/contributors)
+![maintained](https://img.shields.io/badge/maintained-yes-brightgreen.svg) ![wordpress](https://img.shields.io/badge/wordpress-%3E%3D4.8-green.svg) ![php](https://img.shields.io/badge/php-%3E%3D5.6-green.svg) [![GitHub contributors](https://img.shields.io/github/contributors/wearenolte/lean-theme.svg)](https://github.com/wearenolte/lean-theme/graphs/contributors)
 
 
 The Lean Theme is a starter theme for WordPress made by Developers for Developers.
