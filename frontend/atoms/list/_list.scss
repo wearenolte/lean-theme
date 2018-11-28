@@ -1,0 +1,30 @@
+ol, ul {
+  list-style-position: inside;
+  margin: 0;
+}
+
+ol {
+  list-style-type: decimal;
+
+  ol {
+    list-style-type: lower-latin;
+
+    ol {
+      list-style-type: lower-roman;
+    }
+  }
+}
+
+/* Definition Lists */
+dl {
+  margin: 0;
+  overflow: hidden;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}

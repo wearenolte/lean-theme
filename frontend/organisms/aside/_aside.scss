@@ -1,0 +1,11 @@
+.main-aside {
+  padding: rem(25px) rem(10px);
+
+  .widget {
+    margin-bottom: rem(20px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

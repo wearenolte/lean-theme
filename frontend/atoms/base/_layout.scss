@@ -1,0 +1,42 @@
+/**
+ * Apply a natural box layout model to all elements, but allowing components to change
+ * @source https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.container {
+  @include media-breakpoint-up(sm) {
+    max-width: 768px;
+  }
+
+  @include media-breakpoint-up(md) {
+    max-width: 1200px;
+  }
+
+  &-sidebar {
+    @include media-breakpoint-up(md) {
+      display: flex;
+    }
+
+    .content {
+      @include media-breakpoint-up(md) {
+        margin-right: 2%;
+        max-width: 80%;
+      }
+    }
+  }
+}
+
+/**
+ * Font size, based rem
+ */
+@function rem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}

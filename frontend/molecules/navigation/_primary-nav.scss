@@ -1,0 +1,39 @@
+.m__primary-nav {
+  overflow: hidden;
+
+  ul {
+    background: {
+      color: white;
+    }
+    border-right: none;
+    border: rem(1px) solid;
+    bottom: 0;
+    list-style: none;
+    min-width: 200px;
+    padding-top: rem(50px);
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+
+    li {
+      text-transform: uppercase;
+
+    }
+  }
+}
+
+.navbar-brand {
+  background: {
+    image: url('./static/images/logo.png');
+    size: cover;
+  }
+
+  &-title {
+    color: transparent;
+  }
+}
+
+.collapse {
+  justify-content: flex-end;
+}

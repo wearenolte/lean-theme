@@ -21,7 +21,7 @@ before_script:
 cache:
   directories:
   - vendor
-  - patterns/node_modules
+  - frontend/node_modules
 
 script:
   - composer lint
