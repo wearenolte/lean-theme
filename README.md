@@ -1,23 +1,67 @@
 # The LEAN Theme 
-## A WordPress starter theme
+## A no-frills WordPress starter theme
+
+![maintained](https://img.shields.io/badge/maintained-yes-brightgreen.svg) ![wordpress](https://img.shields.io/badge/wordpress-%3E%3D4.8-green.svg) ![php](https://img.shields.io/badge/php-%3E%3D5.4-green.svg) 
+[![GitHub contributors](https://img.shields.io/github/contributors/wearenolte/lean-theme.svg)](https://github.com/wearenolte/lean-theme/graphs/contributors)
+
 
 The Lean Theme is a starter theme for WordPress made by Developers for Developers.
 
-It focus on fast development following best development practices.
+It focuses on fast development following best development practices.
 
-Some of the features:
-* Webpack building system for development and live environments
+Some key features:
+* Webpack build system for development and live environments
 * ES6 Javascript
-* Sass preprocessor
+* SASS preprocessor
 * MVC coding arquitecture
-* Reusable frontend components (Atomic Design methodology)
-* Helper functions to create Custom Post Types, Categories and Endpoints easy
+* Reusable frontend components (following the Atomic Design methodology)
+* Helper functions to create Custom Post Types, Categories and Endpoints easily
 * ACF integration
-* PHP, JS and CSS linters
+* PHP, JS and SASS linters
 * Composer and NPM for managing dependencies
 
+## Contents
+- [The LEAN Theme](#the-lean-theme)
+  - [A no-frills WordPress starter theme](#a-no-frills-wordpress-starter-theme)
+  - [Contents](#contents)
+  - [Pre-requisites](#pre-requisites)
+  - [Installation](#installation)
+  - [Development and Production Building commands](#development-and-production-building-commands)
+    - [Production build command](#production-build-command)
+    - [Development command](#development-command)
+  - [Best Practices](#best-practices)
+    - [Linter command](#linter-command)
+  - [Frontend Components](#frontend-components)
+    - [Atoms](#atoms)
+    - [Molecules](#molecules)
+    - [Organisms](#organisms)
+    - [Templates](#templates)
+    - [Atomic Element Generators](#atomic-element-generators)
+    - [Loading Atomic Elements](#loading-atomic-elements)
+  - [Helper functions](#helper-functions)
+  - [Assets](#assets)
+    - [Images](#images)
+    - [JavaScript](#javascript)
+    - [CSS](#css)
+    - [Web Fonts](#web-fonts)
+    - [Icons](#icons)
+  - [JavaScript](#javascript-1)
+    - [Adding new JS function / behavior](#adding-new-js-function--behavior)
+    - [Adding an external package from NPM](#adding-an-external-package-from-npm)
+  - [Models and Controllers](#models-and-controllers)
+    - [Creating a Custom Post Type](#creating-a-custom-post-type)
+  - [Creating an Endpoint](#creating-an-endpoint)
+  - [Theme Hooks](#theme-hooks)
+    - [Actions](#actions)
+    - [Filters](#filters)
+  - [Contributing](#contributing)
+  - [Credits](#credits)
+  - [Changelog](#changelog)
+  - [License](#license)
+
+
 ## Pre-requisites
-You need this installed in order to use the theme:
+You need the following in order to work with this theme:
 * PHP 5.6 or higher
 * [Composer](https://getcomposer.org/doc/00-intro.md#globally)
 * [Node.js](https://nodejs.org/en/download/)
@@ -33,7 +77,7 @@ composer install
 ```
 
 ## Development and Production Building commands
-The theme uses composer as dependency manager for PHP libraries, NPM for the Javascript libraries and Webpack to build the Sass and JS files.
+The theme uses composer as dependency manager for PHP libraries, NPM for the JavaScript libraries and Webpack to build the SASS and JS files.
 
 ### Production build command
 ```bash
@@ -46,55 +90,55 @@ This command will install the NPM dependencies and will run the Webpack producti
 composer serve
 ```
 
-This command will run the Webpack development configuration which will start a watcher that compiles the Sass and JS files as soon as you save them.
+This command will run the Webpack development configuration which will start a watcher that compiles the SASS and JS files as soon as you save them.
 
-It will also enable the Source Maps.
+It will also enable source maps for easy debugging.
 
 ## Best Practices
-The Lean Theme encourages the Dev to use best practices by using Linters for PHP, JS and CSS. This helps on maintaining a consistent style in the code so it becomes clean and easy to read at a glance. It will also help you to detect errors on your code and give you tips on how to solve them.
+The Lean Theme encourages you to use best practices by using linters for PHP, JS and CSS. This helps  maintain a consistent scode style, leaving it becomes clean and at less risk of bugs or security risks. It will help you to detect errors on your code and give you tips on how to solve them.
 
 ### Linter command
-The PHP linter uses the [WordPress Coding Standard](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/) specified on the WordPress handbook. The following command should be runned manually and added in your continuous integration pipeline configuration.
+The PHP linter uses the [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/) specified on the WordPress handbook. The following command should be run manually before committing change, and also added to your continuous integration build configuration.
 ```bash
 composer lint
 ```
 
-The JS linter uses the [Standard Style](https://github.com/standard/standard) and the CSS linter uses [Stylelint](https://stylelint.io/).
+The JS linter uses the [Standard Style](https://github.com/standard/standard) and the SASS linter uses [Stylelint](https://stylelint.io/).
 The frontend linterns are runned when building or running the watcher with Webpack.
 
 ## Frontend Components
-The Lean Theme follows the [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/#atoms) methodology for developing the frontend in a modular way.
+The Lean Theme follows the [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/#atoms) methodology for developing a modular frontend.
 
-Inside the `patterns` directories there are 4 directories called Atoms, Molecules, Organisms and Templates where you can add all the Atomic Elements. 
-
-Every UI element might be part of a template, organisms, molecule or atom.
+Below the `patterns` directories there are 4 directories called Atoms, Molecules, Organisms and Templates to which you can add all the Atomic Elements. 
 
 ### Atoms
 Atoms are the basic building blocks of matter.
 
 Applied to web interfaces, atoms are our HTML tags, such as a form label, an input or a button.
-Your styles of each atom should be added inside of `_style.scss` of the `atoms` directory.
+
+Your stylesheet of each atom must be added inside of `_style.scss` of the `atoms` directory.
 
 ### Molecules
 Molecules are groups of atoms bonded together and are the smallest fundamental units of a compound.
 
-A molecule might be, a form label, input or button aren’t too useful by themselves, but combine them together as a form and now they can actually do something together. So it's basically a combination of different atoms to create molecules.
-Your styles of each molecule should be added inside of `_style.scss` of the `molecules` directory.
+A molecule might be, a form label, input or button. They are generally not too useful by themselves, but combine them together as a form and now we have something!
+
+Your stylesheet of each molecule must be added inside of `_style.scss` of the `molecules` directory.
 
 ### Organisms
 Organisms are groups of molecules joined together to form a relatively complex, distinct section of an interface.
 
-Section where organisms are placed usually an organisms is made from different molecules.
-Your styles of each organism should be added inside of `_style.scss` of the `organisms` directory.
+For example, a hero is an organism.
+
+Your stylesheet of each organism must be added inside of `_style.scss` of the `organism` directory.
 
 ### Templates
-Templates consist mostly of groups of organisms stitched together to form pages.
+Templates consist mostly of groups of organisms stitched together. A template with content in it is a `page`.
 
-This directory is used to store all the templates created from different organisms.
-Your styles of each template should be added inside of `_style.scss` of the `templates` directory.
+Your stylesheet of each template must be added inside of `_style.scss` of the `template` directory.
 
-### Atomic Design commands
-The following commands will create an atomic element folder inside of its corresponding directory, as well as their respective PHP and Sass files. It will also add the corresponding calls to the scss file in the general _style.scss file.
+### Atomic Element Generators
+The following commands will create an element folder inside of its corresponding directory, as well as their respective PHP and SASS files. They will also add the corresponding stylesheets to the SCSS file in the general _style.scss file.
 
 ```bash
 composer atom -- <name-of-element>
@@ -106,11 +150,11 @@ composer molecule -- <name-of-element>
 composer organism -- <name-of-element>
 ```
 
-### Loading Atomic elements
-The Lean Theme uses a function from on of the libraries installed with Composer. It helps in the  loading of the atomic elements.
+### Loading Atomic Elements
+The Lean Theme uses the [Loader Module](https://github.com/wearenolte/loader) to render atomic elements:
 
 ```php
-Load::element_type( ‘element_folder/element_file’, element_arguments );
+Load::element_type( ‘element_folder/element_php_file’, element_arguments[] );
 ```
 
 To use it first add its namespace at the beginning of the file:
@@ -153,7 +197,7 @@ This directory is used to place any custom web font that is not available by def
 ### Icons
 The SVG icons go here.
 
-## Javascript
+## JavaScript
 ### Adding new JS function / behavior
 First of all you need to create a new file where it makes more sense for example we want to create a listener for the click event in buttons so every time a button is clicked we want to add a new class to the body.
 
@@ -229,7 +273,7 @@ To create a new module just create a new directory such as:
 ```bash
 MyModule/MyModule.php
 ```
-Note that your class should have the same name as your directory, also the `Lean Theme Loader` is going to look for an `init` method, make sure your this method has the following visibility and variable of scope:
+Note that your class should have the same name as your directory, also the `Lean Theme Loader` is going to check for an optional `init` method, make sure your this method has the following visibility and variable of scope:
 ```bash
 public
 static
@@ -245,6 +289,8 @@ class MyModule {
   }
 }
 ```
+
+You can also create a single class directly in the top-level of the `src` folder. The same principles apply to the `init` function. This is useful for simple helper functions or WordPress hook callbacks.
 
 ### Creating a Custom Post Type
 To create a Custom Post Type, the Lean Theme relies on another PHP library called WP-CPT which comes installed with the theme.
@@ -337,7 +383,7 @@ By default is set to true, with this filter you can remove the automatic save of
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Credits
-This section will be updated when a new developer contribute to this project
+Thanks goes to:
 
 [Oscar Arzola](https://oscararzola.com)
 
@@ -346,6 +392,14 @@ This section will be updated when a new developer contribute to this project
 [Katia Lira](https://github.com/katialira)
 
 [Daniel López](https://github.com/zesk8)
+
+[Adam Fenton](https://github.com/adamf321)
+
+[Cris Hernandez](https://github.com/mitogh)
+
+[Raul Marrero](https://github.com/Rulox)
+
+[Nelson Amaya](https://github.com/nelsonamaya82)
 
 ## Changelog
 Please read [CHANGELOG.md](CHANGELOG.md)  this file is going to keep the changes of the project when a new release is sent to the master branch
