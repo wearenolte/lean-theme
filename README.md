@@ -1,7 +1,7 @@
 # The LEAN Theme 
 ## A no-frills WordPress starter theme
 
-![maintained](https://img.shields.io/badge/maintained-yes-brightgreen.svg) ![wordpress](https://img.shields.io/badge/wordpress-%3E%3D4.8-green.svg) ![php](https://img.shields.io/badge/php-%3E%3D7.0-green.svg) [![GitHub contributors](https://img.shields.io/github/contributors/wearenolte/lean-theme.svg)](https://github.com/wearenolte/lean-theme/graphs/contributors)
+![maintained](https://img.shields.io/badge/maintained-yes-brightgreen.svg) ![wordpress](https://img.shields.io/badge/wordpress-%3E%3D4.8-green.svg) ![php](https://img.shields.io/badge/php-%3E%3D7.1-green.svg) [![GitHub contributors](https://img.shields.io/github/contributors/wearenolte/lean-theme.svg)](https://github.com/wearenolte/lean-theme/graphs/contributors)
 
 
 The Lean Theme is a starter theme for WordPress made by Developers for Developers.
@@ -61,7 +61,7 @@ Some key features:
 
 ## Pre-requisites
 You need the following in order to work with this theme:
-* PHP 7.0 or higher
+* PHP 7.1 or higher
 * [Composer](https://getcomposer.org/doc/00-intro.md#globally)
 * [Node.js](https://nodejs.org/en/download/)
 
