@@ -43,6 +43,9 @@
       "@build-deps",
       "@build-app"
     ],
+    "serve": [
+      "cd frontend && npm run serve"
+    ],
     "set-up-php-lint": [
       "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
       "phpcs --config-set default_standard ./codesniffer.ruleset.xml",
