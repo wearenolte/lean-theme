@@ -5,7 +5,7 @@ $args = wp_parse_args(
 		'title' => '',
 	]
 );
-extract( $args );
+$title = $args['title'];
 
 if ( empty( $title ) ) {
 	return;
