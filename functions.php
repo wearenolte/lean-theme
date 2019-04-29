@@ -23,6 +23,7 @@ add_filter('loader_alias', function( $alias ) {
 	$alias['atom'] = 'atoms';
 	$alias['molecule'] = 'molecules';
 	$alias['organism'] = 'organisms';
+	$alias['template'] = 'templates';
 	return $alias;
 });
 
@@ -41,4 +42,3 @@ add_action( 'after_setup_theme', function() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'html5' );
 });
-

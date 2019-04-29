@@ -1,18 +1,30 @@
 <?php
+use Lean\Load;
+
 $args = wp_parse_args( $args, [
-	'post' => null,
+	'title' => '',
+	'content' => '',
 ]);
-$post = $args['post'];
-$is_post = ( $post instanceof WP_Post );
-if ( ! $is_post ) {
+extract( $args );
+
+if ( empty( $title ) && empty( $content ) ) {
 	return;
 }
 ?>
+
 <article>
-	<header>
-		<h1><?php echo esc_html( $post->post_title ); ?></h1>
-	</header>
+
+	<?php
+	Load::molecule(
+		'headings/article',
+		[
+			'title' => $title,
+		]
+	);
+	?>
+
 	<section>
-		<?php the_content(); ?>
+		<?php echo wp_kses_post( $content ); ?>
 	</section>
+
 </article>

@@ -1,11 +1,8 @@
 <?php
+use Lean\Load;
 
 get_header();
 
-if ( have_posts() ) {
-	while ( have_posts() ) {
-		the_post();
-	}
-}
+Load::template( 'post/single' );
 
 get_footer();
