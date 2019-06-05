@@ -10,12 +10,14 @@ if ( empty( $args['items'] ) ) {
 	return;
 }
 ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="/">
-		<span class="navbar-brand-title">
+<nav class="m__primary-nav navbar navbar-expand-lg navbar-light bg-light">
+
+	<a class="m__primary-nav__brand navbar-brand" href="/">
+		<span class="m__primary-nav__title">
 			<?php echo esc_html( bloginfo( 'name' ) ); ?>
 		</span>
 	</a>
+
 	<button
 		class="navbar-toggler"
 		type="button"
@@ -26,15 +28,19 @@ if ( empty( $args['items'] ) ) {
 		aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
+
 	<div class="collapse navbar-collapse" id="navbarNav">
-		<ul class="navbar-nav">
-			<?php foreach ( $args['items'] as $item => $link ) : ?>
-				<li class="nav-item active">
-					<a class="nav-link" href="<?php echo esc_url( $link ); ?>">
-						<?php echo esc_html( $item ); ?>
-					</a>
-				</li>
-			<?php endforeach; ?>
-		</ul>
+
+		<?php
+		wp_nav_menu(
+			[
+				'theme_location' => esc_attr( $menu_location ),
+				'container'      => 'ul',
+				'menu_class'     => 'm__primary-nav__menu navbar-nav',
+			]
+		);
+		?>
+
 	</div>
+
 </nav>

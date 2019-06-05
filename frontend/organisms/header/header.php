@@ -9,7 +9,7 @@ use Lean\Load;
 		Load::molecule( 'navigation/primary-nav', [
 			'items' => [
 				'Home' => '/',
-				'Features' => '/exmaple-url',
+				'Features' => '/example-url',
 			],
 		]);
 	?>
