@@ -120,7 +120,7 @@ Your stylesheet of each atom must be added inside of `_style.scss` of the `atoms
 ### Molecules
 Molecules are groups of atoms bonded together and are the smallest fundamental units of a compound.
 
-A molecule might be, a form label, input or button. They are generally not too useful by themselves, but combine them together as a form and now we have something!
+A molecule might be an input that includes a form label and the input error display. They are generally not too useful by themselves, but combine them together as a form and now we have something!
 
 Your stylesheet of each molecule must be added inside of `_style.scss` of the `molecules` directory.
 
@@ -198,7 +198,7 @@ The SVG icons go here.
 
 ## JavaScript
 ### Adding new JS function / behavior
-First of all you need to create a new file where it makes more sense for example we want to create a listener for the click event in buttons so every time a button is clicked we want to add a new class to the body.
+First of all you need to create a new file where it makes more sense. For example, we want to create a listener for the click event in buttons so every time a button is clicked a class is added to the body.
 
 In this case it would make sense to create a new atom called inside of atoms/buttons/toggle-button-listener.js such as.
 ```js
@@ -225,7 +225,7 @@ function clickListener() {
 
 export default myMainAction;
 ```
-As you can see the example has several functions but the one that is exported to the outside world is only myMainActionat this point this JS is not going to be executed unless you explicitly specify so inside of main.js inside of the onReady function, everything inside of this function is going to be executed once the DOM is ready.
+As you can see the example has several functions but the one that is exported to the outside world is only the function myMainAction. At this point this JS is not going to be executed unless you explicitly specify so inside of main.js inside of the onReady function. Everything inside of this function is going to be executed once the DOM is ready.
 
 So following the example aboye you need to add this two lines inside of main.js
 
@@ -241,7 +241,7 @@ function onReady() {
 NOTE The code is transpiled so can be executed on browsers where import or export is not supported yet.
 
 ### Adding an external package from NPM
-Inside of your own modules you can import files from node_modules you only need to make sure you added the dependency inside of package.json.
+Inside of your own modules you can import files from node_modules. You only need to make sure you add the dependency inside of package.json.
 
 And the syntax is pretty similar to import action from 'package-name';
 
