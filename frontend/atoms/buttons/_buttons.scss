@@ -5,6 +5,16 @@
   justify-content: center;
   text-transform: uppercase;
   width: 255px;
+  background-color: theme-color('primary');
+  padding: 10px 40px;
+  color: guten-color('white');
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: guten-color('white');
+    text-decoration: none;
+  }
 
   &[disabled] {
     cursor: not-allowed;
