@@ -1,4 +1,5 @@
 <?php use LeanNs\ThemeSetup;
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
@@ -41,4 +42,73 @@ add_action( 'after_setup_theme', function() {
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'html5' );
+
+	/**
+	 * Add support for Gutenberg.
+	 */
+
+	// Wide/Fullwidth images.
+	add_theme_support( 'align-wide' );
+
+	// Responsive embeds.
+	add_theme_support( 'responsive-embeds' );
+
+	// Default Gutenberg styles on Frontend.
+	add_theme_support( 'wp-block-styles' );
+
+	// Disable Font Sizes by default.
+	add_theme_support( 'editor-font-sizes' );
+	add_theme_support( 'disable-custom-font-sizes' );
+
+	// Disable Colors by default.
+	add_theme_support( 'editor-color-palette' );
+	add_theme_support( 'disable-custom-colors' );
+
+	// Gutenberg config.
+	$guten = require 'guten-config.php';
+
+	// Custom Editor Font Sizes.
+	if ( isset( $guten['font_sizes'] ) && ! empty( $guten['font_sizes'] ) ) {
+		add_theme_support( 'editor-font-sizes', $guten['font_sizes'] );
+	}
+
+	// Custom Editor Colors.
+	if ( isset( $guten['colors'] ) && ! empty( $guten['colors'] ) ) {
+		add_theme_support( 'editor-color-palette', $guten['colors'] );
+	}
+
+	// Allowed Block Types.
+	if ( isset( $guten['blocks'] ) && ! empty( $guten['blocks'] ) ) {
+		add_filter( 'allowed_block_types', function( $allowed_blocks, $post ) {
+			$guten = require 'guten-config.php';
+			$allowed_blocks = [];
+			foreach ( $guten['blocks'] as $post_type => $blocks ) {
+				if ( 'common' === $post_type ) {
+					$allowed_blocks = $blocks;
+				} else {
+					if ( $post->post_type === $post_type ) {
+						$allowed_blocks = wp_parse_args( $allowed_blocks, $blocks );
+					}
+				}
+			}
+
+			return $allowed_blocks;
+		}, 10, 2);
+	}
+
+	/**
+	 * Function that adds the custom CSS to the WP editor in the Dashboard.
+	 */
+	add_action( 'enqueue_block_assets', function() {
+		if ( is_admin() ) {
+			wp_enqueue_style(
+				'custom-styles-editor',
+				get_stylesheet_directory_uri() . '/frontend/static/css/style.css',
+				[
+					'wp-edit-blocks',
+				],
+				'1.0'
+			);
+		}
+	} );
 });

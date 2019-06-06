@@ -1,5 +1,5 @@
 # The LEAN Theme 
-## A no-frills WordPress starter theme
+## A no-frills WordPress starter theme - Gutenberg Ready!
 
 ![maintained](https://img.shields.io/badge/maintained-yes-brightgreen.svg) ![wordpress](https://img.shields.io/badge/wordpress-%3E%3D4.8-green.svg) ![php](https://img.shields.io/badge/php-%3E%3D7.1-green.svg) [![GitHub contributors](https://img.shields.io/github/contributors/wearenolte/lean-theme.svg)](https://github.com/wearenolte/lean-theme/graphs/contributors)
 
@@ -9,6 +9,7 @@ The Lean Theme is a starter theme for WordPress made by Developers for Developer
 It focuses on fast development following best development practices.
 
 Some key features:
+* Gutenberg ready
 * Webpack build system for development and live environments
 * ES6 Javascript
 * SASS preprocessor
@@ -37,6 +38,11 @@ Some key features:
     - [Templates](#templates)
     - [Atomic Element Generators](#atomic-element-generators)
     - [Loading Atomic Elements](#loading-atomic-elements)
+  - [Gutenberg Configuration](#gutenberg-configuration)
+    - [Custom Font Sizes](#custom-font-sizes)
+    - [Custom Colors](#custom-colors)
+    - [Allowed Blocks](#allowed-blocks)
+    - [Custom Blocks](#custom-blocks)
   - [Helper functions](#helper-functions)
   - [Assets](#assets)
     - [Images](#images)
@@ -174,6 +180,21 @@ Load::atom( 'buttons/button', [
   'link' => $url,
 ]);
 ```
+
+## Gutenberg Configuration
+The Lean Theme has a Gutenberg Configuration file (`guten-config.php`), where you can define some utilities and functionality.
+
+### Custom Font Sizes
+You can define as many custom font sizes as you need. You'll have to edit the styles in `atoms/base/_typography.scss` by adding the slugs and font sizes. You can also remove all the sizes to disable the font size select option completely.
+
+### Custom Colors
+You can add as many colors as you need. You'll have to edit the styles in `atoms/base/_colors.scss` by adding the slugs and colors. You can also remove all the colors to disable the color palette settings completely.
+
+### Allowed Blocks
+You can add or remove the blocks you want to use in your theme. The blocks added to `common` are the ones that will be allowed on all the pages and post types. You can also add your custom post type slugs here to allow certain blocks per CPT.
+
+### Custom Blocks
+You can add as many custom blocks as you need, with the help of the ACF plugin. For this, you will need first to register the blocks in `src/Modules/Blocks/Blocks.php` in the function `create_blocks()`. This theme brings by default with a custom block called `ACF Button`, which is intended to serve as an example and also to replace the native button block. This custom block adds the option to define the button target (unlike the native one).  Once you have registered the custom block, you'll need to create a file in the same `Blocks` folder with the same slug you defined when registered it. You can take as an example the custom block that brings with this theme, `src/Modules/Blocks/acf-button`. You'll need to preserve the markup used on this file to make it works with the Gutenberg native functionalities like alignment. Then inside the div wrapper you can load the atomic element you need.
 
 ## Helper functions
 TODO: Add Helper functions to the theme

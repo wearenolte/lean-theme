@@ -34,7 +34,7 @@ if ( empty( $args['items'] ) ) {
 		<?php
 		wp_nav_menu(
 			[
-				'theme_location' => esc_attr( $menu_location ),
+				'theme_location' => 'main_menu',
 				'container'      => 'ul',
 				'menu_class'     => 'm__primary-nav__menu navbar-nav',
 			]
