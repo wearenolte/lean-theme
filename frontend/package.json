@@ -1,59 +1,21 @@
 {
-  "description": "Starter kit for Pattern Lab",
+  "license": "MIT",
   "devDependencies": {
-    "animatewithsass": "^3.2.1",
-    "autoprefixer": "^9.1.5",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "clean-webpack-plugin": "^0.1.19",
-    "copy-webpack-plugin": "^4.5.1",
-    "css-loader": "^0.28.11",
-    "cssnano": "^3.10.0",
-    "expose-loader": "^0.7.5",
-    "mini-css-extract-plugin": "^0.4.0",
-    "node-sass": "^4.12.0",
-    "optimize-css-assets-webpack-plugin": "^4.0.2",
-    "postcss-loader": "^3.0.0",
-    "sass-loader": "^7.0.3",
-    "standard": "^11.0.1",
-    "standard-loader": "^6.0.1",
-    "stylelint": "^8.4.0",
-    "stylelint-webpack-plugin": "^0.10.5",
-    "uglifyjs-webpack-plugin": "^1.2.5",
-    "url-loader": "^1.0.1",
-    "webpack": "^4.12.0",
-    "webpack-build-notifier": "^0.1.27",
-    "webpack-cli": "^3.0.3",
-    "webpack-merge": "^4.1.2"
-  },
-  "dependencies": {
-    "bootstrap": "4.2.1",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.14.3"
+    "cssnano": "^4.1.10",
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.20.1",
+    "sass-lint": "^1.13.1",
+    "eslint": "^5.16.0"
   },
   "scripts": {
-    "serve": "webpack --watch --progress --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "start": "parcel main.js --public-url ./",
+    "build": "parcel build main.js --public-url ./",
+    "scss-lint": "sass-lint 'components/**/*.scss' --config .sass-lint.yml --verbose --no-exit",
+    "js-lint": "eslint --config .eslintrc.json main.js 'components/**/*.js'",
+    "lint": "yarn scss-lint && yarn js-lint"
   },
-  "standard": {
-    "globals": [
-      "_gaq",
-      "$",
-      "jQuery"
-    ]
-  },
-  "engines": {
-    "node": ">=8.0.0"
-  },
-  "private": false,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/moxie-lean/patternlab-starterkit-twig"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "iOS >= 8"
-  ]
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1"
+  }
 }

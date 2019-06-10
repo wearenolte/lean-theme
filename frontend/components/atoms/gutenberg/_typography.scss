@@ -1,0 +1,12 @@
+$guten-font-sizes: (
+  'small': 12px,
+  'regular': 16px,
+  'large': 20px,
+  'huge': 40px,
+);
+
+@each $name, $size in $guten-font-sizes {
+  .has-#{$name}-font-size {
+    font-size: $size;
+  }
+}

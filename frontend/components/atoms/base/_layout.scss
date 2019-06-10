@@ -1,0 +1,17 @@
+// Apply a natural box layout model to all elements, but allowing components to change
+// @source https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// Font size, based rem.
+@function rem($size) {
+  $rem-size: $size / 16px;
+  @return $rem-size * 1rem;
+}

@@ -10,10 +10,10 @@ It focuses on fast development following best development practices.
 
 Some key features:
 * Gutenberg ready
-* Webpack build system for development and live environments
+* Easy configuration with Parcel for building development and live environments
 * ES6 Javascript
 * SASS preprocessor
-* MVC coding arquitecture
+* MVC coding architecture
 * Reusable frontend components (following the Atomic Design methodology)
 * Helper functions to create Custom Post Types, Categories and Endpoints easily
 * ACF integration
@@ -92,7 +92,8 @@ This command will install the NPM dependencies and will run the Webpack producti
 
 ### Development command
 ```bash
-composer serve
+cd frontend
+yarn start
 ```
 
 This command will run the Webpack development configuration which will start a watcher that compiles the SASS and JS files as soon as you save them.
@@ -104,17 +105,16 @@ The Lean Theme encourages you to use best practices by using linters for PHP, JS
 
 ### Linter command
 The PHP linter uses the [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/) specified on the WordPress handbook. The following command should be run manually before committing change, and also added to your continuous integration build configuration.
+
+
+The JS linter uses the [ESLint](https://eslint.org/) and the SCSS linter uses [SCSS Lint](https://github.com/sds/scss-lint).
 ```bash
 composer lint
 ```
-
-The JS linter uses the [Standard Style](https://github.com/standard/standard) and the SASS linter uses [Stylelint](https://stylelint.io/).
-The frontend linterns are runned when building or running the watcher with Webpack.
-
 ## Frontend Components
 The Lean Theme follows the [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/#atoms) methodology for developing a modular frontend.
 
-Below the `patterns` directories there are 4 directories called Atoms, Molecules, Organisms and Templates to which you can add all the Atomic Elements. 
+Below the `frontend/components` directories there are 4 directories called Atoms, Molecules, Organisms and Templates to which you can add all the Atomic Elements. 
 
 ### Atoms
 Atoms are the basic building blocks of matter.
@@ -185,10 +185,10 @@ Load::atom( 'buttons/button', [
 The Lean Theme has a Gutenberg Configuration file (`guten-config.php`), where you can define some utilities and functionality.
 
 ### Custom Font Sizes
-You can define as many custom font sizes as you need. You'll have to edit the styles in `atoms/base/_typography.scss` by adding the slugs and font sizes. You can also remove all the sizes to disable the font size select option completely.
+You can define as many custom font sizes as you need. You'll have to edit the styles in `atoms/gutenberg/_typography.scss` by adding the slugs and font sizes. You can also remove all the sizes to disable the font size select option completely.
 
 ### Custom Colors
-You can add as many colors as you need. You'll have to edit the styles in `atoms/base/_colors.scss` by adding the slugs and colors. You can also remove all the colors to disable the color palette settings completely.
+You can add as many colors as you need. You'll have to edit the styles in `atoms/gutenberg/_colors.scss` by adding the slugs and colors. You can also remove all the colors to disable the color palette settings completely.
 
 ### Allowed Blocks
 You can add or remove the blocks you want to use in your theme. The blocks added to `common` are the ones that will be allowed on all the pages and post types. You can also add your custom post type slugs here to allow certain blocks per CPT.
@@ -200,16 +200,10 @@ You can add as many custom blocks as you need, with the help of the ACF plugin. 
 TODO: Add Helper functions to the theme
 
 ## Assets
-Here you can store anything that is a static file inside the folder patterns/static and respective subfolder:
+Here you can store anything that is a static file inside the folder frontend/static and respective subfolder:
 
 ### Images
 All the images are placed here, usually if there are static images that does not depend change and are from the design can be placed here.
-
-### JavaScript
-The generated JS is placed here after the transpilation.
-
-### CSS
-The styles are placed here once the compilation from sass to CSS the output of the process is placed on this directory.
 
 ### Web Fonts
 This directory is used to place any custom web font that is not available by default as safe web fonts.
@@ -268,7 +262,7 @@ And the syntax is pretty similar to import action from 'package-name';
 
 For example to add flatpickr we need to run the following command in to the terminal:
 ```bash
-npm install flatpickr --save
+yarn add flatpickr
 ```
 
 And to usage the package you only need to add:
@@ -285,7 +279,7 @@ export default init;
 ```
 
 ## Models and Controllers
-Modules specific to your project go in the `src` directory. We encourage you to follow the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle) so each module just try to address a single responsibility for instance Widgets/Widgets.php only tries to address the Widget rendering problem.
+Modules specific to your project go in the `backend` directory. We encourage you to follow the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle) so each module just try to address a single responsibility for instance Widgets/Widgets.php only tries to address the Widget rendering problem.
 
 The module classes are loaded automatically.
 
@@ -293,15 +287,14 @@ To create a new module just create a new directory such as:
 ```bash
 MyModule/MyModule.php
 ```
-Note that your class should have the same name as your directory, also the `Lean Theme Loader` is going to check for an optional `init` method, make sure your this method has the following visibility and variable of scope:
+The `Lean Theme Loader` is going to check for an optional `init` method, make sure your this method has the following visibility and variable of scope:
 ```bash
-public
-static
+public static
 ```
 The boilerplate for your module should be:
 ```php
 <?php 
-namespace LeanNs\Modules\MyModule;
+namespace Lean\Backend\MyModule;
 
 class MyModule {
   public static function init() {
@@ -319,10 +312,10 @@ First create a Module as stated before and add the respective code.
 
 Example of an Invoice CPT:
 
-code in src/Modules/Invoices/Invoices.php
+code in <b>backend/WP/CPT/Invoices/Invoices.php</b>
 ```php
 <?php 
-namespace LeanNs\Modules\Invoices;
+namespace Lean\Backend\WP\CPT\Invoices;
 use Lean\Cpt;
 
 
@@ -354,8 +347,13 @@ class Invoices {
 ```
 
 ## Creating an Endpoint
-	TODO: Add the WP-Endpoint library as composer dependency 
-https://github.com/wearenolte/wp-endpoint 
+Create a Class in the folder <b>Backend/WP/Endpoints</b>
+and initialize it in <b>Backend/WP/Endpoints/Api.php</b>
+
+Endpoint out of the box:
+```
+http://[site-url]/wp-json/lean/v1/posts
+```
 
 ## Theme Hooks
 ### Actions
@@ -405,21 +403,22 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 ## Credits
 Thanks goes to:
 
-[Oscar Arzola](https://oscararzola.com)
-
 [Francisco Giraldo](http://franciscogiraldo.com)
 
-[Katia Lira](https://github.com/katialira)
-
-[Daniel López](https://github.com/zesk8)
-
-[Adam Fenton](https://github.com/adamf321)
+[Nelson Amaya](https://github.com/nelsonamaya82)
 
 [Cris Hernandez](https://github.com/mitogh)
 
+[Daniel López](https://github.com/zesk8)
+
+[Katia Lira](https://github.com/katialira)
+
+[Adam Fenton](https://github.com/adamf321)
+
+[Oscar Arzola](https://oscararzola.com)
+
 [Raul Marrero](https://github.com/Rulox)
 
-[Nelson Amaya](https://github.com/nelsonamaya82)
 
 ## Changelog
 Please read [CHANGELOG.md](CHANGELOG.md)  this file is going to keep the changes of the project when a new release is sent to the master branch

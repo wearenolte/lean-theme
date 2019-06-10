@@ -9,7 +9,7 @@
     ],
     "quotes": [ 2, "single" ],
     "linebreak-style": [ 2, "unix" ],
-    "semi": [ 2, "always" ],
+    "semi": [ 2, "never" ],
     "no-loop-func": 2,
     "default-case": 2,
     "no-alert": 2,
@@ -70,7 +70,7 @@
       2,
       "property"
     ],
-    "arrow-parens": [2, "always"],
+    "arrow-parens": [2, "as-needed"],
     "no-class-assign": 2,
     "no-const-assign": 2,
     "no-dupe-class-members": 2,
@@ -86,8 +86,7 @@
       "require": {
         "FunctionDeclaration": true,
         "MethodDefinition": true,
-        "ClassDeclaration": true,
-        "ArrowFunctionExpression": false
+        "ClassDeclaration": true
       }
     }]
   },
@@ -102,10 +101,6 @@
     "_gaq": true
   },
   "extends": "eslint:recommended",
-  "ecmaFeatures": {
-    "experimentalObjectRestSpread": true,
-    "modules": true
-  },
   "parserOptions": {
     "sourceType": "module"
   }

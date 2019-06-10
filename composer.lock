@@ -1,23 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4fed87332a4f8b1b61d39868b0b5bbd8",
+    "content-hash": "de4c9eaeb5099b158773498b3b96d37b",
     "packages": [
         {
             "name": "moxie-lean/assets",
-            "version": "2.1.0",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
-                "url": "https://bitbucket.org/leanlegacy/assets.git",
-                "reference": "f35bcae5428da2d81c21e56d4e4660adbae96468"
+                "url": "https://github.com/wearenolte/assets.git",
+                "reference": "2082a8085a4d3731c530aed0f2fa183e4aa4b6e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/leanlegacy/assets/get/f35bcae5428da2d81c21e56d4e4660adbae96468.zip",
-                "reference": "f35bcae5428da2d81c21e56d4e4660adbae96468",
+                "url": "https://api.github.com/repos/wearenolte/assets/zipball/2082a8085a4d3731c530aed0f2fa183e4aa4b6e8",
+                "reference": "2082a8085a4d3731c530aed0f2fa183e4aa4b6e8",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 "scripts",
                 "wordpress"
             ],
-            "time": "2017-01-23T19:14:49+00:00"
+            "time": "2018-07-23T20:56:40+00:00"
         },
         {
             "name": "moxie-lean/loader",
@@ -191,6 +191,53 @@
             "time": "2016-05-27T14:33:36+00:00"
         },
         {
+            "name": "nolte/wp-endpoint",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wearenolte/wp-endpoint.git",
+                "reference": "5863c096597af1d57b94a3bf39fe50547351c400"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wearenolte/wp-endpoint/zipball/5863c096597af1d57b94a3bf39fe50547351c400",
+                "reference": "5863c096597af1d57b94a3bf39fe50547351c400",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "2.*",
+                "wp-coding-standards/wpcs": "0.9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nolte\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nolte",
+                    "email": "developer@wearenolte.com",
+                    "homepage": "https://wearenolte.com/"
+                },
+                {
+                    "name": "Crisoforo Gaspar Hernandez",
+                    "email": "hello@crisoforo.com",
+                    "homepage": "https://crisoforo.com/"
+                }
+            ],
+            "description": "wp-endpoint",
+            "homepage": "https://github.com/wearenolte/wp-endpoint",
+            "time": "2017-11-23T15:56:35+00:00"
+        },
+        {
             "name": "wearenolte/buster",
             "version": "0.1.1",
             "source": {
@@ -272,16 +319,16 @@
     "packages-dev": [
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.2.3",
+            "version": "3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "4842476c434e375f9d3182ff7b89059583aa8b27"
+                "reference": "b8a7362af1cc1aadb5bd36c3defc4dda2cf5f0a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/4842476c434e375f9d3182ff7b89059583aa8b27",
-                "reference": "4842476c434e375f9d3182ff7b89059583aa8b27",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/b8a7362af1cc1aadb5bd36c3defc4dda2cf5f0a8",
+                "reference": "b8a7362af1cc1aadb5bd36c3defc4dda2cf5f0a8",
                 "shasum": ""
             },
             "require": {
@@ -314,33 +361,38 @@
                 }
             ],
             "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
-            "homepage": "http://www.squizlabs.com/php-codesniffer",
+            "homepage": "https://github.com/squizlabs/PHP_CodeSniffer",
             "keywords": [
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-02-20T21:35:23+00:00"
+            "time": "2019-04-10T23:49:02+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",
-            "version": "0.13.1",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
-                "reference": "1f64b1a0b5b789822d0303436ee4e30e0135e4dc"
+                "reference": "bd9c33152115e6741e3510ff7189605b35167908"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/1f64b1a0b5b789822d0303436ee4e30e0135e4dc",
-                "reference": "1f64b1a0b5b789822d0303436ee4e30e0135e4dc",
+                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/bd9c33152115e6741e3510ff7189605b35167908",
+                "reference": "bd9c33152115e6741e3510ff7189605b35167908",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3",
-                "squizlabs/php_codesniffer": "^2.9.0 || ^3.0.2"
+                "php": ">=5.4",
+                "squizlabs/php_codesniffer": "^3.3.1"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
             },
             "suggest": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.1"
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically."
             },
             "type": "phpcodesniffer-standard",
             "notification-url": "https://packagist.org/downloads/",
@@ -359,7 +411,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2017-08-05T16:08:58+00:00"
+            "time": "2019-05-21T02:50:00+00:00"
         }
     ],
     "aliases": [],

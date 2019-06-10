@@ -4,7 +4,7 @@
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
 # image: docker-image:tag
-image: doitmagic/node6.composer
+image: misterio92/ci-php-node
 
 pipelines:
   default:

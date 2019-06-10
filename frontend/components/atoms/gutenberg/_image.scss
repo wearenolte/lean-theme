@@ -1,0 +1,17 @@
+.alignfull {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 30px calc(50% - 50vw);
+}
+
+.alignwide {
+  width: 100%;
+  max-width: 100%;
+  margin: 30px 0;
+
+  @include media-breakpoint-up(md) {
+    width: auto;
+    max-width: 100vw;
+    margin: 30px calc(25% - 25vw);
+  }
+}
