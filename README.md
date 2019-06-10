@@ -424,7 +424,7 @@ Thanks goes to:
 
 [Adam Fenton](https://github.com/adamf321)
 
-[Oscar Arzola](https://oscararzola.com)
+[Oscar Arzola](https://github.com/arzola)
 
 [Raul Marrero](https://github.com/Rulox)
 
