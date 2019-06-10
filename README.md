@@ -31,6 +31,7 @@ Some key features:
     - [Development command](#development-command)
   - [Best Practices](#best-practices)
     - [Linter command](#linter-command)
+    - [Codacy](#codacy)
   - [Frontend Components](#frontend-components)
     - [Atoms](#atoms)
     - [Molecules](#molecules)
@@ -111,6 +112,14 @@ The JS linter uses the [ESLint](https://eslint.org/) and the SCSS linter uses [S
 ```bash
 composer lint
 ```
+
+### Codacy
+[Codacy](https://www.codacy.com/) is a tool that automates code reviews & code analytics.
+
+If you use this tool you can move the `.codacy.yml` file to the root of the project.
+This will tell Codacy to review only the relevant files of your app.
+It will also tell Codacy to grab the PHP, JS and SCSS linter configuration files so that it uses this rules.  
+
 ## Frontend Components
 The Lean Theme follows the [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/#atoms) methodology for developing a modular frontend.
 
@@ -312,7 +321,7 @@ First create a Module as stated before and add the respective code.
 
 Example of an Invoice CPT:
 
-code in <b>backend/WP/CPT/Invoices/Invoices.php</b>
+code in `backend/WP/CPT/Invoices/Invoices.php`
 ```php
 <?php 
 namespace Lean\Backend\WP\CPT\Invoices;
@@ -347,8 +356,8 @@ class Invoices {
 ```
 
 ## Creating an Endpoint
-Create a Class in the folder <b>Backend/WP/Endpoints</b>
-and initialize it in <b>Backend/WP/Endpoints/Api.php</b>
+Create a Class in the folder `Backend/WP/Endpoints`
+and initialize it in `Backend/WP/Endpoints/Api.php`
 
 Endpoint out of the box:
 ```
