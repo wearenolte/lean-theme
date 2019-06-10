@@ -7,11 +7,20 @@
  */
 
 use Lean\Load;
-?>
 
-<?php do_action( 'lean/before_footer' ); ?>
-<?php Load::organisms( 'footer/footer' ); ?>
-<?php wp_footer(); ?>
+do_action( 'lean/before_footer' );
+
+$copyright = get_field( 'general_options_copyright_text', 'options' ) ?? 'Copyright %YEAR%';
+
+Load::organisms(
+	'footer/footer',
+	[
+		'copyright' => $copyright,
+	]
+);
+
+wp_footer();
+?>
 
 </body>
 </html>

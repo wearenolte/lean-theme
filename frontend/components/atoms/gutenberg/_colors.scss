@@ -1,0 +1,20 @@
+$guten-colors: (
+  'white': $white,
+  'gray-1': #F5F5F5,
+  'gray-2': #DCDCDC,
+  'gray-3': #C0C0C0,
+  'gray-4': #A9A9A9,
+  'gray-5': #808080,
+  'gray-6': #696969,
+  'black': $black,
+);
+
+@each $name, $color in $guten-colors {
+  .has-#{$name}-color {
+    color: $color;
+  }
+
+  .has-#{$name}-background-color {
+    background-color: $color;
+  }
+}

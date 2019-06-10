@@ -20,6 +20,10 @@ use Lean\Load;
 
 <body <?php body_class(); ?>>
 
-<?php do_action( 'lean/before_header' ); ?>
-<?php Load::organisms( 'header/header' ); ?>
-<?php do_action( 'lean/after_header' ); ?>
+<?php
+do_action( 'lean/before_header' );
+
+Load::organisms( 'header/header' );
+
+do_action( 'lean/after_header' );
+

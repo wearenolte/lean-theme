@@ -3,6 +3,6 @@ use Lean\Load;
 
 get_header();
 
-Load::template( 'post/single' );
+Load::template( 'posts/single' );
 
 get_footer();

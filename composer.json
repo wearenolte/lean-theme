@@ -1,5 +1,5 @@
 {
-  "name": "moxie-lean/lean-theme",
+  "name": "wearenolte/lean-theme",
   "description": "Barebones modular WordPress theme",
   "type": "wordpress-theme",
   "require": {
@@ -7,11 +7,12 @@
     "moxie-lean/assets": "2.*",
     "moxie-lean/wp-widgets": "^1.0",
     "moxie-lean/loader": "^1.3",
-    "wearenolte/buster": "^0.1.1"
+    "wearenolte/buster": "^0.1.1",
+    "nolte/wp-endpoint": "3.0.*"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^3.0",
-    "wp-coding-standards/wpcs": "0.13.*"
+    "squizlabs/php_codesniffer": "3.4.*",
+    "wp-coding-standards/wpcs": "2.1.*"
   },
   "authors": [
     {
@@ -21,7 +22,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "LeanNs\\": "src/"
+      "Lean\\": "backend/"
     }
   },
   "scripts": {
@@ -34,21 +35,19 @@
       "@build-deps"
     ],
     "build-deps": [
-      "cd frontend && npm install"
+      "cd frontend && yarn"
     ],
     "build-app": [
-      "cd frontend && npm run build"
+      "cd frontend && yarn build"
     ],
     "build": [
       "@build-deps",
-      "@build-app"
-    ],
-    "serve": [
-      "cd frontend && npm run serve"
+      "@build-app",
+      "@update-version"
     ],
     "set-up-php-lint": [
       "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
-      "phpcs --config-set default_standard ./codesniffer.ruleset.xml",
+      "phpcs --config-set default_standard ./phpcs.xml",
       "phpcs --config-set show_progress 1",
       "phpcs --config-set colors 1",
       "phpcs --config-set show_warnings 1",
@@ -58,7 +57,8 @@
       "version"
     ],
     "lint": [
-      "@php-lint"
+      "@php-lint",
+      "cd frontend && yarn lint"
     ],
     "php-lint": [
       "phpcs . --extensions=php"

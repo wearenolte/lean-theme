@@ -1,8 +1,5 @@
+.cache
 bower_components
 node_modules
 npm-debug.log*
-static/css/*.css
-static/js/*.js
-static/js/*.map
-static/icons/icons.svg
-static/maps
+dist

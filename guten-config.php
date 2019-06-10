@@ -36,7 +36,7 @@ return [
 	// You can add as many colors as you need. You'll have to edit the styles in
 	// atoms/base/_colors.scss by adding the slugs and colors.
 	// You can also remove all the colors to disable the color settings completely.
-	'colors' => [
+	'colors'     => [
 		[
 			'name'  => __( 'White', 'LeanName' ),
 			'slug'  => 'white',
@@ -85,8 +85,7 @@ return [
 	// You can add or remove the blocks you want to use in your theme.
 	// The blocks added to 'common' are the ones that will be allowed on all the pages and post types.
 	// You can also add your custom post type slugs here to allow certain blocks per CPT.
-	'blocks' => [
-
+	'blocks'     => [
 		'common' => [
 			// Common blocks.
 			'core/image',
@@ -103,8 +102,7 @@ return [
 			// ACF blocks.
 			'acf/acf-button',
 		],
-
-		'post' => [
+		'post'   => [
 			// Formatting.
 			'core/table',
 			'core/verse',
