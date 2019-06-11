@@ -53,11 +53,11 @@ class ThemeSetup {
 	 * Dependency checks
 	 */
 	public static function check_dependencies() {
-		if ( is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) ) {
-			return;
-		}
-
 		if ( is_admin() ) :
+			if ( is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) ) {
+				return;
+			}
+
 			add_action(
 				'admin_notices',
 				function () {
