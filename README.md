@@ -178,16 +178,20 @@ To use it first add its namespace at the beginning of the file:
 use Lean\Load; 
 
 // Example of loading an organism located in patterns/organisms/hero/hero.php
-Load::organism( 'hero/hero', [
-  'bg_image_url' => $bg_image_url,
-  'show_header' => true,
-]);
+Load::organism( 
+	'hero/hero', [
+      'bg_image_url' => $bg_image_url,
+      'show_header' => true,
+    ]
+);
 
 // Example of loading an atom located in patterns/atoms/buttons/button.php
-Load::atom( 'buttons/button', [
-  'label' => $label,
-  'link' => $url,
-]);
+Load::atom( 
+	'buttons/button', [
+      'label' => $label,
+      'link' => $url,
+    ]
+);
 ```
 
 ## Gutenberg Configuration
@@ -337,18 +341,20 @@ class Invoices {
   }
   
   public static function register_cpt() {
-    $invoices = new Cpt([
-      'singular' => 'Invoice',
-      'plural' => 'Invoices',
-      'post_type' => self::TYPE,
-      'slug' => 'invoice',
-      'supports' => [
-        'title',
-      ],
-      'args' => [
-        'menu_icon' => 'dashicons-media-text',
-      ],
-    ]);
+    $invoices = new Cpt(
+    	[
+          'singular' => 'Invoice',
+          'plural' => 'Invoices',
+          'post_type' => self::TYPE,
+          'slug' => 'invoice',
+          'supports' => [
+            'title',
+          ],
+          'args' => [
+            'menu_icon' => 'dashicons-media-text',
+          ],
+        ]
+    );
     
     $invoices->init();
   }
