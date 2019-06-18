@@ -18,26 +18,11 @@ class Options {
 					'page_title' => 'Options',
 					'menu_title' => 'Options',
 					'menu_slug'  => self::OPTIONS_SLUG,
-					'capability' => 'edit_posts',
+					'capability' => 'edit_themes', // Only visible to admins.
 					'redirect'   => false,
 					'position'   => 4,
 				]
 			);
-
-			add_filter( 'acf/options_page/settings', [ __CLASS__, 'acf_options_page_settings' ] );
 		}
-	}
-
-	/**
-	 * Set options page only visible to admins.
-	 *
-	 * @param array $page_settings The filter options.
-	 *
-	 * @return array
-	 */
-	public static function acf_options_page_settings( array $page_settings ) {
-		$page_settings['capability'] = 'edit_themes';
-
-		return $page_settings;
 	}
 }
