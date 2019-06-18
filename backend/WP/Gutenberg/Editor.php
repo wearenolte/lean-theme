@@ -35,7 +35,7 @@ class Editor {
 				'slug' => 'large',
 			],
 			[
-				'name' => __( 'Huge', 'LeanName' ),
+				'name' => 'Huge',
 				'size' => 40,
 				'slug' => 'huge',
 			],
