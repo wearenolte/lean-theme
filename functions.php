@@ -6,7 +6,6 @@
 use Lean\Backend;
 
 // Constants.
-define( 'LEAN_THEME_NAME', 'LeanName' );
 define( 'LEAN_THEME_VERSION', '2.0.0' );
 define( 'LEAN_MINIMUM_WP_VERSION', '5.2.1' );
 

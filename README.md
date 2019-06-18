@@ -72,6 +72,7 @@ You need the following in order to work with this theme:
 * [Composer](https://getcomposer.org/doc/00-intro.md#globally)
 * [Node.js](https://nodejs.org/en/download/)
 * [Yarn](https://yarnpkg.com)
+* [Advanced Custom Fields](https://www.advancedcustomfields.com) WP Plugin v5.8.1 or higher
 
 Composer should be installed globally.
 

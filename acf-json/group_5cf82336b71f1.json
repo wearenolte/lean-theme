@@ -23,7 +23,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/acf-button"
+                "value": "acf\/button"
             }
         ]
     ],

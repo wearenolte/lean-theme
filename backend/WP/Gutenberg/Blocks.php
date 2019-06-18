@@ -20,9 +20,9 @@ class Blocks {
 		// ACF Button Block.
 		self::create_block(
 			[
-				'title'       => 'ACF Button',
-				'name'        => 'acf-button',
-				'description' => 'ACF button block',
+				'title'       => 'Button',
+				'name'        => 'button',
+				'description' => 'Button block',
 				'icon'        => 'button',
 				'post_types'  => array( 'post', 'page' ),
 			]
