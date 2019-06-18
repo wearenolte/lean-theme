@@ -71,6 +71,7 @@ You need the following in order to work with this theme:
 * PHP 7.1 or higher
 * [Composer](https://getcomposer.org/doc/00-intro.md#globally)
 * [Node.js](https://nodejs.org/en/download/)
+* [Yarn](https://yarnpkg.com)
 
 Composer should be installed globally.
 
