@@ -109,7 +109,7 @@ class ThemeSetup {
 			if ( is_admin() ) {
 					wp_enqueue_style(
 						'custom-styles-editor',
-						get_stylesheet_directory_uri() . '/frontend/static/css/style.css',
+						get_stylesheet_directory_uri() . '/frontend/dist/main.css',
 						[
 							'wp-edit-blocks',
 						],
