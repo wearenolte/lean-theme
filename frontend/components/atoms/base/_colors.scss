@@ -1,8 +1,11 @@
+$primary: #FF3333;
+$secondary: #F2F4F4;
+$white: #FFFFFF;
+$black: #000000;
+
 // Override bootstrap theme colors.
 // https://getbootstrap.com/docs/4.1/getting-started/theming/#modify-map
 $theme-colors: (
-  'primary': #2B67DB,
+  'primary': $primary,
+  'secondary': $secondary,
 );
-
-$white: #FFFFFF;
-$black: #000000;

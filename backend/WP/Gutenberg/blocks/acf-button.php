@@ -35,7 +35,7 @@ $button_link = get_field( 'link' );
 		[
 			'label'  => $button_link['title'],
 			'url'    => $button_link['url'],
-			'target' => $button_link['target'] ? $button_link['target'] : '_self',
+			'target' => $button_link['target'] ?? '_self',
 		]
 	);
 	?>

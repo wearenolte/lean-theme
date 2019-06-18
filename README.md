@@ -196,19 +196,29 @@ Load::atom(
 ```
 
 ## Gutenberg Configuration
-The Lean Theme has a Gutenberg Configuration file (`guten-config.php`), where you can define some utilities and functionality.
+The Lean Theme comes with preconfigured Gutenberg options for the blocks like Font size and colors setup.
+
+You can change the settings in `Backend/WP/Gutenberg/Editor.php`
 
 ### Custom Font Sizes
-You can define as many custom font sizes as you need. You'll have to edit the styles in `atoms/gutenberg/_typography.scss` by adding the slugs and font sizes. You can also remove all the sizes to disable the font size select option completely.
+You can define as many custom font sizes as you need. 
+You'll have to edit the styles in `frontend/components/atoms/gutenberg/_typography.scss` by adding the slugs and font sizes. 
+You can also remove all the sizes to disable the font size select option completely.
 
 ### Custom Colors
-You can add as many colors as you need. You'll have to edit the styles in `atoms/gutenberg/_colors.scss` by adding the slugs and colors. You can also remove all the colors to disable the color palette settings completely.
-
-### Allowed Blocks
-You can add or remove the blocks you want to use in your theme. The blocks added to `common` are the ones that will be allowed on all the pages and post types. You can also add your custom post type slugs here to allow certain blocks per CPT.
+You can add as many colors as you need. You'll have to edit the styles in `frontend/components/atoms/gutenberg/_colors.scss` by adding the slugs and colors. 
+You can also remove all the colors to disable the color palette settings completely.
 
 ### Custom Blocks
-You can add as many custom blocks as you need, with the help of the ACF plugin. For this, you will need first to register the blocks in `src/Modules/Blocks/Blocks.php` in the function `create_blocks()`. This theme brings by default with a custom block called `ACF Button`, which is intended to serve as an example and also to replace the native button block. This custom block adds the option to define the button target (unlike the native one).  Once you have registered the custom block, you'll need to create a file in the same `Blocks` folder with the same slug you defined when registered it. You can take as an example the custom block that brings with this theme, `src/Modules/Blocks/acf-button`. You'll need to preserve the markup used on this file to make it works with the Gutenberg native functionalities like alignment. Then inside the div wrapper you can load the atomic element you need.
+You can add as many custom blocks as you need, with the help of the ACF plugin. 
+For this, you will need first to register the blocks in `backend/WP/Gutenberg/Blocks.php` in the function `create_blocks()`. 
+ Once you have registered the custom block, add the block's template in the `blocks` folder with the same 
+ slug you defined when registered it. 
+ 
+ 
+ You can take as an example the custom block that brings with this theme, `backend/WP/Gutenberg/blocks/acf-button`. 
+ This block supports Gutenberg's editor alignment option, which is done by fetching the respective CSS class. 
+ Also you can notice that the block template loads the atomic button element.
 
 ## Helper functions
 TODO: Add Helper functions to the theme
@@ -295,13 +305,19 @@ export default init;
 ## Models and Controllers
 Modules specific to your project go in the `backend` directory. We encourage you to follow the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle) so each module just try to address a single responsibility for instance Widgets/Widgets.php only tries to address the Widget rendering problem.
 
-The module classes are loaded automatically.
+The `init()` method of each class all be called automatically if the class path is set in `Backend.php`.
 
-To create a new module just create a new directory such as:
+###To create a new module:
+
+1 - Create a new directory such as:
 ```bash
 MyModule/MyModule.php
 ```
-The `Lean Theme Loader` is going to check for an optional `init` method, make sure your this method has the following visibility and variable of scope:
+2 - Check if MyModule path is set in `Backend.php
+
+3 - Add the corresponding namespace to the new Class.
+
+4 - The `Lean Theme Loader` is going to check for an optional `init()` method, make sure your this method has the following visibility and variable of scope:
 ```bash
 public static
 ```

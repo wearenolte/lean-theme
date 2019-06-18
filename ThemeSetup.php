@@ -46,6 +46,7 @@ class ThemeSetup {
 
 		self::check_dependencies();
 		self::flush_rewrite_rules();
+		self::init_theme_config();
 		self::init_gutenberg_config();
 	}
 
@@ -120,13 +121,20 @@ class ThemeSetup {
 	}
 
 	/**
-	 * Gutenberg configurations.
+	 * Adds support to Post Featured images.
+	 * Adds Title Tag to the <HEAD>.
+	 * Adds HTML5 to wp frontend components.
 	 */
-	public static function init_gutenberg_config() {
+	public static function init_theme_config() {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'html5' );
+	}
 
+	/**
+	 * Gutenberg configurations.
+	 */
+	public static function init_gutenberg_config() {
 		/**
 		 * Add support for Gutenberg.
 		 */
@@ -139,52 +147,6 @@ class ThemeSetup {
 
 		// Default Gutenberg styles on Frontend.
 		add_theme_support( 'wp-block-styles' );
-
-		// Disable Font Sizes by default.
-		add_theme_support( 'editor-font-sizes' );
-		add_theme_support( 'disable-custom-font-sizes' );
-
-		// Disable Colors by default.
-		add_theme_support( 'editor-color-palette' );
-		add_theme_support( 'disable-custom-colors' );
-
-		// Gutenberg config.
-		$guten = require 'guten-config.php';
-
-		// Custom Editor Font Sizes.
-		if ( isset( $guten['font_sizes'] ) && ! empty( $guten['font_sizes'] ) ) {
-			add_theme_support( 'editor-font-sizes', $guten['font_sizes'] );
-		}
-
-		// Custom Editor Colors.
-		if ( isset( $guten['colors'] ) && ! empty( $guten['colors'] ) ) {
-			add_theme_support( 'editor-color-palette', $guten['colors'] );
-		}
-
-		// Allowed Block Types.
-		if ( isset( $guten['blocks'] ) && ! empty( $guten['blocks'] ) ) {
-			add_filter(
-				'allowed_block_types',
-				function( $allowed_blocks, $post ) {
-					$guten          = require 'guten-config.php';
-					$allowed_blocks = [];
-
-					foreach ( $guten['blocks'] as $post_type => $blocks ) {
-						if ( 'common' === $post_type ) {
-							$allowed_blocks = $blocks;
-						} else {
-							if ( $post->post_type === $post_type ) {
-								$allowed_blocks = wp_parse_args( $allowed_blocks, $blocks );
-							}
-						}
-					}
-
-					return $allowed_blocks;
-				},
-				10,
-				2
-			);
-		}
 	}
 
 	/**

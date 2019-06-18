@@ -3,8 +3,6 @@ namespace Lean\WP\Gutenberg;
 
 /**
  * Create the Gutenberg blocks.
- *
- * @package LeanNs
  */
 class Blocks {
 	/**
