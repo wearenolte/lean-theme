@@ -199,25 +199,32 @@ Load::atom(
 ## Gutenberg Configuration
 The Lean Theme comes with preconfigured Gutenberg options for the blocks like Font size and colors setup.
 
-You can change the settings in `Backend/WP/Gutenberg/Editor.php`
+This settings are changed in `Backend/WP/Gutenberg/Editor.php`
 
 ### Custom Font Sizes
-You can define as many custom font sizes as you need. 
-You'll have to edit the styles in `frontend/components/atoms/gutenberg/_typography.scss` by adding the slugs and font sizes. 
-You can also remove all the sizes to disable the font size select option completely.
+The font size options in the editor's sidebar can be customized. 
+Set the styles in `frontend/components/atoms/gutenberg/_typography.scss` by adding the slugs and font sizes. 
+The font size selectors option can also be removed completely.
 
 ### Custom Colors
-You can add as many colors as you need. You'll have to edit the styles in `frontend/components/atoms/gutenberg/_colors.scss` by adding the slugs and colors. 
-You can also remove all the colors to disable the color palette settings completely.
+To edit the colors that the user can select, add the colors in `frontend/components/atoms/gutenberg/_colors.scss`. 
+The color palette options can also be removed completely.
+
+###Allowed Blocks
+The blocks that will be allowed to be used in the Gutenberg editor can also be configured. 
+The discrimination can be done per page or post type.
 
 ### Custom Blocks
-You can add as many custom blocks as you need, with the help of the ACF plugin. 
-For this, you will need first to register the blocks in `backend/WP/Gutenberg/Blocks.php` in the function `create_blocks()`. 
+To create custom blocks the Lean Theme relies on the use of the ACF plugin. 
+
+The block should be registered in `backend/WP/Gutenberg/Blocks.php` in the function `create_blocks()`. 
+
  Once you have registered the custom block, add the block's template in the `blocks` folder with the same 
  slug you defined when registered it. 
  
+ Please follow this tutorial to create the ACF Field Group of your custom block: [link](https://www.advancedcustomfields.com/blog/acf-5-8-introducing-acf-blocks-for-gutenberg/)
  
- You can take as an example the custom block that brings with this theme, `backend/WP/Gutenberg/blocks/acf-button`. 
+ You can take as an example the custom block that brings with this theme, `backend/WP/Gutenberg/blocks/button`. 
  This block supports Gutenberg's editor alignment option, which is done by fetching the respective CSS class. 
  Also you can notice that the block template loads the atomic button element.
 
