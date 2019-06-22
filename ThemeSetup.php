@@ -53,7 +53,8 @@ class ThemeSetup {
 	 * Dependency checks
 	 */
 	public static function check_dependencies() {
-		if ( is_admin() ) :
+		if ( is_admin() ) {
+
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 			if ( is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) ) {
@@ -70,7 +71,7 @@ class ThemeSetup {
 					<?php
 				}
 			);
-		endif;
+		}
 	}
 
 	/**
