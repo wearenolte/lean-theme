@@ -16,7 +16,8 @@ class Example {
 	 * Class loaded automatically.
 	 */
 	public static function init() {
-		/** Remove this comment to enable the taxonomy.
+		/**
+		 * Remove this comment to enable the taxonomy.
 		 * add_action( 'init', [ __CLASS__, 'create_taxonomy' ] );
 		 */
 	}
