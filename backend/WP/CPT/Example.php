@@ -33,8 +33,9 @@ class Example {
 				'post_type' => self::SLUG,
 				'slug'      => self::SLUG,
 				'args'      => [
-					'has_archive' => strtolower( self::NAME_PLURAL ),
-					'menu_icon'   => 'dashicons-media-document',
+					'has_archive'  => strtolower( self::NAME_PLURAL ),
+					'menu_icon'    => 'dashicons-media-document',
+					'show_in_rest' => true,
 				],
 			]
 		);
