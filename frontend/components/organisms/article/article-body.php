@@ -28,7 +28,7 @@ if ( empty( $post_title ) && empty( $post_content ) ) {
 		]
 	);
 
-	echo wp_kses_post( $post_content );
+	echo wp_kses_post( apply_filters( 'the_content', $post_content ) );
 	?>
 
 </article>
