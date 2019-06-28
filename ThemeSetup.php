@@ -18,6 +18,9 @@ class ThemeSetup {
 		add_action( 'switch_theme', [ __CLASS__, 'flush_rewrite_rules' ] );
 		add_action( 'after_switch_theme', [ __CLASS__, 'activate' ] );
 		add_filter( 'lean_assets_include_jquery', '__return_true' );
+
+		self::init_theme_config();
+		self::init_gutenberg_config();
 	}
 
 	/**
@@ -46,8 +49,6 @@ class ThemeSetup {
 
 		self::check_dependencies();
 		self::flush_rewrite_rules();
-		self::init_theme_config();
-		self::init_gutenberg_config();
 	}
 
 	/**
