@@ -12,7 +12,10 @@ class Editor {
 	public static function init() {
 		add_action( 'after_setup_theme', [ __CLASS__, 'config_font_sizes' ] );
 		add_action( 'after_setup_theme', [ __CLASS__, 'config_colors' ] );
-		add_filter( 'allowed_block_types', [ __CLASS__, 'config_allowed_blocks' ], 10, 2 );
+		/**
+		 * Uncomment to set the allowed blocks by code.
+		 * add_filter( 'allowed_block_types', [ __CLASS__, 'config_allowed_blocks' ], 10, 2 );
+		 */
 	}
 
 	/**
@@ -180,12 +183,12 @@ class Editor {
 
 		switch ( $post->post_type ) {
 			case 'post':
-				$blocks_whitelist = [
+				$blocks_blacklist = [
 					'core/button',
 				];
 				break;
 			default:
-				$blocks_whitelist = [
+				$blocks_blacklist = [
 					'core/button',
 				];
 		}
@@ -193,7 +196,7 @@ class Editor {
 		return array_values(
 			array_diff(
 				$all_blocks,
-				$blocks_whitelist
+				$blocks_blacklist
 			)
 		);
 	}
