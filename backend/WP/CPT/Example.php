@@ -8,8 +8,8 @@ use Lean\Cpt;
  * CPT Example
  */
 class Example {
-	const NAME        = 'ExampleCPT';
-	const NAME_PLURAL = 'ExampleCPTs';
+	const NAME        = 'Example CPT';
+	const NAME_PLURAL = 'Example CPTs';
 	const SLUG        = 'examplecpt';
 
 	/**
@@ -33,7 +33,7 @@ class Example {
 				'post_type' => self::SLUG,
 				'slug'      => self::SLUG,
 				'args'      => [
-					'has_archive'  => strtolower( self::NAME_PLURAL ),
+					'has_archive'  => sanitize_title_with_dashes( self::NAME_PLURAL ),
 					'menu_icon'    => 'dashicons-media-document',
 					'show_in_rest' => true,
 				],
