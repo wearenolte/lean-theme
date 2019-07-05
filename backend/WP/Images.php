@@ -1,5 +1,7 @@
 <?php
 
+namespace Lean\WP;
+
 /**
  * Set the Image Sizes.
  */
@@ -14,7 +16,7 @@ class Images {
 	/**
 	 * Image Sizes.
 	 */
-	public static function add_image_size() {
+	public static function add_image_sizes() {
 		// Container Image Size.
 		add_image_size( '1140', 1140, 9999 );
 		add_image_size( '1140@2x', 2280, 9999 );
