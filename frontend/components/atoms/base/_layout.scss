@@ -10,6 +10,14 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  &.no-scroll {
+    height: 100%;
+    overflow-y: hidden;
+    touch-action: none;
+  }
+}
+
 // Font size, based rem.
 @function rem($size) {
   $rem-size: $size / 16px;

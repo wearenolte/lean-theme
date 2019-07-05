@@ -13,6 +13,6 @@ if ( empty( $post_title ) ) {
 }
 ?>
 
-<div class="d-block jumbotron jumbotron-fluid mt-5">
+<div class="d-block mt-5">
 	<h1 class="h1"><?php echo esc_html( $post_title ); ?></h1>
 </div>

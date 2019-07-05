@@ -1,0 +1,49 @@
+// Width and font of blocks.
+.wp-block {
+  @include make-container;
+  @include make-container-max-widths;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.editor-block-list__layout {
+  font-family: $font;
+
+  .editor-post-title__block {
+    padding-right: 0;
+    padding-left: 0;
+
+    .editor-post-title__input {
+      font-family: $font;
+    }
+  }
+
+  .editor-block-list__block {
+    p {
+      font-family: $font;
+    }
+  }
+}
+
+.editor-post-title {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.wp-block-quote {
+  padding-left: 1em;
+  border-left: 3px solid $primary;
+}
+
+.wp-block-pullquote {
+  margin-right: 0;
+  margin-left: 0;
+  padding: 3em 0;
+  border-top: 3px solid $primary;
+  border-bottom: 3px solid $primary;
+  text-align: center;
+}
+
+.wp-block-separator {
+  border-color: $secondary;
+}

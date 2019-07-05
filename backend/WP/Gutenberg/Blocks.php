@@ -3,8 +3,6 @@ namespace Lean\WP\Gutenberg;
 
 /**
  * Create the Gutenberg blocks.
- *
- * @package LeanNs
  */
 class Blocks {
 	/**
@@ -22,9 +20,9 @@ class Blocks {
 		// ACF Button Block.
 		self::create_block(
 			[
-				'title'       => 'ACF Button',
-				'name'        => 'acf-button',
-				'description' => 'ACF button block',
+				'title'       => 'Button',
+				'name'        => 'button',
+				'description' => 'Button block',
 				'icon'        => 'button',
 				'post_types'  => array( 'post', 'page' ),
 			]
