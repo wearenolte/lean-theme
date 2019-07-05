@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "de4c9eaeb5099b158773498b3b96d37b",
+    "content-hash": "41da18280a12f53af4359f45e54b99a4",
     "packages": [
         {
             "name": "moxie-lean/assets",
@@ -144,6 +144,51 @@
                 "wordpress"
             ],
             "time": "2017-01-20T17:32:04+00:00"
+        },
+        {
+            "name": "moxie-lean/wp-taxonomy",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wearenolte/wp-taxonomy.git",
+                "reference": "1ce10640e64d4c1e560e3ff7dae26806b6e37d61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wearenolte/wp-taxonomy/zipball/1ce10640e64d4c1e560e3ff7dae26806b6e37d61",
+                "reference": "1ce10640e64d4c1e560e3ff7dae26806b6e37d61",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "3.*",
+                "wp-coding-standards/wpcs": "0.14.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lean\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Moxie Developers",
+                    "email": "developer@getmoxied.net"
+                }
+            ],
+            "description": "wp-taxonomy",
+            "homepage": "https://github.com/wearenolte/wp-taxonomy",
+            "keywords": [
+                "taxonomies",
+                "wordpress"
+            ],
+            "time": "2019-05-15T17:15:13+00:00"
         },
         {
             "name": "moxie-lean/wp-widgets",
