@@ -1,7 +1,10 @@
 {
   "devDependencies": {
-    "parcel-bundler": "^1.12.3",
-    "react": "^16.8.6"
+    "@babel/core": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@wordpress/babel-plugin-import-jsx-pragma": "^2.2.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "parcel-bundler": "^1.12.3"
   },
   "scripts": {
     "start": "parcel gutenberg.js",
@@ -10,6 +13,7 @@
   "dependencies": {
     "@wordpress/components": "^8.0.0",
     "@wordpress/compose": "^3.4.0",
+    "@wordpress/element": "^2.5.0",
     "blocks": "^0.3.5"
   }
 }
