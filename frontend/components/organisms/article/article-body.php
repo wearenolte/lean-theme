@@ -2,20 +2,8 @@
 
 use Lean\Load;
 
-$args = wp_parse_args(
-	$args,
-	[
-		'title'   => '',
-		'content' => '',
-	]
-);
-
-$post_title   = $args['title'];
-$post_content = $args['content'];
-
-if ( empty( $post_title ) && empty( $post_content ) ) {
-	return;
-}
+$post_title = $args['title'] ?? '';
+$content    = $args['content'] ?? '';
 ?>
 
 <article>
@@ -28,7 +16,12 @@ if ( empty( $post_title ) && empty( $post_content ) ) {
 		]
 	);
 
-	echo wp_kses_post( apply_filters( 'the_content', $post_content ) );
+	Load::molecule(
+		'post-content/post-content',
+		[
+			'content' => $content,
+		]
+	);
 	?>
 
 </article>

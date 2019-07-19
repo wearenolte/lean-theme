@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.8.6"
+  },
+  "scripts": {
+    "start": "parcel gutenberg.js",
+    "build": "parcel build gutenberg.js"
+  },
+  "dependencies": {
+    "@wordpress/components": "^8.0.0",
+    "@wordpress/compose": "^3.4.0",
+    "blocks": "^0.3.5"
+  }
+}
