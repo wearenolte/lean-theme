@@ -32,11 +32,11 @@ $button_link = get_field( 'link' );
 <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $class_name ); ?>">
 	<?php
 	Load::atom(
-		'buttons/link-as-button',
+		'buttons/primary',
 		[
 			'label'  => $button_link['title'] ?? 'text',
-			'url'    => $button_link['url'],
-			'target' => $button_link['target'] ?? '_self',
+			'url'    => $button_link['url'] ?? '',
+			'target' => $button_link['target'] ?? '',
 		]
 	);
 	?>
