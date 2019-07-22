@@ -4,7 +4,7 @@
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
 # image: docker-image:tag
-image: misterio92/ci-php-node
+image: djbasster/dev-yarn-php
 
 pipelines:
   default:
