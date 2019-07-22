@@ -37,7 +37,7 @@
     ],
     "build-deps": [
       "cd frontend && yarn",
-      "cd backend/WP/Gutenberg/js && yarn"
+      "cd backend/WP/Gutenberg/js && yarn --ignore-engines"
     ],
     "build-app": [
       "cd frontend && yarn build",
