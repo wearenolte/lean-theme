@@ -31,7 +31,8 @@ class PostsEndpoint extends AbstractEndpoint {
 			$args['s'] = $search;
 		}
 
-		$query       = Posts::query( $args );
+		$posts       = new Posts();
+		$query       = $posts::query( $args );
 		$total_pages = $query->max_num_pages;
 
 		// If we don't have more pages max_pages is zero but only if we are on a greather page than 1.
@@ -45,7 +46,7 @@ class PostsEndpoint extends AbstractEndpoint {
 			);
 		}
 
-		return Posts::format_data( $query->posts );
+		return $posts::format_data( $query->posts );
 	}
 
 	/**

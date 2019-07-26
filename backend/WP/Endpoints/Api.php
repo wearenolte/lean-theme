@@ -13,8 +13,6 @@ class Api {
 	 */
 	public static function init() {
 		self::add_filters();
-
-		PostsEndpoint::init();
 	}
 
 	/**

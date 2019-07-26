@@ -13,7 +13,8 @@
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "3.4.*",
-    "wp-coding-standards/wpcs": "2.1.*"
+    "wp-coding-standards/wpcs": "2.1.*",
+    "phpmd/phpmd" : "@stable"
   },
   "authors": [
     {
@@ -62,7 +63,8 @@
       "cd frontend && yarn lint"
     ],
     "php-lint": [
-      "phpcs . --extensions=php"
+      "phpcs . --extensions=php",
+      "phpmd . text phpmd.xml --suffixes php --exclude vendor,frontend/components/atoms/icons"
     ],
     "organism": [
       "cd frontend && bash createPattern.sh organisms "
