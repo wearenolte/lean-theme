@@ -19,3 +19,9 @@ rules:
   mixins-before-declarations:
     - 1
     - exclude: ['media-breakpoint-up']
+  leading-zero:
+    - 2
+    - include: true
+  indentation:
+    - 2
+    - size: 2
