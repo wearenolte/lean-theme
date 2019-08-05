@@ -7,8 +7,5 @@
   "scripts": {
     "start": "parcel gutenberg.js",
     "build": "parcel build gutenberg.js"
-  },
-  "dependencies": {
-    "blocks": "^0.3.5"
   }
 }
