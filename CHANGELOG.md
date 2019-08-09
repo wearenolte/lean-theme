@@ -16,3 +16,9 @@ All notable changes to this project will be documented in this file.
 - Posts singleton class added.
 - PostsEndpoint class added.
 - Codacy config file added.
+
+## [2.0.1] - 2019-08-09
+### Added
+- Styleguide added.
+- Templates component logic moved to pages.
+- Added Link atom component.
