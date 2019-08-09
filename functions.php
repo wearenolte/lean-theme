@@ -4,6 +4,7 @@
  */
 
 use Lean\Backend;
+use LeanStyleguide\Styleguide;
 
 // Constants.
 define( 'LEAN_THEME_VERSION', '2.0.0' );
@@ -14,6 +15,10 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/ThemeSetup.php';
 ThemeSetup::init();
 Backend::init();
+
+if ( WP_DEBUG ) {
+	Styleguide::init();
+}
 
 // Run the theme setup.
 add_filter(

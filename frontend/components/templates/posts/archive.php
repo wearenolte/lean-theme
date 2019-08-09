@@ -1,20 +1,22 @@
-<div class="t__posts__archive container mt-5">
+<?php
+
+use Lean\Load;
+
+$the_posts = $args['posts'] ?? [];
+?>
+
+<div class="t__posts__archive container pt-5 pb-5">
 
 	<?php
-	if ( have_posts() ) {
-		while ( have_posts() ) {
-			the_post();
-
-			$post_title = get_the_title();
-			$permalink  = get_the_permalink();
-			?>
-			<a
-				class="d-block mb-2"
-				href="<?php echo esc_url( $permalink ); ?>">
-				<?php echo esc_html( $post_title ); ?>
-			</a>
-			<?php
-		}
+	foreach ( $the_posts as $the_post ) {
+		Load::atom(
+			'links/link',
+			[
+				'class' => 'd-block mb-2',
+				'title' => $the_post['title'] ?? '',
+				'url'   => $the_post['permalink'] ?? '',
+			]
+		);
 	}
 	?>
 

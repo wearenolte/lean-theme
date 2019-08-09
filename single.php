@@ -3,6 +3,18 @@ use Lean\Load;
 
 get_header();
 
-Load::template( 'posts/single' );
+if ( have_posts() ) {
+	while ( have_posts() ) {
+		the_post();
+
+		Load::organism(
+			'posts/single',
+			[
+				'title'   => get_the_title(),
+				'content' => get_the_content(),
+			]
+		);
+	}
+}
 
 get_footer();
