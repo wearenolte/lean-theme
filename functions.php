@@ -105,7 +105,7 @@ $allow_break_tag = [
 /**
  * Function for creating custom block categories.
  *
- * @param array  $categories The array of block categories.
+ * @param array $categories The array of block categories.
  * @return array
  */
 function register_block_category( $categories ) {
