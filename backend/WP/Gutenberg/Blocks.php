@@ -10,6 +10,7 @@ class Blocks {
 	 */
 	public static function init() {
 		add_action( 'init', [ __CLASS__, 'create_blocks' ] );
+		add_filter( 'block_categories', [ __CLASS__, 'register_block_category'] );
 	}
 
 	/**
@@ -19,6 +20,22 @@ class Blocks {
 	public static function create_blocks() {
 		// ACF Button Block.
 		self::create_block(
+			[
+				'title'       => 'Button',
+				'name'        => 'button',
+				'description' => 'Button block',
+				'icon'        => 'button',
+				'post_types'  => array( 'post', 'page' ),
+			]
+		);
+	}
+
+	/**
+	 * Category creation.
+	 */
+	public static function create_categories() {
+		// Lean Theme Block Category.
+		self::register_block_category(
 			[
 				'title'       => 'Button',
 				'name'        => 'button',
@@ -58,16 +75,14 @@ class Blocks {
 	 * @return array
 	 */
 	public static function register_block_category( $categories ) {
-			return array_merge(
-				$categories,
+		return array_merge(
+			$categories,
+			[
 				[
-					[
-						'slug'  => 'lean-theme-blocks',
-						'title' => __( 'Lean Theme Blocks', 'lean-theme-blocks' ),
-					],
-				]
-			);
-
-		add_filter( 'block_categories', 'register_block_category', 10, 2 );
+					'slug'  => 'lean-theme-blocks',
+					'title' => __( 'Lean Theme Blocks', 'lean-theme-blocks' ),
+				],
+			]
+		);
 	}
 }
