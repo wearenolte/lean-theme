@@ -31,22 +31,6 @@ class Blocks {
 	}
 
 	/**
-	 * Category creation.
-	 */
-	public static function create_categories() {
-		// Lean Theme Block Category.
-		self::register_block_category(
-			[
-				'title'       => 'Button',
-				'name'        => 'button',
-				'description' => 'Button block',
-				'icon'        => 'button',
-				'post_types'  => array( 'post', 'page' ),
-			]
-		);
-	}
-
-	/**
 	 * Block generator
 	 *
 	 * @param array $args The name of the block.
