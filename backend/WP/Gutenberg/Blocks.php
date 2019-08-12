@@ -64,7 +64,7 @@ class Blocks {
 			[
 				[
 					'slug'  => 'lean-theme-blocks',
-					'title' => __( 'Lean Theme Blocks', 'lean-theme-blocks' ),
+					'title' => 'Lean Theme Blocks',
 				],
 			]
 		);
