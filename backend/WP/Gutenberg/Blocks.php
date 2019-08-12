@@ -10,7 +10,7 @@ class Blocks {
 	 */
 	public static function init() {
 		add_action( 'init', [ __CLASS__, 'create_blocks' ] );
-		add_filter( 'block_categories', [ __CLASS__, 'register_block_category'] );
+		add_filter( 'block_categories', [ __CLASS__, 'register_block_category' ] );
 	}
 
 	/**
