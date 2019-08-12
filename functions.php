@@ -101,22 +101,3 @@ $allow_all_post_tags = array_merge(
 $allow_break_tag = [
 	'br' => '',
 ];
-
-/**
- * Function for creating custom block categories.
- *
- * @param array $categories The array of block categories.
- * @return array
- */
-function register_block_category( $categories ) {
-	return array_merge(
-		$categories,
-		array(
-			array(
-				'slug'  => 'lean-theme-blocks',
-				'title' => __( 'Lean Theme Blocks', 'lean-theme-blocks' ),
-			),
-		)
-	);
-}
-add_filter( 'block_categories', 'register_block_category', 10, 2 );
