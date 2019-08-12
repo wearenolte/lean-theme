@@ -4,6 +4,8 @@ namespace Lean\WP\Gutenberg;
 
 /**
  * Gutenberg editor configurations.
+ *
+ * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
  */
 class Editor {
 	/**
