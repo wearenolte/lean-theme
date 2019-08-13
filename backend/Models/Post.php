@@ -1,4 +1,5 @@
 <?php
+
 namespace Lean\Models;
 
 /**
@@ -19,5 +20,18 @@ class Post {
 	 */
 	public function __construct( int $post_id ) {
 		$this->post = get_post( $post_id );
+	}
+
+	/**
+	 * Returns a formatted array of the Model's data.
+	 *
+	 * @return array
+	 */
+	public function format_data() {
+		return [
+			'post_id'   => $this->post->ID,
+			'title'     => $this->post->post_title,
+			'permalink' => get_permalink( $this->post->ID ),
+		];
 	}
 }
