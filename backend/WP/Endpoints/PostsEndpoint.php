@@ -2,7 +2,7 @@
 
 namespace Lean\WP\Endpoints;
 
-use Lean\Models\Posts;
+use Lean\Models\Post;
 use Nolte\AbstractEndpoint;
 
 /**
@@ -31,7 +31,7 @@ class PostsEndpoint extends AbstractEndpoint {
 			$args['s'] = $search;
 		}
 
-		$query       = Posts::query( $args );
+		$query       = ln_query_posts( $args );
 		$total_pages = $query->max_num_pages;
 
 		// If we don't have more pages max_pages is zero but only if we are on a greather page than 1.
@@ -45,7 +45,15 @@ class PostsEndpoint extends AbstractEndpoint {
 			);
 		}
 
-		return Posts::format_data( $query->posts );
+		$data = [];
+
+		foreach ( $query->posts as $post_id ) {
+			$a_post = new Post( $post_id );
+
+			$data[] = $a_post->format_data();
+		}
+
+		return $data;
 	}
 
 	/**

@@ -9,11 +9,11 @@ namespace Lean;
  */
 class Backend {
 	/**
-	 * Class singleton instance
+	 * Base backend path
 	 *
-	 * @var Backend
+	 * @var string
 	 */
-	private static $instance;
+	private static $backend_path;
 
 	/**
 	 * Directories with the classes.
@@ -21,7 +21,6 @@ class Backend {
 	 * @var array
 	 */
 	private static $directories = [
-		'Models',
 		'WP',
 		'WP/CPT',
 		'WP/Endpoints',
@@ -30,25 +29,16 @@ class Backend {
 	];
 
 	/**
-	 * Initialize singleton.
-	 *
-	 * @return Backend
+	 * Init class.
 	 */
 	public static function init() {
-		if ( null === self::$instance ) {
-			self::$instance = new self();
-		}
+		self::$backend_path = get_template_directory() . '/backend/';
 
-		return self::$instance;
-	}
-
-	/**
-	 * UserRoles constructor.
-	 */
-	private function __construct() {
 		foreach ( self::$directories as $directory ) {
 			self::autoload_classes( $directory );
 		}
+
+		self::include_functions();
 	}
 
 	/**
@@ -56,8 +46,8 @@ class Backend {
 	 *
 	 * @param array $directory The directories to load the classes from.
 	 */
-	private function autoload_classes( $directory ) {
-		$directory_path = get_template_directory() . '/backend/' . $directory;
+	private static function autoload_classes( $directory ) {
+		$directory_path = self::$backend_path . $directory;
 
 		foreach ( glob( $directory_path . '/*.php' ) as $file ) {
 			$class_path = str_replace( '/', '\\', $directory );
@@ -66,6 +56,17 @@ class Backend {
 			if ( method_exists( $class, 'init' ) ) {
 				call_user_func( [ $class, 'init' ] );
 			}
+		}
+	}
+
+	/**
+	 * Load all the php files from the functions folder.
+	 */
+	private static function include_functions() {
+		$directory_path = self::$backend_path . 'functions';
+
+		foreach ( glob( $directory_path . '/*.php' ) as $file ) {
+			include $file;
 		}
 	}
 }
