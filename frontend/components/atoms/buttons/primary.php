@@ -1,7 +1,7 @@
 <?php
 
 $class  = $args['class'] ?? '';
-$label  = $args['label'] ?? '';
+$label  = $args['label'] ?? 'press me';
 $url    = $args['url'] ?? '';
 $target = $args['target'] ?? '';
 

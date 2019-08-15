@@ -12,6 +12,7 @@ $content    = $args['content'] ?? '';
 	Load::molecule(
 		'headings/article',
 		[
+			'class' => 'mb-4',
 			'title' => $post_title,
 		]
 	);
