@@ -1,0 +1,75 @@
+.m__post-content {
+  .core-paragraph {
+    @include paragraph;
+    margin-bottom: 20px;
+
+    a {
+      @include link;
+    }
+  }
+
+  .wp-block-quote {
+    cite {
+      a {
+        @include link;
+      }
+    }
+  }
+
+  h2 {
+    &.core-heading {
+      @include h2;
+      margin-top: 45px;
+
+      @include media-breakpoint-up(lg) {
+        margin-top: 60px;
+      }
+    }
+  }
+
+  h3 {
+    &.core-heading {
+      @include h3;
+      margin-top: 40px;
+    }
+  }
+
+  h4 {
+    &.core-heading {
+      @include h4;
+    }
+  }
+
+  .core-heading {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .core-paragraph,
+  .core-heading {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .core-list {
+    @include list;
+  }
+
+  .post-list-block {
+    margin-top: 22px;
+    margin-bottom: 35px;
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 44px;
+    }
+  }
+
+  .alignfull {
+    @include media-breakpoint-up(lg) {
+      width: 100vw;
+      max-width: 100vw;
+      margin: 32px calc(50% - 50vw);
+    }
+  }
+}

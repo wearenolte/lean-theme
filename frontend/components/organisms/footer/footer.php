@@ -1,16 +1,6 @@
 <?php
-$args = wp_parse_args(
-	$args,
-	[
-		'copyright' => '',
-	]
-);
 
-$copyright = $args['copyright'];
-
-if ( empty( $copyright ) ) {
-	return;
-}
+$copyright = $args['copyright'] ?? '';
 
 $copyright = str_replace( '%YEAR%', date( 'Y' ), $copyright );
 ?>

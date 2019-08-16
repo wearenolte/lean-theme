@@ -4,6 +4,7 @@
  */
 
 use Lean\Backend;
+use LeanStyleguide\Styleguide;
 
 // Constants.
 define( 'LEAN_THEME_VERSION', '2.0.0' );
@@ -14,6 +15,10 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/ThemeSetup.php';
 ThemeSetup::init();
 Backend::init();
+
+if ( WP_DEBUG ) {
+	Styleguide::init();
+}
 
 // Run the theme setup.
 add_filter(
@@ -49,3 +54,55 @@ add_action(
 		}
 	}
 );
+
+/**
+ * Escapes same as wp_kses_post() but also inline SVG and image srcset.
+ */
+$allow_all_post_tags = array_merge(
+	wp_kses_allowed_html( 'post' ),
+	[
+		'svg'      => [
+			'class'           => true,
+			'aria-hidden'     => true,
+			'aria-labelledby' => true,
+			'role'            => true,
+			'xmlns'           => true,
+			'width'           => true,
+			'height'          => true,
+			'viewbox'         => true,
+		],
+		'g'        => [
+			'fill' => true,
+		],
+		'title'    => [
+			'title' => true,
+		],
+		'path'     => [
+			'd'            => true,
+			'fill'         => true,
+			'stroke'       => true,
+			'stroke-width' => true,
+		],
+		'polyline' => [
+			'd'            => true,
+			'fill'         => true,
+			'points'       => true,
+			'stroke'       => true,
+			'stroke-width' => true,
+		],
+		'img'      => [
+			'class'  => true,
+			'src'    => true,
+			'alt'    => true,
+			'srcset' => true,
+			'sizes'  => true,
+		],
+	]
+);
+
+/**
+ * For escaping ACF text areas.
+ */
+$allow_break_tag = [
+	'br' => '',
+];
