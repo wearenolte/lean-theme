@@ -1,0 +1,55 @@
+@mixin heading {
+  color: $black;
+  font-family: $font;
+  font-weight: bold;
+}
+
+@mixin h1 {
+  @include heading;
+  font-size: 30px;
+  line-height: 36px;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
+
+@mixin h2 {
+  @include heading;
+  font-size: 24px;
+  line-height: 30px;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+@mixin h3 {
+  @include heading;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+@mixin h4 {
+  @include heading;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+.h1 {
+  @include h1;
+}
+
+.h2 {
+  @include h2;
+}
+
+.h3 {
+  @include h3;
+}
+
+.h4 {
+  @include h4;
+}

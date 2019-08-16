@@ -9,11 +9,13 @@
     "moxie-lean/loader": "^1.3",
     "wearenolte/buster": "^0.1.1",
     "nolte/wp-endpoint": "3.0.*",
-    "moxie-lean/wp-taxonomy": "1.0.5"
+    "moxie-lean/wp-taxonomy": "1.0.5",
+    "nolte/lean-styleguide": "1.0.*"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "3.4.*",
-    "wp-coding-standards/wpcs": "2.1.*"
+    "wp-coding-standards/wpcs": "2.1.*",
+    "phpmd/phpmd" : "@stable"
   },
   "authors": [
     {
@@ -36,10 +38,12 @@
       "@build-deps"
     ],
     "build-deps": [
-      "cd frontend && yarn"
+      "cd frontend && yarn",
+      "cd backend/WP/Gutenberg/js && yarn --ignore-engines"
     ],
     "build-app": [
-      "cd frontend && yarn build"
+      "cd frontend && yarn build",
+      "cd backend/WP/Gutenberg/js && yarn build"
     ],
     "build": [
       "@build-deps",
@@ -62,7 +66,8 @@
       "cd frontend && yarn lint"
     ],
     "php-lint": [
-      "phpcs . --extensions=php"
+      "phpcs . --extensions=php",
+      "phpmd . text phpmd.xml --suffixes php --exclude vendor,frontend/components/atoms/icons"
     ],
     "organism": [
       "cd frontend && bash createPattern.sh organisms "

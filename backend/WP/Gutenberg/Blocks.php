@@ -10,6 +10,7 @@ class Blocks {
 	 */
 	public static function init() {
 		add_action( 'init', [ __CLASS__, 'create_blocks' ] );
+		add_filter( 'block_categories', [ __CLASS__, 'register_block_category' ] );
 	}
 
 	/**
@@ -49,5 +50,23 @@ class Blocks {
 
 			acf_register_block( $args );
 		}
+	}
+
+	/**
+	 * Block category generator.
+	 *
+	 * @param array $categories The array of block categories.
+	 * @return array
+	 */
+	public static function register_block_category( $categories ) {
+		return array_merge(
+			$categories,
+			[
+				[
+					'slug'  => 'lean-theme-blocks',
+					'title' => 'Lean Theme Blocks',
+				],
+			]
+		);
 	}
 }

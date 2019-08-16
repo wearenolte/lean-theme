@@ -121,6 +121,26 @@ class ThemeSetup {
 				}
 			}
 		);
+
+		add_action(
+			'enqueue_block_editor_assets',
+			function () {
+				wp_enqueue_script(
+					'custom-gutenberg-script',
+					get_stylesheet_directory_uri() . '/backend/WP/Gutenberg/js/dist/gutenberg.js',
+					[
+						'wp-dom',
+						'wp-blocks',
+						'wp-edit-post',
+						'wp-i18n',
+						'wp-element',
+						'wp-editor',
+					],
+					'1.0',
+					true
+				);
+			}
+		);
 	}
 
 	/**

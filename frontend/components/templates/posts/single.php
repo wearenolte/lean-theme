@@ -2,24 +2,20 @@
 
 use Lean\Load;
 
+$post_title = $args['title'] ?? '';
+$content    = $args['content'] ?? '';
 ?>
 
-<div class="t__posts__single container">
+<div class="t__posts__single container pt-5 pb-5">
 
 	<?php
-	if ( have_posts() ) {
-		while ( have_posts() ) {
-			the_post();
-
-			Load::organism(
-				'article/article-body',
-				[
-					'title'   => get_the_title(),
-					'content' => get_the_content(),
-				]
-			);
-		}
-	}
+	Load::organism(
+		'article/article-body',
+		[
+			'title'   => $post_title,
+			'content' => $content,
+		]
+	);
 	?>
 
 </div>

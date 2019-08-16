@@ -1,0 +1,17 @@
+{
+  "variants": [
+    {
+      "class": "",
+      "posts": [
+        {
+          "title": "Lorem Ipsum Post Title 1",
+          "permalink": "http://google.com"
+        },
+        {
+          "title": "Lorem Ipsum Post Title 2",
+          "permalink": "http://google.com"
+        }
+      ]
+    }
+  ]
+}

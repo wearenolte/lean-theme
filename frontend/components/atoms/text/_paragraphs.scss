@@ -1,0 +1,9 @@
+@mixin paragraph {
+  font-family: $font !important; // sass-lint:disable-line no-important
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.paragraph {
+  @include paragraph;
+}

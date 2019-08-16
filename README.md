@@ -44,6 +44,7 @@ Some key features:
     - [Custom Colors](#custom-colors)
     - [Allowed Blocks](#allowed-blocks)
     - [Custom Blocks](#custom-blocks)
+    - [Extending the editor](#extending-the-editor)
   - [Helper functions](#helper-functions)
   - [Assets](#assets)
     - [Images](#images)
@@ -227,6 +228,19 @@ The block should be registered in `backend/WP/Gutenberg/Blocks.php` in the funct
  You can take as an example the custom block that brings with this theme, `backend/WP/Gutenberg/blocks/button`. 
  This block supports Gutenberg's editor alignment option, which is done by fetching the respective CSS class. 
  Also you can notice that the block template loads the atomic button element.
+
+### Extending the editor
+The Lean Theme comes with a JS building system already setup and ready to use for customizing the Gutenberg editor. 
+
+For example you could add a custom field to a core block.
+
+Go to `backend/WP/Gutenberg/js` and run
+```bash
+yarn start
+```
+
+More info on how to extend the Gutenberg editor:
+https://developer.wordpress.org/block-editor/
 
 ## Helper functions
 TODO: Add Helper functions to the theme
