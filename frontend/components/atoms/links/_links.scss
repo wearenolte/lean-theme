@@ -5,9 +5,9 @@
   font-weight: 500;
   line-height: 28px;
   text-decoration: underline;
+  word-wrap: break-word;
   cursor: pointer;
   overflow-wrap: break-word;
-  word-wrap: break-word;
 
   @include media-breakpoint-up(lg) {
     line-height: 30px;

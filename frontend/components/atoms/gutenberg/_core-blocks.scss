@@ -44,7 +44,7 @@
 .wp-block-calendar,
 .wp-block-quote,
 .wp-block-pullquote,
-.editor-block-list__block > p { // sass-lint:disable-line force-element-nesting
+.editor-block-list__block > p { /* stylelint-disable-line no-descending-specificity */
   margin-top: 2rem !important;
   margin-bottom: 2rem !important;
 }
