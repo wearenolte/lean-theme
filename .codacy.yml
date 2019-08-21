@@ -1,11 +1,12 @@
+---
 exclude_paths:
-  - 'acf-json/**'
-  - 'vendor/**'
-  - 'benchmarks/**/*'
-  - 'frontend/node_modules/**'
-  - 'frontend/dist/**'
-  - 'frontend/static/**'
-  - 'frontend/.cache/**'
+  - '**/acf-json/**'
+  - '**/node_modules/**'
+  - '**/dist/**'
+  - '**/static/**'
+  - '**/.cache/**'
+  - '**/vendor/**'
+  - '**/benchmarks/**/*'
   - '*.yml'
   - '*.md'
   - '*.sassrc'
@@ -18,13 +19,3 @@ exclude_paths:
   - '*.xml'
   - '*.css'
   - '*.editorconfig'
-engines:
-  eslint:
-    enabled: true
-    base_sub_dir: wp-content/themes/lean-theme/frontend
-  scsslint:
-    enabled: true
-    base_sub_dir: wp-content/themes/lean-theme/frontend
-  phpcodesniffer:
-    enabled: true
-    base_sub_dir: wp-content/themes/lean-theme
