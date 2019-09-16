@@ -26,6 +26,7 @@ class Blocks {
 				'description' => 'Button block',
 				'icon'        => 'button',
 				'post_types'  => array( 'post', 'page' ),
+				'supports'    => array( 'align' => true ),
 			]
 		);
 	}
