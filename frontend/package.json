@@ -2,15 +2,17 @@
   "license": "MIT",
   "devDependencies": {
     "cssnano": "^4.1.10",
+    "eslint": "^5.16.0",
     "parcel-bundler": "^1.12.3",
     "sass": "^1.20.1",
-    "sass-lint": "^1.13.1",
-    "eslint": "^5.16.0"
+    "stylelint": "^10.1.0",
+    "stylelint-config-property-sort-order-smacss": "^5.0.0",
+    "stylelint-config-standard": "^18.3.0"
   },
   "scripts": {
     "start": "parcel main.js --public-url ./",
     "build": "parcel build main.js --public-url ./",
-    "scss-lint": "sass-lint 'components/**/*.scss' --config .sass-lint.yml --verbose --no-exit",
+    "scss-lint": "stylelint 'components/**/*.scss'",
     "js-lint": "eslint --config .eslintrc.json main.js 'components/**/*.js'",
     "lint": "yarn scss-lint && yarn js-lint"
   },
