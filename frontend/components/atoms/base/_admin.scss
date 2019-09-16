@@ -1,0 +1,27 @@
+.wp-admin {
+
+  // Show/hide alignment options for a given custom block. Replace block name below.
+  div[data-type="acf/button"] {
+    .components-toolbar div {
+      button[aria-label="Align left"] {
+        //display: none;
+      }
+
+      button[aria-label="Align center"] {
+        //display: none;
+      }
+
+      button[aria-label="Align right"] {
+        //display: none;
+      }
+
+      button[aria-label="Wide width"] {
+        //display: none;
+      }
+
+      button[aria-label="Full width"] {
+        //display: none;
+      }
+    }
+  }
+}

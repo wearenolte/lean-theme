@@ -1,7 +1,8 @@
 .m__post-content {
   .core-paragraph {
-    @include paragraph;
     margin-bottom: 20px;
+
+    @include paragraph;
 
     a {
       @include link;
@@ -18,8 +19,9 @@
 
   h2 {
     &.core-heading {
-      @include h2;
       margin-top: 45px;
+
+      @include h2;
 
       @include media-breakpoint-up(lg) {
         margin-top: 60px;
@@ -29,8 +31,9 @@
 
   h3 {
     &.core-heading {
-      @include h3;
       margin-top: 40px;
+
+      @include h3;
     }
   }
 
@@ -40,16 +43,16 @@
     }
   }
 
-  .core-heading {
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-
   .core-paragraph,
   .core-heading {
     margin-top: 40px;
     margin-bottom: 40px;
+  }
+
+  .core-heading {
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   .core-list {

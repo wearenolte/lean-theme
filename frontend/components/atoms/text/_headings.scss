@@ -1,13 +1,14 @@
 @mixin heading {
   color: $black;
   font-family: $font;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 @mixin h1 {
-  @include heading;
   font-size: 30px;
   line-height: 36px;
+
+  @include heading;
 
   @include media-breakpoint-up(lg) {
     font-size: 36px;
@@ -16,9 +17,10 @@
 }
 
 @mixin h2 {
-  @include heading;
   font-size: 24px;
   line-height: 30px;
+
+  @include heading;
 
   @include media-breakpoint-up(lg) {
     font-size: 30px;
@@ -27,15 +29,17 @@
 }
 
 @mixin h3 {
-  @include heading;
   font-size: 22px;
   line-height: 28px;
+
+  @include heading;
 }
 
 @mixin h4 {
-  @include heading;
   font-size: 20px;
   line-height: 22px;
+
+  @include heading;
 }
 
 .h1 {
