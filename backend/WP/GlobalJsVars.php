@@ -1,5 +1,7 @@
 <?php
 
+namespace Lean\WP;
+
 /**
  * Add global JS variables.
  *
