@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<phpunit bootstrap="tests/bootstrap.php">
+    <testsuites>
+        <testsuite name="Unit">
+            <directory prefix="Test" suffix=".php">./tests/*</directory>
+        </testsuite>
+    </testsuites>
+    <logging>
+        <log type="coverage-html"
+             target="tests/coverage"
+             showUncoveredFiles="true"
+             lowUpperBound="35"
+             highLowerBound="70"/>
+    </logging>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+            <directory suffix=".php">./frontend</directory>
+            <exclude>
+                <directory suffix=".php">/tests/</directory>
+                <directory suffix=".php">/vendor/</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
