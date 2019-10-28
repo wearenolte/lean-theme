@@ -197,6 +197,15 @@ Load::atom(
 );
 ```
 
+### Data Attributes
+
+When adding a data-attribute to a component, use the following pattern:
+`data-{type-of-component}="{component-slug}"`
+
+Example: `data-molecule="cards/media"`
+
+For creating the component slug, use the folder path. In this example, the component php file is in `molecules/cards/media.php`
+
 ## Gutenberg Configuration
 The Lean Theme comes with preconfigured Gutenberg options for the blocks like Font size and colors setup.
 
