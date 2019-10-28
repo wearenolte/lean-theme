@@ -7,7 +7,6 @@ $copyright = str_replace( '%YEAR%', date( 'Y' ), $copyright );
 
 <footer
 	class="text-center mt-5"
-	data-cy="footer"
 	itemscope
 	itemtype="http://schema.org/WPFooter">
 
