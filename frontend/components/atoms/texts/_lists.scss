@@ -1,0 +1,30 @@
+@mixin list {
+  color: $primary;
+  font-family: $font !important; // sass-lint:disable-line no-important
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -.16px;
+  line-height: 30px;
+
+  @media (min-width: $lg) {
+    letter-spacing: normal;
+  }
+
+  li {
+    position: relative;
+    margin-bottom: 15px;
+    padding-left: 40px;
+
+    &::before {
+      position: absolute;
+      top: 1px;
+      left: 10px;
+      font-size: 1.5rem;
+      content: '\00b7';
+    }
+  }
+}
+
+.list {
+  @include list;
+}

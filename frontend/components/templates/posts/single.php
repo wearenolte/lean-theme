@@ -6,13 +6,20 @@ $post_title = $args['title'] ?? '';
 $content    = $args['content'] ?? '';
 ?>
 
-<div class="t__posts__single container pt-5 pb-5">
+<div class="t__posts__single container py-5">
 
 	<?php
-	Load::organism(
-		'article/article-body',
+	Load::molecule(
+		'headings/article/article',
 		[
-			'title'   => $post_title,
+			'class' => 'mb-4',
+			'title' => $post_title,
+		]
+	);
+
+	Load::molecule(
+		'post-content/post-content',
+		[
 			'content' => $content,
 		]
 	);

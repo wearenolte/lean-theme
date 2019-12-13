@@ -1,8 +1,8 @@
 $guten-colors: (
-  'white': $white,
-  'black': $black,
-  'primary': $primary,
-  'secondary': $secondary,
+        'white': $white,
+        'black': $black,
+        'primary': $primary,
+        'secondary': $secondary,
 );
 
 @each $name, $color in $guten-colors {

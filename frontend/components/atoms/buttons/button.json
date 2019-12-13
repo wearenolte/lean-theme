@@ -1,0 +1,11 @@
+{
+  "variants": [
+    {
+      "style": "normal",
+      "label": "Label",
+      "url": "http://google.com",
+      "target": "_blank",
+      "class": ""
+    }
+  ]
+}

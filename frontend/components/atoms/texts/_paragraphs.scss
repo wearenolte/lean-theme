@@ -1,0 +1,30 @@
+@mixin paragraph--small-mobile {
+  font-size: 17px;
+  letter-spacing: -.16px;
+
+  @media (min-width: $lg) {
+    font-size: 18px;
+    letter-spacing: normal;
+  }
+}
+
+@mixin paragraph {
+  font-family: $font !important; // sass-lint:disable-line no-important
+  font-size: 18px !important; // sass-lint:disable-line no-important
+  font-weight: 500;
+  letter-spacing: -.17px;
+  line-height: 30px;
+
+  @media (min-width: $lg) {
+    letter-spacing: normal;
+    line-height: 32px;
+  }
+
+  &--small-mobile {
+    @include paragraph--small-mobile;
+  }
+}
+
+.paragraph {
+  @include paragraph;
+}

@@ -1,5 +1,19 @@
-<div class="t__home container pt-5 pb-5">
+<?php
 
-	<h1>Hello World</h1>
+use Lean\Load;
+
+?>
+
+<div class="t__home container py-5">
+
+	<?php
+	Load::molecule(
+		'headings/page/page',
+		[
+			'class' => 'mb-4',
+			'title' => 'Hello World',
+		]
+	);
+	?>
 
 </div>

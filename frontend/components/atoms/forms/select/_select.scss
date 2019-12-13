@@ -1,0 +1,25 @@
+@mixin select {
+  width: 100%;
+  padding: .5rem .75rem;
+  border: 2px solid $primary;
+  border-radius: 0;
+  outline: none;
+  background-color: transparent;
+  background-image: url('data:image/svg+xml;charset=US-ASCII, %3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 9"%3E%3Cpolyline points="1 1.438 8 7.563 15 1.438" fill="none" stroke="%23000" stroke-width="1.8"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 1.2em top 50%;
+  background-size: 1em auto;
+  color: $primary;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 30px;
+  appearance: none;
+}
+
+.select {
+  @include select;
+
+  @media (min-width: $lg) {
+    display: none;
+  }
+}

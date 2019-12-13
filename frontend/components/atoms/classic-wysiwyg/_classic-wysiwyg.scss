@@ -1,0 +1,43 @@
+.classic-wysiwyg {
+  a {
+    @include link;
+  }
+
+  p {
+    @include paragraph;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &--white {
+    a {
+      color: $white;
+    }
+
+    li {
+      color: $white;
+    }
+
+    h2,
+    h3,
+    h4 {
+      &.core-heading {
+        color: $white;
+      }
+    }
+  }
+
+  &--tighter-text {
+    p {
+      line-height: 26px;
+    }
+  }
+}

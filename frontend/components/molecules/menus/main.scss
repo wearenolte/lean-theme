@@ -1,0 +1,10 @@
+.m__menus__main {
+  .page_item { // sass-lint:disable-line class-name-format
+    padding: 10px;
+    font-weight: bold;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
