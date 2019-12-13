@@ -1,7 +1,19 @@
+dist
+
+# :::::::::::::::::::::: cut ::::::::::::::::::::::
+
+###
+### Pantheon site .gitignore section
+###
+### Items below the "cut" line are still ignored on
+### the Pantheon site. Items above the "cut" line
+### are ignored in the GitHub repository, but committed
+### to the Pantheon repository.
+###
+
 vendor
 bower_components
 node_modules
-dist
 .DS_Store
 .idea
 .cache
