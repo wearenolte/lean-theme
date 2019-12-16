@@ -10,7 +10,8 @@ use Lean\Load;
 
 do_action( 'lean/before_footer' );
 
-$copyright = get_field( 'general_options_copyright_text', 'options' ) ?? 'Copyright %YEAR%';
+$copyright = function_exists( 'get_field' ) ? get_field( 'general_options_copyright_text', 'options' ) : 'Copyright %YEAR%';
+$copyright = $copyright ?? 'Copyright %YEAR%';
 
 Load::organisms(
 	'footer/footer',
