@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * Custom button block.
+ *
  * @param array        $block      The block settings and attributes.
  * @param string       $content    The block inner HTML (empty).
  * @param bool         $is_preview True during AJAX preview.

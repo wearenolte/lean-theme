@@ -11,7 +11,7 @@
  */
 add_action(
 	'init',
-	function() {
+	function () {
 		lean_create_block(
 			[
 				'title'       => 'Custom button',
@@ -27,11 +27,12 @@ add_action(
  * Block category generator.
  *
  * @param array $categories The array of block categories.
+ *
  * @return array
  */
 add_filter(
 	'block_categories',
-	function( $categories ) {
+	function ( $categories ) {
 		return array_merge(
 			$categories,
 			[
@@ -49,7 +50,7 @@ add_filter(
  *
  * More information: https://www.advancedcustomfields.com/resources/acf_register_block_type/
  *
- * @param array  $args     The name of the block.
+ * @param array $args The name of the block.
  *
  * @return array | false
  */
@@ -118,7 +119,7 @@ function lean_load_block(
  *
  * @return bool True if it is the first block in the post. False if not or there are no blocks in the post.
  */
-function lean_is_first_block( int $block_id ): bool {
+function lean_is_first_block( string $block_id ): bool {
 	$post = get_post();
 
 	if ( has_blocks( $post->post_content ) ) {

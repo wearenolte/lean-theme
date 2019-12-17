@@ -41,13 +41,7 @@
 
     ol {
       @include list-ordered;
-    }
 
-    ul {
-      @include list-unordered;
-    }
-
-    ol {
       &.block-editor-rich-text__editable {
         margin-left: 10px !important;
         padding-left: 10px !important;
@@ -55,14 +49,11 @@
     }
 
     ul {
+      @include list-unordered;
+
       &.block-editor-rich-text__editable {
         margin-left: 0 !important;
         padding-left: 0 !important;
-      }
-    }
-
-    ul {
-      &.block-editor-rich-text__editable {
         list-style-type: none !important;
       }
 

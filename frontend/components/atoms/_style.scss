@@ -1,4 +1,3 @@
-@import 'base/admin';
 @import 'base/colors';
 @import 'base/screen';
 @import 'base/transforms';
@@ -16,6 +15,7 @@
 @import 'gutenberg/colors';
 @import 'gutenberg/editor';
 @import 'gutenberg/typography';
+@import 'gutenberg/block-alignment';
 @import 'forms/select/select';
 @import 'forms/select/styleSelect';
 @import 'forms/placeholder';
