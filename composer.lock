@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b00d9ea5bf7c092b187a0239f108624",
+    "content-hash": "119bd203e8add0789375a12cbff5e4ee",
     "packages": [
         {
             "name": "moxie-lean/assets",
@@ -237,16 +237,16 @@
         },
         {
             "name": "nolte/lean-styleguide",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wearenolte/lean-theme-styleguide.git",
-                "reference": "662ae0b31d8f3b9ce3c1617f809045a37a669269"
+                "reference": "0271fedeb22d2373e034cb47bb78ccc9e5fe878f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wearenolte/lean-theme-styleguide/zipball/662ae0b31d8f3b9ce3c1617f809045a37a669269",
-                "reference": "662ae0b31d8f3b9ce3c1617f809045a37a669269",
+                "url": "https://api.github.com/repos/wearenolte/lean-theme-styleguide/zipball/0271fedeb22d2373e034cb47bb78ccc9e5fe878f",
+                "reference": "0271fedeb22d2373e034cb47bb78ccc9e5fe878f",
                 "shasum": ""
             },
             "require": {
@@ -277,7 +277,7 @@
             ],
             "description": "A styleguide for the Lean Theme's UI components",
             "homepage": "https://github.com/wearenolte/lean-theme-styleguide",
-            "time": "2019-10-29T02:18:06+00:00"
+            "time": "2019-12-17T22:56:01+00:00"
         },
         {
             "name": "nolte/wp-endpoint",
