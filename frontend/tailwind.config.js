@@ -1,6 +1,6 @@
 module.exports = {
   prefix: '',
-  important: true,
+  important: '#wpbody',
   separator: ':',
   theme: {
     screens: {
@@ -125,12 +125,7 @@ module.exports = {
       default: '1',
     },
     fontFamily: {
-      heebo: [
-        'Heebo',
-        'sans-serif',
-      ],
-      anton: [
-        'Anton',
+      'primary': [
         'sans-serif',
       ],
     },
@@ -181,10 +176,7 @@ module.exports = {
       '0.17neg': '-0.17px',
       '0.5': '0.5px',
       '0.75': '0.75px',
-      '0.81': '0.81px',
-      '0.87': '0.87px',
       '1': '0',
-      '1.07': '1.07px',
       '1.5': '1.5px',
       '1.75': '1.75px',
     },
@@ -294,9 +286,6 @@ module.exports = {
     width: theme => ({
       auto: 'auto',
       ...theme('spacing'),
-      '36px': '36px',
-      '50px': '50px',
-      '35%': '35%',
       '1/2': '50%',
       '1/3': '33.333333%',
       '2/3': '66.666667%',
@@ -352,7 +341,7 @@ module.exports = {
     borderColor: ['responsive', 'hover', 'focus'],
     borderRadius: ['responsive'],
     borderStyle: ['responsive'],
-    borderWidth: ['responsive', 'first-child'],
+    borderWidth: ['responsive'],
     boxShadow: ['responsive', 'hover', 'focus'],
     cursor: ['responsive'],
     display: ['responsive'],
@@ -405,13 +394,5 @@ module.exports = {
     zIndex: ['responsive'],
   },
   corePlugins: {},
-  plugins: [
-    function({ addVariant, e }) {
-      addVariant('first-child', ({ modifySelectors, separator }) => {
-        modifySelectors(({ className }) => {
-          return `.${e(`first-child${separator}${className}`)}:first-child`
-        })
-      })
-    }
-  ],
+  plugins: [],
 }

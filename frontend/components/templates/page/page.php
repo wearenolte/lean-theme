@@ -2,11 +2,14 @@
 
 use Lean\Load;
 
+$class      = $args['class'] ?? '';
 $post_title = $args['title'] ?? '';
 $content    = $args['content'] ?? '';
 ?>
 
-<main class="t__page container py-5">
+<main
+	data-template="templates/page"
+	class="main-content container py-5 <?php echo esc_attr( $class ); ?>">
 
 	<?php
 	Load::molecule(

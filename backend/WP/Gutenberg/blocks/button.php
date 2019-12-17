@@ -1,43 +1,24 @@
 <?php
 
-/*
- * Custom Button Block Template.
- *
- * @param array  $block      The block settings and attributes.
- * @param string $content    The block inner HTML (empty).
- * @param bool   $is_preview True during AJAX preview.
- * @param   (int|string) $post_id The post ID this block is saved to.
+/**
+ * @param array        $block      The block settings and attributes.
+ * @param string       $content    The block inner HTML (empty).
+ * @param bool         $is_preview True during AJAX preview.
+ * @param (int|string) $post_id    The post ID this block is saved to.
  */
 
-use Lean\Load;
+$button_link = get_field( 'link_button_block' );
 
-// Create id attribute allowing for custom "anchor" value.
-$block_id = 'button-' . $block['id'];
-if ( ! empty( $block['anchor'] ) ) {
-	$block_id = $block['anchor'];
-}
+$component_data = [
+	'label'  => $button_link['title'] ?? 'text',
+	'url'    => $button_link['url'] ?? '',
+	'target' => $button_link['target'] ?? '',
+];
 
-// Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'block-button';
-if ( ! empty( $block['className'] ) ) {
-	$class_name .= ' ' . $block['className'];
-}
-if ( ! empty( $block['align'] ) ) {
-	$class_name .= ' align' . $block['align'];
-}
-
-$button_link = get_field( 'link' );
-?>
-
-<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $class_name ); ?>">
-	<?php
-	Load::atom(
-		'buttons/primary',
-		[
-			'label'  => $button_link['title'] ?? 'text',
-			'url'    => $button_link['url'] ?? '',
-			'target' => $button_link['target'] ?? '',
-		]
-	);
-	?>
-</div>
+lean_load_block(
+	'Lean\Load::atom',
+	'buttons/button',
+	$component_data,
+	empty( $button_link['url'] ),
+	$block
+);

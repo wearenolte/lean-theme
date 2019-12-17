@@ -2,6 +2,7 @@
 
 use Lean\Load;
 
+$class               = $args['class'] ?? '';
 $website_title       = $args['website_title'] ?? '';
 $website_url         = $args['website_url'] ?? '';
 $website_description = $args['website_description'] ?? '';
@@ -9,7 +10,8 @@ $website_logo_url    = $args['website_logo_url'] ?? '';
 ?>
 
 <header
-	class="o__header"
+	data-organism="header"
+	class="relative z-10 <?php echo esc_attr( $class ); ?>"
 	itemscope
 	itemtype="http://schema.org/WPHeader">
 
@@ -46,7 +48,7 @@ $website_logo_url    = $args['website_logo_url'] ?? '';
 			]
 		);
 
-		Load::molecule( 'menus/main' );
+		Load::molecule( 'menus/main/main' );
 		?>
 
 	</nav>

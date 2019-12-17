@@ -9,7 +9,8 @@ $options       = $args['options'] ?? [];
 ?>
 
 <select
-	class="a__forms__select select <?php echo esc_attr( $class ); ?>"
+	data-atom="forms/select"
+	class="select <?php echo esc_attr( $class ); ?>"
 	name="<?php echo esc_attr( sanitize_title( $name ) ); ?>"
 	aria-label="<?php echo esc_attr( $name ); ?>">
 

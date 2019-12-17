@@ -5,7 +5,9 @@ use Lean\Load;
 $the_posts = $args['posts'] ?? [];
 ?>
 
-<div class="t__posts__archive container py-5">
+<div
+	data-template="posts/archive"
+	class="main-content container py-5">
 
 	<?php
 	Load::molecule(

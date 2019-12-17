@@ -6,7 +6,8 @@ $target    = $args['target'] ?? '_self';
 ?>
 
 <a
-	class="a__links__link link <?php echo esc_attr( $class ); ?>"
+	data-atom="link"
+	class="link <?php echo esc_attr( $class ); ?>"
 	href="<?php echo esc_url( $url ); ?>"
 	target="<?php echo esc_attr( $target ); ?>">
 

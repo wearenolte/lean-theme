@@ -6,7 +6,9 @@ $post_title = $args['title'] ?? '';
 $content    = $args['content'] ?? '';
 ?>
 
-<div class="t__posts__single container py-5">
+<div
+	data-template="posts/single"
+	class="main-content container py-5">
 
 	<?php
 	Load::molecule(

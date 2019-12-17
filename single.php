@@ -7,7 +7,7 @@ if ( have_posts() ) {
 	while ( have_posts() ) {
 		the_post();
 
-		Load::organism(
+		Load::template(
 			'posts/single',
 			[
 				'title'   => get_the_title(),

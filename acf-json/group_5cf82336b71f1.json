@@ -1,11 +1,11 @@
 {
     "key": "group_5cf82336b71f1",
-    "title": "Block: Button",
+    "title": "ACF Button Block",
     "fields": [
         {
             "key": "field_5cf8233fbf79a",
             "label": "Link",
-            "name": "link",
+            "name": "link_button_block",
             "type": "link",
             "instructions": "",
             "required": 0,
@@ -35,5 +35,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1559818902
+    "modified": 1576605717
 }

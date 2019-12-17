@@ -10,7 +10,9 @@ if ( empty( $post_title ) ) {
 }
 ?>
 
-<div class="m__headings__page <?php echo esc_attr( $class ); ?>">
+<div
+	data-molecule="headings/page"
+	class="<?php echo esc_attr( $class ); ?>">
 
 	<h1 class="h1">
 		<?php echo wp_kses( $post_title, $allow_break_tag ); ?>

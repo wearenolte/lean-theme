@@ -5,13 +5,10 @@
     "autoprefixer": "^9.6.0",
     "eslint": "^5.16.0",
     "parcel-bundler": "^1.12.3",
-    "postcss-mixins": "^6.2.1",
     "postcss-modules": "^1.4.1",
-    "postcss-nested": "^4.1.2",
-    "postcss-simple-vars": "^5.0.2",
     "sass": "^1.21.0",
     "sass-lint": "^1.13.1",
-    "tailwindcss": "^1.0.4"
+    "tailwindcss": "^1.1.*"
   },
   "scripts": {
     "start": "parcel main.js",

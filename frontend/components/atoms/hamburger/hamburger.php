@@ -3,7 +3,8 @@ $class = $args['class'] ?? '';
 ?>
 
 <button
-	class="a__hamburger hamburger--spring hamburger js-hamburger z-10 <?php echo esc_attr( $class ); ?>"
+	data-atom="hamburger"
+	class="hamburger--spring hamburger js-hamburger flex z-10 <?php echo esc_attr( $class ); ?>"
 	type="button"
 	aria-label="Open menu">
 

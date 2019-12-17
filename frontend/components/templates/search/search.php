@@ -4,7 +4,9 @@ use Lean\Load;
 
 ?>
 
-<div class="t__search container py-5 text-center">
+<div
+	data-template="search"
+	class="main-content container py-5 text-center">
 
 	<?php
 	Load::molecule(

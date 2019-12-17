@@ -2,16 +2,19 @@
 
 use Lean\Load;
 
+$the_title = $args['title'] ?? '';
 ?>
 
-<div class="t__404 container py-5 text-center">
+<div
+	data-templates="404"
+	class="container main-content py-5 text-center">
 
 	<?php
 	Load::molecule(
 		'headings/page/page',
 		[
 			'class' => 'mb-4',
-			'title' => 'Page not found.',
+			'title' => $the_title,
 		]
 	);
 	?>

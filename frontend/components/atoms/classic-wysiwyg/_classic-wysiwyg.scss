@@ -17,27 +17,11 @@
     }
   }
 
-  &--white {
-    a {
-      color: $white;
-    }
-
-    li {
-      color: $white;
-    }
-
-    h2,
-    h3,
-    h4 {
-      &.core-heading {
-        color: $white;
-      }
-    }
+  ol {
+    @include list-ordered;
   }
 
-  &--tighter-text {
-    p {
-      line-height: 26px;
-    }
+  ul {
+    @include list-unordered;
   }
 }

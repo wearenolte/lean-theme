@@ -3,10 +3,10 @@ $hamburger-padding-y: 0 !default;
 $hamburger-layer-width: 30px !default;
 $hamburger-layer-height: 3px !default;
 $hamburger-layer-spacing: 5px !default;
-$hamburger-layer-color: #000000 !default;
+$hamburger-layer-color: $primary !default;
 $hamburger-layer-border-radius: 0 !default;
 $hamburger-hover-opacity: 1 !default;
-$hamburger-active-layer-color: $white !default;
+$hamburger-active-layer-color: $primary !default;
 $hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
 
 // To use CSS filters as the hover effect instead of opacity,
