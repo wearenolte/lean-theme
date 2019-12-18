@@ -2,6 +2,54 @@
 @tailwind base;
 /* purgecss end ignore */
 
+html {
+    @apply text-base text-font-primary;
+}
+
+@screen lg {
+    html {
+        @apply text-lg-base;
+    }
+}
+
+body {
+    @apply text-body;
+}
+
+a {
+    @apply text-link-primary;
+}
+
+h1 {
+    @apply text-large-1;
+}
+
+h2 {
+    @apply text-large-2;
+}
+
+h3 {
+    @apply text-large-3;
+}
+
+h4 {
+    @apply text-large-4;
+}
+
+.post-content > .wp-block-group,
+.post-content > .wp-block-columns
+{
+    @apply py-block-y;
+}
+
+.container {
+    @apply max-w-container px-container-padding mx-auto; 
+}
+
+.container-narrow {
+    @apply max-w-container-narrow px-container-padding mx-auto; 
+}
+
 @tailwind components;
 
 @tailwind utilities;
