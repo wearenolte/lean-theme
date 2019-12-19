@@ -1,4 +1,7 @@
 <?php
+/**
+ * Posts helper functions.
+ */
 
 /**
  * Query posts and returns only the posts IDs by default.

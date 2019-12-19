@@ -1,0 +1,34 @@
+@mixin list-ordered {
+  margin-left: 18px;
+  font-family: $font !important; // sass-lint:disable-line no-important
+  line-height: 24px;
+  list-style: decimal;
+
+  li {
+    position: relative;
+  }
+}
+
+@mixin list-unordered {
+  list-style: none;
+
+  li {
+    position: relative;
+    margin-left: 12px;
+
+    &::before {
+      position: absolute;
+      left: -12px;
+      font-size: 1rem;
+      content: '•';
+    }
+  }
+}
+
+.list-ordered {
+  @include list-ordered;
+}
+
+.list-unordered {
+  @include list-unordered;
+}

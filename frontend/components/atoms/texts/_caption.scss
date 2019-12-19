@@ -1,0 +1,14 @@
+@mixin caption {
+  @include paragraph;
+  padding-top: 3px;
+  text-align: left;
+
+  @media (min-width: $lg) {
+    padding-bottom: 28px;
+    border-bottom: 1px solid $gray;
+  }
+
+  b {
+    color: $black;
+  }
+}

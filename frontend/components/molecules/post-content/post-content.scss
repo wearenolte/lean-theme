@@ -1,11 +1,16 @@
-.m__post-content {
-  .core-paragraph {
-    margin-bottom: 20px;
+.post-content {
+  margin: 0 auto;
 
+  .core-paragraph {
     @include paragraph;
+    margin-bottom: 20px;
 
     a {
       @include link;
+    }
+
+    &:first-child {
+      margin-top: 0;
     }
   }
 
@@ -19,11 +24,10 @@
 
   h2 {
     &.core-heading {
+      @include h2;
       margin-top: 45px;
 
-      @include h2;
-
-      @include media-breakpoint-up(lg) {
+      @media (min-width: $lg) {
         margin-top: 60px;
       }
     }
@@ -31,9 +35,8 @@
 
   h3 {
     &.core-heading {
-      margin-top: 40px;
-
       @include h3;
+      margin-top: 40px;
     }
   }
 
@@ -43,36 +46,72 @@
     }
   }
 
-  .core-paragraph,
-  .core-heading {
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-
   .core-heading {
     &:first-child {
       margin-top: 0;
     }
   }
 
-  .core-list {
-    @include list;
+  .core-paragraph,
+  .core-heading {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  ol {
+    &.core-list {
+      @include list-ordered;
+    }
+  }
+
+  ul {
+    &.core-list {
+      @include list-unordered;
+    }
   }
 
   .post-list-block {
     margin-top: 22px;
     margin-bottom: 35px;
 
-    @include media-breakpoint-up(lg) {
+    @media (min-width: $lg) {
       margin-bottom: 44px;
     }
   }
 
   .alignfull {
-    @include media-breakpoint-up(lg) {
+    @media (min-width: $lg) {
       width: 100vw;
       max-width: 100vw;
       margin: 32px calc(50% - 50vw);
     }
+  }
+
+  .alignwide {
+    width: 100%;
+    max-width: 100%;
+    margin: 30px 0;
+
+    @media (min-width: $lg) {
+      width: auto;
+      max-width: 100vw;
+      margin: 32px calc(25% - 25vw);
+    }
+  }
+
+  .aligncenter {
+    text-align: center;
+  }
+
+  .alignleft {
+    text-align: left;
+  }
+
+  .alignright {
+    text-align: right;
+  }
+
+  .only-dashboard {
+    display: none;
   }
 }

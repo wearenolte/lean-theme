@@ -1,0 +1,7 @@
+.main-content {
+  min-height: calc(100vh - 200px);
+
+  @media (min-width: $lg) {
+    min-height: calc(100vh - 490px);
+  }
+}

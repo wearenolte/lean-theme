@@ -1,23 +1,25 @@
 {
   "license": "MIT",
   "devDependencies": {
-    "cssnano": "^4.1.10",
+    "@fullhuman/postcss-purgecss": "^1.2.0",
+    "autoprefixer": "^9.6.0",
     "eslint": "^5.16.0",
     "parcel-bundler": "^1.12.3",
-    "sass": "^1.20.1",
-    "stylelint": "^10.1.0",
-    "stylelint-config-property-sort-order-smacss": "^5.0.0",
-    "stylelint-config-standard": "^18.3.0"
+    "postcss-modules": "^1.4.1",
+    "sass": "^1.21.0",
+    "sass-lint": "^1.13.1",
+    "tailwindcss": "^1.1.*"
   },
   "scripts": {
-    "start": "parcel main.js --public-url ./",
-    "build": "parcel build main.js --public-url ./",
-    "scss-lint": "stylelint 'components/**/*.scss'",
+    "start": "parcel main.js",
+    "build": "parcel build main.js --no-cache",
+    "sass-lint": "sass-lint 'components/**/*.scss' --config .sass-lint.yml --verbose --no-exit",
     "js-lint": "eslint --config .eslintrc.json main.js 'components/**/*.js'",
-    "lint": "yarn scss-lint && yarn js-lint"
+    "lint": "yarn sass-lint && yarn js-lint"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1"
+    "hamburgers": "^1.1.3",
+    "jquery": "1.9.1 - 3",
+    "styleselect": "^1.0.3"
   }
 }

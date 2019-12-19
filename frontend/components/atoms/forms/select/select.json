@@ -1,0 +1,26 @@
+{
+  "variants": [
+    {
+      "class": "",
+      "selected": "value2",
+      "default": {
+        "text": "Choose option",
+        "value": ""
+      },
+      "options": [
+        {
+          "text": "Option 1",
+          "value": "value1"
+        },
+        {
+          "text": "Option 2",
+          "value": "value2"
+        },
+        {
+          "text": "Option 3",
+          "value": "value3"
+        }
+      ]
+    }
+  ]
+}

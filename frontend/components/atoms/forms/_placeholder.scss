@@ -1,0 +1,6 @@
+.placeholder-black {
+  &::placeholder {
+    color: $black;
+    opacity: .6;
+  }
+}

@@ -1,0 +1,54 @@
+// Plugin for styling the Select dropdown on Desktop.
+// http://mikemaccana.github.io/styleselect/
+.style-select {
+  display: none;
+  position: relative;
+  cursor: pointer;
+
+  &.open {
+    .ss-dropdown {
+      display: block;
+    }
+  }
+
+  @media (min-width: $lg) {
+    display: block;
+    width: 33.33%;
+    margin-right: 1rem;
+  }
+}
+
+.ss-selected-option {
+  @include select;
+}
+
+.ss-dropdown {
+  display: none;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 100%;
+  padding: .5rem .75rem;
+  border: 2px solid $primary;
+  border-top: 0;
+  background-color: $white;
+}
+
+.ss-option {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 30px;
+  cursor: pointer;
+
+  &:first-child {
+    margin-bottom: 1rem;
+  }
+
+  &:hover {
+    color: $primary;
+  }
+
+  &.ticked {
+    color: $primary;
+  }
+}

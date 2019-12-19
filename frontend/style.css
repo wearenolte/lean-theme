@@ -1,0 +1,11 @@
+@tailwind base;
+
+@tailwind components;
+
+/* purgecss start ignore */
+.btn {
+    @apply inline-block border-2 py-4 px-8 font-extrabold text-15 leading-16 uppercase;
+}
+/* purgecss end ignore */
+
+@tailwind utilities;

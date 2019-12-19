@@ -10,7 +10,7 @@
     "wearenolte/buster": "^0.1.1",
     "nolte/wp-endpoint": "3.0.*",
     "moxie-lean/wp-taxonomy": "1.0.5",
-    "nolte/lean-styleguide": "^1.1"
+    "nolte/lean-styleguide": "^1.1.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "3.4.*",

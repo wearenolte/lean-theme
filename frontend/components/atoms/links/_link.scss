@@ -1,0 +1,26 @@
+@mixin link {
+  position: relative;
+  background-color: transparent;
+  color: $primary;
+  font-family: $font;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  text-decoration: underline;
+  cursor: pointer;
+  text-underline-position: under;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  @media (min-width: $lg) {
+    line-height: 30px;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.link {
+  @include link;
+}

@@ -17,7 +17,7 @@ ThemeSetup::init();
 Backend::init();
 
 if ( WP_DEBUG ) {
-	Styleguide::init();
+	new Styleguide();
 }
 
 // Run the theme setup.
@@ -25,7 +25,6 @@ add_filter(
 	'loader_directories',
 	function ( $directories ) {
 		$directories[] = get_template_directory() . '/frontend/components';
-
 		return $directories;
 	}
 );
@@ -53,51 +52,6 @@ add_action(
 			the_field( 'general_options_google_tag_manager', 'option' );
 		}
 	}
-);
-
-/**
- * Escapes same as wp_kses_post() but also inline SVG and image srcset.
- */
-$allow_all_post_tags = array_merge(
-	wp_kses_allowed_html( 'post' ),
-	[
-		'svg'      => [
-			'class'           => true,
-			'aria-hidden'     => true,
-			'aria-labelledby' => true,
-			'role'            => true,
-			'xmlns'           => true,
-			'width'           => true,
-			'height'          => true,
-			'viewbox'         => true,
-		],
-		'g'        => [
-			'fill' => true,
-		],
-		'title'    => [
-			'title' => true,
-		],
-		'path'     => [
-			'd'            => true,
-			'fill'         => true,
-			'stroke'       => true,
-			'stroke-width' => true,
-		],
-		'polyline' => [
-			'd'            => true,
-			'fill'         => true,
-			'points'       => true,
-			'stroke'       => true,
-			'stroke-width' => true,
-		],
-		'img'      => [
-			'class'  => true,
-			'src'    => true,
-			'alt'    => true,
-			'srcset' => true,
-			'sizes'  => true,
-		],
-	]
 );
 
 /**
