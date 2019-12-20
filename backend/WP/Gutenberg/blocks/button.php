@@ -1,7 +1,12 @@
 <?php
 
+use \Lean\WP\Gutenberg\Blocks;
+
 /**
- * Custom button block.
+ * Name: Custom Button
+ * Icon: button
+ * Description: Custom Button block
+ * Align: true
  *
  * @param array        $block      The block settings and attributes.
  * @param string       $content    The block inner HTML (empty).
@@ -17,7 +22,7 @@ $component_data = [
 	'target' => $button_link['target'] ?? '',
 ];
 
-lean_load_block(
+Blocks::load_block(
 	'Lean\Load::atom',
 	'buttons/button',
 	$component_data,
