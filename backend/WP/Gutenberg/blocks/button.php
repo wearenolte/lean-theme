@@ -1,26 +1,29 @@
 <?php
 
+namespace Lean\WP\Gutenberg\Blocks;
+
+use Lean\WP\Gutenberg\AbstractBlock;
+
 /**
- * Custom button block.
- *
- * @param array        $block      The block settings and attributes.
- * @param string       $content    The block inner HTML (empty).
- * @param bool         $is_preview True during AJAX preview.
- * @param (int|string) $post_id    The post ID this block is saved to.
+ * Button block.
  */
+class Button extends AbstractBlock {
 
-$button_link = get_field( 'link_button_block' );
-
-$component_data = [
-	'label'  => $button_link['title'] ?? 'text',
-	'url'    => $button_link['url'] ?? '',
-	'target' => $button_link['target'] ?? '',
-];
-
-lean_load_block(
-	'Lean\Load::atom',
-	'buttons/button',
-	$component_data,
-	empty( $button_link['url'] ),
-	$block
-);
+	/**
+	 * Register the block.
+	 *
+	 * @return array
+	 */
+	public function register() : array {
+		return $this->do_registration(
+			[
+				'description'   => 'Adds a button to your page.',
+				'icon'          => 'admin-links',
+				'category'      => 'common-blocks',
+				'template_type' => 'atom',
+				'template_name' => 'buttons/button',
+				'wrapper_elem'  => 'span',
+			]
+		);
+	}
+}

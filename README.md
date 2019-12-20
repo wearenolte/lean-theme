@@ -22,7 +22,7 @@ Some key features:
 
 ## Contents
 - [The LEAN Theme](#the-lean-theme)
-  - [A no-frills WordPress starter theme](#a-no-frills-wordpress-starter-theme)
+  - [A no-frills WordPress starter theme - Gutenberg Ready!](#a-no-frills-wordpress-starter-theme---gutenberg-ready)
   - [Contents](#contents)
   - [Pre-requisites](#pre-requisites)
   - [Installation](#installation)
@@ -42,17 +42,14 @@ Some key features:
   - [Gutenberg Configuration](#gutenberg-configuration)
     - [Custom Font Sizes](#custom-font-sizes)
     - [Custom Colors](#custom-colors)
-    - [Allowed Blocks](#allowed-blocks)
     - [Custom Blocks](#custom-blocks)
     - [Extending the editor](#extending-the-editor)
   - [Helper functions](#helper-functions)
   - [Assets](#assets)
     - [Images](#images)
-    - [JavaScript](#javascript)
-    - [CSS](#css)
     - [Web Fonts](#web-fonts)
     - [Icons](#icons)
-  - [JavaScript](#javascript-1)
+  - [JavaScript](#javascript)
     - [Adding new JS function / behavior](#adding-new-js-function--behavior)
     - [Adding an external package from NPM](#adding-an-external-package-from-npm)
   - [Models and Controllers](#models-and-controllers)
@@ -216,18 +213,7 @@ The blocks that will be allowed to be used in the Gutenberg editor can also be c
 The discrimination can be done per page or post type.
 
 ### Custom Blocks
-To create custom blocks the Lean Theme relies on the use of the ACF plugin. 
-
-The block should be registered in `backend/WP/Gutenberg/Blocks.php` in the function `create_blocks()`. 
-
- Once you have registered the custom block, add the block's template in the `blocks` folder with the same 
- slug you defined when registered it. 
- 
- Please follow this tutorial to create the ACF Field Group of your custom block: [link](https://www.advancedcustomfields.com/blog/acf-5-8-introducing-acf-blocks-for-gutenberg/)
- 
- You can take as an example the custom block that brings with this theme, `backend/WP/Gutenberg/blocks/button`. 
- This block supports Gutenberg's editor alignment option, which is done by fetching the respective CSS class. 
- Also you can notice that the block template loads the atomic button element.
+See the [Gutenberg Blocks](/docs/BLOCKS.md) subsection for informaitron on how to create custom blocks.
 
 ### Extending the editor
 The Lean Theme comes with a JS building system already setup and ready to use for customizing the Gutenberg editor. 
