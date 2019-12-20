@@ -213,7 +213,7 @@ The blocks that will be allowed to be used in the Gutenberg editor can also be c
 The discrimination can be done per page or post type.
 
 ### Custom Blocks
-See the [Gutenberg Blocks](/docs/BLOCKS.md) subsection for informaitron on how to create custom blocks.
+See the [Gutenberg Blocks](/docs/BLOCKS.md) subsection for information on how to create custom blocks.
 
 ### Extending the editor
 The Lean Theme comes with a JS building system already setup and ready to use for customizing the Gutenberg editor. 

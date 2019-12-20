@@ -42,11 +42,11 @@ class Button extends AbstractBlock {
 - **icon**: Icon to show in the admin, see this [cheatsheet](http://calebserna.com/dashicons-cheatsheet/) for available options.
 - **category**: The category in which to show the block in the admin. You can use the default categories or register your own in blocks.php.
 - **template_type**: The type of the template: atom, molecule or organism.
-- **description**: The template name, eg 'buttons/primary'.
+- **template_name**: The template name, eg 'buttons/primary'.
 
 The block title in the admin will be automatically set to the class name with spaces before capitilised letters, eg a class called `BigButton` would shows as `Big Button` in the editor.
 
-Note that when the block renders it will automatically pass all ACF fields for the block to the specificed template. Therefore you should give your ACF fields sensible names that can be also be used in the templates. Later in this section we will look at you can pre-process the fields before passing them to the template, as this will be necessary in some cases.
+Note that when the block renders it will automatically pass all ACF fields for the block to the specificed template. Therefore you should give your ACF fields sensible names that can be also be used in the templates. Later in this section we will look at how you can pre-process the fields before passing them to the template, as this will be necessary in some cases.
 
 ### Additional Arguments
 The `do_registration` function also accepts the following optional arguments:
@@ -56,7 +56,7 @@ The `do_registration` function also accepts the following optional arguments:
 - **Anything else**: Any additional fields will be available in the `$blocks` object in the render function, so add whatever you need here.
 
 ## Custom Rendering
-In some cases the default `render` function may not cut the mustard. For example, if you need to pre-process the data from the ACF fields before passing it to the template. Or if you simply don't want to use a template and prefer to output HTML directly (for simple atoms this may make more sense). 
+In some cases the default `render` function may not cut the mustard. For example, if you need to pre-process the data from the ACF fields before passing it to the template. Or if you simply don't want to use a template and prefer to output HTML directly (for simple atoms this may make more sense).
 
 The standard render function is split into 3 parts:
 ```php
@@ -88,7 +88,7 @@ class Button extends AbstractBlock {
 ```
 
 ## Hooks
-A following filters are also provided to modify the rendering of the block. These should be used for modifications which cannot be known at the time of registering the block, eg something based on its order on the page. All hooks pass the following arguments:
+The following filters are also provided to modify the rendering of the block. These should be used for modifications which cannot be known at the time of registering the block, eg something based on its order on the page. All hooks pass the following arguments:
 - **$block**: The block object.
 - **$content**: The content of the block (empty).
 - **$is_preview**: Whether it's being rendered in preview mode or on the front-end.
