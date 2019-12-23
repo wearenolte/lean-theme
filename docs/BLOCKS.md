@@ -3,7 +3,7 @@
 This section decribes how to create blocks in the Lean Theme. Note that it relies on ACF and it is recommended to have an overview of how ACF does blocks, see this [article](https://www.advancedcustomfields.com/resources/blocks/).
 
 ## Overview
-Blocks are created as classes in the backend/WP/Gutenberg/Blocks folder. These classes must extend the AbstractBlock class (in backend/WP/Gutenberg) which provides the base functionality for registering and rendering blocks.
+Blocks are created as classes in the backend/WP/Gutenberg/Blocks folder. The file name must be the same as the Class name, in Camel Case format (eg MyBlock.php). These classes must extend the AbstractBlock class (in backend/WP/Gutenberg) which provides the base functionality for registering and rendering blocks.
 
 ## Basic Usage
 The simplest block implementation requires only that you implement the `register()` function according to this example:
