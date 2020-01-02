@@ -175,7 +175,7 @@ class Editor {
 		];
 
 		$custom_blocks = [
-			'acf/button',
+			'common-blocks/button',
 		];
 
 		$all_blocks = array_merge(
