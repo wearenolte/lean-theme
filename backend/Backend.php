@@ -35,7 +35,7 @@ class Backend {
 		self::$backend_path = get_template_directory() . '/backend/';
 
 		foreach ( self::$directories as $directory ) {
-			self::autoload_classes( $directory );
+			self::autoload_classes( $directory, 'init', false );
 		}
 
 		self::include_functions();
@@ -44,17 +44,23 @@ class Backend {
 	/**
 	 * Auto load classes in directory.
 	 *
-	 * @param array $directory The directories to load the classes from.
+	 * @param string $directory The directory to scan.
+	 * @param string $function The function to call for each class found.
+	 * @param bool   $instantiate Whether to instantiate the class (false if the function should be called in a static way).
+	 * @return void
 	 */
-	private static function autoload_classes( $directory ) {
+	public static function autoload_classes( $directory, $function, $instantiate ) {
 		$directory_path = self::$backend_path . $directory;
 
 		foreach ( glob( $directory_path . '/*.php' ) as $file ) {
 			$class_path = str_replace( '/', '\\', $directory );
 			$class      = '\\' . __NAMESPACE__ . '\\' . $class_path . '\\' . basename( $file, '.php' );
 
-			if ( method_exists( $class, 'init' ) ) {
-				call_user_func( [ $class, 'init' ] );
+			if ( method_exists( $class, $function ) ) {
+				if ( $instantiate ) {
+					$class = new $class();
+				}
+				call_user_func( [ $class, $function ] );
 			}
 		}
 	}
