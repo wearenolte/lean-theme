@@ -8,8 +8,12 @@ var purgecss = require('@fullhuman/postcss-purgecss')({
   ],
 
   // Whitelist selectors which are not explicit in the above files, see https://www.purgecss.com/whitelisting
+  whitelist: [
+  ],
+
+  // Also using regex patterns
   whitelistPatterns: [
-    // /^bg-/, // All background colours, eg bg-pink
+    /^bg-/, // All background colours, eg bg-pink
   ],
 
   // Include any special characters you're using in this regular expression
@@ -20,6 +24,7 @@ var purgecss = require('@fullhuman/postcss-purgecss')({
 module.exports = {
   plugins: [
     require( 'tailwindcss' ),
+    //require( 'postcss-nested' ),
     require( 'autoprefixer' ),
     ...process.env.NODE_ENV === 'production'
       ? [ purgecss ]

@@ -1,0 +1,7 @@
+.btn {
+    @apply bg-primary-btn-bg text-primary-btn rounded-none px-primary-btn-padding-x py-primary-btn-padding-y
+}
+
+.wp-block-file .wp-block-file__button {
+    @apply btn;
+}

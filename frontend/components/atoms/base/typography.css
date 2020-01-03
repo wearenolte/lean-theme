@@ -1,0 +1,71 @@
+html {
+    @apply text-base text-font-primary;
+}
+
+@screen lg {
+    html {
+        @apply text-lg-base;
+    }
+}
+
+h1.standard-headings,
+.standard-headings h1 {
+    @apply text-large-1 text-font-secondary;
+}
+
+h2.standard-headings,
+.standard-headings h2 {
+    @apply text-large-2 text-font-secondary;
+}
+
+h3.standard-headings,
+.standard-headings h3 {
+    @apply text-large-3 text-font-secondary;
+}
+
+h4.standard-headings,
+.standard-headings h4 {
+    @apply text-large-4 text-font-secondary;
+}
+
+ul.standard-lists,
+.standard-lists ul {
+    @apply list-inside list-disc;
+}
+
+ol.standard-lists,
+.standard-lists ol {
+    @apply list-inside list-decimal;
+}
+
+ul.standard-lists li li,
+.standard-lists ul li li,
+ol.standard-lists li li,
+.standard-lists ol li li {
+    @apply pl-list-indent;
+}
+
+.as-text-align-left {
+    @apply text-left;
+}
+
+.as-text-align-center {
+    @apply text-center;
+}
+
+.as-text-align-right {
+    @apply text-right;
+}
+
+.standard-table th,
+.standard-table td {
+    @apply p-table-padding border-table-border
+}
+
+.wp-block-separator.is-style-dots:before {
+    @apply text-separator;
+}
+
+.alignfull {
+    @apply max-w-wide mx-wide-margins;
+}

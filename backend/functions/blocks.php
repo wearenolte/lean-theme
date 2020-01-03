@@ -55,3 +55,38 @@ function lean_is_first_block( string $block_id ) : bool {
 
 	return false;
 }
+
+/**
+ * Filter block rendering. When a core block renders we add the data-type attribute
+ * and the classes from the CoreBlocks config.
+ */
+add_filter(
+	'render_block',
+	function( $block_content, $block ) {
+		$block_name = $block['blockName'];
+
+		$close_pos = strpos( $block_content, '>' );
+		if ( false !== $close_pos ) {
+			$block_content = substr_replace( $block_content, ' data-type="' . $block_name . '">', $close_pos, 1 );
+		}
+
+		$block_config = \Lean\WP\Gutenberg\CoreBlocks::CONFIG[ $block_name ];
+		if ( ! is_array( $block_config ) || ! $block_config['class'] ) {
+			return $block_content;
+		}
+
+		// Add to the existing classes if there are some already.
+		$class_pos = strpos( $block_content, 'class="' );
+		if ( false !== $class_pos && $class_pos < strpos( $block_content, '>' ) ) {
+			return substr_replace( $block_content, 'class="' . $block_config['class'] . ' ', $class_pos, 7 );
+		}
+
+		// Or add a class property if one does not exist already.
+		$close_pos = strpos( $block_content, '>' );
+		if ( false !== $close_pos ) {
+			return substr_replace( $block_content, ' class="' . $block_config['class'] . '">', $close_pos, 1 );
+		}
+	},
+	10,
+	3
+);

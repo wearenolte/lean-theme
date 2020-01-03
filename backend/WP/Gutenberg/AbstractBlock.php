@@ -101,9 +101,10 @@ abstract class AbstractBlock {
 		);
 
 		echo sprintf(
-			'<%s id="%s" class="%s">',
+			'<%s id="%s" data-type="%s" class="%s">',
 			esc_attr( apply_filters( 'lean_block_wrapper', $block['wrapper_elem'] ?? self::DEFAULT_WRAPPER_ELEM, $block, $content, $is_preview, $post_id ) ),
 			esc_attr( apply_filters( 'lean_block_id', $block['id'], $block, $content, $is_preview, $post_id ) ),
+			esc_attr( $block['name'] ),
 			esc_attr( implode( ' ', $wrapper_classes ) )
 		);
 	}
