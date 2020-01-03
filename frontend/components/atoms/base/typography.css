@@ -67,5 +67,5 @@ ol.standard-lists li li,
 }
 
 .alignfull {
-    @apply max-w-wide mx-wide-margins;
+    @apply max-w-screen mx-wide-margins;
 }

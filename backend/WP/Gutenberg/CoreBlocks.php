@@ -20,19 +20,19 @@ abstract class CoreBlocks {
 		],
 		'core/paragraph'       => [
 			'active' => true,
-			'class'  => 'mb-paragraph-b last:mb-0 text-body text-font-primary',
+			'class'  => 'mb-paragraph-b last:mb-0 text-regular text-font-primary',
 		],
 		'core/list'            => [
 			'active' => true,
-			'class'  => 'text-body text-font-primary standard-lists mb-paragraph-b last:mb-0',
+			'class'  => 'text-regular text-font-primary standard-lists mb-paragraph-b last:mb-0',
 		],
 		'core/code'            => [
 			'active' => true,
-			'class'  => 'text-body text-font-primary mb-paragraph-b last:mb-0 p-pre-padding border-solid border-1 border-pre-border rounded',
+			'class'  => 'text-regular text-font-primary mb-paragraph-b last:mb-0 p-pre-padding border-solid border-1 border-pre-border rounded',
 		],
 		'core/preformatted'    => [
 			'active' => true,
-			'class'  => 'text-body text-font-primary mb-paragraph-b last:mb-0 p-pre-padding border-solid border-1 border-pre-border rounded',
+			'class'  => 'text-regular text-font-primary mb-paragraph-b last:mb-0 p-pre-padding border-solid border-1 border-pre-border rounded',
 		],
 		'core/table'           => [
 			'active' => true,
@@ -67,7 +67,7 @@ abstract class CoreBlocks {
 		],
 		'core/file'            => [
 			'active' => true,
-			'class'  => 'mb-paragraph-b last:mb-0 text-body text-font-primary',
+			'class'  => 'mb-paragraph-b last:mb-0 text-regular text-font-primary',
 		],
 		'core/media-text'      => [
 			'active' => true,

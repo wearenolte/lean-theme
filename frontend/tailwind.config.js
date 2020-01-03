@@ -142,9 +142,9 @@ module.exports = {
 		fontSize: {
 			'base': '10px',
 			'lg-base': '12px',
-			'body': '16px',
-			'small': '14px',
-			'large': '18px',
+			'regular': '1.5rem',
+			'small': '1.3rem',
+			'large': '1.7rem',
 			'large-1': '4.7rem',
 			'large-2': '3.2rem',
 			'large-3': '2.4rem',
@@ -159,7 +159,7 @@ module.exports = {
 			semibold: '600',
 			bold: '700',
 			extrabold: '800',
-			black: '900',
+			black: '900'
 		},
 		height: theme => ({
 			'13px': '13px',
@@ -168,11 +168,11 @@ module.exports = {
 			auto: 'auto',
 			...theme('spacing'),
 			full: '100%',
-			screen: '100vh',
+			screen: '100vh'
 		}),
 		inset: {
 			'0': '0',
-			auto: 'auto',
+			auto: 'auto'
 		},
 		letterSpacing: {
 			'0.14neg': '-0.14px',
@@ -181,7 +181,7 @@ module.exports = {
 			'0.75': '0.75px',
 			'1': '0',
 			'1.5': '1.5px',
-			'1.75': '1.75px',
+			'1.75': '1.75px'
 		},
 		lineHeight: {
 			none: '1',
@@ -207,37 +207,38 @@ module.exports = {
 			'60': '60px',
 			'62': '62px',
 			'76': '76px',
-			'96': '96px',
+			'96': '96px'
 		},
 		listStyleType: {
 			none: 'none',
 			disc: 'disc',
-			decimal: 'decimal',
+			decimal: 'decimal'
 		},
 		margin: (theme, { negative }) => ({
 			auto: 'auto',
 			...theme('spacing'),
-			...negative(theme('spacing')),
+			...negative(theme('spacing'))
 		}),
 		maxHeight: {
 			full: '100%',
-			screen: '100vh',
+			screen: '100vh'
 		},
 		maxWidth: {
 			container: '1110px',
 			'container-narrow': '760px',
 			full: '100%',
-			wide: '100vw',
+			screen: '100vw'
 		},
 		minHeight: {
 			'0': '0',
 			full: '100%',
 			screen: '100vh',
-			auto: 'auto',
+			auto: 'auto'
 		},
 		minWidth: {
 			'0': '0',
 			full: '100%',
+			screen: '100vw'
 		},
 		objectPosition: {
 			bottom: 'bottom',
@@ -248,14 +249,14 @@ module.exports = {
 			right: 'right',
 			'right-bottom': 'right bottom',
 			'right-top': 'right top',
-			top: 'top',
+			top: 'top'
 		},
 		opacity: {
 			'0': '0',
 			'25': '0.25',
 			'50': '0.5',
 			'75': '0.75',
-			'100': '1',
+			'100': '1'
 		},
 		order: {
 			first: '-9999',
@@ -272,11 +273,11 @@ module.exports = {
 			'9': '9',
 			'10': '10',
 			'11': '11',
-			'12': '12',
+			'12': '12'
 		},
 		padding: theme => theme('spacing'),
 		stroke: {
-			current: 'currentColor',
+			current: 'currentColor'
 		},
 		textColor: theme => theme('colors'),
 		width: theme => ({
@@ -311,7 +312,7 @@ module.exports = {
 			'10/12': '83.333333%',
 			'11/12': '91.666667%',
 			full: '100%',
-			screen: '100vw',
+			screen: '100vw'
 		}),
 		zIndex: {
 			auto: 'auto',
@@ -320,7 +321,7 @@ module.exports = {
 			'20': '20',
 			'30': '30',
 			'40': '40',
-			'50': '50',
+			'50': '50'
 		},
 	},
 	variants: {
@@ -387,7 +388,7 @@ module.exports = {
 		whitespace: ['responsive'],
 		width: ['responsive'],
 		wordBreak: ['responsive'],
-		zIndex: ['responsive'],
+		zIndex: ['responsive']
 	},
 	corePlugins: {},
 	plugins: [],
