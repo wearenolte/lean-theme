@@ -92,7 +92,7 @@ abstract class AbstractBlock {
 					'block',
 					'block-' . $this->get_name(),
 				],
-				$block['additional_classes'] ?? []
+				$block['class'] ?? []
 			),
 			$block,
 			$content,

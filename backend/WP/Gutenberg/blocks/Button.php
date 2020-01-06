@@ -22,7 +22,8 @@ class Button extends AbstractBlock {
 				'category'      => 'common-blocks',
 				'template_type' => 'atom',
 				'template_name' => 'buttons/button',
-				'wrapper_elem'  => 'span',
+				'wrapper_elem'  => 'div',
+				'class'         => [ 'default-block' ],
 			]
 		);
 	}

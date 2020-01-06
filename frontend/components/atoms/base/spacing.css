@@ -1,0 +1,55 @@
+.section-block,
+.section-block.has-background {
+    @apply py-section-y;
+}
+
+.section-block .section-block,
+.section-block .section-block.has-background {
+    @apply py-subsection-y;
+}
+
+.heading-block {
+    @apply pb-heading-b;
+}
+
+.wp-block-column .heading-block,
+.wp-block-media-text .heading-block {
+    @apply pb-heading-in-col-b;
+}
+
+.text-block {
+    @apply pb-text-block-b;
+}
+
+.default-block {
+    @apply pb-default-block-b;
+}
+
+.heading-block:last-child,
+.text-block:last-child,
+.default-block:last-child {
+    @apply pb-0;
+}
+
+.text-block + .heading-block,
+.text-block + .default-block,
+.text-block + .wp-block-columns {
+    @apply pt-following-text-block-t;
+}
+
+.wp-block-columns {
+    @apply m-0;
+}
+
+.wp-block-group.has-background {
+    @apply px-0;
+}
+
+.has-background {
+    @apply relative;
+}
+
+.has-background::after {
+    content: " ";
+    @apply bg-primary mx-wide-margins w-screen absolute inset-0 -z-30;
+}

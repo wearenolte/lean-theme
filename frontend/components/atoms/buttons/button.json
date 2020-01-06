@@ -1,11 +1,20 @@
 {
   "variants": [
     {
-      "style": "normal",
-      "label": "Label",
-      "url": "http://google.com",
-      "target": "_blank",
-      "class": ""
+      "button_style": "default",
+      "link": {
+        "title": "Default button",
+        "url": "https://wearenolte.com",
+        "target": "_self"
+      }
+    },
+    {
+      "button_style": "link",
+      "link": {
+        "title": "Link",
+        "url": "https://wearenolte.com",
+        "target": "_blank"
+      }
     }
   ]
 }

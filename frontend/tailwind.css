@@ -1,10 +1,7 @@
 @import "./components/atoms/tailwind/base.css";
 
-@import "./components/atoms/base/container.css";
-@import "./components/atoms/base/typography.css";
-
 @import "./components/atoms/tailwind/components.css";
 
-@import "./components/atoms/buttons/buttons.css";
+@import "./components/atoms/atoms.css";
 
 @import "./components/atoms/tailwind/utilities.css";

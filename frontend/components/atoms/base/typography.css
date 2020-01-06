@@ -45,6 +45,22 @@ ol.standard-lists li li,
     @apply pl-list-indent;
 }
 
+ul.standard-lists li > ul > li {
+    @apply list-circle;
+}
+
+ul.standard-lists li > ul > li > ul > li {
+    @apply list-square;
+}
+
+ol.standard-lists li > ol > li {
+    @apply list-lower-alpha;
+}
+
+ol.standard-lists li > ol > li > ol > li {
+    @apply list-lower-roman;
+}
+
 .as-text-align-left {
     @apply text-left;
 }
@@ -64,6 +80,10 @@ ol.standard-lists li li,
 
 .wp-block-separator.is-style-dots:before {
     @apply text-separator;
+}
+
+.wp-block-separator.is-style-wide {
+    @apply mx-wide-margins;
 }
 
 .alignfull {

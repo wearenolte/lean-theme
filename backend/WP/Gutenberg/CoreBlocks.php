@@ -16,61 +16,71 @@ abstract class CoreBlocks {
 	const CONFIG = [
 		'core/heading'         => [
 			'active' => true,
-			'class'  => 'mb-heading-b last:mb-0 mt-heading-t first:mt-0 standard-headings',
+			'class'  => 'heading-block standard-headings',
 		],
 		'core/paragraph'       => [
 			'active' => true,
-			'class'  => 'mb-paragraph-b last:mb-0 text-regular text-font-primary',
+			'class'  => 'text-block text-regular text-font-primary',
 		],
 		'core/list'            => [
 			'active' => true,
-			'class'  => 'text-regular text-font-primary standard-lists mb-paragraph-b last:mb-0',
+			'class'  => 'text-block text-regular text-font-primary standard-lists',
 		],
 		'core/code'            => [
 			'active' => true,
-			'class'  => 'text-regular text-font-primary mb-paragraph-b last:mb-0 p-pre-padding border-solid border-1 border-pre-border rounded',
+			'class'  => 'default-block text-regular text-font-primary p-pre-padding border-solid border-1 border-pre-border rounded',
 		],
 		'core/preformatted'    => [
 			'active' => true,
-			'class'  => 'text-regular text-font-primary mb-paragraph-b last:mb-0 p-pre-padding border-solid border-1 border-pre-border rounded',
+			'class'  => 'default-block text-regular text-font-primary p-pre-padding border-solid border-1 border-pre-border rounded',
 		],
 		'core/table'           => [
 			'active' => true,
-			'class'  => 'standard-table mb-paragraph-b last:mb-0',
+			'class'  => 'default-block standard-table',
 		],
 		'core/separator'       => [
 			'active' => true,
-			'class'  => 'border-separator mb-paragraph-b last:mb-0',
+			'class'  => 'border-separator vs-section',
 		],
 		'core/columns'         => [
 			'active' => true,
+			'class'  => 'section-block',
+		],
+		'core/group'           => [
+			'active' => true,
+			'class'  => 'section-block',
 		],
 		'core-embed/vimeo'     => [
 			'active' => true,
+			'class'  => 'default-block',
 		],
 		'core/video'           => [
 			'active' => true,
+			'class'  => 'default-block',
 		],
 		'core/pullquote'       => [
 			'active' => true,
+			'class'  => 'default-block',
 		],
 		'core/quote'           => [
 			'active' => true,
+			'class'  => 'default-block',
 		],
 		'core/image'           => [
 			'active' => true,
-			'class'  => 'mb-paragraph-b last:mb-0',
+			'class'  => 'default-block',
 		],
 		'core/audio'           => [
 			'active' => true,
-			'class'  => 'mb-paragraph-b last:mb-0',
+			'class'  => 'default-block',
 		],
 		'core/file'            => [
 			'active' => true,
-			'class'  => 'mb-paragraph-b last:mb-0 text-regular text-font-primary',
+			'class'  => 'default-block',
 		],
 		'core/media-text'      => [
 			'active' => true,
+			'class'  => 'section-block',
 		],
 		'core/more'            => [
 			'active' => true,
@@ -85,7 +95,7 @@ abstract class CoreBlocks {
 			'active' => false,
 		],
 		'core/button'          => [
-			'active' => true,
+			'active' => false,
 		],
 		'core/spacer'          => [
 			'active' => false,
