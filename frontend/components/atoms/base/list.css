@@ -1,0 +1,33 @@
+ul.standard-lists,
+.standard-lists ul {
+    @apply list-inside list-disc;
+
+    li li {
+        @apply pl-list-indent;
+    }
+
+    li > ul > li {
+        @apply list-circle;
+
+        > ul > li {
+            @apply list-square;
+        }
+    }
+}
+
+ol.standard-lists,
+.standard-lists ol {
+    @apply list-inside list-decimal;
+
+    li li {
+        @apply pl-list-indent;
+    }
+
+    li > ol > li {
+        @apply list-lower-alpha;
+
+        > ol > li {
+            @apply list-lower-roman;
+        }
+    }
+}

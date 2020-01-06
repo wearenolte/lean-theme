@@ -1,0 +1,8 @@
+.has-background {
+    @apply relative;
+
+    &::after {
+        content: " ";
+        @apply mx-wide-margins w-screen absolute inset-0 -z-30;
+    }
+}

@@ -1,0 +1,6 @@
+.standard-table {
+    th,
+    td {
+        @apply p-table-padding border-table-border
+    }
+}
