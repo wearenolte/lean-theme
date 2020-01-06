@@ -42,3 +42,6 @@ All other blocks (eg Image, Video and Button) use the `default-block` rules:
 
 ### Separator
 - The separator color is `colors.separator`.
+
+### Editor Colors
+The colors available in the editor (used to set block backgrounds) are set in PHP. For now you will have to duplicate these into DesignSystem.php. From here they will be automatically enabled in the editor and backgrounds will work in the front-end.

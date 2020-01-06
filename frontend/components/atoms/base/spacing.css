@@ -51,5 +51,5 @@
 
 .has-background::after {
     content: " ";
-    @apply bg-primary mx-wide-margins w-screen absolute inset-0 -z-30;
+    @apply mx-wide-margins w-screen absolute inset-0 -z-30;
 }

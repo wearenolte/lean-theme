@@ -56,31 +56,33 @@ class Editor {
 	 * Remove default font colors.
 	 */
 	public static function config_colors() {
-		$colors = [
-			[
-				'name'  => 'White',
-				'slug'  => 'white',
-				'color' => '#FFFFFF',
-			],
-			[
-				'name'  => 'Black',
-				'slug'  => 'black',
-				'color' => '#000000',
-			],
-			[
-				'name'  => 'Primary',
-				'slug'  => 'primary',
-				'color' => '#FF3333',
-			],
-			[
-				'name'  => 'Secondary',
-				'slug'  => 'secondary',
-				'color' => '#F2F4F4',
-			],
-		];
+		$colors = array_map(
+			function( $name, $color ) {
+				return [
+					'name'  => $name,
+					'slug'  => strtolower( str_replace( ' ', '-', $name ) ),
+					'color' => $color,
+				];
+			},
+			array_keys( \Lean\WP\Gutenberg\DesignSystem::EDITOR_COLORS ),
+			\Lean\WP\Gutenberg\DesignSystem::EDITOR_COLORS
+		);
 
 		add_theme_support( 'disable-custom-colors' );
 		add_theme_support( 'editor-color-palette', $colors );
+
+		// Add the styles to make bg colours work.
+		add_action(
+			'wp_head',
+			function() {
+				$css = '';
+				foreach ( \Lean\WP\Gutenberg\DesignSystem::EDITOR_COLORS as $name => $color ) {
+					$slug = strtolower( str_replace( ' ', '-', $name ) );
+					$css .= ".has-$slug-background-color:after{background-color:$color;}";
+				}
+				echo '<style type="text/css">' . wp_kses_post( $css ) . '</style>';
+			}
+		);
 	}
 
 	/**
