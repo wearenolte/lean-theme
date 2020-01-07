@@ -19,42 +19,15 @@ class Editor {
 	}
 
 	/**
-	 * Config font sizes.
+	 * Editor font sizes. We're completely disabling these options.
 	 */
 	public static function config_font_sizes() {
-		$font_sizes = [
-			[
-				'name' => 'Small',
-				'size' => 12,
-				'slug' => 'small',
-			],
-			[
-				'name' => 'Regular',
-				'size' => 16,
-				'slug' => 'regular',
-			],
-			[
-				'name' => 'Large',
-				'size' => 20,
-				'slug' => 'large',
-			],
-			[
-				'name' => 'Huge',
-				'size' => 40,
-				'slug' => 'huge',
-			],
-		];
-
-		add_theme_support( 'editor-font-sizes', $font_sizes );
-
-		/**
-		 *  This disables the fonts option.
-		 * add_theme_support( 'disable-custom-font-sizes' );
-		 */
+		add_theme_support( 'disable-custom-font-sizes' );
+		add_theme_support( 'editor-font-sizes', [] );
 	}
 
 	/**
-	 * Editor colors.
+	 * Editor colors. Used for background and font colors.
 	 */
 	public static function config_colors() {
 		$colors = array_map(

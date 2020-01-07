@@ -8,6 +8,20 @@ html {
     }
 }
 
+[data-type="core/paragraph"],
+[data-type="core/heading"],
+[data-type="core/list"],
+[data-type="core/preformatted"],
+[data-type='core/pullquote'] {
+    a {
+        @apply underline text-link-primary cursor-pointer;
+
+        &:hover {
+            @apply no-underline;
+        }
+    }
+}
+
 h1.standard-headings,
 .standard-headings h1 {
     @apply text-large-1 text-font-secondary;
@@ -26,4 +40,16 @@ h3.standard-headings,
 h4.standard-headings,
 .standard-headings h4 {
     @apply text-large-4 text-font-secondary;
+}
+
+.has-drop-cap {
+    &::first-letter {
+        @apply text-large-1;
+    }
+}
+
+[data-type='core/pullquote'] {
+    p {
+        @apply text-large-1 italic;
+    }
 }
