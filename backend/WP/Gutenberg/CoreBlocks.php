@@ -40,11 +40,11 @@ abstract class CoreBlocks {
 		],
 		'core/separator'       => [
 			'active' => true,
-			'class'  => 'border-separator vs-section',
+			'class'  => 'border-separator',
 		],
 		'core/columns'         => [
 			'active' => true,
-			'class'  => 'section-block',
+			'class'  => 'section-block flex -mx-gutter',
 		],
 		'core/group'           => [
 			'active' => true,
@@ -60,7 +60,7 @@ abstract class CoreBlocks {
 		],
 		'core/pullquote'       => [
 			'active' => true,
-			'class'  => 'default-block',
+			'class'  => 'default-block text-regular text-font-primary',
 		],
 		'core/quote'           => [
 			'active' => true,
@@ -74,16 +74,14 @@ abstract class CoreBlocks {
 			'active' => true,
 			'class'  => 'default-block',
 		],
-		'core/file'            => [
-			'active' => true,
-			'class'  => 'default-block',
-		],
-		'core/media-text'      => [
-			'active' => true,
-			'class'  => 'section-block',
-		],
 		'core/more'            => [
 			'active' => true,
+		],
+		'core/media-text'      => [
+			'active' => false,
+		],
+		'core/file'            => [
+			'active' => false,
 		],
 		'core/cover'           => [
 			'active' => false,

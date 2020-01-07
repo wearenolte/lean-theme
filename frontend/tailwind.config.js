@@ -45,6 +45,7 @@ module.exports = {
 			'0': '0',
 			'wide-margins': 'calc(50% - 50vw)',
 			'container-padding': '3.333%',
+			'gutter': '2.5rem',
 			'section-y': '10rem',
 			'subsection-y': '2.5rem',
 			'heading-b': '6.667rem',
@@ -56,7 +57,7 @@ module.exports = {
 			'pre-padding': '2rem',
 			'table-padding': '.5rem',
 			'primary-btn-padding-x': '2rem',
-			'primary-btn-padding-y': '1.667rem',
+			'primary-btn-padding-y': '1rem',
 		},
 		backgroundColor: theme => theme('colors'),
 		backgroundPosition: {
