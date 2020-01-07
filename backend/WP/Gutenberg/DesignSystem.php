@@ -9,6 +9,7 @@ namespace Lean\WP\Gutenberg;
 abstract class DesignSystem {
 
 	const EDITOR_COLORS = [
+		'Black'      => '#000',
 		'Light Gray' => '#f1f3f4',
 	];
 

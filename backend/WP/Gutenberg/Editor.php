@@ -53,7 +53,7 @@ class Editor {
 	}
 
 	/**
-	 * Remove default font colors.
+	 * Editor colors.
 	 */
 	public static function config_colors() {
 		$colors = array_map(
@@ -78,7 +78,7 @@ class Editor {
 				$css = '';
 				foreach ( \Lean\WP\Gutenberg\DesignSystem::EDITOR_COLORS as $name => $color ) {
 					$slug = strtolower( str_replace( ' ', '-', $name ) );
-					$css .= ".has-$slug-background-color:after{background-color:$color;}";
+					$css .= "#wpbody .has-$slug-color{color:$color;}#wpbody .has-$slug-background-color:after{background-color:$color;}";
 				}
 				echo '<style type="text/css">' . wp_kses_post( $css ) . '</style>';
 			}
