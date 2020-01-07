@@ -78,7 +78,9 @@ class Editor {
 				$css = '';
 				foreach ( \Lean\WP\Gutenberg\DesignSystem::EDITOR_COLORS as $name => $color ) {
 					$slug = strtolower( str_replace( ' ', '-', $name ) );
-					$css .= "#wpbody .has-$slug-color{color:$color;}#wpbody .has-$slug-background-color:after{background-color:$color;}";
+					$css .= "#wpbody .has-$slug-color{color:$color;}";
+					$css .= "#wpbody .has-$slug-background-color{background-color:$color;}";
+					$css .= "#wpbody .has-$slug-background-color:after{background-color:$color;}";
 				}
 				echo '<style type="text/css">' . wp_kses_post( $css ) . '</style>';
 			}
