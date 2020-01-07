@@ -36,17 +36,27 @@ abstract class AbstractBlock {
 	 * @return array
 	 */
 	final protected function do_registration( array $args ) : array {
-		if ( function_exists( 'acf_register_block' ) ) {
-			return acf_register_block(
-				wp_parse_args(
-					$args,
-					[
-						'title'           => $this->get_title(),
-						'name'            => $this->get_name(),
-						'render_callback' => [ $this, 'render' ],
-					]
-				)
+		$args = wp_parse_args(
+			$args,
+			[
+				'title'             => $this->get_title(),
+				'name'              => $this->get_name(),
+				'render_callback'   => [ $this, 'render' ],
+				'alignment_options' => false,
+			]
+		);
+
+		if ( $args['alignment_options'] ) {
+			add_action(
+				'admin_head',
+				function() use ( $args ) {
+					echo '<style>[data-type="acf/' . esc_attr( $args['name'] ) . '"] [aria-label="Change alignment"] {visibility: visible;}</style>';
+				}
 			);
+		}
+
+		if ( function_exists( 'acf_register_block' ) ) {
+			return acf_register_block( $args );
 		}
 
 		return [];
@@ -91,6 +101,7 @@ abstract class AbstractBlock {
 				[
 					'block',
 					'block-' . $this->get_name(),
+					'has-text-align-' . $block['align'] ?? 'left',
 				],
 				$block['class'] ?? []
 			),

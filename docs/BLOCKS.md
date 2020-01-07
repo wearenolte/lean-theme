@@ -53,6 +53,7 @@ The `do_registration` function also accepts the following optional arguments:
 - **wrapper_elem**: Override the wrapper HTML element type for the block (the default is `<secion>`). Useful for inline blocks like buttons for example.
 - **class**: An array of additional classes which will be added to the block wrapper.
 - **ACF Fields**: Any other field offered by the [acf_register_block function](https://www.advancedcustomfields.com/resources/acf_register_block_type/). However, `name`, `title` and `render_callback/template` are automatically set and you are **strongly** recommended not to override these!
+- **alignment_options** Whether to show the alignment options in the editor. Defaults to false.
 - **Anything else**: Any additional fields will be available in the `$blocks` object in the render function, so add whatever you need here.
 
 ## Custom Rendering

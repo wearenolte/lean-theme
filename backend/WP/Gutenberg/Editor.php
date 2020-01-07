@@ -15,6 +15,7 @@ class Editor {
 		add_action( 'after_setup_theme', [ __CLASS__, 'config_font_sizes' ] );
 		add_action( 'after_setup_theme', [ __CLASS__, 'config_colors' ] );
 		add_filter( 'allowed_block_types', [ __CLASS__, 'config_allowed_blocks' ], 10, 2 );
+		add_action( 'admin_head', [ __CLASS__, 'admin_css' ] );
 	}
 
 	/**
@@ -120,5 +121,14 @@ class Editor {
 		}
 
 		return array_merge( $core_blocks, $custom_blocks );
+	}
+
+	/**
+	 * Hide the alignment options for all custom blocks by default.
+	 *
+	 * @return void
+	 */
+	public static function admin_css() {
+		echo '<style>[data-type*="acf/"] [aria-label="Change alignment"] {visibility: hidden;}</style>';
 	}
 }

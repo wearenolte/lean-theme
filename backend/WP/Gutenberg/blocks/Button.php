@@ -17,13 +17,14 @@ class Button extends AbstractBlock {
 	public function register() : array {
 		return $this->do_registration(
 			[
-				'description'   => 'Adds a button to your page.',
-				'icon'          => 'admin-links',
-				'category'      => 'common-blocks',
-				'template_type' => 'atom',
-				'template_name' => 'buttons/button',
-				'wrapper_elem'  => 'div',
-				'class'         => [ 'default-block' ],
+				'description'       => 'Adds a button to your page.',
+				'icon'              => 'admin-links',
+				'category'          => 'common-blocks',
+				'template_type'     => 'atom',
+				'template_name'     => 'buttons/button',
+				'wrapper_elem'      => 'div',
+				'class'             => [ 'default-block' ],
+				'alignment_options' => true,
 			]
 		);
 	}

@@ -5,7 +5,7 @@ switch ( $args['button_style'] ?? 'default' ) {
 		$class = 'text-regular text-link-primary cursor-pointer underline hover:no-underline inline-block';
 		break;
 	default:
-		$class = 'text-regular text-primary-btn bg-primary-btn-bg text-link-primary cursor-pointer px-primary-btn-padding-x py-primary-btn-padding-y hover:opacity-75 inline-block';
+		$class = 'text-regular text-primary-btn bg-primary-btn-bg text-link-primary cursor-pointer px-primary-btn-padding-x py-primary-btn-padding-y hover:opacity-90 inline-block';
 		break;
 }
 
