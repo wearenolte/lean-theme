@@ -1,6 +1,7 @@
 # Design System
 Our philosphy is that the admin experience be as simple to use as possible, and not require a designer to edit content. With this in mind, Lean attempts to make design decisions around spacing for the user based on the layout they build. This document explains the rules which are built into the theme:
 
+
 ## Vertical Spacing
 
 ### Sections (`.section-block`)
@@ -26,6 +27,9 @@ All other blocks (eg Image, Video and Button) use the `default-block` rules:
 - 0 bottom sapcing if it is the last child element of the parent.
 
 ## Horizontal Spacing
+We use [TailWind flex class](https://tailwindcss.com/components/grids/#app) to build the grid. The columns block will swap the % widths set for TailWind width classes, it picks the most appropriate option depending on the % you set. For example 8% would result in `w-full md:w-1/12` and 25% would result in `w-full md:w-3/12` (all based on a 12 column desktop grid). The gutter between columns is set in the TailWind config as `spacing.gutter`.
+
+You should use the same logic if you need to build complex custom blocks which use the grid.
 
 
 ## Padding & Colors
