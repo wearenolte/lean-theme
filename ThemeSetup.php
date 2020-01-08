@@ -17,7 +17,7 @@ class ThemeSetup {
 		add_action( 'init', [ __CLASS__, 'init_gutenberg_custom_assets' ] );
 		add_action( 'switch_theme', [ __CLASS__, 'flush_rewrite_rules' ] );
 		add_action( 'after_switch_theme', [ __CLASS__, 'activate' ] );
-		add_filter( 'lean_assets_include_jquery', '__return_true' );
+		add_filter( 'lean_assets_include_jquery', '__return_false' );
 
 		self::init_theme_config();
 		self::init_gutenberg_config();
