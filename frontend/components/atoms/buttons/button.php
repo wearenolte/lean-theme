@@ -11,11 +11,25 @@ switch ( $args['button_style'] ?? 'default' ) {
 
 ?>
 
-<a
-	data-type="atom/buttons/button"
-	class="<?php echo esc_attr( $class ); ?>"
-	href="<?php echo esc_url( $args['link']['url'] ?? '#' ); ?>"
-	target="<?php echo esc_attr( $args['link']['target'] ?? '_self' ); ?>">
+<?php if ( $args['link']['url'] ) : ?>
 
-	<?php echo esc_html( $args['link']['title'] ?? '' ); ?>
-</a>
+	<a
+		data-type="atom/buttons/button"
+		class="<?php echo esc_attr( $class ); ?>"
+		href="<?php echo esc_url( $args['link']['url'] ); ?>"
+		target="<?php echo esc_attr( $args['link']['target'] ?? '_self' ); ?>">
+
+		<?php echo esc_html( $args['link']['title'] ?? '' ); ?>
+	</a>
+
+<?php else : ?>
+
+	<button
+		data-type="atom/buttons/button"
+		class="<?php echo esc_attr( $class ); ?>"
+		type="button">
+
+		<?php echo esc_html( $args['link']['title'] ?? '' ); ?>
+	</button>
+
+<?php endif; ?>
