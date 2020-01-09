@@ -58,6 +58,10 @@ module.exports = {
 			'table-padding': '.5rem',
 			'primary-btn-padding-x': '2rem',
 			'primary-btn-padding-y': '1rem',
+			'hamburger-w': '2rem',
+			'hamburger-h': '1.4rem',
+			'hamburger-line-w': '.2rem',
+			'menu-spacing': '1rem'
 		},
 		backgroundColor: theme => theme('colors'),
 		backgroundPosition: {
@@ -116,6 +120,7 @@ module.exports = {
 		},
 		fill: {
 			current: 'currentColor',
+			white: palette.white
 		},
 		flex: {
 			'1': '1 1 0%',
@@ -202,7 +207,8 @@ module.exports = {
 			container: '1110px',
 			'container-narrow': '760px',
 			full: '100%',
-			screen: '100vw'
+			screen: '100vw',
+			logo: '12.5rem'
 		},
 		minHeight: {
 			'0': '0',

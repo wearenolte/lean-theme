@@ -1,0 +1,29 @@
+.hamburger {
+    .icon-bar {
+        transition: .5s ease;
+
+        &:nth-child(2){
+            transform: rotate(0)translateY(0)translateX(0);
+        }
+        &:nth-child(3){
+            opacity: 1;
+        }
+        &:nth-child(4){
+            transform: rotate(0)translateY(0)translateX(0);
+        }
+    }
+
+    &.expanded {
+        .icon-bar {
+            &:nth-child(2){
+                transform: rotate(-45deg)translateY(5px)translateX(-5px);
+            }
+            &:nth-child(3){
+                opacity: 0;
+            }
+            &:nth-child(4){
+                transform: rotate(45deg)translateY(-4px)translateX(-3px);
+            }
+        }
+    }
+}

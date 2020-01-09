@@ -3,10 +3,10 @@ import './tailwind.css'
 
 import $ from 'jquery'
 import atoms from './components/atoms/atoms'
-import molecules from './components/molecules/molecules'
+import organisms from './components/organisms/organisms'
 
 // Call functions when dom is ready.
 $( document ).ready( () => {
-  molecules()
+  organisms()
   atoms()
 })

@@ -26,13 +26,13 @@ use Lean\Load;
 <?php
 do_action( 'lean/before_header' );
 
+$logo = get_field( 'general_options_logo', 'options' );
+
 Load::organism(
 	'header/header',
 	[
-		'website_title'       => get_bloginfo( 'title' ),
-		'website_url'         => get_bloginfo( 'url' ),
-		'website_description' => get_bloginfo( 'description' ),
-		'website_logo_url'    => get_field( 'general_options_logo', 'options' ),
+		'website_title'   => get_bloginfo( 'title' ),
+		'website_logo_id' => $logo ? $logo['ID'] : false,
 	]
 );
 
