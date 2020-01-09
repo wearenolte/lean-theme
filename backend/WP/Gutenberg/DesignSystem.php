@@ -13,4 +13,11 @@ abstract class DesignSystem {
 		'Light Gray' => '#f1f3f4',
 	];
 
+	const BREAKPOINTS = [
+		'sm' => 640,
+		'md' => 768,
+		'lg' => 1024,
+		'xl' => 1136,
+	];
+
 }
