@@ -39,7 +39,7 @@ class Images {
 			],
 		];
 
-		foreach ( $ratios as $ratio_name => $ratio ) {		
+		foreach ( $ratios as $ratio_name => $ratio ) {
 			foreach ( $ratio['widths'] as $width_name => $width ) {
 				add_image_size(
 					$ratio_name . ( $width_name ? ".$width_name" : '' ),
