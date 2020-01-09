@@ -1,14 +1,12 @@
 {
   "variants": [
     {
-      "website_title": "Lorem Ipsum Title",
-      "website_url": "/",
-      "website_description": "Lorem Ipsum Description"
+      "website_title": "Lean Website",
+      "website_home_url": "/"
     },
     {
-      "website_title": "Lorem Ipsum Title",
-      "website_url": "/",
-      "website_description": "Lorem Ipsum Description",
+      "website_title": "Lean Website",
+      "website_home_url": "/",
       "website_logo_url": "https://via.placeholder.com/100x80"
     }
   ]

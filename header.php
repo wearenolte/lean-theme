@@ -31,8 +31,9 @@ $logo = get_field( 'general_options_logo', 'options' );
 Load::organism(
 	'header/header',
 	[
-		'website_title'   => get_bloginfo( 'title' ),
-		'website_logo_id' => $logo ? $logo['ID'] : false,
+		'website_title'    => get_bloginfo( 'title' ),
+		'website_home_url' => home_url(),
+		'website_logo_id'  => $logo ? $logo['ID'] : false,
 	]
 );
 

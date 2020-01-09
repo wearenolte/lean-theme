@@ -1,7 +1,8 @@
 <?php
 
-$website_title   = $args['website_title'] ?? '';
-$website_logo_id = $args['website_logo_id'] ?? '';
+$website_title    = $args['website_title'] ?? '';
+$website_home_url = $args['website_home_url'] ?? '';
+$website_logo_id  = $args['website_logo_id'] ?? '';
 ?>
 
 <header
@@ -13,7 +14,7 @@ $website_logo_id = $args['website_logo_id'] ?? '';
 	<nav class="flex items-center justify-between flex-wrap py-subsection-y container">
 
 		<!-- Logo -->
-		<a class="flex items-center flex-shrink-0 text-white" href="<?php echo esc_url( home_url() ); ?>">
+		<a class="flex items-center flex-shrink-0 text-white" href="<?php echo esc_url( $website_home_url ); ?>">
 			<?php if ( $website_logo_id ) : ?>
 				<?php
 				echo wp_get_attachment_image(
