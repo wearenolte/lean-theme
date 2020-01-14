@@ -16,7 +16,6 @@
     "lint": "yarn js-lint"
   },
   "dependencies": {
-    "jquery": "1.9.1 - 3",
     "styleselect": "^1.0.3"
   }
 }
