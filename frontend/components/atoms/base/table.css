@@ -1,0 +1,10 @@
+.standard-table {
+    table {
+        @apply table-auto;
+    }
+
+    th,
+    td {
+        @apply p-table-padding border-table-border border-solid border-1;
+    }
+}

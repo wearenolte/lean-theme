@@ -69,6 +69,9 @@
       "phpcs . --extensions=php",
       "phpmd . text phpmd.xml --suffixes php --exclude vendor,frontend/components/atoms/icons"
     ],
+    "php-fix": [
+      "phpcbf . backend/**.php phpmd.xml"
+    ],
     "organism": [
       "cd frontend && bash createPattern.sh organisms "
     ],

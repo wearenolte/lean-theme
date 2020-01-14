@@ -1,0 +1,10 @@
+
+.wp-block-separator {
+    &.is-style-dots:before {
+        @apply text-separator;
+    }
+
+    &.is-style-wide {
+        @apply mx-wide-margins;
+    }
+}

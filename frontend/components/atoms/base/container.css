@@ -1,0 +1,7 @@
+.container {
+    @apply max-w-container px-container-padding mx-auto; 
+}
+
+.container-narrow {
+    @apply max-w-container-narrow px-container-padding mx-auto; 
+}

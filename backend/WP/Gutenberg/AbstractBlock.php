@@ -36,17 +36,27 @@ abstract class AbstractBlock {
 	 * @return array
 	 */
 	final protected function do_registration( array $args ) : array {
-		if ( function_exists( 'acf_register_block' ) ) {
-			return acf_register_block(
-				wp_parse_args(
-					$args,
-					[
-						'title'           => $this->get_title(),
-						'name'            => $this->get_name(),
-						'render_callback' => [ $this, 'render' ],
-					]
-				)
+		$args = wp_parse_args(
+			$args,
+			[
+				'title'             => $this->get_title(),
+				'name'              => $this->get_name(),
+				'render_callback'   => [ $this, 'render' ],
+				'alignment_options' => false,
+			]
+		);
+
+		if ( $args['alignment_options'] ) {
+			add_action(
+				'admin_head',
+				function() use ( $args ) {
+					echo '<style>[data-type="acf/' . esc_attr( $args['name'] ) . '"] [aria-label="Change alignment"] {visibility: visible;}</style>';
+				}
 			);
+		}
+
+		if ( function_exists( 'acf_register_block' ) ) {
+			return acf_register_block( $args );
 		}
 
 		return [];
@@ -91,8 +101,9 @@ abstract class AbstractBlock {
 				[
 					'block',
 					'block-' . $this->get_name(),
+					'has-text-align-' . $block['align'] ?? 'left',
 				],
-				$block['additional_classes'] ?? []
+				$block['class'] ?? []
 			),
 			$block,
 			$content,
@@ -101,9 +112,10 @@ abstract class AbstractBlock {
 		);
 
 		echo sprintf(
-			'<%s id="%s" class="%s">',
+			'<%s id="%s" data-type="%s" class="%s">',
 			esc_attr( apply_filters( 'lean_block_wrapper', $block['wrapper_elem'] ?? self::DEFAULT_WRAPPER_ELEM, $block, $content, $is_preview, $post_id ) ),
 			esc_attr( apply_filters( 'lean_block_id', $block['id'], $block, $content, $is_preview, $post_id ) ),
+			esc_attr( $block['name'] ),
 			esc_attr( implode( ' ', $wrapper_classes ) )
 		);
 	}
@@ -119,7 +131,20 @@ abstract class AbstractBlock {
 	 */
 	final protected function render_content( array $block, string $content, bool $is_preview, int $post_id ) {
 		$loader = self::LOADER . '::' . $block['template_type'];
-		$loader( $block['template_name'], get_fields() );
+		$loader( $block['template_name'], $this->get_fields( $block, $content, $is_preview, $post_id ) );
+	}
+
+	/**
+	 * Get the fields. Override this function to manipulate the fields before rendering the block.
+	 *
+	 * @param array   $block The block settings and attributes.
+	 * @param string  $content The block inner HTML (empty).
+	 * @param boolean $is_preview $is_preview True during AJAX preview.
+	 * @param integer $post_id Id of the current post.
+	 * @return array
+	 */
+	protected function get_fields( array $block, string $content, bool $is_preview, int $post_id ) : array {
+		return apply_filters( 'lean_block_fields', get_fields(), $block, $content, $is_preview, $post_id );
 	}
 
 	/**
