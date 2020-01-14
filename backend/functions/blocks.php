@@ -3,6 +3,8 @@
  * Gutenberg blocks creation and helper functions.
  */
 
+use \Lean\WP\Gutenberg\CoreBlocks;
+
 /**
  * Register all the block classes in backend/WP/Gutenberg/Blocks
  */
@@ -90,8 +92,8 @@ function lean_add_block_class( $block_content, $block ) : string {
 		$block_content = substr_replace( $block_content, ' data-type="' . $block_name . '">', $close_pos, 1 );
 	}
 
-	$block_config = \Lean\WP\Gutenberg\CoreBlocks::CONFIG[ $block_name ];
-	if ( ! is_array( $block_config ) || ! $block_config['class'] ) {
+	$block_config = CoreBlocks::CONFIG[ $block_name ] ?? false;
+	if ( ! is_array( $block_config ) || ! isset( $block_config['class'] ) ) {
 		return $block_content;
 	}
 
