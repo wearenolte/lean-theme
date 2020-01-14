@@ -131,7 +131,20 @@ abstract class AbstractBlock {
 	 */
 	final protected function render_content( array $block, string $content, bool $is_preview, int $post_id ) {
 		$loader = self::LOADER . '::' . $block['template_type'];
-		$loader( $block['template_name'], get_fields() );
+		$loader( $block['template_name'], $this->get_fields( $block, $content, $is_preview, $post_id ) );
+	}
+
+	/**
+	 * Get the fields. Override this function to manipulate the fields before rendering the block.
+	 *
+	 * @param array   $block The block settings and attributes.
+	 * @param string  $content The block inner HTML (empty).
+	 * @param boolean $is_preview $is_preview True during AJAX preview.
+	 * @param integer $post_id Id of the current post.
+	 * @return array
+	 */
+	protected function get_fields( array $block, string $content, bool $is_preview, int $post_id ) : array {
+		return get_fields();
 	}
 
 	/**
