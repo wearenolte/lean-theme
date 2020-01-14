@@ -1,0 +1,55 @@
+html {
+    @apply text-base text-font-primary;
+}
+
+@screen lg {
+    html {
+        @apply text-lg-base;
+    }
+}
+
+[data-type="core/paragraph"],
+[data-type="core/heading"],
+[data-type="core/list"],
+[data-type="core/preformatted"],
+[data-type='core/pullquote'] {
+    a {
+        @apply underline text-link-primary cursor-pointer;
+
+        &:hover {
+            @apply no-underline;
+        }
+    }
+}
+
+h1.standard-headings,
+.standard-headings h1 {
+    @apply text-large-1 text-font-secondary;
+}
+
+h2.standard-headings,
+.standard-headings h2 {
+    @apply text-large-2 text-font-secondary;
+}
+
+h3.standard-headings,
+.standard-headings h3 {
+    @apply text-large-3 text-font-secondary;
+}
+
+h4.standard-headings,
+.standard-headings h4 {
+    @apply text-large-4 text-font-secondary;
+}
+
+.has-drop-cap {
+    &::first-letter {
+        @apply text-large-1;
+    }
+}
+
+[data-type='core/pullquote'] {
+    p {
+        @apply text-large-1 italic;
+    }
+}

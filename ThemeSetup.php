@@ -141,6 +141,13 @@ class ThemeSetup {
 				);
 			}
 		);
+
+		add_action(
+			'wp_enqueue_scripts',
+			function() {
+				wp_dequeue_style( 'wp-block-library' );
+			}
+		);
 	}
 
 	/**
@@ -167,9 +174,6 @@ class ThemeSetup {
 
 		// Responsive embeds.
 		add_theme_support( 'responsive-embeds' );
-
-		// Default Gutenberg styles on Frontend.
-		add_theme_support( 'wp-block-styles' );
 	}
 
 	/**

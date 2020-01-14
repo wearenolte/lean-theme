@@ -1,0 +1,110 @@
+.section-block {
+    @apply py-section-y;
+
+    &.has-background {
+        @apply py-section-y;
+    }
+
+    .section-block {
+        @apply py-subsection-y;
+
+        &.has-background {
+            @apply py-subsection-y;
+        }
+    }
+}
+
+.heading-block {
+    @apply pb-heading-b;
+}
+
+.wp-block-column {
+    .heading-block {
+        @apply pb-heading-in-col-b;
+    }
+}
+
+.wp-block-media-text {
+    .heading-block {
+        @apply pb-heading-in-col-b;
+    }
+}
+
+.default-block {
+    @apply pb-default-block-b;
+}
+
+.text-block {
+    @apply pb-text-block-b;
+}
+
+.text-block {
+    & + .heading-block,
+    & + .default-block,
+    & + .wp-block-columns {
+        @apply pt-following-text-block-t;
+    }
+}
+
+.heading-block,
+.text-block,
+.default-block {
+    &:last-child {
+        @apply pb-0;
+    }
+}
+
+.wp-block-columns {
+    @apply m-0;
+}
+
+.wp-block-group {
+    &.has-background {
+        @apply px-0;
+    }
+}
+
+.alignfull {
+    @apply max-w-screen mx-wide-margins;
+}
+
+.has-text-align {
+    &-left {
+        @apply text-left;
+    }
+
+    &-center {
+        @apply text-center;
+    }
+
+    &-right {
+        @apply text-right;
+    }
+}
+
+.is-style-circle-mask {
+    img {
+        mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');
+        mask-mode: alpha;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        mask-position: center;
+        border-radius: none;
+    }
+}
+
+.wp-block-image {
+    &::after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+
+    .alignright {
+        @apply float-right;
+    }
+
+    .aligncenter {
+        @apply mx-auto table;
+    }
+}

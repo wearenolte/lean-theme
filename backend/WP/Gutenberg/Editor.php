@@ -14,80 +14,56 @@ class Editor {
 	public static function init() {
 		add_action( 'after_setup_theme', [ __CLASS__, 'config_font_sizes' ] );
 		add_action( 'after_setup_theme', [ __CLASS__, 'config_colors' ] );
-		/**
-		 * Uncomment to set the allowed blocks by code.
-		 * add_filter( 'allowed_block_types', [ __CLASS__, 'config_allowed_blocks' ], 10, 2 );
-		 */
+		add_filter( 'allowed_block_types', [ __CLASS__, 'config_allowed_blocks' ], 10, 2 );
+		add_action( 'admin_head', [ __CLASS__, 'admin_css' ] );
 	}
 
 	/**
-	 * Config font sizes.
+	 * Editor font sizes. We're completely disabling these options.
 	 */
 	public static function config_font_sizes() {
-		$font_sizes = [
-			[
-				'name' => 'Small',
-				'size' => 12,
-				'slug' => 'small',
-			],
-			[
-				'name' => 'Regular',
-				'size' => 16,
-				'slug' => 'regular',
-			],
-			[
-				'name' => 'Large',
-				'size' => 20,
-				'slug' => 'large',
-			],
-			[
-				'name' => 'Huge',
-				'size' => 40,
-				'slug' => 'huge',
-			],
-		];
-
-		add_theme_support( 'editor-font-sizes', $font_sizes );
-
-		/**
-		 *  This disables the fonts option.
-		 * add_theme_support( 'disable-custom-font-sizes' );
-		 */
+		add_theme_support( 'disable-custom-font-sizes' );
+		add_theme_support( 'editor-font-sizes', [] );
 	}
 
 	/**
-	 * Remove default font colors.
+	 * Editor colors. Used for background and font colors.
 	 */
 	public static function config_colors() {
-		$colors = [
-			[
-				'name'  => 'White',
-				'slug'  => 'white',
-				'color' => '#FFFFFF',
-			],
-			[
-				'name'  => 'Black',
-				'slug'  => 'black',
-				'color' => '#000000',
-			],
-			[
-				'name'  => 'Primary',
-				'slug'  => 'primary',
-				'color' => '#FF3333',
-			],
-			[
-				'name'  => 'Secondary',
-				'slug'  => 'secondary',
-				'color' => '#F2F4F4',
-			],
-		];
+		$colors = array_map(
+			function( $name, $color ) {
+				return [
+					'name'  => $name,
+					'slug'  => strtolower( str_replace( ' ', '-', $name ) ),
+					'color' => $color,
+				];
+			},
+			array_keys( \Lean\WP\Gutenberg\DesignSystem::EDITOR_COLORS ),
+			\Lean\WP\Gutenberg\DesignSystem::EDITOR_COLORS
+		);
 
 		add_theme_support( 'disable-custom-colors' );
 		add_theme_support( 'editor-color-palette', $colors );
+
+		// Add the styles to make bg colours work.
+		add_action(
+			'wp_head',
+			function() {
+				$css = '';
+				foreach ( \Lean\WP\Gutenberg\DesignSystem::EDITOR_COLORS as $name => $color ) {
+					$slug = strtolower( str_replace( ' ', '-', $name ) );
+					$css .= "#wpbody .has-$slug-color{color:$color;}";
+					$css .= "#wpbody .has-$slug-background-color{background-color:$color;}";
+					$css .= "#wpbody .has-$slug-background-color:after{background-color:$color;}";
+				}
+				echo '<style type="text/css">' . wp_kses_post( $css ) . '</style>';
+			}
+		);
 	}
 
 	/**
 	 * Returns the Gutenberg blocks that are allowed to be used in the editor.
+	 * Use the CoreBlocks config to decide which core blocks to show. Plus show all custom blocks.
 	 *
 	 * @param boolean  $allowed_blocks A boolean stating that all blocks are allowed.
 	 * @param \WP_Post $post           The current post.
@@ -95,111 +71,37 @@ class Editor {
 	 * @return array The allowed blocks.
 	 */
 	public static function config_allowed_blocks( $allowed_blocks, $post ) {
-		$core_blocks = [
-			'core/block',
 
-			// Common blocks.
-			'core/image',
-			'core/paragraph',
-			'core/heading',
-			'core/list',
-			'core/gallery',
-			'core/quote',
-			'core/audio',
-			'core/cover',
-			'core/file',
-			'core/video',
-
-			// Layout Elements.
-			'core/button',
-			'core/columns',
-			'core/media-text',
-			'core/more',
-			'core/page-break',
-			'core/separator',
-			'core/spacer',
-
-			// Formatting.
-			'core/table',
-			'core/verse',
-			'core/code',
-			'core/html',
-			'core/preformatted',
-			'core/pullquote',
-
-			// Widgets.
-			'core/shortcode',
-			'core/archives',
-			'core/categories',
-			'core/latest-comments',
-			'core/latest-posts',
-			'core/calendar',
-			'core/rss',
-			'core/search',
-			'core/tag-cloud',
-
-			// Embeds.
-			'core/embed',
-			'core-embed/twitter',
-			'core-embed/youtube',
-			'core-embed/facebook',
-			'core-embed/instagram',
-			'core-embed/wordpress',
-			'core-embed/soundcloud',
-			'core-embed/spotify',
-			'core-embed/flickr',
-			'core-embed/vimeo',
-			'core-embed/animoto',
-			'core-embed/cloudup',
-			'core-embed/collegehumor',
-			'core-embed/crowdsignal',
-			'core-embed/dailymotion',
-			'core-embed/hulu',
-			'core-embed/imgur',
-			'core-embed/issuu',
-			'core-embed/kickstarter',
-			'core-embed/meetup-com',
-			'core-embed/mixcloud',
-			'core-embed/reddit',
-			'core-embed/reverbnation',
-			'core-embed/screencast',
-			'core-embed/scribd',
-			'core-embed/slideshare',
-			'core-embed/smugmug',
-			'core-embed/speaker',
-			'core-embed/ted',
-			'core-embed/tumblr',
-			'core-embed/videopress',
-			'core-embed/wordpress-tv',
-			'core-embed/amazon-kindle',
-		];
-
-		$custom_blocks = [
-			'common-blocks/button',
-		];
-
-		$all_blocks = array_merge(
-			$core_blocks,
-			$custom_blocks
+		$core_blocks = array_map(
+			function( $block_name, $settings ) {
+				if ( is_array( $settings ) && $settings['active'] ) {
+					return $block_name;
+				}
+				return false;
+			},
+			array_keys( \Lean\WP\Gutenberg\CoreBlocks::CONFIG ),
+			\Lean\WP\Gutenberg\CoreBlocks::CONFIG
 		);
+		$core_blocks = array_filter( $core_blocks );
 
-		switch ( $post->post_type ) {
-			case 'post':
-				$blocks_blacklist = [
-					'core/button',
-				];
-				break;
-			default:
-				$blocks_blacklist = [
-					'core/button',
-				];
+		$custom_block_path = get_template_directory() . '/backend/WP/Gutenberg/Blocks';
+		$custom_blocks     = [];
+
+		foreach ( glob( $custom_block_path . '/*.php' ) as $file ) {
+			$class           = '\Lean\WP\Gutenberg\Blocks\\' . basename( $file, '.php' );
+			$block           = new $class();
+			$custom_blocks[] = 'acf/' . call_user_func( [ $block, 'get_name' ] );
 		}
 
-		return array_values(
-			array_diff(
-				$all_blocks,
-				$blocks_blacklist
-			)
-		);
+		return array_merge( $core_blocks, $custom_blocks );
+	}
+
+	/**
+	 * Hide the alignment options for all custom blocks by default.
+	 *
+	 * @return void
+	 */
+	public static function admin_css() {
+		echo '<style>[data-type*="acf/"] [aria-label="Change alignment"] {visibility: hidden;}</style>';
 	}
 }
