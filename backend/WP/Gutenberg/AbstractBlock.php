@@ -144,7 +144,7 @@ abstract class AbstractBlock {
 	 * @return array
 	 */
 	protected function get_fields( array $block, string $content, bool $is_preview, int $post_id ) : array {
-		return get_fields();
+		return apply_filters( 'lean_block_fields', get_fields(), $block, $content, $is_preview, $post_id );
 	}
 
 	/**
