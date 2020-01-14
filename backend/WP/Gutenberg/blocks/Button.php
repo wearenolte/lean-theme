@@ -28,4 +28,22 @@ class Button extends AbstractBlock {
 			]
 		);
 	}
+
+	/**
+	 * Re-format the fields to the format required by the UI component.
+	 *
+	 * @param array   $block The block settings and attributes.
+	 * @param string  $content The block inner HTML (empty).
+	 * @param boolean $is_preview $is_preview True during AJAX preview.
+	 * @param integer $post_id Id of the current post.
+	 * @return array
+	 */
+	protected function get_fields( array $block, string $content, bool $is_preview, int $post_id ) : array {
+		return array_merge(
+			[
+				'button_style' => get_field( 'button_style' ) ?? 'default',
+			],
+			get_field( 'link' ) ?? []
+		);
+	}
 }
