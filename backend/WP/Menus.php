@@ -51,9 +51,9 @@ class Menus {
 	 */
 	public static function add_additional_class_to_a( $atts, $item, $args ) {
 		if ( array_search( 'current_page_item', $item->classes, true ) && isset( $args->a_class_current ) ) {
-			$atts['class'] .= ' ' . $args->a_class_current;
+			$atts['class'] = ( isset( $atts['class'] ) ? $atts['class'] . ' ' : '' ) . $args->a_class_current;
 		} elseif ( isset( $args->a_class ) ) {
-			$atts['class'] .= ' ' . $args->a_class;
+			$atts['class'] = ( isset( $atts['class'] ) ? $atts['class'] . ' ' : '' ) . $args->a_class;
 		}
 
 		return $atts;

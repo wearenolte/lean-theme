@@ -7,7 +7,7 @@
     {
       "website_title": "Lean Website",
       "website_home_url": "/",
-      "website_logo_url": "https://via.placeholder.com/100x80"
+      "website_logo_id": "${image-id}"
     }
   ]
 }

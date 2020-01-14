@@ -1,0 +1,13 @@
+{
+  "variants": [
+    {
+      "title": "Lean Website",
+      "url": "/"
+    },
+    {
+      "title": "Lean Website",
+      "url": "/",
+      "image_id": "${image-id}"
+    }
+  ]
+}

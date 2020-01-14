@@ -1,4 +1,5 @@
-.hamburger {
+/* The hamburger animation is not a separate atom as it is very specific to the hamburger button */
+[data-type="atom/buttons/hamburger"] {
     .icon-bar {
         transition: .5s ease;
 

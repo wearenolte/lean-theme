@@ -1,8 +1,8 @@
-import toggleMobileMenu from './header/toggle-mobile-menu'
+import header from './header/header'
 
 /**
- * The organisms init.
+ * Atoms functions.
  */
-export default function organisms() {
-  toggleMobileMenu()
+export default function atoms() {
+  header()
 }
