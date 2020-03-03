@@ -8,16 +8,29 @@ namespace Lean\WP\Gutenberg;
  */
 abstract class DesignSystem {
 
-	const EDITOR_COLORS = [
-		'Black'      => '#000',
-		'Light Gray' => '#f1f3f4',
+	const EDITOR = [
+		'COLORS'     => [
+			'Black'      => '#000',
+			'Light Gray' => '#f1f3f4',
+		],
+		'FONT_SIZES' => [
+			'Regular' => 1,
+			'Large'   => 1.125,
+			'Small'   => .875,
+		],
+	];
+
+	const CLASSES = [
+		'text.regular'   => 'text-base text-black-100 font-primary leading-normal',
+		'gutter.wrapper' => '-mx-1',
+		'gutter.column'  => 'px-1',
 	];
 
 	const BREAKPOINTS = [
-		'sm' => 640,
+		'sm' => 576,
 		'md' => 768,
-		'lg' => 1024,
-		'xl' => 1136,
+		'lg' => 992,
+		'xl' => 1200,
 	];
 
 }

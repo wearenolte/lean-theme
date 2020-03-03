@@ -18,24 +18,42 @@ class Images {
 	 * Set image sizes.
 	 */
 	public static function set_image_sizes() {
+		$default_widths = [
+			''           => 1200,
+			'small'      => 576,
+			'medium'     => 758,
+			'large'      => 992,
+			'desktop@2x' => 2400,
+		];
+
 		$ratios = [
 			'portrait'       => [
-				'ratio'  => 3 / 4,
+				'ratio'  => 3 / 4, // 0.75
+				'widths' => $default_widths,
+			],
+			'portrait-hero'  => [
+				'ratio'  => 610 / 837, // 0.728
 				'widths' => [
-					'' => 255,
+					'' => 1238,
+				],
+			],
+			'landscape-hero' => [
+				'ratio'  => 610 / 504, // 1,21
+				'widths' => [
+					'' => 1238,
 				],
 			],
 			'landscape'      => [
-				'ratio'  => 4 / 3,
-				'widths' => [
-					'' => 350,
-				],
+				'ratio'  => 4 / 3, // 1,33
+				'widths' => $default_widths,
 			],
 			'landscape-wide' => [
-				'ratio'  => 16 / 9,
-				'widths' => [
-					'' => 510,
-				],
+				'ratio'  => 16 / 9, // 1.77
+				'widths' => $default_widths,
+			],
+			'square'         => [
+				'ratio'  => 1 / 1,
+				'widths' => $default_widths,
 			],
 		];
 
@@ -55,9 +73,10 @@ class Images {
 	 * Remove default image sizes
 	 *
 	 * @param array $sizes Full list of sizes.
+	 *
 	 * @return array
 	 */
-	public static function remove_default_image_sizes( $sizes ) : array {
+	public static function remove_default_image_sizes( $sizes ): array {
 		unset( $sizes['medium'] );
 		unset( $sizes['large'] );
 		unset( $sizes['medium_large'] );

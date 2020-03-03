@@ -1,69 +1,108 @@
-const palette = {
-	transparent: 'transparent',
-	black: '#000',
-	white: '#fff',
-	gray: {
-		'100': '#f5f5f5',
-		'200': '#eeeeee',
-		'300': '#e0e0e0',
-		'400': '#bdbdbd',
-		'500': '#9e9e9e',
-		'600': '#757575',
-		'700': '#616161',
-		'800': '#424242',
-		'900': '#212121',
-	},
-	red: '#d14746'
-};
-
 module.exports = {
 	prefix: '',
 	important: '#wpbody',
 	separator: ':',
 	theme: {
 		screens: {
-			sm: '640px',
+			sm: '576px',
 			md: '768px',
-			lg: '1024px',
-			xl: '1136px',
+			lg: '992px',
+			xl: '1200px',
+			landscape: {'raw': '(orientation: landscape) and (max-width: 991px)'},
 		},
 		colors: {
-			transparent: palette.transparent,
-			black: palette.black,
-			white: palette.white,
-			primary: palette.red,
-			'link-primary': palette.red,
-			'font-primary': palette.gray[800],
-			'font-secondary': palette.gray[900],
-			'pre-border': palette.gray[200],
-			'table-border': palette.gray[400],
-			'separator': palette.gray[400],
-			'primary-btn': palette.white,
-			'primary-btn-bg': palette.red
+			transparent: 'transparent',
+			black: {
+				'100': '#050117',
+				'60': '#525160',
+				'30': '#9fa1a9',
+				'20': '#d6d7db',
+				'10': '#f1f3f4',
+			},
+			white: '#fff',
+			red: '#fa2214',
+			blue: {
+				'100': '#1d2068',
+				'80': '#192b8d',
+				'60': '#004cd7',
+				'40': '#3094ed',
+				'50': '#b2ccfb'
+			},
+			yellow: '#fac300',
 		},
 		spacing: {
 			'0': '0',
-			'wide-margins': 'calc(50% - 50vw)',
-			'container-padding': '3.333%',
-			'gutter': '2.5rem',
-			'section-y': '10rem',
-			'subsection-y': '2.5rem',
-			'heading-b': '6.667rem',
-			'heading-in-col-b': '3.333rem',
-			'text-block-b': '2rem',
-			'following-text-block-t': '1.333rem',
-			'default-block-b': '3.333rem',
-			'list-indent': '2.5rem',
-			'pre-padding': '2rem',
-			'table-padding': '.5rem',
-			'primary-btn-padding-x': '2rem',
-			'primary-btn-padding-y': '1rem',
-			'hamburger-w': '2rem',
-			'hamburger-h': '1.4rem',
-			'hamburger-line-w': '.2rem',
-			'menu-spacing': '1rem'
+			'.5': '.5rem',
+			'1': '1rem',
+			'1.5': '1.5rem',
+			'2': '2rem',
+			'2.5': '2.5rem',
+			'3': '3rem',
+			'3.5': '3.5rem',
+			'4': '4rem',
+			'4.5': '4.5rem',
+			'5': '5rem',
+			'5.5': '5.5rem',
+			'6': '6rem',
+			'7.5': '7.5rem',
+			'10': '10rem',
+			'16': '16rem',
+			'20': '20rem',
+			// The following spacings have mobile and desktop versions, example usage: class="py-xl-mob md:py-xl-dsk"
+			'xxl-dsk': '7.5rem',
+			'xl-dsk': '5rem',
+			'lg-dsk': '3.5rem',
+			'md-dsk': '2.5rem',
+			'sm-dsk': '1.5rem',
+			'xs-dsk': '1rem',
+			'xxl-mob': '5rem',
+			'xl-mob': '3.5rem',
+			'lg-mob': '2.5rem',
+			'md-mob': '1.5rem',
+			'sm-mob': '1rem',
+			'xs-mob': '.5rem',
+			// The following are used for grid widths/spacing (the grid is 2 columns on mobile and 12 on desktop).
+			'1/2': '50%',
+			'1/12': '8.333333%',
+			'2/12': '16.666667%',
+			'3/12': '25%',
+			'4/12': '33.333333%',
+			'5/12': '41.666667%',
+			'6/12': '50%',
+			'7/12': '58.333333%',
+			'8/12': '66.666667%',
+			'9/12': '75%',
+			'10/12': '83.333333%',
+			'11/12': '91.666667%',
+			// Non-standard grid spacing:
+			'1/8': '12.5%',
+			'2/8': '25%',
+			'3/8': '37.5%',
+			'4/8': '50%',
+			'5/8': '62.5%',
+			'6/8': '75%',
+			'7/8': '87.5%',
+			/* The following are non-standard spacing options, please use sparingly. */
+			'.15': '.15rem',
+			'.2': '.2rem',
+			'2.13': '2.125rem',
+			'.25': '.25rem',
+			'.75': '.75rem',
+			'1.25': '1.25rem',
+			'1.4': '1.4rem',
+			'3.33%': '3.333%',
+			'21.3%': '21.3%',
+			'78.7%': '78.7%',
+			'1/9': '11.11111%',
+			'4/9': '44.44444%',
+			'8/9': '88.88888%',
+			'1px': '1px',
 		},
-		backgroundColor: theme => theme('colors'),
+		backgroundColor: theme => ({
+			...theme('colors'),
+			'light-overlay': 'rgba(5, 1, 23, 0.15)',
+			'black-overlay': 'rgba(5, 1, 23, 0.75)',
+		}),
 		backgroundPosition: {
 			bottom: 'bottom',
 			center: 'center',
@@ -82,7 +121,7 @@ module.exports = {
 		},
 		borderColor: theme => ({
 			...theme('colors'),
-			default: theme('colors.gray.300', 'currentColor'),
+			default: theme('colors.gray.60', 'currentColor'),
 		}),
 		borderRadius: {
 			none: '0',
@@ -102,12 +141,11 @@ module.exports = {
 			lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
 			xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
 			'2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+			button: '0 16px 40px 0 rgba(23,18,48,0.25)',
 			inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
 			outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
+			'downward-right': '0 8px 24px 0 rgba(23,18,48, 0.08)',
 			none: 'none',
-		},
-		container: {
-			center: false,
 		},
 		cursor: {
 			auto: 'auto',
@@ -120,7 +158,6 @@ module.exports = {
 		},
 		fill: {
 			current: 'currentColor',
-			white: palette.white
 		},
 		flex: {
 			'1': '1 1 0%',
@@ -138,19 +175,41 @@ module.exports = {
 		},
 		fontFamily: {
 			'primary': [
-				'sans-serif',
+				'neue-haas-unica',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        'Segoe UI',
+        'Roboto',
+        'Helvetica Neue',
+        'Arial',
+        'Noto Sans',
+        'sans-serif'
 			],
+			'secondary': [
+				"PxGroteskBold",
+        '-apple-system',
+        'BlinkMacSystemFont',
+        'Segoe UI',
+        'Roboto',
+        'Helvetica Neue',
+        'Arial',
+        'Noto Sans',
+        'sans-serif'
+			]
 		},
 		fontSize: {
-			'base': '10px',
-			'lg-base': '12px',
-			'regular': '1.333rem',
-			'small': '1.3rem',
-			'large': '1.7rem',
-			'large-1': '4.7rem',
-			'large-2': '2.667rem',
-			'large-3': '2.4rem',
-			'large-4': '1.8rem'
+			base: '1rem',
+			sm: '.875rem',
+			lg: '1.125rem',
+			// The following font sizes have mobile and desktop versions, example usage: class="text-1xl-mob md:text-1xl-dsk"
+			'1xl-dsk': '1.5rem',
+			'2xl-dsk': '2rem',
+			'3xl-dsk': '2.5rem',
+			'4xl-dsk': '3.5rem',
+			'1xl-mob': '1.25rem',
+			'2xl-mob': '1.6875rem',
+			'3xl-mob': '2.125rem',
+			'4xl-mob': '2.975rem',
 		},
 		fontWeight: {
 			hairline: '100',
@@ -166,24 +225,46 @@ module.exports = {
 		height: theme => ({
 			auto: 'auto',
 			...theme('spacing'),
+			'screen-2.75': 'calc(100vh - 2.75rem)',
+			'55vh': '55vh',
+			'87vh': '87vh',
 			full: '100%',
 			screen: '100vh'
 		}),
 		inset: {
 			'0': '0',
-			auto: 'auto'
+			auto: 'auto',
+			'-2.13': '-2.125rem',
+			'-2.75': '-2.75rem',
+			'-5': '-5rem',
+			'6.25': '6.25rem',
+			'41%': '41%',
+			/* Left position an element on the 5th column:
+			 * 50%: Start with it in the centre of the screen
+			 *    - 3rem [1.5 gutters] - ( 100vw - 6.667% - 22rem ) / 6 [width of 2 columns]
+			 * OR - 3rem [1.5 gutters] - ( 69.375rem - 22rem ) / 6 [width of 2 gutters when container is at its max width] =
+			 * Usage: left-col-5 xl:left-col-5-xl
+			*/
+			'col-5': 'calc(50% - 3rem - ( 100vw - 6.667% - 22rem ) / 6)',
+			'col-5-xl': 'calc(50% - 3rem - ( 69.375rem - 22rem ) / 6)',
+			// Align to container edge.
+			// Usage: right-container xl:right-container-xl
+			'container': '3.333%',
+			'container-xl': 'calc( (100vw - 69.375rem)/2 )',
 		},
 		letterSpacing: {
-			'0.14neg': '-0.14px',
-			'0.17neg': '-0.17px',
-			'0.5': '0.5px',
-			'0.75': '0.75px',
-			'1': '0',
-			'1.5': '1.5px',
-			'1.75': '1.75px'
+			none: '1',
+			tight: '0.00625rem',
+			tighter: '-.03125rem',
+			tight: '0.00625rem',
 		},
 		lineHeight: {
 			none: '1',
+			tighter: '1.15em',
+			1.125: '1.125em',
+			normal: '1.5em',
+			tight: '1.25em',
+			large: '2em',
 		},
 		listStyleType: {
 			none: 'none',
@@ -196,16 +277,20 @@ module.exports = {
 		},
 		margin: (theme, { negative }) => ({
 			auto: 'auto',
+			'screen': 'calc(50% - 50vw)',
 			...theme('spacing'),
 			...negative(theme('spacing'))
 		}),
 		maxHeight: {
 			full: '100%',
-			screen: '100vh'
+			screen: '100vh',
+			'37': '37rem',
+			'50.75': '50.75rem',
+			'66.75': '66.75rem',
 		},
 		maxWidth: {
-			container: '1110px',
-			'container-narrow': '760px',
+			container: 'calc(69.375rem + 6.666%)',
+			'container-narrow': 'calc(47.5rem + 6.666%)',
 			full: '100%',
 			screen: '100vw',
 			logo: '12.5rem'
@@ -214,7 +299,11 @@ module.exports = {
 			'0': '0',
 			full: '100%',
 			screen: '100vh',
-			auto: 'auto'
+			auto: 'auto',
+			'24.38': '24.375rem',
+			'30.5': '30.5rem',
+			'35': '35rem',
+			'40': '40rem',
 		},
 		minWidth: {
 			'0': '0',
@@ -234,6 +323,7 @@ module.exports = {
 		},
 		opacity: {
 			'0': '0',
+			'10': '0.1',
 			'25': '0.25',
 			'50': '0.5',
 			'75': '0.75',
@@ -280,8 +370,6 @@ module.exports = {
 			'3/6': '50%',
 			'4/6': '66.666667%',
 			'5/6': '83.333333%',
-			'3/8': '35.5%',
-			'5/8': '62.5%',
 			'1/12': '8.333333%',
 			'2/12': '16.666667%',
 			'3/12': '25%',
@@ -294,7 +382,10 @@ module.exports = {
 			'10/12': '83.333333%',
 			'11/12': '91.666667%',
 			full: '100%',
-			screen: '100vw'
+			screen: '100vw',
+			// Non-standard widths, use sparingly:
+			'57%': '57%',
+			'43%': '43%',
 		}),
 		zIndex: {
 			auto: 'auto',
@@ -377,6 +468,8 @@ module.exports = {
 		wordBreak: ['responsive'],
 		zIndex: ['responsive']
 	},
-	corePlugins: {},
+	corePlugins: {
+		container: false,
+	},
 	plugins: [],
 }

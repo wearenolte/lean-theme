@@ -18,7 +18,7 @@ class Options {
 					'page_title' => 'Options',
 					'menu_title' => 'Options',
 					'menu_slug'  => self::OPTIONS_SLUG,
-					'capability' => 'edit_themes', // Only visible to admins.
+					'capability' => 'edit_users', // Only visible to admins.
 					'redirect'   => false,
 					'position'   => 4,
 				]

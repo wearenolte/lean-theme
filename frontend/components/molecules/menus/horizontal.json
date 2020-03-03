@@ -1,6 +1,21 @@
 {
   "variants": [
     {
+      "style": "small",
+      "theme_location": "main_menu"
+    },
+    {
+      "style": "small",
+      "color": "dark",
+      "theme_location": "main_menu"
+    },
+    {
+      "style": "normal",
+      "theme_location": "main_menu"
+    },
+    {
+      "style": "normal",
+      "color": "dark",
       "theme_location": "main_menu"
     }
   ]

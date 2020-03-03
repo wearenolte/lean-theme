@@ -9,13 +9,16 @@
     "tailwindcss": "^1.1.*"
   },
   "scripts": {
-    "start": "parcel main.js",
-    "build": "parcel build main.js --no-cache",
+    "start": "parcel main.js --public-url ./",
+    "build": "parcel build main.js --no-cache --public-url ./",
     "js-lint": "eslint --config .eslintrc.json main.js 'components/**/*.js'",
     "js-fix": "eslint --fix --config .eslintrc.json main.js 'components/**/*.js'",
     "lint": "yarn js-lint"
   },
   "dependencies": {
+    "array-from-polyfill": "^1.0.1",
+    "intersection-observer": "^0.7.0",
+    "smooth-scroll": "^16.1.2",
     "styleselect": "^1.0.3"
   }
 }

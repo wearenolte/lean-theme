@@ -38,12 +38,10 @@
       "@build"
     ],
     "build-deps": [
-      "cd frontend && yarn",
-      "cd backend/WP/Gutenberg/js && yarn --ignore-engines"
+      "cd frontend && yarn"
     ],
     "build-app": [
-      "cd frontend && yarn build",
-      "cd backend/WP/Gutenberg/js && yarn build"
+      "cd frontend && yarn build"
     ],
     "build": [
       "@build-deps",
@@ -64,6 +62,9 @@
     "lint": [
       "@php-lint",
       "cd frontend && yarn lint"
+    ],
+    "fix": [
+      "php vendor/bin/phpcbf . --extensions=php"
     ],
     "php-lint": [
       "phpcs . --extensions=php",

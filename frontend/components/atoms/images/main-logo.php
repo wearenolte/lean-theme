@@ -18,7 +18,7 @@ $image_id  = $args['image_id'] ?? false;
 		);
 		?>
 	<?php else : ?>
-		<div class="inline font-bold uppercase text-small">
+		<div class="inline font-bold uppercase text-1.4">
 			<?php echo esc_html( $the_title ); ?>
 		</div>
 	<?php endif; ?>

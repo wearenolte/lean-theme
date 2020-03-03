@@ -1,33 +1,62 @@
+/* purgecss start ignore */
 ul.standard-lists,
 .standard-lists ul {
-    @apply list-inside list-disc;
+    @apply list-inside list-none text-base leading-normal;
 
-    li li {
-        @apply pl-list-indent;
-    }
+    li {
+        &:before {
+            @apply mr-.75 mb-.15 h-.25 w-.25 bg-red;
+            content: '';
+            display: inline-block;
+            transform: rotate(45deg);
+         }
 
-    li > ul > li {
-        @apply list-circle;
-
-        > ul > li {
-            @apply list-square;
+        li {
+            @apply pl-2.5;
         }
     }
 }
 
-ol.standard-lists,
-.standard-lists ol {
-    @apply list-inside list-decimal;
-
-    li li {
-        @apply pl-list-indent;
+.remove-first-bullet {
+    li {
+        &:first-child {
+            &:before {
+                display: none;
+            }
+        }
     }
+}
 
-    li > ol > li {
-        @apply list-lower-alpha;
+ol.standard-lists {
+    @apply list-none;
+
+    li {
+        counter-increment: lvl1;
+
+        &:before {
+            content: counter(lvl1);
+            @apply inline-block mr-.5 font-medium text-red;
+        }
+
+        li {
+            @apply pl-2.5;
+        }
 
         > ol > li {
-            @apply list-lower-roman;
+            counter-increment: lvl2;
+
+            &:before {
+                content: counter(lvl2, lower-alpha);
+            }
+
+            > ol > li {
+                counter-increment: lvl3;
+
+                &:before {
+                    content: counter(lvl3, lower-roman);
+                }
+            }
         }
     }
 }
+/* purgecss end ignore */

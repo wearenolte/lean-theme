@@ -1,20 +1,66 @@
 {
   "variants": [
     {
+      "style": "default - no icon",
       "button_style": "default",
-      "link": {
-        "title": "Default button",
-        "url": "https://wearenolte.com",
-        "target": "_self"
-      }
+      "title": "Button text",
+      "url": "https://wearenolte.com",
+      "target": "_self"
     },
     {
+      "style": "default - with icon",
+      "button_style": "default",
+      "title": "Button text",
+      "url": "https://wearenolte.com",
+      "target": "_blank",
+      "icon": "share-white"
+    },
+    {
+      "style": "large - no icon - tall variant",
+      "button_style": "large",
+      "title": "Button text",
+      "url": "https://wearenolte.com",
+      "target": "_blank"
+    },
+    {
+      "style": "large - with icon - tall variant",
+      "button_style": "large",
+      "title": "Button text",
+      "url": "https://wearenolte.com",
+      "target": "_blank",
+      "icon": "arrow-d-white"
+    },
+    {
+      "style": "large - with icon - short variant",
+      "button_style": "large",
+      "button_height": "short",
+      "title": "Button text",
+      "url": "https://wearenolte.com",
+      "target": "_blank",
+      "icon": "arrow-d-white"
+    },
+    {
+      "style": "link - no icon",
       "button_style": "link",
-      "link": {
-        "title": "Link",
-        "url": "https://wearenolte.com",
-        "target": "_blank"
-      }
+      "title": "Button text",
+      "url": "https://wearenolte.com",
+      "target": "_blank"
+
+    },
+    {
+      "style": "link - with icon",
+      "button_style": "link",
+      "title": "Button text",
+      "url": "https://wearenolte.com",
+      "target": "_blank",
+      "icon": "checkmark"
+    },
+    {
+      "style": "link - with arrow",
+      "button_style": "arrow",
+      "title": "Button text",
+      "url": "https://wearenolte.com",
+      "target": "_blank"
     }
   ]
 }

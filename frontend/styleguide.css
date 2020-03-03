@@ -1,0 +1,17 @@
+/**
+ * Helper CSS classes for showing correctly the components in the styleguide.
+ */
+.js-lean-styleguide {
+    /* Change styleguide background color so it makes contrast with white bg components. */
+    background-color: rgba(000,63,86,0.13);
+}
+
+/* Show correctly the modal. */
+.js-lean-styleguide .sg-modal-block {
+    display: block !important;
+}
+
+/* Enable fixed position for the modal. */
+.js-lean-styleguide .sg-fixed {
+    position: fixed !important;
+}

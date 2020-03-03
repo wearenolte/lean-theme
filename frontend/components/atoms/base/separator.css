@@ -1,10 +1,13 @@
-
+/* purgecss start ignore */
 .wp-block-separator {
+    @apply text-black-100 opacity-10;
+
     &.is-style-dots:before {
-        @apply text-separator;
+        @apply text-black-20;
     }
 
     &.is-style-wide {
-        @apply mx-wide-margins;
+        @apply mx-screen;
     }
 }
+/* purgecss end ignore */

@@ -123,26 +123,6 @@ class ThemeSetup {
 		);
 
 		add_action(
-			'enqueue_block_editor_assets',
-			function () {
-				wp_enqueue_script(
-					'custom-gutenberg-script',
-					get_stylesheet_directory_uri() . '/backend/WP/Gutenberg/js/dist/gutenberg.js',
-					[
-						'wp-dom',
-						'wp-blocks',
-						'wp-edit-post',
-						'wp-i18n',
-						'wp-element',
-						'wp-editor',
-					],
-					'1.0',
-					true
-				);
-			}
-		);
-
-		add_action(
 			'wp_enqueue_scripts',
 			function() {
 				wp_dequeue_style( 'wp-block-library' );
@@ -159,6 +139,7 @@ class ThemeSetup {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'html5' );
+		add_theme_support( 'yoast-seo-breadcrumbs' );
 	}
 
 	/**
@@ -171,9 +152,6 @@ class ThemeSetup {
 
 		// Wide/Fullwidth images.
 		add_theme_support( 'align-wide' );
-
-		// Responsive embeds.
-		add_theme_support( 'responsive-embeds' );
 	}
 
 	/**

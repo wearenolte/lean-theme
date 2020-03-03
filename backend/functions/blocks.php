@@ -3,7 +3,8 @@
  * Gutenberg blocks creation and helper functions.
  */
 
-use \Lean\WP\Gutenberg\CoreBlocks;
+use \Lean\WP\Gutenberg\BlockSettings;
+use \Lean\WP\Gutenberg\DesignSystem;
 
 /**
  * Register all the block classes in backend/WP/Gutenberg/Blocks
@@ -60,15 +61,19 @@ function lean_is_first_block( string $block_id ) : bool {
 
 /**
  * Filter block rendering. When a core block renders we add the data-type attribute
- * and the classes from the CoreBlocks config.
+ * and a number of other require properties.
  */
 add_filter(
 	'render_block',
-	function( $block_content, $block ) {
-		$block_content = lean_add_block_class( $block_content, $block );
+	function( string $block_content, array $block ) {
+		$block_content = lean_add_block_props( $block_content, $block );
+
+		if ( 'core/columns' === $block['blockName'] ) {
+			$block_content = lean_columns_props( $block_content, $block );
+		}
 
 		if ( 'core/column' === $block['blockName'] ) {
-			$block_content = lean_column_classes( $block_content, $block );
+			$block_content = lean_column_props( $block_content, $block );
 		}
 
 		return $block_content;
@@ -78,13 +83,13 @@ add_filter(
 );
 
 /**
- * Add classes from CoreBlocks config to each block.
+ * Add classes from BlockSettings config to each block.
  *
  * @param string $block_content The content of the block.
  * @param array  $block         The block settings.
  * @return string
  */
-function lean_add_block_class( $block_content, $block ) : string {
+function lean_add_block_props( string $block_content, array $block ) : string {
 	$block_name = $block['blockName'];
 
 	$close_pos = strpos( $block_content, '>' );
@@ -92,7 +97,7 @@ function lean_add_block_class( $block_content, $block ) : string {
 		$block_content = substr_replace( $block_content, ' data-type="' . $block_name . '">', $close_pos, 1 );
 	}
 
-	$block_config = CoreBlocks::CONFIG[ $block_name ] ?? false;
+	$block_config = BlockSettings::CORE_BLOCKS[ $block_name ] ?? false;
 	if ( ! is_array( $block_config ) || ! isset( $block_config['class'] ) ) {
 		return $block_content;
 	}
@@ -111,18 +116,43 @@ function lean_add_block_class( $block_content, $block ) : string {
 }
 
 /**
- * Add classes to each column. We convert the %s to the closest Tailwind width class using the 12 column grid.
+ * Add the column count to the column container.
  *
  * @param string $block_content The content of the block.
  * @param array  $block         The block settings.
  * @return string
  */
-function lean_column_classes( $block_content, $block ) : string {
+function lean_columns_props( string $block_content, array $block ) : string {
+	$close_pos = strpos( $block_content, '>' );
+	if ( false !== $close_pos ) {
+		$col_count     = isset( $block['innerBlocks'] ) ? count( $block['innerBlocks'] ) : 0;
+		$block_content = substr_replace( $block_content, ' data-cols="' . $col_count . '">', $close_pos, 1 );
+	}
+
+	return $block_content;
+}
+
+/**
+ * Add classes to each column. We convert the %s to the closest TailWind width class using the 12 column grid.
+ *
+ * @param string $block_content The content of the block.
+ * @param array  $block         The block settings.
+ * @return string
+ */
+function lean_column_props( string $block_content, array $block ) : string {
+	$width = $block['attrs']['width'] ?? false;
+
 	$class_pos = strpos( $block_content, 'wp-block-column' );
 	if ( false !== $class_pos ) {
-		$width         = $block['attrs']['width'] ?? false;
-		$class         = ( $width ? 'w-full md:w-' . round( 12 * $width / 100 ) . '/12 ' : '' ) . 'px-gutter';
+		$class         = 'w-full ' . DesignSystem::CLASSES['gutter.column'];
+		$class        .= ( $width ? ' md:w-' . round( 12 * $width / 100 ) . '/12 ' : '' );
+		$class        .= lean_block_has_media( $block ) ? ' has-media' : '';
 		$block_content = substr_replace( $block_content, 'wp-block-column ' . $class, $class_pos, 15 );
+	}
+
+	$close_pos = strpos( $block_content, '>' );
+	if ( false !== $close_pos ) {
+		$block_content = substr_replace( $block_content, ' data-width="' . $width . '">', $close_pos, 1 );
 	}
 
 	$style_pos = strpos( $block_content, 'style="' );
@@ -132,4 +162,14 @@ function lean_column_classes( $block_content, $block ) : string {
 	}
 
 	return $block_content;
+}
+
+/**
+ * Return true if the block has any sub-blocks with media (eg image, video, etc)
+ *
+ * @param array $block The block settings.
+ * @return boolean
+ */
+function lean_block_has_media( array $block ) : bool {
+	return count( array_intersect( array_column( $block['innerBlocks'], 'blockName' ), BlockSettings::MEDIA_BLOCKS ) ) > 0;
 }

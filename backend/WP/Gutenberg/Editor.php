@@ -2,6 +2,8 @@
 
 namespace Lean\WP\Gutenberg;
 
+use \Lean\WP\Gutenberg\DesignSystem;
+
 /**
  * Gutenberg editor configurations.
  *
@@ -22,8 +24,33 @@ class Editor {
 	 * Editor font sizes. We're completely disabling these options.
 	 */
 	public static function config_font_sizes() {
+		$sizes = array_map(
+			function( $name, $size ) {
+				return [
+					'name' => $name,
+					'slug' => strtolower( str_replace( ' ', '-', $name ) ),
+					'size' => $size * 16,
+				];
+			},
+			array_keys( DesignSystem::EDITOR['FONT_SIZES'] ),
+			DesignSystem::EDITOR['FONT_SIZES']
+		);
+
 		add_theme_support( 'disable-custom-font-sizes' );
-		add_theme_support( 'editor-font-sizes', [] );
+		add_theme_support( 'editor-font-sizes', $sizes );
+
+		// Add the styles to make font sizes work.
+		add_action(
+			'wp_head',
+			function() {
+				$css = '';
+				foreach ( DesignSystem::EDITOR['FONT_SIZES'] as $name => $size ) {
+					$slug = strtolower( str_replace( ' ', '-', $name ) );
+					$css .= "#wpbody .has-$slug-font-size{font-size:${size}rem;}";
+				}
+				echo '<style type="text/css">' . wp_kses_post( $css ) . '</style>';
+			}
+		);
 	}
 
 	/**
@@ -38,8 +65,8 @@ class Editor {
 					'color' => $color,
 				];
 			},
-			array_keys( \Lean\WP\Gutenberg\DesignSystem::EDITOR_COLORS ),
-			\Lean\WP\Gutenberg\DesignSystem::EDITOR_COLORS
+			array_keys( DesignSystem::EDITOR['COLORS'] ),
+			DesignSystem::EDITOR['COLORS']
 		);
 
 		add_theme_support( 'disable-custom-colors' );
@@ -50,7 +77,7 @@ class Editor {
 			'wp_head',
 			function() {
 				$css = '';
-				foreach ( \Lean\WP\Gutenberg\DesignSystem::EDITOR_COLORS as $name => $color ) {
+				foreach ( DesignSystem::EDITOR['COLORS'] as $name => $color ) {
 					$slug = strtolower( str_replace( ' ', '-', $name ) );
 					$css .= "#wpbody .has-$slug-color{color:$color;}";
 					$css .= "#wpbody .has-$slug-background-color{background-color:$color;}";
@@ -63,7 +90,7 @@ class Editor {
 
 	/**
 	 * Returns the Gutenberg blocks that are allowed to be used in the editor.
-	 * Use the CoreBlocks config to decide which core blocks to show. Plus show all custom blocks.
+	 * Use the BlockSettings config to decide which core blocks to show. Plus show all custom blocks.
 	 *
 	 * @param boolean  $allowed_blocks A boolean stating that all blocks are allowed.
 	 * @param \WP_Post $post           The current post.
@@ -79,8 +106,8 @@ class Editor {
 				}
 				return false;
 			},
-			array_keys( \Lean\WP\Gutenberg\CoreBlocks::CONFIG ),
-			\Lean\WP\Gutenberg\CoreBlocks::CONFIG
+			array_keys( BlockSettings::CORE_BLOCKS ),
+			BlockSettings::CORE_BLOCKS
 		);
 		$core_blocks = array_filter( $core_blocks );
 

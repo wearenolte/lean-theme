@@ -1,71 +1,65 @@
-.section-block {
-    @apply py-section-y;
+/* purgecss start ignore */
 
-    &.has-background {
-        @apply py-section-y;
-    }
+/* Default vertical spacing rules for section-block's */
+.post-content {
+    > .section-block {
+        @apply py-xxl-mob;
+    
+        &:not(.has-background) + .section-block:not(.has-background) {
+            @apply pt-0;
+        }
 
-    .section-block {
-        @apply py-subsection-y;
+        .section-block {
+            @apply pt-xxl-mob pb-0;
 
-        &.has-background {
-            @apply py-subsection-y;
+            &:first-child {
+                @apply pt-0;
+            }
+
+            @screen md {
+                @apply pt-xxl-dsk pb-0;
+            }
+        }
+
+        @screen md {
+            @apply py-xxl-dsk;
         }
     }
 }
 
-.heading-block {
-    @apply pb-heading-b;
-}
+/* Default vertical spacing rules for media-block's */
+.media-block {
+    @apply mt-md-mob;
 
-.wp-block-column {
-    .heading-block {
-        @apply pb-heading-in-col-b;
+    &:first-child {
+        @apply mt-0;
+    }
+
+    @screen md {
+        @apply mt-md-dsk;
+    }
+
+    p + & {
+        @apply mt-xl-mob;
+
+        @screen md {
+            @apply mt-xl-dsk;
+        }
+    }
+
+    .section-block + & {
+        @apply mt-xxl-mob;
+
+        @screen md {
+            @apply mt-xxl-dsk;
+        }
     }
 }
+  
 
-.wp-block-media-text {
-    .heading-block {
-        @apply pb-heading-in-col-b;
-    }
-}
-
-.default-block {
-    @apply pb-default-block-b;
-}
-
-.text-block {
-    @apply pb-text-block-b;
-}
-
-.text-block {
-    & + .heading-block,
-    & + .default-block,
-    & + .wp-block-columns {
-        @apply pt-following-text-block-t;
-    }
-}
-
-.heading-block,
-.text-block,
-.default-block {
-    &:last-child {
-        @apply pb-0;
-    }
-}
-
-.wp-block-columns {
-    @apply m-0;
-}
-
-.wp-block-group {
-    &.has-background {
-        @apply px-0;
-    }
-}
-
+/* Gutenberg settings */
 .alignfull {
-    @apply max-w-screen mx-wide-margins;
+    @apply max-w-screen mx-screen;
 }
 
 .has-text-align {
@@ -79,6 +73,10 @@
 
     &-right {
         @apply text-right;
+    }
+
+    &-full {
+        @apply mx-screen;
     }
 }
 
@@ -108,3 +106,4 @@
         @apply mx-auto table;
     }
 }
+/* purgecss end ignore */

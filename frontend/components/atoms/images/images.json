@@ -1,0 +1,39 @@
+{
+  "variants": [
+    {
+      "style": "portrait-1",
+      "image_id": "${image-id}",
+      "image_size": "portrait-1"
+    },
+    {
+      "style": "portrait-hero",
+      "image_id": "${image-id}",
+      "image_size": "portrait-hero"
+    },
+    {
+      "style": "portrait",
+      "image_id": "${image-id}",
+      "image_size": "portrait"
+    },
+    {
+      "style": "landscape",
+      "image_id": "${image-id}",
+      "image_size": "landscape"
+    },
+    {
+      "style": "landscape-hero",
+      "image_id": "${image-id}",
+      "image_size": "landscape-hero"
+    },
+    {
+      "style": "landscape-wide",
+      "image_id": "${image-id}",
+      "image_size": "landscape-wide"
+    },
+    {
+      "style": "square",
+      "image_id": "${image-id}",
+      "image_size": "square"
+    }
+  ]
+}

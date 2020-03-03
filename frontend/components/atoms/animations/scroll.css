@@ -1,0 +1,44 @@
+/* purgecss start ignore */
+[data-cols] > *,
+.post-content > :not([data-type="core/columns"]):not([data-type="core/group"]),
+.post-content > [data-type="core/group"] > * > :not([data-type="core/columns"]):not([data-type="core/group"]) {
+  opacity: 0;
+  transition: opacity 1s ease-out .3s;
+
+  &.anim-enter-trigger {
+    opacity: 100;
+  }
+}
+
+@screen md {
+  [data-cols="2"] {
+    overflow-x: hidden;
+
+    > * {
+      transition: opacity 1s ease-out .3s, transform 1s ease-out .3s;
+    }
+
+    > :nth-child(1) {
+      transform: translateX(-100px);
+    }
+
+    > :nth-child(2) {
+      transform: translateX(100px);
+    }
+
+    > .anim-enter-trigger {
+      transform: translateX(0);
+    }
+  }
+
+  [data-cols="3"] {
+    > :nth-child(2) {
+      transition-delay: .6s;
+    }
+
+    > :nth-child(3) {
+      transition-delay: .9s;
+    }
+  }
+}
+/* purgecss end ignore */

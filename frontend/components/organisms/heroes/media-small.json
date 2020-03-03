@@ -1,0 +1,30 @@
+
+{
+   "variants": [
+      {
+        "images": [ "${image-id}" ],
+        "title": "Cement Products Breadcrumbs",
+        "bottom_text": "We are constantly striving to create innovative concrete solutions for our customers needs, always using high standards.",
+        "show_breadcrumbs": true
+      },
+     {
+       "images": [ "${image-id}", "${image-id}", "${image-id}" ],
+       "title": "Cement Products Breadcrumbs",
+       "bottom_text": "We are constantly striving to create innovative concrete solutions for our customers needs, always using high standards.",
+       "show_breadcrumbs": true
+     },
+     {
+      "images": [ "${image-id}", "${image-id}", "${image-id}" ],
+      "title": "Cement Products",
+      "bottom_text": "We are constantly striving to create innovative concrete solutions for our customers needs, always using high standards.",
+      "show_breadcrumbs": false
+    },
+    {
+      "video_id": "95746815",
+      "video_cover": "${image-id}",
+      "title": "Cement Products",
+      "bottom_text": "We are constantly striving to create innovative concrete solutions for our customers needs, always using high standards.",
+      "show_breadcrumbs": false
+    }
+   ]
+ }

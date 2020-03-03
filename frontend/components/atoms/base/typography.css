@@ -1,20 +1,18 @@
+/* purgecss start ignore */
 html {
-    @apply text-base text-font-primary;
+    @apply font-primary text-base text-black-100 leading-normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-@screen lg {
-    html {
-        @apply text-lg-base;
-    }
-}
-
+/* Apply link styles to lbocks which can contain links */
 [data-type="core/paragraph"],
 [data-type="core/heading"],
 [data-type="core/list"],
 [data-type="core/preformatted"],
 [data-type='core/pullquote'] {
     a {
-        @apply underline text-link-primary cursor-pointer;
+        @apply underline text-blue-60 cursor-pointer;
 
         &:hover {
             @apply no-underline;
@@ -22,34 +20,170 @@ html {
     }
 }
 
+/* Standard heading styles, use the standard-headings class wherever you want to apply the standard styles */
+/* Note these rules are set-up so you can use them either on the element itself or on the parent, eg for a wysiwyg field. */
 h1.standard-headings,
 .standard-headings h1 {
-    @apply text-large-1 text-font-secondary;
+    @apply font-secondary text-3xl-mob text-black-100 leading-tight font-bold tracking-tighter;
+
+    @screen md {
+        @apply text-3xl-dsk;
+    }
 }
 
 h2.standard-headings,
 .standard-headings h2 {
-    @apply text-large-2 text-font-secondary;
+    @apply font-secondary text-2xl-mob text-black-100 leading-tight font-bold tracking-tighter;
+
+    @screen md {
+        @apply text-2xl-dsk;
+    }
 }
 
 h3.standard-headings,
 .standard-headings h3 {
-    @apply text-large-3 text-font-secondary;
+    @apply font-secondary text-1xl-mob text-black-100 leading-tight font-bold;
+
+    @screen md {
+        @apply text-1xl-dsk;
+    }
 }
 
 h4.standard-headings,
 .standard-headings h4 {
-    @apply text-large-4 text-font-secondary;
+    @apply font-secondary text-lg text-black-100 leading-tight font-bold;
 }
 
+h5.standard-headings,
+.standard-headings h5 {
+    @apply font-primary text-base text-black-100 leading-tight;
+}
+
+h6.standard-headings,
+.standard-headings h6 {
+    @apply font-primary text-sm text-black-100 leading-tight;
+}
+
+/* Default spacing rules for text-blocks, use standard-text-spacing rules to apply. */
+h1,
+h2,
+h3 {
+    & + p.standard-text-spacing,
+    .standard-text-spacing & + p,
+    & + ul.standard-text-spacing,
+    .standard-text-spacing & + ul,
+    & + ol.standard-text-spacing,
+    .standard-text-spacing & + ol {
+        @apply mt-md-mob;
+
+        @screen md {
+            @apply mt-md-dsk;
+        }
+    }
+}
+
+h4,
+h5,
+h6 {
+    & + p.standard-text-spacing,
+    .standard-text-spacing & + p,
+    & + ul.standard-text-spacing,
+    .standard-text-spacing & + ul,
+    & + ol.standard-text-spacing,
+    .standard-text-spacing & + ol {
+        @apply mt-xs-mob;
+
+        @screen md {
+            @apply mt-xs-dsk;
+        }
+    }
+}
+
+p,
+ul,
+ol {
+    & + p.standard-text-spacing,
+    .standard-text-spacing & + p,
+    & + ul.standard-text-spacing,
+    .standard-text-spacing & + ul,
+    & + ol.standard-text-spacing,
+    .standard-text-spacing & + ol {
+        @apply mt-sm-mob;
+
+        @screen md {
+            @apply mt-sm-dsk;
+        }
+    }
+}
+
+/* Default spacing rules for headings, use standard-text-spacing rules to apply. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    &.standard-text-spacing,
+    .standard-text-spacing & {
+        @apply mt-xl-mob;
+
+        &:first-child {
+            @apply mt-0;
+        }
+    
+        @screen md {
+            @apply mt-xl-dsk;
+        }
+    }
+}
+
+h2 {
+    & + h3.standard-text-spacing,
+    .standard-text-spacing & + h3 {
+         {
+            @apply mt-xs-mob;
+    
+            @screen md {
+                @apply mt-xs-dsk;
+            }
+        }
+    }
+}
+
+h5,
+h6 {
+    & + h3.standard-text-spacing,
+    .standard-text-spacing & + h3 {
+        @apply mt-.5;
+    }
+}
+
+h4,
+h5,
+h6 {
+    h3 + &.standard-text-spacing,
+    .standard-text-spacing h3 + & {
+        @apply mt-xs-mob;
+
+        @screen md {
+            @apply mt-xs-dsk;
+        }
+    }
+}
+
+/* Rules for options provided by gutenberg */
 .has-drop-cap {
     &::first-letter {
-        @apply text-large-1;
+        @apply text-2xl-dsk;
     }
 }
 
+/* Pull quotes */
 [data-type='core/pullquote'] {
     p {
-        @apply text-large-1 italic;
+        @apply text-2xl-dsk italic;
     }
 }
+
+/* purgecss end ignore */

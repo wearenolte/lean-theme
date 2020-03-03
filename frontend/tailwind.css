@@ -1,7 +1,13 @@
+@import "./static/fonts/neue-haas-unica.css";
+
+@import "./static/fonts/PxGroteskBold-Regular.css";
+
 @import "./components/atoms/tailwind/base.css";
 
 @import "./components/atoms/tailwind/components.css";
 
 @import "./components/atoms/atoms.css";
+
+@import "./components/molecules/molecules.css";
 
 @import "./components/atoms/tailwind/utilities.css";

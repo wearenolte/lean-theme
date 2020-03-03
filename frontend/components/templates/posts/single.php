@@ -8,7 +8,7 @@ $content    = $args['content'] ?? '';
 
 <div
 	data-template="posts/single"
-	class="main-content container py-5">
+	class="main-content container">
 
 	<?php
 	Load::molecule(
