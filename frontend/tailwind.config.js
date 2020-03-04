@@ -466,5 +466,17 @@ module.exports = {
 	corePlugins: {
 		container: false,
 	},
-	plugins: [],
+	plugins: [
+		require('tailwindcss-pseudo-elements'),
+		function ({ addUtilities }) {
+			addUtilities(
+				{
+					'.empty-content': {
+						content: "''"
+					}
+				},
+				['before']
+			)
+		}
+	],
 }
