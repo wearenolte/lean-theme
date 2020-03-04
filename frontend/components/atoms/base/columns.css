@@ -1,0 +1,54 @@
+/* purgecss start ignore */
+#wpbody {
+    [data-type="core/column"] {
+        @apply pt-md-mob;
+    
+        &:first-child {
+            @apply pt-0;
+        }
+    
+        @screen md {
+            @apply pt-0;
+        }
+    }
+    
+    [data-type="core/columns"][data-cols="2"] + [data-type="core/columns"][data-cols="2"],
+    [data-type="core/columns"][data-cols="3"] + [data-type="core/columns"][data-cols="3"],
+    [data-type="core/columns"][data-cols="4"] + [data-type="core/columns"][data-cols="4"],
+    [data-type="core/columns"][data-cols="5"] + [data-type="core/columns"][data-cols="5"],
+    [data-type="core/columns"][data-cols="6"] + [data-type="core/columns"][data-cols="6"] {
+        @apply pt-md-mob;
+    
+        @screen md {
+            @apply pt-md-dsk;
+        }
+    }
+    
+    h2,
+    h3 {
+        + [data-type="core/columns"] {
+            @apply pt-lg-mob;
+
+            @screen md {
+                @apply pt-lg-dsk;
+            }
+        }
+    }
+
+    @screen md {
+        [data-type="core/columns"][data-cols="2"] {
+            [data-type="core/column"][data-width="50"].has-media + [data-type="core/column"][data-width="50"]:not(.has-media) {
+                @apply ml-1/12 w-5/12;
+            }
+    
+            [data-type="core/column"][data-width="50"]:not(.has-media) + [data-type="core/column"][data-width="50"].has-media {
+                @apply ml-1/12;
+                width: 60%; /* We know col-1's width is 50% but we cannot change this with pure CSS (as we cannot select an element
+                which proceeeds another). Therefore we fudge this by upping the width of this column to 60% (50% * 6/5). We don't
+                want to add this to the design system in tailwind.config.js as it is not meant to be used anyway else. */
+            }
+        }
+    }
+}
+
+/* purgecss start ignore */

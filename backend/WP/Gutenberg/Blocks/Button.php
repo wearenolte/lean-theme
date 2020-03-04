@@ -23,7 +23,6 @@ class Button extends AbstractBlock {
 				'template_type'     => 'atom',
 				'template_name'     => 'buttons/button',
 				'wrapper_elem'      => 'div',
-				'class'             => [ 'default-block' ],
 				'alignment_options' => true,
 			]
 		);

@@ -17,17 +17,16 @@ $the_posts = $args['posts'] ?? [];
 			'title' => 'Archive',
 		]
 	);
-
-	foreach ( $the_posts as $the_post ) {
-		Load::atom(
-			'links/link',
-			[
-				'class' => 'block mb-2',
-				'title' => $the_post['title'] ?? '',
-				'url'   => $the_post['permalink'] ?? '',
-			]
-		);
-	}
 	?>
+
+	<?php foreach ( $the_posts as $the_post ) : ?>
+
+	<a
+		class="block"
+		href="<?php echo esc_url( $the_post['permalink'] ); ?>">
+		<?php echo esc_html( $the_post['title'] ); ?>
+	</a>
+
+	<?php endforeach; ?>
 
 </div>

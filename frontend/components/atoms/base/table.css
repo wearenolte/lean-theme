@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 .standard-table {
     table {
         @apply table-auto;
@@ -5,6 +6,19 @@
 
     th,
     td {
-        @apply p-table-padding border-table-border border-solid border-1;
+        @apply p-.5 border-black-10 border-solid border-1;
     }
 }
+
+[data-type="core/table"] {
+    @apply mt-xl-mob;
+
+    &:first-child {
+        @apply mt-0;
+    }
+
+    @screen md {
+        @apply mt-xl-dsk;
+    }
+}
+/* purgecss end ignore */

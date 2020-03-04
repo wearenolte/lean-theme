@@ -1,0 +1,50 @@
+@keyframes hideX {
+    0% {
+       transform: scaleX(1);
+    }
+    100% {
+       transform: scaleX(0);
+    }
+ }
+
+ @keyframes hideY {
+    0% {
+       transform: scaleY(1);
+    }
+    100% {
+       transform: scaleY(0);
+    }
+ }
+
+.transition-settings-default {
+    transition: all .3s ease-in-out;
+}
+
+.transition-settings-ease-out {
+    transition: all .3s ease-out;
+}
+
+.translate-child:hover {
+    .hover-target {
+        transform: translateX(.5rem)
+    }
+}
+
+.swipe-out-to-bottom {
+    animation: hideY .7s cubic-bezier(0, .25, 0, 1) .7s 1 normal forwards;
+    transform-origin: bottom;
+}
+
+.md\:swipe-out-to-right {
+    @screen md {
+        animation: hideX .7s cubic-bezier(0, .25, 0, 1) .7s 1 normal forwards;
+        transform-origin: right;
+    }
+}
+
+.lg\:swipe-out-to-right {
+    @screen lg {
+        animation: hideX .7s cubic-bezier(0, .25, 0, 1) .7s 1 normal forwards;
+        transform-origin: right;
+    }
+}

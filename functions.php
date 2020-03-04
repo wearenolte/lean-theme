@@ -18,7 +18,33 @@ Backend::init();
 
 if ( WP_DEBUG ) {
 	new Styleguide();
+
+	add_action(
+		'lean_styleguide_header',
+		function () {
+			// @codingStandardsIgnoreStart
+			echo '<link rel="stylesheet" href="' . get_stylesheet_directory_uri() . '/frontend/styleguide.css" />';
+			// Enqueue vimeo player plyr.
+			echo '<script src="https://cdn.plyr.io/3.5.6/plyr.js"></script>';
+			echo '<link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css" />';
+			// Enqueue flickity slider.
+			echo '<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>';
+			echo '<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />';
+			// @codingStandardsIgnoreEnd
+		}
+	);
+
+	/**
+	 * Sets placeholder image ID value
+	 */
+	add_filter(
+		'lean_styleguide_component_image_id',
+		function() {
+			return STYLEGUIDE_IMAGE_ID;
+		}
+	);
 }
+
 
 // Run the theme setup.
 add_filter(
@@ -60,3 +86,14 @@ add_action(
 $allow_break_tag = [
 	'br' => '',
 ];
+
+/**
+ * Function used to add a placeholder for WP attachment image IDs in the styleguide.
+ */
+add_filter(
+	'lean_styleguide_component_image_id',
+	function() {
+		return STYLEGUIDE_IMAGE_ID;
+	}
+);
+

@@ -1,0 +1,245 @@
+ /* purgecss start ignore */
+.menu-horizontal {
+    @apply w-full;
+
+    @screen lg {
+        @apply w-auto;
+    }
+
+    .menu-item {
+        @apply inline-block;
+
+        a {
+            @apply block px-.5 py-1.4 text-white font-medium leading-none;
+
+            @screen lg {
+                @apply px-.5 py-1.4;
+            }
+        }
+
+        &:first-child {
+            a {
+                @apply pl-0;
+            }
+        }
+
+        &:hover {
+            .sub-menu-container {
+                max-height: 31.25rem;
+            }
+        }
+    }
+
+    /* Only apply to the parent menu item level */
+    > .menu-item {
+        &:hover {
+            > a {
+                @apply text-blue-50;
+            }
+        }
+
+        &.current_page_item,
+        &.current-menu-ancestor {
+            > a {
+                @apply text-blue-50 border-b-1 border-blue-50 bg-blue-60;
+            }
+        }
+    }
+
+    .sub-menu-container {
+        @apply overflow-hidden;
+        max-height: 0;
+    }
+
+    .sub-menu {
+        &-container {
+            @apply absolute left-0 right-0 w-full bg-white z-10;
+        }
+
+        li {
+            @apply block;
+        }
+
+        a {
+            @apply py-0 px-0 text-black-100 leading-large;
+
+            &:hover {
+                @apply text-black-100;
+            }
+        }
+
+        &-lvl-0 {
+            a {
+                &:hover {
+                    @apply text-blue-60;
+                }
+            }
+
+            .current-menu-item {
+                a {
+                    @apply text-blue-60;
+                }
+            }
+        }
+    }
+
+    /* Only apply to first submenu container */
+    > .menu-item-has-children {
+        &:hover {
+            > a {
+                @apply border-b-1 border-blue-50;
+            }
+        }
+
+        .subnav-left-side {
+            @apply w-3/12 px-1;
+        }
+
+        .subnav-right-side {
+            @apply flex items-center w-9/12;
+        }
+
+        > a {
+            @apply relative pr-2;
+
+            &::after {
+                position: absolute;
+                right: 16px;
+                content: '';
+                width: 14px;
+                height: 22px;
+                background-image: url('/static/icons/contract-white.svg');
+                background-position: center;
+                transform: rotate(180deg);
+            }
+        }
+
+        &.has-submenu-lvl-1 {
+            /* 1 column menu */
+            .subnav-left-side {
+                @apply ml-1/12 w-4/12;
+            }
+
+            .subnav-right-side {
+                @apply ml-2/12 w-4/12 px-1;
+            }
+        }
+
+        &.has-submenu-lvl-2 {
+            /* Submenu Columns */
+            .sub-menu {
+                &-lvl-0 {
+                    @apply flex justify-between w-full;
+
+                    > .menu-item {
+                        > a {
+                            @apply px-0 pb-1 text-sm text-black-30;
+
+                            &[href="#"] {
+                                @apply cursor-default;
+                            }
+                        }
+                    }
+                }
+
+                &-lvl-1 {
+                    @apply block w-full;
+
+                    a {
+                       @apply px-0;
+                    }
+                }
+            }
+
+            /* 2 columns menu */
+            &.menu-items-2 {
+                .sub-menu-lvl-0 {
+                    > .menu-item {
+                        @apply w-4/9 px-1;
+
+                      &:last-child {
+                        @apply mr-1/9;
+                      }
+                    }
+                }
+            }
+
+            /* 3 columns menu */
+            &.menu-items-3 {
+                .subnav-right-side {
+                    @apply justify-center;
+                }
+
+                .sub-menu-lvl-0 {
+                    @apply -mx-1;
+
+                    > .menu-item {
+                        @apply w-4/12 px-1;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Menu small variant */
+    &--small {
+        .menu-item {
+            a {
+                @apply block px-1 py-.75 text-sm;
+            }
+
+            /* Hide submenu container */
+            &:hover {
+                .sub-menu-container {
+                    @apply hidden;
+                }
+            }
+        }
+
+        /* Hide border and caret icon */
+        .menu-item-has-children {
+            &:hover {
+                a {
+                    @apply border-b-0;
+                }
+            }
+
+            a {
+                &:after {
+                    @apply hidden;
+                }
+            }
+        }
+    }
+
+    &--dark {
+        /* Only apply to the parent menu item level */
+        > .menu-item {
+            > a {
+                @apply text-black-100;
+            }
+
+            &:hover {
+                > a {
+                    @apply text-blue-60 border-blue-60;
+                }
+            }
+
+            &.current_page_item,
+            &.current-menu-ancestor {
+                > a {
+                    @apply text-blue-60 border-b-1 border-blue-60 bg-transparent;
+                }
+            }
+        }
+
+        /* Only apply to first submenu container */
+        > .menu-item-has-children {
+            > a {
+                &::after {
+                    background-image: url('/static/icons/contract-blue.svg');
+                }
+            }
+        }
+    }
+}

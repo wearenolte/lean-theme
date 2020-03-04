@@ -1,7 +1,9 @@
+/* purgecss start ignore */
 .container {
-    @apply max-w-container px-container-padding mx-auto; 
+    @apply max-w-container px-3.33% mx-auto;
 }
 
 .container-narrow {
-    @apply max-w-container-narrow px-container-padding mx-auto; 
+    @apply max-w-container-narrow px-3.33% mx-auto;
 }
+/* purgecss end ignore */

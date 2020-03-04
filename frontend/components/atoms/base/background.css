@@ -1,10 +1,12 @@
-main > div {
+/* purgecss start ignore */
+.post-content {
     > .has-background {
         @apply relative;
     
         &::after {
             content: " ";
-            @apply mx-wide-margins w-screen absolute inset-0 -z-30;
+            @apply mx-screen w-screen absolute inset-0 -z-30;
         }
     }
 }
+/* purgecss end ignore */

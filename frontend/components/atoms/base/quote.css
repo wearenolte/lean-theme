@@ -1,0 +1,22 @@
+/* purgecss start ignore */
+[data-type="core/quote"] {
+  @apply mt-md-mob;
+
+  &:first-child {
+      @apply mt-0;
+  }
+
+  @screen md {
+      @apply mt-md-dsk;
+  }
+
+  p + &,
+  .media-block + & {
+    @apply mt-xl-mob;
+
+    @screen md {
+        @apply mt-xl-dsk;
+    }
+  }
+}
+/* purgecss end ignore */

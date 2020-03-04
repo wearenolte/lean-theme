@@ -1,0 +1,21 @@
+/* purgecss start ignore */
+.block-button {
+  @apply mt-md-mob;
+
+  &:first-child {
+      @apply mt-0;
+  }
+
+  + .block-button { 
+      @apply mt-sm-mob;
+      
+      @screen md {
+          @apply mt-sm-dsk;
+      }
+  }
+
+  @screen md {
+      @apply mt-md-dsk;
+  }
+}
+/* purgecss end ignore */

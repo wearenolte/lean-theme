@@ -1,0 +1,30 @@
+
+{
+   "variants": [
+      {
+        "images": [ "${image-id}" ],
+        "title": "Quis enim lobortis",
+        "bottom_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "show_breadcrumbs": true
+      },
+     {
+       "images": [ "${image-id}", "${image-id}", "${image-id}" ],
+       "title": "Quis enim lobortis",
+       "bottom_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+       "show_breadcrumbs": true
+     },
+     {
+      "images": [ "${image-id}", "${image-id}", "${image-id}" ],
+      "title": "Quis enim lobortis",
+      "bottom_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "show_breadcrumbs": false
+    },
+    {
+      "video_id": "95746815",
+      "video_cover": "${image-id}",
+      "title": "Quis enim lobortis",
+      "bottom_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "show_breadcrumbs": false
+    }
+   ]
+ }

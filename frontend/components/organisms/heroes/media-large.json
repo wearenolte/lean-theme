@@ -1,0 +1,17 @@
+{
+   "variants": [
+     {
+       "images": [ "${image-id}", "${image-id}", "${image-id}" ],
+       "title": "Adipiscing bibendum est ultricies integer.",
+       "top_text": "Quis enim lobortis  —",
+       "bottom_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+       "button_title": "Neque convallis"
+     },
+     {
+      "images": [ "${image-id}", "${image-id}", "${image-id}" ],
+      "title": "Adipiscing bibendum est ultricies integer.",
+      "bottom_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "button_title": "Neque convallis"
+    }
+   ]
+ }

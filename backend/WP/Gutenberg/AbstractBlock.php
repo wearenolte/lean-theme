@@ -101,7 +101,7 @@ abstract class AbstractBlock {
 				[
 					'block',
 					'block-' . $this->get_name(),
-					'has-text-align-' . $block['align'] ?? 'left',
+					'has-text-align-' . ( '' === $block['align'] ? 'left' : $block['align'] ),
 				],
 				$block['class'] ?? []
 			),
