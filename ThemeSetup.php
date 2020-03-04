@@ -139,7 +139,6 @@ class ThemeSetup {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'html5' );
-		add_theme_support( 'yoast-seo-breadcrumbs' );
 	}
 
 	/**
@@ -152,6 +151,9 @@ class ThemeSetup {
 
 		// Wide/Fullwidth images.
 		add_theme_support( 'align-wide' );
+
+		// Responsive embeds.
+		add_theme_support( 'responsive-embeds' );
 	}
 
 	/**

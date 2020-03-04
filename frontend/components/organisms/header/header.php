@@ -9,11 +9,11 @@ $website_logo_id  = $args['website_logo_id'] ?? false;
 
 <header
 	data-type="organism/header/header"
-	class="relative z-10 mx-screen bg-red"
+	class="relative z-10 mx-wide-margins bg-primary"
 	itemscope
 	itemtype="http://schema.org/WPHeader">
 
-	<nav class="flex items-center justify-between flex-wrap py-2.5 container">
+	<nav class="flex items-center justify-between flex-wrap py-subsection-y container">
 
 		<?php
 		Load::atom(

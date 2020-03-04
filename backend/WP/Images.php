@@ -30,13 +30,7 @@ class Images {
 			'portrait'       => [
 				'ratio'  => 3 / 4, // 0.75
 				'widths' => $default_widths,
-			],
-			'portrait-hero'  => [
-				'ratio'  => 610 / 837, // 0.728
-				'widths' => [
-					'' => 1238,
-				],
-			],
+			],			
 			'landscape-hero' => [
 				'ratio'  => 610 / 504, // 1,21
 				'widths' => [

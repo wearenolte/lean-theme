@@ -175,26 +175,24 @@ module.exports = {
 		},
 		fontFamily: {
 			'primary': [
-				'neue-haas-unica',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        'Segoe UI',
-        'Roboto',
-        'Helvetica Neue',
-        'Arial',
-        'Noto Sans',
-        'sans-serif'
+				'-apple-system',
+				'BlinkMacSystemFont',
+				'Segoe UI',
+				'Roboto',
+				'Helvetica Neue',
+				'Arial',
+				'Noto Sans',
+				'sans-serif'
 			],
 			'secondary': [
-				"PxGroteskBold",
-        '-apple-system',
-        'BlinkMacSystemFont',
-        'Segoe UI',
-        'Roboto',
-        'Helvetica Neue',
-        'Arial',
-        'Noto Sans',
-        'sans-serif'
+				'-apple-system',
+				'BlinkMacSystemFont',
+				'Segoe UI',
+				'Roboto',
+				'Helvetica Neue',
+				'Arial',
+				'Noto Sans',
+				'sans-serif'
 			]
 		},
 		fontSize: {
@@ -284,9 +282,6 @@ module.exports = {
 		maxHeight: {
 			full: '100%',
 			screen: '100vh',
-			'37': '37rem',
-			'50.75': '50.75rem',
-			'66.75': '66.75rem',
 		},
 		maxWidth: {
 			container: 'calc(69.375rem + 6.666%)',

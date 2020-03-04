@@ -2,16 +2,16 @@
    "variants": [
      {
        "images": [ "${image-id}", "${image-id}", "${image-id}" ],
-       "title": "The leading company in the construction products industry.",
-       "top_text": "We are GCC  —",
-       "bottom_text": "Devoted to the manufacture, improvement, and sale of gray Portland cement, mortar, premixed concrete, concrete blocks, plaster, aggregates and other construction materials.",
-       "button_title": "Find out more about GCC"
+       "title": "Adipiscing bibendum est ultricies integer.",
+       "top_text": "Quis enim lobortis  —",
+       "bottom_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+       "button_title": "Neque convallis"
      },
      {
       "images": [ "${image-id}", "${image-id}", "${image-id}" ],
-      "title": "The leading company in the construction products industry.",
-      "bottom_text": "Devoted to the manufacture, improvement, and sale of gray Portland cement, mortar, premixed concrete, concrete blocks, plaster, aggregates and other construction materials.",
-      "button_title": "Find out more about GCC"
+      "title": "Adipiscing bibendum est ultricies integer.",
+      "bottom_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "button_title": "Neque convallis"
     }
    ]
  }
