@@ -129,6 +129,6 @@ class Editor {
 	 * @return void
 	 */
 	public static function admin_css() {
-		echo '<style>[data-type*="acf/"] [aria-label="Change alignment"] {visibility: hidden;}</style>';
+		echo '<style>[data-type*="acf/"] [aria-label="Change alignment"] {display: none;}</style>';
 	}
 }
