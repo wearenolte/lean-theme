@@ -28,10 +28,9 @@ class Example {
 	public static function create_taxonomy() {
 		$tax = new Taxonomy(
 			[
-				'name'     => self::NAME,
+				'name'     => self::SLUG,
 				'singular' => self::NAME,
 				'plural'   => self::NAME_PLURAL,
-				'slug'     => self::SLUG,
 				'objects'  => [
 					'post',
 				],
