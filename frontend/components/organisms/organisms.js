@@ -1,8 +1,8 @@
 import header from './header/header'
 
 /**
- * Atoms functions.
+ * Organisms functions.
  */
-export default function atoms() {
+export default function organisms() {
   header()
 }
