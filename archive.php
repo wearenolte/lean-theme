@@ -17,7 +17,7 @@ if ( have_posts() ) {
 	}
 
 	Load::template(
-		'post/archive',
+		'posts/archive',
 		[
 			'posts' => $the_posts,
 		]
