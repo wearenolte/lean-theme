@@ -62,6 +62,10 @@
     @apply max-w-screen mx-screen;
 }
 
+.aligncenter {
+    @apply text-center;
+}
+
 .has-text-align {
     &-left {
         @apply text-left;
