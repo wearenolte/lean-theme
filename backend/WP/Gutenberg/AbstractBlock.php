@@ -50,7 +50,7 @@ abstract class AbstractBlock {
 			add_action(
 				'admin_head',
 				function() use ( $args ) {
-					echo '<style>[data-type="acf/' . esc_attr( $args['name'] ) . '"] [aria-label="Change alignment"] {visibility: visible;}</style>';
+					echo '<style>[data-type="acf/' . esc_attr( $args['name'] ) . '"] [aria-label="Change alignment"] {display: flex;}</style>';
 				}
 			);
 		}
