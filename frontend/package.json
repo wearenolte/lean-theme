@@ -6,7 +6,8 @@
     "eslint": "^5.16.0",
     "parcel-bundler": "^1.12.3",
     "postcss-nested": "^4.2.1",
-    "tailwindcss": "^1.2.*"
+    "tailwindcss": "^1.2.*",
+    "tailwindcss-pseudo-elements": "^1.1.2"
   },
   "scripts": {
     "start": "parcel main.js --public-url ./",

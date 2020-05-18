@@ -5436,6 +5436,11 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
+tailwindcss-pseudo-elements@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/tailwindcss-pseudo-elements/-/tailwindcss-pseudo-elements-1.1.2.tgz#ece919dbee5565c75c9b8c3467c05c8123220b99"
+  integrity sha512-7FqIQGYWFQYFFbDldRbKPjW9aMDO2B2kB3GDn5Qm9wCvdDxfZSp/0g5Qw98SpfSe4XI5QtuVHJ2KQCJq7InKVA==
+
 tailwindcss@^1.1.*:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.2.0.tgz#5df317cebac4f3131f275d258a39da1ba3a0f291"
