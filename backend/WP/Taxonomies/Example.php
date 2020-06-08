@@ -29,6 +29,7 @@ class Example {
 		$tax = new Taxonomy(
 			[
 				'name'     => self::SLUG,
+				'slug'     => self::SLUG,
 				'singular' => self::NAME,
 				'plural'   => self::NAME_PLURAL,
 				'objects'  => [
