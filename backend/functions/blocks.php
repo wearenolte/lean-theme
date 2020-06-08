@@ -92,8 +92,9 @@ add_filter(
 function lean_add_block_props( string $block_content, array $block ) : string {
 	$block_name = $block['blockName'];
 
-	$close_pos = strpos( $block_content, '>' );
-	if ( false !== $close_pos ) {
+	$close_pos     = strpos( $block_content, '>' );
+	$data_type_pos = strpos( $block_content, 'data-type' );
+	if ( false !== $close_pos && false === $data_type_pos ) {
 		$block_content = substr_replace( $block_content, ' data-type="' . $block_name . '">', $close_pos, 1 );
 	}
 
