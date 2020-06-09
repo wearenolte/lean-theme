@@ -4,7 +4,7 @@ php:
   - '7.3'
 
 env:
-  - NODE_RELEASE=8
+  - NODE_RELEASE=10
 
 before_install:
   - rm -rf ~/.nvm
