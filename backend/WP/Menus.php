@@ -90,8 +90,8 @@ class Menus {
 		foreach ( $sorted_menu_items as &$item ) {
 			$item->_children_count = 0;
 
-			for ( $i = 1, $l = count( $sorted_menu_items ); $i <= $l; ++$i ) {
-				if ( (int) $sorted_menu_items[ $i ]->menu_item_parent === $item->ID ) {
+			for ( $index = 1, $l = count( $sorted_menu_items ); $index <= $l; ++$index ) {
+				if ( (int) $sorted_menu_items[ $index ]->menu_item_parent === $item->ID ) {
 					$item->_children_count++;
 				}
 			}
@@ -100,9 +100,9 @@ class Menus {
 		foreach ( $sorted_menu_items as &$item ) {
 			$item->_parent_children_count = 0;
 
-			for ( $i = 1, $l = count( $sorted_menu_items ); $i <= $l; ++$i ) {
-				if ( (int) $item->menu_item_parent === $sorted_menu_items[ $i ]->ID ) {
-					$item->_parent_children_count = $sorted_menu_items[ $i ]->_children_count;
+			for ( $index = 1, $l = count( $sorted_menu_items ); $index <= $l; ++$index ) {
+				if ( (int) $item->menu_item_parent === $sorted_menu_items[ $index ]->ID ) {
+					$item->_parent_children_count = $sorted_menu_items[ $index ]->_children_count;
 					break;
 				}
 			}
