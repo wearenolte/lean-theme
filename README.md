@@ -37,7 +37,6 @@ Some key features:
     - [Molecules](#molecules)
     - [Organisms](#organisms)
     - [Templates](#templates)
-    - [Atomic Element Generators](#atomic-element-generators)
     - [Loading Atomic Elements](#loading-atomic-elements)
   - [Gutenberg Configuration](#gutenberg-configuration)
     - [Custom Font Sizes](#custom-font-sizes)
@@ -150,19 +149,6 @@ Your stylesheet of each organism must be added inside of `_style.scss` of the `o
 Templates consist mostly of groups of organisms stitched together. A template with content in it is a `page`.
 
 Your stylesheet of each template must be added inside of `_style.scss` of the `template` directory.
-
-### Atomic Element Generators
-The following commands will create an element folder inside of its corresponding directory, as well as their respective PHP and SASS files. They will also add the corresponding stylesheets to the SCSS file in the general _style.scss file.
-
-```bash
-composer atom -- <name-of-element>
-```
-```bash
-composer molecule -- <name-of-element>
-```
-```bash
-composer organism -- <name-of-element>
-```
 
 ### Loading Atomic Elements
 The Lean Theme uses the [Loader Module](https://github.com/wearenolte/loader) to render atomic elements:
