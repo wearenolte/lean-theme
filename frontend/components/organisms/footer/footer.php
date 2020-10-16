@@ -2,7 +2,7 @@
 
 $copyright = $args['copyright'] ?? '';
 
-$copyright = str_replace( '%YEAR%', date( 'Y' ), $copyright );
+$copyright = str_replace( '%YEAR%', gmdate( 'Y' ), $copyright );
 ?>
 
 <footer
