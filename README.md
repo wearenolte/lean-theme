@@ -12,6 +12,7 @@ Some key features:
 * Gutenberg ready
 * Easy configuration with Parcel for building development and live environments
 * ES6 Javascript
+* TailwindCSS
 * SASS preprocessor
 * MVC coding architecture
 * Reusable frontend components (following the Atomic Design methodology)
@@ -37,7 +38,6 @@ Some key features:
     - [Molecules](#molecules)
     - [Organisms](#organisms)
     - [Templates](#templates)
-    - [Atomic Element Generators](#atomic-element-generators)
     - [Loading Atomic Elements](#loading-atomic-elements)
   - [Gutenberg Configuration](#gutenberg-configuration)
     - [Custom Font Sizes](#custom-font-sizes)
@@ -49,6 +49,8 @@ Some key features:
     - [Images](#images)
     - [Web Fonts](#web-fonts)
     - [Icons](#icons)
+  - [CSS](#CSS)
+  - [Styleguide](#Styleguide)
   - [JavaScript](#javascript)
     - [Adding new JS function / behavior](#adding-new-js-function--behavior)
     - [Adding an external package from NPM](#adding-an-external-package-from-npm)
@@ -107,7 +109,6 @@ The Lean Theme encourages you to use best practices by using linters for PHP, JS
 ### Linter command
 The PHP linter uses the [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/) specified on the WordPress handbook. The following command should be run manually before committing change, and also added to your continuous integration build configuration.
 
-
 The JS linter uses the [ESLint](https://eslint.org/) and the SCSS linter uses [SCSS Lint](https://github.com/sds/scss-lint).
 ```bash
 composer lint
@@ -150,19 +151,6 @@ Your stylesheet of each organism must be added inside of `_style.scss` of the `o
 Templates consist mostly of groups of organisms stitched together. A template with content in it is a `page`.
 
 Your stylesheet of each template must be added inside of `_style.scss` of the `template` directory.
-
-### Atomic Element Generators
-The following commands will create an element folder inside of its corresponding directory, as well as their respective PHP and SASS files. They will also add the corresponding stylesheets to the SCSS file in the general _style.scss file.
-
-```bash
-composer atom -- <name-of-element>
-```
-```bash
-composer molecule -- <name-of-element>
-```
-```bash
-composer organism -- <name-of-element>
-```
 
 ### Loading Atomic Elements
 The Lean Theme uses the [Loader Module](https://github.com/wearenolte/loader) to render atomic elements:
@@ -208,7 +196,7 @@ The font size selectors option can also be removed completely.
 To edit the colors that the user can select, add the colors in `frontend/components/atoms/gutenberg/_colors.scss`. 
 The color palette options can also be removed completely.
 
-###Allowed Blocks
+### Allowed Blocks
 The blocks that will be allowed to be used in the Gutenberg editor can also be configured. 
 The discrimination can be done per page or post type.
 
@@ -218,7 +206,7 @@ See the [Gutenberg Blocks](/docs/BLOCKS.md) subsection for information on how to
 ### Extending the editor
 The Lean Theme comes with a JS building system already setup and ready to use for customizing the Gutenberg editor. 
 
-For example you could add a custom field to a core block.
+For example, you could add a custom field to a core block.
 
 Go to `backend/WP/Gutenberg/js` and run
 ```bash
@@ -242,6 +230,12 @@ This directory is used to place any custom web font that is not available by def
 
 ### Icons
 The SVG icons go here.
+
+## CSS
+The Lean Theme comes with TailwindCSS and SASS integrated. 
+
+## Styleguide
+The Lean Theme comes with its own custom styleguide. More info here: https://github.com/wearenolte/lean-theme-styleguide
 
 ## JavaScript
 ### Adding new JS function / behavior
@@ -315,7 +309,7 @@ Modules specific to your project go in the `backend` directory. We encourage you
 
 The `init()` method of each class all be called automatically if the class path is set in `Backend.php`.
 
-###To create a new module:
+### To create a new module:
 
 1 - Create a new directory such as:
 ```bash

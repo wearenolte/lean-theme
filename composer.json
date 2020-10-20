@@ -13,8 +13,8 @@
     "nolte/lean-styleguide": "^1.1.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "3.4.*",
-    "wp-coding-standards/wpcs": "2.1.*",
+    "squizlabs/php_codesniffer": "^3.5.6",
+    "wp-coding-standards/wpcs": "^2.3.0",
     "phpmd/phpmd" : "@stable"
   },
   "authors": [

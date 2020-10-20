@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Component used for style guide visualization only
  */
