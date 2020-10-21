@@ -3,7 +3,11 @@ html {
    scroll-behavior: smooth;
 }
 
-svg {
-   @apply max-w-full max-h-full;
+*,
+*::before,
+*::after,
+img {
+  border-width: 1px;
+  border-style: none;
 }
 /* purgecss end ignore */
