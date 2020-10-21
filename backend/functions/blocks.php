@@ -91,11 +91,15 @@ add_filter(
  */
 function lean_add_block_props( string $block_content, array $block ) : string {
 	$block_name = $block['blockName'];
+	$close_pos  = strpos( $block_content, '>' );
 
-	$close_pos     = strpos( $block_content, '>' );
-	$data_type_pos = strpos( $block_content, 'data-type' );
-	if ( false !== $close_pos && false === $data_type_pos ) {
-		$block_content = substr_replace( $block_content, ' data-type="' . $block_name . '">', $close_pos, 1 );
+	if ( false !== $close_pos ) {
+		$block_opening = substr( $block_content, 0, $close_pos );
+		$data_type_pos = strpos( $block_opening, ' data-type=' );
+		// If data-type attribute doesn't exist yet in the block opening, then add it.
+		if ( false === $data_type_pos ) {
+			$block_content = substr_replace( $block_content, ' data-type="' . $block_name . '">', $close_pos, 1 );
+		}
 	}
 
 	$block_config = BlockSettings::CORE_BLOCKS[ $block_name ] ?? false;
@@ -153,13 +157,20 @@ function lean_column_props( string $block_content, array $block ) : string {
 
 	$close_pos = strpos( $block_content, '>' );
 	if ( false !== $close_pos ) {
-		$block_content = substr_replace( $block_content, ' data-width="' . $width . '">', $close_pos, 1 );
-	}
+		$block_opening  = substr( $block_content, 0, $close_pos );
+		$data_width_pos = strpos( $block_opening, ' data-width=' );
+		$style_pos      = strpos( $block_opening, ' style="' );
 
-	$style_pos = strpos( $block_content, 'style="' );
-	if ( false !== $style_pos ) {
-		$style_end_pos = strpos( $block_content, '"', $style_pos + 8 );
-		$block_content = substr_replace( $block_content, '', $style_pos, $style_end_pos - $style_pos + 1 );
+		// If data-width attribute doesn't exist yet in the block opening, then add it.
+		if ( false === $data_width_pos ) {
+			$block_content = substr_replace( $block_content, ' data-width="' . $width . '">', $close_pos, 1 );
+		}
+
+		// If style attribute exists, remove it.
+		if ( false !== $style_pos ) {
+			$style_end_pos = strpos( $block_content, '"', $style_pos + 9 );
+			$block_content = substr_replace( $block_content, '', $style_pos, $style_end_pos - $style_pos + 1 );
+		}
 	}
 
 	return $block_content;
